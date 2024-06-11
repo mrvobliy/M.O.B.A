@@ -5,7 +5,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _gravityForce;
+    [Space]
     [SerializeField] private Joystick _joystick;
+    [SerializeField] private Animator _animator;
 
     private CharacterController _controller;
     private Vector3 _targetDirection;
@@ -29,20 +31,24 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move()
     {
-        if (_targetDirection.magnitude <= 0.01f) return;
+        var magnitude = _targetDirection.magnitude;
+        _animator.SetFloat(AnimatorHash.Speed, magnitude);
         
-        _controller.Move(_targetDirection * (Time.deltaTime * _moveSpeed));
+        if (magnitude <= 0.01f) return;
+
+        _controller.Move(_targetDirection * (Time.deltaTime * _moveSpeed * magnitude));
         Rotate();
     }
 
     private void CreateTargetDirection()
     {
-        _targetDirection = new Vector3(_joystick.Direction.x, 0.0f, _joystick.Direction.y).normalized;  
+        _targetDirection = new Vector3(_joystick.Direction.x, 0.0f, _joystick.Direction.y);  
     }
 
     private void Rotate()
     {
-        _inputAngle = Mathf.Atan2(_targetDirection.x, _targetDirection.z) * Mathf.Rad2Deg;
+        var normalizeDir = _targetDirection.normalized;
+        _inputAngle = Mathf.Atan2(normalizeDir.x, normalizeDir.z) * Mathf.Rad2Deg;
         
         var targetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
             _inputAngle, ref _rotationSmoothVelocity, _rotationSpeed / 10);
