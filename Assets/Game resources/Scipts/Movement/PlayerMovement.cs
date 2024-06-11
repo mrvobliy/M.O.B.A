@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (magnitude <= 0.01f) return;
 
-        _controller.Move(_targetDirection * (Time.deltaTime * _moveSpeed * magnitude));
+        _controller.Move(_targetDirection * (Time.deltaTime * (_moveSpeed / 10) * magnitude));
         Rotate();
     }
 
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         _inputAngle = Mathf.Atan2(normalizeDir.x, normalizeDir.z) * Mathf.Rad2Deg;
         
         var targetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-            _inputAngle, ref _rotationSmoothVelocity, _rotationSpeed / 10);
+            _inputAngle, ref _rotationSmoothVelocity, _rotationSpeed / 100);
         
         transform.rotation = Quaternion.Euler(LockAngleValue, targetAngle, LockAngleValue);
     }
