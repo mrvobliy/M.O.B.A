@@ -879,6 +879,7 @@ MonoBehaviour:
   _moveSpeed: 30
   _rotationSpeed: 10
   _gravityForce: -13
+  _forceMove: 7
   _joystick: {fileID: 1993773252}
   _animator: {fileID: 5866666020183836904}
 --- !u!1001 &1864971641
