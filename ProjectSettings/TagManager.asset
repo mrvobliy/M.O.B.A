@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy_0
+  - EmeraldAI
   layers:
   - Default
   - TransparentFX
@@ -12,10 +13,10 @@ TagManager:
   - Groud
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Entity
+  - Attack_Zone
+  - Wall
+  - EmeraldAILayer
   - 
   - 
   - 
