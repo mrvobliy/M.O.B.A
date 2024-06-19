@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _attackRotationSpeed;
     [SerializeField] private float _gravityForce;
     [SerializeField] private float _forceMove;
     [Space]
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         _inputAngle = Mathf.Atan2(normalizeDir.x, normalizeDir.z) * Mathf.Rad2Deg;
         
         var targetAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-            _inputAngle, ref _rotationSmoothVelocity, _rotationSpeed / 100);
+            _inputAngle, ref _rotationSmoothVelocity, _attackRotationSpeed / 100);
         
         transform.rotation = Quaternion.Euler(LockAngleValue, targetAngle, LockAngleValue);
     }

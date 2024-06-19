@@ -17,16 +17,18 @@ public class EnemyDetector : MonoBehaviour
     
     private void FixedUpdate()
     {
-        //transform.position = _playerMovement.transform.position;
+        transform.position = _playerMovement.transform.position;
         
         if (_allEnemy.Count <= 0) return;
 
         _availableEnemy.Clear();
+
+        var listEnemyToRemove = new List<EmeraldAISystem>();
         
         foreach (var enemy in _allEnemy)
         {
             if (enemy.IsDead)
-                _allEnemy.Remove(enemy);
+                listEnemyToRemove.Add(enemy);
             
             if (!RayCast(enemy.AIBoxCollider, out var distance)) continue;
             
@@ -36,8 +38,15 @@ public class EnemyDetector : MonoBehaviour
                 Distance = distance
             });
         }
-        
-        if (_availableEnemy.Count <= 0) return;
+
+        foreach (var enemy in listEnemyToRemove)
+            _allEnemy.Remove(enemy);
+
+        if (_availableEnemy.Count <= 0)
+        {
+            _playerMovement.SetAttackState(false);
+            return;
+        }
         
         _availableEnemy = _availableEnemy.OrderBy(t => t.Distance).ToList();
         _playerMovement.SetAttackState(true);
@@ -58,8 +67,6 @@ public class EnemyDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent(out EmeraldAISystem enemy)) return;
-        
-        if (enemy.IsDead) return;
         
         if (!_allEnemy.Contains(enemy)) return;
 
