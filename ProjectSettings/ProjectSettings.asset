@@ -784,6 +784,7 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Android: EMERALD_AI_PRESENT
+    Standalone: EMERALD_AI_PRESENT
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -891,11 +892,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 5dbcb1e4-8a66-470e-b2e8-cd2400974dee
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: M.O.B.A
+  organizationId: unity_bylemkhfnlidfg
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
