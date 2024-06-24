@@ -292,9 +292,12 @@ namespace EmeraldAI.Utility
                 EmeraldComponent.m_NavMeshAgent = GetComponent<NavMeshAgent>();
             }
 
-            EmeraldComponent.AIPath = new NavMeshPath();
-            EmeraldComponent.m_NavMeshAgent.CalculatePath(transform.position, EmeraldComponent.AIPath);
-
+            if (EmeraldComponent.m_NavMeshAgent.enabled)
+            {
+                EmeraldComponent.AIPath = new NavMeshPath();
+                EmeraldComponent.m_NavMeshAgent.CalculatePath(transform.position, EmeraldComponent.AIPath);
+            }
+            
             if (EmeraldComponent.BehaviorRef != EmeraldAISystem.CurrentBehavior.Companion && EmeraldComponent.BehaviorRef != EmeraldAISystem.CurrentBehavior.Pet)
             {
                 EmeraldComponent.m_NavMeshAgent.stoppingDistance = EmeraldComponent.StoppingDistance;
