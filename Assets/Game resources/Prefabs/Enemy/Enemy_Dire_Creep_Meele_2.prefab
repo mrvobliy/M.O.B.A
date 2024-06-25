@@ -3887,7 +3887,7 @@ MonoBehaviour:
     RelationTypeRef: 0
   PlayerFaction:
   - PlayerTag: Player
-    RelationTypeRef: 0
+    RelationTypeRef: 2
   StartingRunSpeed: 0
   StartingRunAnimationSpeed: 0
   StationaryIdleTimer: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   FilePath: Assets/Emerald AI/Demo/Demo Source/Animator Controllers/Chomper.overrideController
   MissingRuntimeController: 0
   EmeraldTag: EmeraldAI
-  UITag: Player
+  UITag: Untagged
   RagdollTag: Untagged
   AnimationsUpdated: 1
   RayCastUpdateSeconds: 0.1
@@ -4066,7 +4066,7 @@ MonoBehaviour:
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 25
-  TabNumber: 5
+  TabNumber: 3
   TemperamentTabNumber: 2
   DetectionTagsTabNumber: 1
   AnimationTabNumber: 1
@@ -4271,7 +4271,7 @@ MonoBehaviour:
   UseCustomFontAIName: 0
   UseCustomFontAILevel: 0
   AlignAIWithGroundRef: 0
-  CreateHealthBarsRef: 0
+  CreateHealthBarsRef: 1
   UseNonAITagRef: 1
   UseMagicEffectsPackRef: 0
   RandomizeDamageRef: 0
@@ -4301,7 +4301,7 @@ MonoBehaviour:
   AIAgentActive: 0
   HealthBarsFoldout: 1
   CombatTextFoldout: 1
-  NameTextFoldout: 1
+  NameTextFoldout: 0
   WaypointsFoldout: 1
   WalkFoldout: 1
   RunFoldout: 1
@@ -4336,13 +4336,13 @@ MonoBehaviour:
   HealthBarCanvas: {fileID: 0}
   HealthBarImage: {fileID: 0}
   HealthBarBackgroundImage: {fileID: 0}
-  HealthBarPos: {x: 0, y: 1.75, z: 0}
+  HealthBarPos: {x: 0, y: 0.5, z: 0}
   CombatTextPos: {x: 0, y: 1.75, z: 0}
   HealthBarColor: {r: 0.77254903, g: 0.16078432, b: 0.16078432, a: 1}
   HealthBarBackgroundColor: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 1}
   NameTextColor: {r: 1, g: 1, b: 1, a: 1}
   LevelTextColor: {r: 1, g: 1, b: 1, a: 1}
-  HealthBarScale: {x: 0.75, y: 1, z: 1}
+  HealthBarScale: {x: 0.1, y: 0.2, z: 0.2}
   NameTextFontSize: 7
   WaypointParent: {fileID: 0}
   WaypointOrigin: 
@@ -4402,7 +4402,7 @@ MonoBehaviour:
     m_Bits: 4
   UILayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   AlignmentLayerMask:
     serializedVersion: 2
     m_Bits: 1
