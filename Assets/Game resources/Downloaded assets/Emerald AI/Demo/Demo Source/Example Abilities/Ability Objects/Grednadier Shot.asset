@@ -15,7 +15,7 @@ MonoBehaviour:
   AbilityName: Grenadier Shot
   AbilityDescription: Launches a ball of energy towards a target dealing 10 pts of
     damage.
-  AbilityDamage: 1
+  AbilityDamage: 2
   MinAbilityDamage: 5
   MaxAbilityDamage: 10
   AbilityDamagePerIncrement: 5
