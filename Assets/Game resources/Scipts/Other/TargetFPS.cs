@@ -4,6 +4,6 @@ public class TargetFPS : MonoBehaviour
 {
     private void OnEnable()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
     }
 }
