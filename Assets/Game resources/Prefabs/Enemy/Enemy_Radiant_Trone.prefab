@@ -911,9 +911,9 @@ MonoBehaviour:
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 25
-  TabNumber: 1
-  TemperamentTabNumber: 0
-  DetectionTagsTabNumber: 1
+  TabNumber: 2
+  TemperamentTabNumber: 1
+  DetectionTagsTabNumber: 0
   AnimationTabNumber: 0
   SoundTabNumber: 0
   MovementTabNumber: 1
@@ -1078,7 +1078,7 @@ MonoBehaviour:
   WanderTypeRef: 2
   WaypointTypeRef: 0
   AlignmentQualityRef: 1
-  ObstructionDetectionQualityRef: 2
+  ObstructionDetectionQualityRef: 1
   ActionAnimationRef: 2
   PickTargetMethodRef: 1
   WeaponTypeRef: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   TotalLODsRef: 1
   IKType: 0
   UseRandomRotationOnStartRef: 0
-  DisableAIWhenNotInViewRef: 1
+  DisableAIWhenNotInViewRef: 0
   UseDeactivateDelayRef: 0
   UseWarningAnimationRef: 0
   AlignAIOnStartRef: 0
