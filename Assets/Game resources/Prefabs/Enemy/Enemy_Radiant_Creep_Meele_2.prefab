@@ -4066,7 +4066,7 @@ MonoBehaviour:
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 25
-  TabNumber: 3
+  TabNumber: 5
   TemperamentTabNumber: 2
   DetectionTagsTabNumber: 1
   AnimationTabNumber: 1
@@ -4379,10 +4379,11 @@ MonoBehaviour:
   AILevelUIOutlineColor: {r: 0, g: 0, b: 0, a: 1}
   HealthBarCanvasRef: {fileID: 0}
   WaypointsList:
-  - {x: 35.723366, y: -2.2186995, z: -32.151844}
-  - {x: 32.01795, y: -2.4600067, z: -36.35154}
-  - {x: 9.501194, y: -2.4600067, z: -38.20875}
-  - {x: 7.1742435, y: -2.4600067, z: -36.17865}
+  - {x: 37.675137, y: -2.2186995, z: -17.008783}
+  - {x: 32.52272, y: -2.4600067, z: -29.621292}
+  - {x: 30.54289, y: -2.4600067, z: -36.168365}
+  - {x: 11.111441, y: -2.4600067, z: -38.26503}
+  - {x: 7.140592, y: -2.4600067, z: -36.495544}
   WaypointIndex: 0
   WaypointHolder: {fileID: 0}
   CollidersInArea: []
