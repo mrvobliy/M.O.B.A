@@ -6,6 +6,7 @@ using EmeraldAI;
 
 public class EnemyDetector : MonoBehaviour
 {
+    [SerializeField] private int _factionID;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private List<EmeraldAISystem> _allEnemy;
     [SerializeField] private List<EnemyCard> _availableEnemy;
@@ -57,6 +58,8 @@ public class EnemyDetector : MonoBehaviour
     {
         if (!other.TryGetComponent(out EmeraldAISystem enemy)) return;
         
+        if (enemy.CurrentFaction == _factionID) return;
+        
         if (enemy.IsDead) return;
         
         if (_allEnemy.Contains(enemy)) return;
@@ -67,6 +70,8 @@ public class EnemyDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.TryGetComponent(out EmeraldAISystem enemy)) return;
+        
+        if (enemy.CurrentFaction == _factionID) return;
         
         if (!_allEnemy.Contains(enemy)) return;
 

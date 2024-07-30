@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: Faction Data
   m_EditorClassIdentifier: 
   FactionNameList:
+  - Dire
+  - Radiant
+  - Neutral
   - Undead
   - Creature
   - NPC
   - Animal
   - Thief
-  - Enemy_Radiant_Trone
-  - Enemy_Radiant_Creep
-  - Enemy_Radiant_Tower
-  - Enemy_Dire_Trone
-  - Enemy_Dire_Creep
-  - Enemy_Dire_Tower

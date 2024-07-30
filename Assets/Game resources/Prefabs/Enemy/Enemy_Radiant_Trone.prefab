@@ -736,12 +736,16 @@ MonoBehaviour:
   IsRunAttack: 0
   RandomDirection: 0
   TargetInView: 0
-  CurrentFaction: 5
+  CurrentFaction: 1
   RelationTypeRef: 0
   FactionRelations: 
   FactionRelationsList:
-  - FactionIndex: 5
-    RelationTypeRef: 1
+  - FactionIndex: 1
+    RelationTypeRef: 2
+  - FactionIndex: 0
+    RelationTypeRef: 0
+  - FactionIndex: 2
+    RelationTypeRef: 0
   PlayerFaction:
   - PlayerTag: Player
     RelationTypeRef: 1
@@ -913,7 +917,7 @@ MonoBehaviour:
   WanderRadius: 25
   TabNumber: 2
   TemperamentTabNumber: 1
-  DetectionTagsTabNumber: 0
+  DetectionTagsTabNumber: 1
   AnimationTabNumber: 0
   SoundTabNumber: 0
   MovementTabNumber: 1
