@@ -24,7 +24,6 @@ public class EnemyDeath : MonoBehaviour
     
     private IEnumerator OnReset()
     {
-        
         yield return new WaitForSeconds(_timeDelay);
         Destroy(gameObject);
     }
