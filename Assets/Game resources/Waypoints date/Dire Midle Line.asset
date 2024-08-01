@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce88c85dea74e42b93a4adb1e85487, type: 3}
+  m_Name: Dire Midle Line
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - {x: 31.48055, y: -2.335, z: -10.17981}
+  - {x: 20.803059, y: -2.335, z: -21.100227}
+  - {x: 6.977448, y: -2.335, z: -34.529198}
