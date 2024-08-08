@@ -1,18 +1,18 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SwitchAnimation : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _leftText;
-    [SerializeField] private TMP_Text _rightText;
     [SerializeField] private TMP_Text _textOnSwitch;
     [Space] 
     [SerializeField] private float _leftPos;
     [SerializeField] private float _rightPos;
     [SerializeField] private float _timeAnim;
     [SerializeField] private Button _button;
+    [SerializeField] private RectTransform _rectTransform;
 
     private bool _isRightPos;
     
@@ -31,10 +31,14 @@ public class SwitchAnimation : MonoBehaviour
         if (_isRightPos)
         {
             _isRightPos = false;
+            _rectTransform.DOLocalMoveX(_leftPos, _timeAnim);
+            _textOnSwitch.text = "on";
         }
         else
         {
-            _isRightPos = transform;
+            _isRightPos = true;
+            _rectTransform.DOLocalMoveX(_rightPos, _timeAnim);
+            _textOnSwitch.text = "off";
         }
     }
 }
