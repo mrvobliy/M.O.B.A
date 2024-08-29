@@ -45,13 +45,12 @@ public class EnemyDetector : MonoBehaviour
 
         if (_availableEnemy.Count <= 0)
         {
-            _playerMovement.SetAttackState(false);
+            SetAttackState(false);
             return;
         }
         
         _availableEnemy = _availableEnemy.OrderBy(t => t.Distance).ToList();
-        _playerMovement.SetAttackState(true);
-        //_playerMovement.RotateToEnemy(_availableEnemy[0].AISystem.transform);
+        SetAttackState(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,7 +79,7 @@ public class EnemyDetector : MonoBehaviour
         if (_allEnemy.Count > 0) return;
         
         _availableEnemy.Clear();
-        _playerMovement.SetAttackState(false);
+        SetAttackState(false);
     }
     
     private bool RayCast(Collider other, out float distance)
@@ -90,6 +89,16 @@ public class EnemyDetector : MonoBehaviour
         Debug.DrawLine(ray.origin, hitInfo.point, Color.green, 1);
         distance = hitInfo.distance;
         return hitInfo.collider == other;
+    }
+
+    private void SetAttackState(bool isAttackState)
+    {
+        if (VariableBase.IsAttackState.Equals(isAttackState)) return;
+        
+        VariableBase.IsAttackState = isAttackState;
+        
+        if (isAttackState)
+            PlayerAnimator.Instance.TryPlayAttackAnim();
     }
 }
 

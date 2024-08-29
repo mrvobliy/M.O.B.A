@@ -11,6 +11,5 @@ public class PlayerAttack : MonoBehaviour
         if (_enemyDetector.AvailableEnemy.Count <= 0) return;
         
         _enemyDetector.AvailableEnemy[0].AISystem.Damage(_damageValue, EmeraldAISystem.TargetType.Player, transform, 50);
-        print("ATTACK");
     }
 }
