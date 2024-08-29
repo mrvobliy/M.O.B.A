@@ -51,7 +51,7 @@ public class EnemyDetector : MonoBehaviour
         
         _availableEnemy = _availableEnemy.OrderBy(t => t.Distance).ToList();
         _playerMovement.SetAttackState(true);
-        _playerMovement.RotateToEnemy(_availableEnemy[0].AISystem.transform);
+        //_playerMovement.RotateToEnemy(_availableEnemy[0].AISystem.transform);
     }
 
     private void OnTriggerEnter(Collider other)
