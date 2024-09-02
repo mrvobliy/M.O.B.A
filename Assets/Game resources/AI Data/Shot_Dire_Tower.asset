@@ -27,7 +27,7 @@ MonoBehaviour:
   AbilityCooldown: 10
   AbilityLength: 3
   SummonRadius: 10
-  ProjectileSpeed: 10
+  ProjectileSpeed: 4
   ProjectileTimeoutSeconds: 6
   ColliderRadius: 0.15
   ProjectileGravity: 0.5

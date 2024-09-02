@@ -4839,8 +4839,8 @@ Transform:
   m_GameObject: {fileID: 3235157726016627647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.417}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3235157727202227841}
   m_RootOrder: 0
@@ -9651,8 +9651,8 @@ Transform:
   m_GameObject: {fileID: 3235157726107325938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.53899974}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3235157727202227841}
   m_RootOrder: 3
@@ -14463,8 +14463,8 @@ Transform:
   m_GameObject: {fileID: 3235157726362361547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.41699976}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3235157727202227841}
   m_RootOrder: 1
@@ -19322,7 +19322,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.35
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5
@@ -20700,7 +20700,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1.4980392, g: 0, b: 1.4980392, a: 0}
+        key0: {r: 0.7490196, g: 0, b: 0.7490196, a: 0}
         key1: {r: 40.78432, g: 5.0196066, b: 47.937256, a: 1}
         key2: {r: 1.2614381, g: 0.07843135, b: 1.4980392, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -24294,7 +24294,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.4
+  m_Time: 0.22
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.3
