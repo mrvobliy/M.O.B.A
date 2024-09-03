@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce88c85dea74e42b93a4adb1e85487, type: 3}
+  m_Name: Light Top Line
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - {x: 10.38687, y: -2.16568, z: -42.22064}
+  - {x: 10.524226, y: -2.16568, z: -36.8346}
+  - {x: 12.751614, y: -2.16568, z: -31.154736}
+  - {x: 15.337657, y: -2.16568, z: -25.73861}
+  - {x: 17.515661, y: -2.16568, z: -22.796524}
+  - {x: 20.646427, y: -2.16568, z: -20.773933}
+  - {x: 23.711609, y: -2.16568, z: -18.780003}
+  - {x: 30.82651, y: -2.16568, z: -17.061075}
+  - {x: 37.403877, y: -2.16568, z: -17.189682}
+  - {x: 42.002068, y: -2.16568, z: -18.733757}

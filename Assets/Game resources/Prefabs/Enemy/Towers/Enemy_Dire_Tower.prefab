@@ -535,8 +535,8 @@ Transform:
   m_GameObject: {fileID: 5827867853637719751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37.288002, y: 20.93297, z: 25.17537}
-  m_LocalScale: {x: 0.964365, y: 0.87642026, z: 0.9643649}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5827867852571365596}
   - {fileID: 8417897100049419869}
@@ -575,8 +575,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6, z: 1}
-  m_Center: {x: -0.004500518, y: 0.6795477, z: -0.102053985}
+  m_Size: {x: 0.9, y: 0.9, z: 0.9}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!195 &5827867853637718335
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5827867853637719751}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.13
+  m_Radius: 1
   m_Speed: 0
   m_Acceleration: 0
   avoidancePriority: 0
@@ -595,7 +595,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3.09
+  m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
@@ -860,8 +860,8 @@ MonoBehaviour:
   m_EmeraldAIAbility: {fileID: 0}
   RotateTowardsTarget: 0
   m_AttackAnimationClipMissing: 0
-  ProjectileCollisionPointY: 1.5
-  m_ProjectileCollisionPoint: {x: 37.288002, y: 22.43297, z: 25.17537}
+  ProjectileCollisionPointY: 1.23
+  m_ProjectileCollisionPoint: {x: 27.863998, y: -1.1310003, z: -29.878002}
   ObstructionTimer: 0
   ObstructionSeconds: 4
   IdleVolume: 1
@@ -1082,8 +1082,8 @@ MonoBehaviour:
   StartingRunAnimationSpeed: 0
   StationaryIdleTimer: 0
   StationaryIdleSeconds: 0
-  StationaryIdleSecondsMin: 1
-  StationaryIdleSecondsMax: 1
+  StationaryIdleSecondsMin: 0
+  StationaryIdleSecondsMax: 0
   BloodEffectTimeoutSeconds: 3
   BloodEffectsList: []
   CurrentProjectile: {fileID: 0}
@@ -1093,7 +1093,9 @@ MonoBehaviour:
   InteractSoundList: []
   ItemList: []
   EmoteAnimationList: []
-  IdleAnimationList: []
+  IdleAnimationList:
+  - AnimationSpeed: 1
+    AnimationClip: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
   AttackAnimationList: []
   RunAttackAnimationList: []
   DeathAnimationList: []
@@ -1114,29 +1116,29 @@ MonoBehaviour:
   RunAttack1Animation: {fileID: 0}
   RunAttack2Animation: {fileID: 0}
   RunAttack3Animation: {fileID: 0}
-  Idle1Animation: {fileID: 0}
+  Idle1Animation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
   Idle2Animation: {fileID: 0}
   Idle3Animation: {fileID: 0}
   Idle4Animation: {fileID: 0}
   Idle5Animation: {fileID: 0}
   Idle6Animation: {fileID: 0}
   IdleWarningAnimation: {fileID: 0}
-  NonCombatTurnLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  NonCombatTurnLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  NonCombatTurnRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  NonCombatTurnRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
   CombatTurnLeftAnimation: {fileID: 0}
   CombatTurnRightAnimation: {fileID: 0}
   NonCombatIdleAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
     type: 2}
-  WalkLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
-  WalkStraightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  WalkLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a, type: 2}
+  WalkStraightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  WalkRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
-  RunLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
-  RunStraightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  WalkRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a, type: 2}
+  RunLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a, type: 2}
+  RunStraightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RunRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9, type: 2}
+  RunRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a, type: 2}
   Emote1Animation: {fileID: 0}
   Emote2Animation: {fileID: 0}
   Emote3Animation: {fileID: 0}
@@ -1179,19 +1181,19 @@ MonoBehaviour:
   Death6Animation: {fileID: 0}
   RangedCombatIdleAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
     type: 2}
-  RangedCombatWalkLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatWalkLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatWalkStraightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatWalkStraightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatWalkBackAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatWalkBackAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatWalkRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatWalkRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatRunLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatRunLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatRunStraightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatRunStraightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatRunRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatRunRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
   RangedIdleWarningAnimation: {fileID: 0}
   RangedPutAwayWeaponAnimation: {fileID: 0}
@@ -1212,9 +1214,9 @@ MonoBehaviour:
   RangedCombatHit4Animation: {fileID: 0}
   RangedCombatHit5Animation: {fileID: 0}
   RangedCombatHit6Animation: {fileID: 0}
-  RangedCombatTurnLeftAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatTurnLeftAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
-  RangedCombatTurnRightAnimation: {fileID: 7400000, guid: 2721b0260930acd42859df9d6829bad9,
+  RangedCombatTurnRightAnimation: {fileID: 7400000, guid: d6d1a5306572a4b4b9811f602252296a,
     type: 2}
   RangedDeath1Animation: {fileID: 7400000, guid: eedfffafa3b2aa54e827813259debfa9,
     type: 2}
@@ -1236,16 +1238,16 @@ MonoBehaviour:
   ObstructionDetectionUpdateTimer: 0
   CurrentHealth: 0
   StartingHealth: 100
-  DetectionRadius: 4
+  DetectionRadius: 5
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 25
   TabNumber: 1
   TemperamentTabNumber: 2
-  DetectionTagsTabNumber: 1
+  DetectionTagsTabNumber: 0
   AnimationTabNumber: 2
   SoundTabNumber: 0
-  MovementTabNumber: 0
+  MovementTabNumber: 1
   WeaponTypeTabNumber: 0
   WeaponTypeCombatTabNumber: 0
   WeaponTypeControlTabNumber: 0
@@ -1255,7 +1257,7 @@ MonoBehaviour:
   CombatTabNumber: 0
   FactionsAndTagTabNumber: 1
   EventTabNumber: 0
-  MinimumWaitTime: 3
+  MinimumWaitTime: 0
   MaximumWaitTime: 6
   MinimumFollowWaitTime: 1
   MaximumFollowWaitTime: 2
@@ -1282,7 +1284,7 @@ MonoBehaviour:
   RangedTooCloseDistance: 0
   AttackDistance: 2.5
   MeleeAttackDistance: 2.5
-  RangedAttackDistance: 5
+  RangedAttackDistance: 6
   RunAttackDistance: 3
   CautiousSeconds: 8
   DeactivateDelay: 5
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   FollowingStoppingDistance: 5
   DistanceOffset: 1
   DistanceFromTarget: 0
-  AgentRadius: 0.5
+  AgentRadius: 1
   AgentBaseOffset: 0
   AgentAcceleration: 75
   MaxXAngle: 15
@@ -1407,7 +1409,7 @@ MonoBehaviour:
   WanderTypeRef: 2
   WaypointTypeRef: 0
   AlignmentQualityRef: 1
-  ObstructionDetectionQualityRef: 1
+  ObstructionDetectionQualityRef: 2
   ActionAnimationRef: 2
   PickTargetMethodRef: 1
   WeaponTypeRef: 1
@@ -1780,9 +1782,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194574163536041191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.063893825, z: 0}
-  m_LocalScale: {x: 0.4147807, y: 0.45640203, z: 0.4147807}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7232051473727086090}
   - {fileID: 9003769315278676142}

@@ -1965,13 +1965,13 @@ MonoBehaviour:
   ObstructionDetectionUpdateTimer: 0
   CurrentHealth: 0
   StartingHealth: 20
-  DetectionRadius: 4
+  DetectionRadius: 2
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 20
-  TabNumber: 0
+  TabNumber: 2
   TemperamentTabNumber: 0
-  DetectionTagsTabNumber: 1
+  DetectionTagsTabNumber: 0
   AnimationTabNumber: 1
   SoundTabNumber: 1
   MovementTabNumber: 0

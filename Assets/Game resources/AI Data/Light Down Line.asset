@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce88c85dea74e42b93a4adb1e85487, type: 3}
+  m_Name: Light Down Line
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - {x: 18.67519, y: -2.16568, z: -51.574116}
+  - {x: 24.72048, y: -2.16568, z: -51.03086}
+  - {x: 29.232851, y: -2.16568, z: -50.389835}
+  - {x: 32.419857, y: -2.16568, z: -49.347256}
+  - {x: 35.497063, y: -2.16568, z: -46.232235}
+  - {x: 39.003338, y: -2.308241, z: -43.429615}
+  - {x: 41.224472, y: -1.8969107, z: -38.433544}
+  - {x: 44.00362, y: -2.16568, z: -29.70571}
+  - {x: 43.48898, y: -2.2901664, z: -23.500319}
+  - {x: 42.860573, y: -2.16568, z: -20.158825}

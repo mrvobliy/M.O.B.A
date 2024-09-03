@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce88c85dea74e42b93a4adb1e85487, type: 3}
+  m_Name: Dark Midle Line
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - {x: 37.147198, y: -2.16568, z: -24.754051}
+  - {x: 33.005013, y: -2.16568, z: -28.95135}
+  - {x: 29.101576, y: -2.16568, z: -32.44689}
+  - {x: 26.907646, y: -2.16568, z: -34.483948}
+  - {x: 25.42523, y: -2.16568, z: -37.44618}
+  - {x: 23.360218, y: -2.16568, z: -38.714188}
+  - {x: 20.843027, y: -2.16568, z: -40.876}
+  - {x: 18.07367, y: -2.16568, z: -43.886345}
+  - {x: 15.237208, y: -2.16568, z: -45.801727}
+  - {x: 13.670898, y: -2.16568, z: -48.705307}

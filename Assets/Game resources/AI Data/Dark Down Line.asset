@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ce88c85dea74e42b93a4adb1e85487, type: 3}
+  m_Name: Dark Down Line
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - {x: 43.92311, y: -2.16568, z: -27.12669}
+  - {x: 43.640167, y: -2.16568, z: -32.248245}
+  - {x: 42.209408, y: -2.16568, z: -35.717205}
+  - {x: 40.573822, y: -2.16568, z: -39.562233}
+  - {x: 38.320362, y: -2.16568, z: -43.880447}
+  - {x: 34.580303, y: -2.16568, z: -47.674305}
+  - {x: 29.909498, y: -2.16568, z: -50.367874}
+  - {x: 22.806313, y: -2.16568, z: -51.463894}
+  - {x: 16.3539, y: -2.16568, z: -52.156235}
+  - {x: 13.511372, y: -2.16568, z: -50.16764}
