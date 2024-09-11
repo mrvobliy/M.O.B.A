@@ -744,13 +744,13 @@ MonoBehaviour:
   ObstructionDetectionUpdateSeconds: 0.1
   ObstructionDetectionUpdateTimer: 0
   CurrentHealth: 0
-  StartingHealth: 500
+  StartingHealth: 1000
   DetectionRadius: 1
   CurrentDamageAmount: 5
   DamageAmountRun: 5
   WanderRadius: 25
-  TabNumber: 2
-  TemperamentTabNumber: 1
+  TabNumber: 1
+  TemperamentTabNumber: 0
   DetectionTagsTabNumber: 1
   AnimationTabNumber: 0
   SoundTabNumber: 0
