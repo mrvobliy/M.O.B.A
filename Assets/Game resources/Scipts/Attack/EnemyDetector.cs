@@ -57,7 +57,7 @@ public class EnemyDetector : MonoBehaviour
     {
         if (!other.TryGetComponent(out EmeraldAISystem enemy)) return;
         
-        if (enemy.CurrentFaction == _factionID) return;
+        if (enemy.CurrentFaction == _factionID || _factionID < 0) return;
         
         if (enemy.IsDead) return;
         
@@ -70,7 +70,7 @@ public class EnemyDetector : MonoBehaviour
     {
         if (!other.TryGetComponent(out EmeraldAISystem enemy)) return;
         
-        if (enemy.CurrentFaction == _factionID) return;
+        if (enemy.CurrentFaction == _factionID || _factionID < 0) return;
         
         if (!_allEnemy.Contains(enemy)) return;
 
