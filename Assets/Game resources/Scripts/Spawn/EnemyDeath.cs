@@ -9,12 +9,12 @@ public class EnemyDeath : MonoBehaviour
 
     private void OnEnable()
     {
-        _emeraldAISystem.DeathEvent.AddListener(DeathResetState);
+        //_emeraldAISystem.DeathEvent.AddListener(DeathResetState);
     }
 
     private void OnDisable()
     {
-        _emeraldAISystem.DeathEvent.RemoveListener(DeathResetState);
+        //_emeraldAISystem.DeathEvent.RemoveListener(DeathResetState);
     }
 
     private void DeathResetState()

@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using EmeraldAI;
 using UnityEngine;
 
 public class LineEnemySpawn : MonoBehaviour
 {
     [SerializeField] private float _spawnDelay;
     
-    [SerializeField] private EmeraldAISystem _meeleEnemyPrefab;
-    [SerializeField] private EmeraldAISystem _rangeEnemyPrefab;
+    [SerializeField] private Unit _meeleEnemyPrefab;
+    [SerializeField] private Unit _rangeEnemyPrefab;
     
     [SerializeField] private List<Transform> _topLinePoints;
     [SerializeField] private List<Transform> _midleLinePoints;
     [SerializeField] private List<Transform> _downLinePoints;
 
-    [SerializeField] private EmeraldAIWaypointObject _topLineWay;
-    [SerializeField] private EmeraldAIWaypointObject _midleLineWay;
-    [SerializeField] private EmeraldAIWaypointObject _downLineWay;
+    [SerializeField] private Transform[] _topLineWay;
+    [SerializeField] private Transform[] _midleLineWay;
+    [SerializeField] private Transform[] _downLineWay;
 
     private Coroutine _onSpawnCoroutine;
     
@@ -38,14 +37,13 @@ public class LineEnemySpawn : MonoBehaviour
         }
     }
 
-    private void Spawn(List<Transform> spawnPoints, EmeraldAIWaypointObject way)
+    private void Spawn(List<Transform> spawnPoints, Transform[] way)
     {
         for (var i = 0; i < spawnPoints.Count; i++)
         {
             var spawnPrefab = i < 3 ? _meeleEnemyPrefab : _rangeEnemyPrefab;
-            var newEnemy = Instantiate(spawnPrefab, spawnPoints[i].position, spawnPoints[i].rotation);
-            newEnemy.WaypointsList = way.Waypoints;
-            newEnemy.gameObject.SetActive(true);
+            var newEnemy = Instantiate(spawnPrefab, spawnPoints[i].position, Quaternion.identity);
+            newEnemy.Init(way, spawnPoints[i].rotation);
         }
     }
 }
