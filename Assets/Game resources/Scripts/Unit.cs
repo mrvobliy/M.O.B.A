@@ -1,19 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum Team
-{
-	Neutral,
-	Light,
-	Dark,
-}
-
 public class Unit : MonoBehaviour
 {
+	[SerializeField] private AttackTarget _attackTarget;
+	[SerializeField] private Animator _animator;
 	[SerializeField] private NavMeshAgent _agent;
-	[SerializeField] private Team _team;
 	[SerializeField] private Transform _rotationParent;
 	[SerializeField] private bool _useWaypoints;
+	[SerializeField] private float _rotationSpeed;
 
 	private Transform[] _waypoints;
 	private int _currentWaypoint;
@@ -32,6 +27,14 @@ public class Unit : MonoBehaviour
 
 	private void Update()
 	{
+		_animator.SetBool("IsRunning", _agent.velocity.sqrMagnitude > 0.01f);
+
+		if (_attackTarget.IsDead)
+		{
+			_agent.enabled = false;
+			return;
+		}
+
 		if (_useWaypoints == false)
 		{
 			return;
@@ -65,6 +68,9 @@ public class Unit : MonoBehaviour
 
 		_agent.SetDestination(target.position);
 
-		_rotationParent.rotation = Quaternion.LookRotation(direction, Vector3.up);
+		var fromRotation = _rotationParent.rotation;
+		var toRotation = Quaternion.LookRotation(direction, Vector3.up);
+		var speed = Time.deltaTime * _rotationSpeed;
+		_rotationParent.rotation = Quaternion.RotateTowards(fromRotation, toRotation, speed);
 	}
 }

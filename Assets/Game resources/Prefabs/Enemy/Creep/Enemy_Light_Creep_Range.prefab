@@ -1014,8 +1014,8 @@ GameObject:
   - component: {fileID: 3491033238560658640}
   - component: {fileID: 3491033238560658643}
   - component: {fileID: 3491033238560658642}
-  - component: {fileID: 3491033238560658652}
   - component: {fileID: 8330445711019976035}
+  - component: {fileID: -7846738503864926843}
   m_Layer: 0
   m_Name: Enemy_Light_Creep_Range
   m_TagString: EmeraldAI
@@ -1170,20 +1170,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3491033238560658652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f3f3884bde76c44a7c4f4f2fafb294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _emeraldAISystem: {fileID: 0}
-  _timeDelay: 3
 --- !u!114 &8330445711019976035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,10 +1182,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f3e02ba6297a04a875700d65dae0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackTarget: {fileID: -7846738503864926843}
+  _animator: {fileID: 1532351263783167576}
   _agent: {fileID: 3491033238560658643}
-  _team: 1
   _rotationParent: {fileID: 7499111621950471217}
   _useWaypoints: 1
+  _rotationSpeed: 1
+--- !u!114 &-7846738503864926843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491033238560658664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca0163b1d4cbf642b07afee9d0992da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1532351263783167576}
+  _team: 1
+  _maxHealth: 100
+  _maxTakeDamageAnimations: 0
 --- !u!1 &3696073339453460593
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,7 +2015,7 @@ Animator:
   m_GameObject: {fileID: 7920471990752156493}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 22b8fbbe834c5ca4190ef72f90263ce3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6ea79a8ac33cf9a44bef4aa3d8ede70a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

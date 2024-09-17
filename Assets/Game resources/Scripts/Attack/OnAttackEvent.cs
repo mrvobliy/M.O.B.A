@@ -2,7 +2,10 @@
 
 public class OnAttackEvent : MonoBehaviour
 {
-    [SerializeField] private PlayerAttack _playerAttack;
+	[SerializeField] private PlayerAnimator _animator;
 
-    public void Attack() => _playerAttack.SetDamage();
+	public void Attack()
+	{
+		_animator.TryDealDamage();
+	}
 }

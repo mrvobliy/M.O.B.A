@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1309036163396089939}
   - component: {fileID: 1309036163396089937}
   - component: {fileID: 1416398055680106750}
+  - component: {fileID: 713982738069374257}
   m_Layer: 0
   m_Name: Enemy_Radiant_Tower_old
   m_TagString: EmeraldAI
@@ -130,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 1309036163396091818}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2742d790beb12604cb0cd28e75a2637a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77c692257c8130345b217aeee76fb0ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -266,6 +267,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.96, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &713982738069374257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309036163396091818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca0163b1d4cbf642b07afee9d0992da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _team: 1
+  _maxHealth: 1000
+  _maxTakeDamageAnimations: 0
 --- !u!1 &2747233522265811860
 GameObject:
   m_ObjectHideFlags: 0

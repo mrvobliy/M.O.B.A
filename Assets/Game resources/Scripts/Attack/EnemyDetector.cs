@@ -97,8 +97,8 @@ public class EnemyDetector : MonoBehaviour
         
         VariableBase.IsAttackState = isAttackState;
         
-        if (isAttackState)
-            PlayerAnimator.Instance.TryPlayAttackAnim();
+        //if (isAttackState)
+            //PlayerAnimator.Instance.TryPlayAttackAnim();
     }
 }
 

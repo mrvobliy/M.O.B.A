@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,67 +6,53 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _speedChangeStates;
 
-    public static PlayerAnimator Instance;
-    
-    private float _layer1TargetWeight;
-    private float _layer2TargetWeight;
-    private float _layer3TargetWeight;
-    private float _layer4TargetWeight;
+    private bool _insideAttack;
+    private int _damage;
+    private AttackTarget _attackTarget;
+    private bool _insideIdle = true;
 
-    private void Awake()
+    public void SetToRun()
     {
-        Instance = this;
+        if (_insideIdle == false) return;
+        _insideIdle = false;
+
+        _animator.DOLayerWeight(1, 1f, 0.3f);
     }
 
-    private void LateUpdate()
+    public void SetToIdle()
     {
-        GetTargetWeightAnimLayers();
+		if (_insideIdle) return;
+        _insideIdle = true;
+
+		_animator.DOLayerWeight(1, 0f, 0.3f);
     }
 
-    private void GetTargetWeightAnimLayers()
+    public void TryPlayAttackAnim(AttackTarget target, int damage)
     {
-        if (!VariableBase.IsAttackState && !VariableBase.IsRunState)
-        {
-            SetTargetWeightAnimLayers(1, 0, 0 ,0);
-            return;
-        }
-        
-        if (!VariableBase.IsAttackState && VariableBase.IsRunState)
-        {
-            SetTargetWeightAnimLayers(0, 1, 0 ,0);
-            return;
-        }
-        
-        if (VariableBase.IsAttackState && !VariableBase.IsRunState)
-        {
-            SetTargetWeightAnimLayers(0, 0, 1,0);
-            return;
-        }
-        
-        if (VariableBase.IsAttackState && VariableBase.IsRunState)
-        {
-            SetTargetWeightAnimLayers(0, 1, 0,1);
-        }
-    }
+        if (_insideAttack) return;
 
-    private void SetTargetWeightAnimLayers(float layer1Weight, float layer2Weight, float layer3Weight, float layer4Weight)
-    {
-        _layer1TargetWeight = Mathf.MoveTowards(_animator.GetLayerWeight(0), layer1Weight, Time.deltaTime * _speedChangeStates);
-        _layer2TargetWeight = Mathf.MoveTowards(_animator.GetLayerWeight(1), layer2Weight, Time.deltaTime * _speedChangeStates);
-        _layer3TargetWeight = Mathf.MoveTowards(_animator.GetLayerWeight(2), layer3Weight, Time.deltaTime * _speedChangeStates);
-        _layer4TargetWeight = Mathf.MoveTowards(_animator.GetLayerWeight(3), layer4Weight, Time.deltaTime * _speedChangeStates);
-        
-        _animator.SetLayerWeight(0, _layer1TargetWeight);
-        _animator.SetLayerWeight(1, _layer2TargetWeight);
-        _animator.SetLayerWeight(2, _layer3TargetWeight);
-        _animator.SetLayerWeight(3, _layer4TargetWeight);
-    }
-
-    public void TryPlayAttackAnim()
-    {
-        if (!VariableBase.IsAttackState) return;
-
+		_insideAttack = true;
+        _attackTarget = target;
+        _damage = damage;
         var indexAnim = Random.Range(0, 3);
         _animator.SetTrigger("AttackTrigger_" + indexAnim);
     }
+
+    public void TryDealDamage()
+    {
+        if (_insideAttack == false) return;
+
+        _attackTarget.TakeDamage(_damage);
+    }
+
+	[ContextMenu("TryCompleteAttack")]
+
+	public void TryCompleteAttack()
+    {
+        if (_insideAttack == false) return;
+
+		_insideAttack = false;
+        _attackTarget = null;
+        _damage = 0;
+	}
 }

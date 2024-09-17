@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
+	[SerializeField] private PlayerAnimator _animator;
     [SerializeField] private NavMeshAgent _agent;
 	[SerializeField] private Transform _rotationParent;
     [SerializeField] private Joystick _joystick;
@@ -20,11 +21,11 @@ public class PlayerMovement : MonoBehaviour
 		if (inputDirection.magnitude <= 0.01f)
 		{
 			_agent.SetDestination(transform.position);
-			VariableBase.IsRunState = false;
+			_animator.SetToIdle();
 			return;
 		}
 
-		VariableBase.IsRunState = true;
+		_animator.SetToRun();
 
 		_agent.SetDestination(transform.position + inputDirection.normalized * _destinationScale);
 

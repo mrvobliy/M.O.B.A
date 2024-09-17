@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class OnAnimEndEvent : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimator _animator;
+
     public void OnAttackAnimEnd()
     {
-        PlayerAnimator.Instance.TryPlayAttackAnim();
+        _animator.TryCompleteAttack();
     }
 }

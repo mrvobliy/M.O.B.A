@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6225474739505020790}
   - component: {fileID: 6225474739505020784}
   - component: {fileID: 7511393708977181834}
+  - component: {fileID: 1012546635960469963}
   m_Layer: 0
   m_Name: Enemy_Radiant_Trone
   m_TagString: EmeraldAI
@@ -47,7 +48,7 @@ Animator:
   m_GameObject: {fileID: 6225474739505020744}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec78bee6d809fd44eb69ede3dfa07427, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77c692257c8130345b217aeee76fb0ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,6 +184,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.96, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1012546635960469963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6225474739505020744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca0163b1d4cbf642b07afee9d0992da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _team: 1
+  _maxHealth: 10000
+  _maxTakeDamageAnimations: 0
 --- !u!1 &6225474740429188572
 GameObject:
   m_ObjectHideFlags: 0
