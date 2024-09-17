@@ -43,7 +43,13 @@ public class Unit : MonoBehaviour
 		}
 
 		var target = _waypoints[_currentWaypoint];
-		var direction = target.position - transform.position;
+
+		var to = target.position;
+		to.y = 0f;
+		var from = transform.position;
+		from.y = 0f;
+		var direction = to - from;
+
 		var sqrDistance = direction.sqrMagnitude;
 		if (sqrDistance < 0.1f)
 		{
