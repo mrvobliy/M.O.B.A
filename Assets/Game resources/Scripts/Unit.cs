@@ -18,6 +18,8 @@ public class Unit : MonoBehaviour
 	{
 		_waypoints = waypoints;
 		_rotationParent.rotation = rotation;
+
+		_animator.SetFloat("Offset", Random.Range(0f, 1f));
 	}
 
 	private void Awake()

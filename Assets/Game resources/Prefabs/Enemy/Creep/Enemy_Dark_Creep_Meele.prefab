@@ -3594,7 +3594,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3491033238560658664}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Speed: 1
   m_Acceleration: 99999
   avoidancePriority: 50
@@ -3720,7 +3720,7 @@ MonoBehaviour:
   _agent: {fileID: 3491033238560658643}
   _rotationParent: {fileID: 182587009839807868}
   _useWaypoints: 1
-  _rotationSpeed: 1
+  _rotationSpeed: 10
 --- !u!114 &-7967357094221139906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4500,7 +4500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8322179994433285390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
