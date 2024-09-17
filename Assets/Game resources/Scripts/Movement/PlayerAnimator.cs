@@ -45,7 +45,6 @@ public class PlayerAnimator : MonoBehaviour
         _attackTarget.TakeDamage(_damage);
     }
 
-	[ContextMenu("TryCompleteAttack")]
 
 	public void TryCompleteAttack()
     {

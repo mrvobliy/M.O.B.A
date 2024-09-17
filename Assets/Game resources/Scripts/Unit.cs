@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum UnitBehaviour
+{
+	Passive,
+	Agressive
+}
+
 public class Unit : MonoBehaviour
 {
 	[SerializeField] private AttackTarget _attackTarget;
@@ -9,10 +15,22 @@ public class Unit : MonoBehaviour
 	[SerializeField] private Transform _rotationParent;
 	[SerializeField] private bool _useWaypoints;
 	[SerializeField] private float _rotationSpeed;
+	[SerializeField] private UnitBehaviour _behaviour;
+	[SerializeField] private float _passiveCooldown;
+	[SerializeField] private float _searchRadius;
+	[SerializeField] private int _damage;
+	[SerializeField] private AnimationEvents _events;
+	[SerializeField] private float _attackDistance;
 
 	private Transform[] _waypoints;
 	private int _currentWaypoint;
 	private bool _finishedPath;
+	private float _currentPassiveCooldown;
+	private Vector3 _spawnPosition;
+
+	private Collider[] _results = new Collider[64];
+
+	private AttackTarget _targetToKill;
 
 	public void Init(Transform[] waypoints, Quaternion rotation)
 	{
@@ -25,11 +43,32 @@ public class Unit : MonoBehaviour
 	private void Awake()
 	{
 		_agent.updateRotation = false;
+
+		_spawnPosition = transform.position;
+
+		_attackTarget.OnDamageTaken += OnDamageTaken;
+	}
+
+	private void OnDamageTaken()
+	{
+		if (_behaviour != UnitBehaviour.Passive) return;
+		_currentPassiveCooldown = _passiveCooldown;
+
+		_targetToKill = Helper.FindClosestTarget
+			(transform.position, _searchRadius, _results, _attackTarget.Team);
 	}
 
 	private void Update()
 	{
 		_animator.SetBool("IsRunning", _agent.velocity.sqrMagnitude > 0.01f);
+
+		_currentPassiveCooldown = Mathf.MoveTowards(_currentPassiveCooldown, 0f, Time.deltaTime);
+
+		if (_behaviour == UnitBehaviour.Passive &&
+			Mathf.Approximately(_currentPassiveCooldown, 0f))
+		{
+			_targetToKill = null;
+		}
 
 		if (_attackTarget.IsDead)
 		{
@@ -37,7 +76,7 @@ public class Unit : MonoBehaviour
 			return;
 		}
 
-		if (_useWaypoints == false)
+		if (_useWaypoints == false && _targetToKill == null)
 		{
 			return;
 		}
@@ -47,7 +86,11 @@ public class Unit : MonoBehaviour
 			return;
 		}
 
-		var target = _waypoints[_currentWaypoint];
+		var useWaypoints = _targetToKill == null;
+
+		_agent.stoppingDistance = useWaypoints ? 0f : _attackDistance;
+
+		var target = useWaypoints ? _waypoints[_currentWaypoint] : _targetToKill.transform;
 
 		var to = target.position;
 		to.y = 0f;
@@ -55,17 +98,20 @@ public class Unit : MonoBehaviour
 		from.y = 0f;
 		var direction = to - from;
 
-		var sqrDistance = direction.sqrMagnitude;
-		if (sqrDistance < 0.1f)
+		if (useWaypoints)
 		{
-			if (_currentWaypoint == _waypoints.Length - 1)
+			var distance = direction.magnitude;
+			if (distance - _agent.stoppingDistance < 0.5f)
 			{
-				_finishedPath = true;
-				_agent.SetDestination(transform.position);
-				return;
-			}
+				if (_currentWaypoint == _waypoints.Length - 1)
+				{
+					_finishedPath = true;
+					_agent.SetDestination(transform.position);
+					return;
+				}
 
-			_currentWaypoint++;
+				_currentWaypoint++;
+			}
 		}
 
 		_agent.SetDestination(target.position);
@@ -74,5 +120,27 @@ public class Unit : MonoBehaviour
 		var toRotation = Quaternion.LookRotation(direction, Vector3.up);
 		var speed = Time.deltaTime * _rotationSpeed;
 		_rotationParent.rotation = Quaternion.RotateTowards(fromRotation, toRotation, speed);
+	}
+
+	private void FixedUpdate()
+	{
+		if (_attackTarget.IsDead) return;
+
+		if (_behaviour == UnitBehaviour.Agressive)
+		{
+			_targetToKill = Helper.FindClosestTarget
+				(transform.position, _searchRadius, _results, _attackTarget.Team);
+
+			if (_targetToKill != null)
+			{
+				if (_targetToKill.Team == Team.Neutral)
+				{
+					_targetToKill = null;
+					return;
+				}
+
+				_events.TryToAttack(_targetToKill, _damage);
+			}
+		}
 	}
 }

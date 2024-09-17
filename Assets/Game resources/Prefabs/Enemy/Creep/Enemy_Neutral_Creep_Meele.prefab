@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2132567559666153443}
   - component: {fileID: 1434088289099069780}
+  - component: {fileID: 2181197747879455422}
   m_Layer: 0
   m_Name: RotationParent
   m_TagString: Untagged
@@ -55,6 +56,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2181197747879455422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831357158754845868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1434088289099069780}
+  _attackAnimationAmount: 1
 --- !u!1 &3491033236713126178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,7 +3790,13 @@ MonoBehaviour:
   _agent: {fileID: 3491033238560658643}
   _rotationParent: {fileID: 2132567559666153443}
   _useWaypoints: 0
-  _rotationSpeed: 10
+  _rotationSpeed: 200
+  _behaviour: 0
+  _passiveCooldown: 5
+  _searchRadius: 1
+  _damage: 5
+  _events: {fileID: 2181197747879455422}
+  _attackDistance: 1
 --- !u!114 &-2114239348224017789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3791,7 +3812,6 @@ MonoBehaviour:
   _animator: {fileID: 1434088289099069780}
   _team: 0
   _maxHealth: 100
-  _maxTakeDamageAnimations: 0
 --- !u!1 &3491033238563149599
 GameObject:
   m_ObjectHideFlags: 0

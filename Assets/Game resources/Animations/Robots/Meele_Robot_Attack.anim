@@ -17,58 +17,58 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.5000001, y: 0.50000006, z: -0.49999994, w: -0.5}
-        inSlope: {x: 0.65631056, y: -1.0852433, z: -0.65630966, w: 1.0852424}
-        outSlope: {x: 0.65631056, y: -1.0852433, z: -0.65630966, w: 1.0852424}
+        value: {x: -0.5000001, y: -0.49999997, z: 0.49999994, w: 0.49999994}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: -0.89943403, y: 0.8993223, z: 0.898987, w: -0.8995458}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 0.26666668
-        value: {x: 0.6750163, y: 0.2106018, z: -0.67501587, w: -0.21060202}
-        inSlope: {x: -0.8538035, y: 0.7721608, z: 0.8538034, w: -0.7721599}
-        outSlope: {x: -0.8538035, y: 0.7721608, z: 0.8538034, w: -0.7721599}
+        value: {x: -0.6750164, y: -0.21060175, z: 0.6750159, w: 0.21060197}
+        inSlope: {x: 0.31515953, y: -1.0109693, z: -0.31538305, w: 1.0109693}
+        outSlope: {x: 0.31936172, y: -1.0229946, z: -0.3190041, w: 1.0229946}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 0.43333334
-        value: {x: 0.28103003, y: 0.6488626, z: -0.28102982, w: -0.64886236}
-        inSlope: {x: -0.5718541, y: 0.9135831, z: 0.5718533, w: -0.9135831}
-        outSlope: {x: -0.5718541, y: 0.9135831, z: 0.5718533, w: -0.9135831}
+        value: {x: -0.28102997, y: -0.6488624, z: 0.2810298, w: 0.6488621}
+        inSlope: {x: 0.78392035, y: -0.3397465, z: -0.78392035, w: 0.3397465}
+        outSlope: {x: 0.77104557, y: -0.33366677, z: -0.77104557, w: 0.33366677}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 0.6
-        value: {x: 0.48439828, y: 0.51512945, z: -0.48439816, w: -0.5151297}
-        inSlope: {x: 0.25639963, y: -0.13244253, z: -0.2563996, w: 0.13244182}
-        outSlope: {x: 0.25639963, y: -0.13244253, z: -0.2563996, w: 0.13244182}
+        value: {x: -0.48439828, y: -0.51512945, z: 0.48439813, w: 0.51512957}
+        inSlope: {x: -0.20402667, y: 0.19168851, z: 0.20402667, w: -0.19204614}
+        outSlope: {x: -0.19848351, y: 0.18703942, z: 0.19866233, w: -0.18668179}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 0.76666665
-        value: {x: 0.36649662, y: 0.60471505, z: -0.3664964, w: -0.60471505}
-        inSlope: {x: -0.06762615, y: 0.04436761, z: 0.06762636, w: -0.044366777}
-        outSlope: {x: -0.06762615, y: 0.04436761, z: 0.06762636, w: -0.044366777}
+        value: {x: -0.36649662, y: -0.6047151, z: 0.3664964, w: 0.60471505}
+        inSlope: {x: 0.07188322, y: -0.04363061, z: -0.07188322, w: 0.043272983}
+        outSlope: {x: 0.067693844, y: -0.040871754, z: -0.067693844, w: 0.0411272}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: 0.5000001, y: 0.50000006, z: -0.49999994, w: -0.5}
-        inSlope: {x: 0.5721578, y: -0.4487785, z: -0.5721579, w: 0.44877875}
-        outSlope: {x: 0.5721578, y: -0.4487785, z: -0.5721579, w: 0.44877875}
+        value: {x: -0.5000001, y: -0.49999997, z: 0.49999994, w: 0.49999994}
+        inSlope: {x: -0.5048939, y: 0.5048939, z: 0.50502163, w: -0.50502163}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
-        outWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -369,262 +369,6 @@ AnimationClip:
     m_HeightFromFeet: 0
     m_Mirror: 0
   m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.5000001
-        inSlope: 0.65631056
-        outSlope: 0.65631056
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.26666668
-        value: 0.6750163
-        inSlope: -0.8538035
-        outSlope: -0.8538035
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.43333334
-        value: 0.28103003
-        inSlope: -0.5718541
-        outSlope: -0.5718541
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6
-        value: 0.48439828
-        inSlope: 0.25639963
-        outSlope: 0.25639963
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.76666665
-        value: 0.36649662
-        inSlope: -0.06762615
-        outSlope: -0.06762615
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.5000001
-        inSlope: 0.5721578
-        outSlope: 0.5721578
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.x
-    path: Meele_Robot/Root/Cylinder.022
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.50000006
-        inSlope: -1.0852433
-        outSlope: -1.0852433
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.26666668
-        value: 0.2106018
-        inSlope: 0.7721608
-        outSlope: 0.7721608
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.43333334
-        value: 0.6488626
-        inSlope: 0.9135831
-        outSlope: 0.9135831
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6
-        value: 0.51512945
-        inSlope: -0.13244253
-        outSlope: -0.13244253
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.76666665
-        value: 0.60471505
-        inSlope: 0.04436761
-        outSlope: 0.04436761
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.50000006
-        inSlope: -0.4487785
-        outSlope: -0.4487785
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.y
-    path: Meele_Robot/Root/Cylinder.022
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -0.49999994
-        inSlope: -0.65630966
-        outSlope: -0.65630966
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.26666668
-        value: -0.67501587
-        inSlope: 0.8538034
-        outSlope: 0.8538034
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.43333334
-        value: -0.28102982
-        inSlope: 0.5718533
-        outSlope: 0.5718533
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6
-        value: -0.48439816
-        inSlope: -0.2563996
-        outSlope: -0.2563996
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.76666665
-        value: -0.3664964
-        inSlope: 0.06762636
-        outSlope: 0.06762636
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: -0.49999994
-        inSlope: -0.5721579
-        outSlope: -0.5721579
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.z
-    path: Meele_Robot/Root/Cylinder.022
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -0.5
-        inSlope: 1.0852424
-        outSlope: 1.0852424
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.26666668
-        value: -0.21060202
-        inSlope: -0.7721599
-        outSlope: -0.7721599
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.43333334
-        value: -0.64886236
-        inSlope: -0.9135831
-        outSlope: -0.9135831
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6
-        value: -0.5151297
-        inSlope: 0.13244182
-        outSlope: 0.13244182
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.76666665
-        value: -0.60471505
-        inSlope: -0.044366777
-        outSlope: -0.044366777
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: -0.5
-        inSlope: 0.44877875
-        outSlope: 0.44877875
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalRotation.w
-    path: Meele_Robot/Root/Cylinder.022
-    classID: 4
-    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1339,6 +1083,262 @@ AnimationClip:
     path: Meele_Robot/Root/Cube.166
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.5000001
+        inSlope: 0
+        outSlope: -0.89943403
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.26666668
+        value: -0.6750164
+        inSlope: 0.31515953
+        outSlope: 0.31936172
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.43333334
+        value: -0.28102997
+        inSlope: 0.78392035
+        outSlope: 0.77104557
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6
+        value: -0.48439828
+        inSlope: -0.20402667
+        outSlope: -0.19848351
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.76666665
+        value: -0.36649662
+        inSlope: 0.07188322
+        outSlope: 0.067693844
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.5000001
+        inSlope: -0.5048939
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.x
+    path: Meele_Robot/Root/Cylinder.022
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.49999997
+        inSlope: 0
+        outSlope: 0.8993223
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.26666668
+        value: -0.21060175
+        inSlope: -1.0109693
+        outSlope: -1.0229946
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.43333334
+        value: -0.6488624
+        inSlope: -0.3397465
+        outSlope: -0.33366677
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6
+        value: -0.51512945
+        inSlope: 0.19168851
+        outSlope: 0.18703942
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.76666665
+        value: -0.6047151
+        inSlope: -0.04363061
+        outSlope: -0.040871754
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.49999997
+        inSlope: 0.5048939
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.y
+    path: Meele_Robot/Root/Cylinder.022
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.49999994
+        inSlope: 0
+        outSlope: 0.898987
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.26666668
+        value: 0.6750159
+        inSlope: -0.31538305
+        outSlope: -0.3190041
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.43333334
+        value: 0.2810298
+        inSlope: -0.78392035
+        outSlope: -0.77104557
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6
+        value: 0.48439813
+        inSlope: 0.20402667
+        outSlope: 0.19866233
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.76666665
+        value: 0.3664964
+        inSlope: -0.07188322
+        outSlope: -0.067693844
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.49999994
+        inSlope: 0.50502163
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.z
+    path: Meele_Robot/Root/Cylinder.022
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.49999994
+        inSlope: 0
+        outSlope: -0.8995458
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.26666668
+        value: 0.21060197
+        inSlope: 1.0109693
+        outSlope: 1.0229946
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.43333334
+        value: 0.6488621
+        inSlope: 0.3397465
+        outSlope: 0.33366677
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.6
+        value: 0.51512957
+        inSlope: -0.19204614
+        outSlope: -0.18668179
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.76666665
+        value: 0.60471505
+        inSlope: 0.043272983
+        outSlope: 0.0411272
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.49999994
+        inSlope: -0.50502163
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalRotation.w
+    path: Meele_Robot/Root/Cylinder.022
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
@@ -1356,7 +1356,7 @@ AnimationClip:
         time: 0.26666668
         value: -0.000027320755
         inSlope: -0.000035964254
-        outSlope: -0.000057542817
+        outSlope: -0.000035964254
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1365,7 +1365,7 @@ AnimationClip:
         time: 0.43333334
         value: -0.000006830189
         inSlope: 0.00012294341
-        outSlope: 0.00012294338
+        outSlope: 0.00012294341
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1374,7 +1374,7 @@ AnimationClip:
         time: 0.6
         value: -0.000020490566
         inSlope: 0.00009417198
-        outSlope: 0.00009417201
+        outSlope: 0.00009417198
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1383,7 +1383,7 @@ AnimationClip:
         time: 0.76666665
         value: -0.000013660378
         inSlope: -0.000028771414
-        outSlope: -0.000020551004
+        outSlope: -0.000028771414
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1484,7 +1484,7 @@ AnimationClip:
         time: 0.26666668
         value: 145.34464
         inSlope: -172.38475
-        outSlope: -168.0337
+        outSlope: -172.38475
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1493,7 +1493,7 @@ AnimationClip:
         time: 0.43333334
         value: 46.836002
         inSlope: -137.08748
-        outSlope: -137.08745
+        outSlope: -137.08748
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1502,7 +1502,7 @@ AnimationClip:
         time: 0.6
         value: 86.47789
         inSlope: 44.68826
-        outSlope: 44.688274
+        outSlope: 44.68826
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1511,7 +1511,7 @@ AnimationClip:
         time: 0.76666665
         value: 62.437153
         inSlope: -13.095775
-        outSlope: -13.094574
+        outSlope: -13.095775
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -1532,11 +1532,78 @@ AnimationClip:
     path: Meele_Robot/Root/Cylinder.022
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Meele_Robot/Root
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Meele_Robot/Root
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Meele_Robot/Root
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Meele_Robot/Root/Sphere.001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Meele_Robot/Root/Sphere.001
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Meele_Robot/Root/Sphere.001
+    classID: 4
+    script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.43333334
-    functionName: EmeraldAttackEvent
+    functionName: AttackBegin
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.9
+    functionName: AttackEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

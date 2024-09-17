@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System;
 
 public enum Team
 {
@@ -10,10 +10,11 @@ public enum Team
 
 public class AttackTarget : MonoBehaviour
 {
+	public event Action OnDamageTaken;
+
 	[SerializeField] private Animator _animator;
 	[SerializeField] private Team _team;
 	[SerializeField] private int _maxHealth;
-	[SerializeField] private int _maxTakeDamageAnimations;
 
 	private int _currentHealth;
 
@@ -37,9 +38,7 @@ public class AttackTarget : MonoBehaviour
 			_currentHealth = 0;
 			if (_animator != null) _animator.SetTrigger("Death");
 		}
-		else
-		{
-			//_animator.SetTrigger("TakeDamage" + Random.Range(0, _maxTakeDamageAnimations));
-		}
+
+		OnDamageTaken?.Invoke();
 	}
 }
