@@ -10,6 +10,7 @@ public enum Team
 
 public class AttackTarget : MonoBehaviour
 {
+	public event Action OnDeath;
 	public event Action OnDamageTaken;
 
 	[SerializeField] private Animator _animator;
@@ -37,6 +38,7 @@ public class AttackTarget : MonoBehaviour
 		{
 			_currentHealth = 0;
 			if (_animator != null) _animator.SetTrigger("Death");
+			OnDeath?.Invoke();
 		}
 
 		OnDamageTaken?.Invoke();

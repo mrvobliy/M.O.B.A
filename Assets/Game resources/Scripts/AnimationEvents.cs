@@ -1,7 +1,11 @@
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
 public class AnimationEvents : MonoBehaviour
 {
+	public event Action OnDeathCompleted;
+
 	[SerializeField] private Animator _animator;
 	[SerializeField] private int _attackAnimationAmount;
 	
@@ -34,5 +38,10 @@ public class AnimationEvents : MonoBehaviour
 		_insideAttack = false;
 		_target = null;
 		_damage = 0;
+	}
+
+	public void DeathCompleted()
+	{
+		OnDeathCompleted?.Invoke();
 	}
 }

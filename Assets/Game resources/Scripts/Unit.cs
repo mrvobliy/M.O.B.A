@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public enum UnitBehaviour
 {
@@ -21,6 +22,9 @@ public class Unit : MonoBehaviour
 	[SerializeField] private int _damage;
 	[SerializeField] private AnimationEvents _events;
 	[SerializeField] private float _attackDistance;
+	[SerializeField] private float _diveDelay = 3f;
+	[SerializeField] private float _diveDuration = 1f;
+	[SerializeField] private float _diveDepth = 10f;
 
 	private Transform[] _waypoints;
 	private int _currentWaypoint;
@@ -47,6 +51,16 @@ public class Unit : MonoBehaviour
 		_spawnPosition = transform.position;
 
 		_attackTarget.OnDamageTaken += OnDamageTaken;
+		_events.OnDeathCompleted += OnDeathCompleted;
+	}
+
+	private void OnDeathCompleted()
+	{
+		var target = transform.localPosition.y - _diveDepth;
+		transform.DOLocalMoveY(target, _diveDuration)
+			.SetDelay(_diveDelay)
+			.SetEase(Ease.Linear)
+			.OnComplete(() => Destroy(gameObject));
 	}
 
 	private void OnDamageTaken()
