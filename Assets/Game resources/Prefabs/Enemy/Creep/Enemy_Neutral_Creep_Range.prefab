@@ -1678,6 +1678,10 @@ MonoBehaviour:
   _diveDelay: 3
   _diveDuration: 10
   _diveDepth: 1
+  _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
+    type: 3}
+  _projectileOrigin: {fileID: 3862579142215631275}
+  _projectileSpeed: 5
 --- !u!114 &5233967211486846629
 MonoBehaviour:
   m_ObjectHideFlags: 0

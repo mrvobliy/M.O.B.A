@@ -17,18 +17,26 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
     {
-		_animator.SetFloat("Speed", _agent.velocity.magnitude);
+		var speed = _agent.velocity.magnitude;
+
+		_animator.SetFloat("Speed", speed);
+
+		if (speed < 0.01f)
+		{
+			_playerAnimator.SetToIdle();
+		}
+		else
+		{
+			_playerAnimator.SetToRun();
+		}
 
 		var inputDirection = new Vector3(_joystick.Direction.x, 0.0f, _joystick.Direction.y);
 
 		if (inputDirection.magnitude <= 0.01f)
 		{
 			_agent.SetDestination(transform.position);
-			_playerAnimator.SetToIdle();
 			return;
 		}
-
-		_playerAnimator.SetToRun();
 
 		_agent.SetDestination(transform.position + inputDirection.normalized * _destinationScale);
 

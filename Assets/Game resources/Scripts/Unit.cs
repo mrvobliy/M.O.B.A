@@ -27,6 +27,9 @@ public class Unit : MonoBehaviour
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 1f;
 	[SerializeField] private float _diveDepth = 10f;
+	[SerializeField] private Projectile _projectilePrefab;
+	[SerializeField] private Transform _projectileOrigin;
+	[SerializeField] private float _projectileSpeed;
 
 	private Transform[] _waypoints;
 	private int _currentWaypoint;
@@ -54,6 +57,17 @@ public class Unit : MonoBehaviour
 
 		_attackTarget.OnDamageTaken += OnDamageTaken;
 		_events.OnDeathCompleted += OnDeathCompleted;
+		_events.OnFireProjectile += OnFireProjectile;
+	}
+
+	private void OnFireProjectile()
+	{
+		if (_targetToKill == null) return;
+
+		var projectile = Instantiate(_projectilePrefab,
+			_projectileOrigin.position, Quaternion.identity);
+
+		projectile.Init(_damage, _targetToKill, _projectileSpeed);
 	}
 
 	private void OnDeathCompleted()
