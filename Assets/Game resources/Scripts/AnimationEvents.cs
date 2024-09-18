@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class AnimationEvents : MonoBehaviour
 {
 	public event Action OnDeathCompleted;
+	public event Action OnFireProjectile;
 
 	[SerializeField] private Animator _animator;
 	[SerializeField] private int _attackAnimationAmount;
@@ -12,6 +13,11 @@ public class AnimationEvents : MonoBehaviour
 	private AttackTarget _target;
 	private int _damage;
 	private bool _insideAttack;
+
+	public void FireProjectile()
+	{
+		OnFireProjectile?.Invoke();
+	}
 
 	public void TryToAttack(AttackTarget target, int damage)
 	{

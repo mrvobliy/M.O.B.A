@@ -4853,7 +4853,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744445146714726959}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -4963,7 +4963,6 @@ GameObject:
   - component: {fileID: 744445146805636185}
   - component: {fileID: 744445146805636184}
   - component: {fileID: 744445146805636187}
-  - component: {fileID: -643624257515554377}
   m_Layer: 0
   m_Name: Fireball_Light_Tower
   m_TagString: Untagged
@@ -9771,19 +9770,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-643624257515554377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744445146805636186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0216845382d62de4e88d9dc3ba6019c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToDisable: {fileID: 744445146805636186}
 --- !u!1 &744445147399921784
 GameObject:
   m_ObjectHideFlags: 0
@@ -24261,7 +24247,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9187807910711650335}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0

@@ -19289,7 +19289,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3235157727107045623}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -19399,7 +19399,6 @@ GameObject:
   - component: {fileID: 3235157727202227841}
   - component: {fileID: 3235157727202227840}
   - component: {fileID: 3235157727202227843}
-  - component: {fileID: -7669175572844960259}
   m_Layer: 0
   m_Name: Fireball_Dark_Tower
   m_TagString: Untagged
@@ -24207,19 +24206,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-7669175572844960259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3235157727202227842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0216845382d62de4e88d9dc3ba6019c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToDisable: {fileID: 3235157727202227842}
 --- !u!1 &6426914539192668871
 GameObject:
   m_ObjectHideFlags: 0
@@ -24261,7 +24247,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6426914539192668871}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
