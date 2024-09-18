@@ -2937,7 +2937,7 @@ MonoBehaviour:
   _rotationSpeed: 200
   _behaviour: 1
   _passiveCooldown: 0
-  _searchRadius: 1
+  _searchRadius: 5
   _damage: 5
   _events: {fileID: 5209408215701000448}
   _attackDistance: 1

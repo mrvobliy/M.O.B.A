@@ -261,11 +261,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.91, y: 2.095, z: 0.91}
+  m_Extents: {x: 0.8, y: 2, z: 0.8}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.96, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!114 &713982738069374257
 MonoBehaviour:
@@ -282,7 +282,6 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _team: 1
   _maxHealth: 1000
-  _maxTakeDamageAnimations: 0
 --- !u!1 &2747233522265811860
 GameObject:
   m_ObjectHideFlags: 0

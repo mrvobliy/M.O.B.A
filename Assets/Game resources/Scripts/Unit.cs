@@ -153,7 +153,13 @@ public class Unit : MonoBehaviour
 					return;
 				}
 
-				_events.TryToAttack(_targetToKill, _damage);
+				var distanceToTarget = Vector3.Distance
+					(_targetToKill.transform.position, transform.position);
+
+				if (distanceToTarget < _attackDistance)
+				{
+					_events.TryToAttack(_targetToKill, _damage);
+				}
 			}
 		}
 	}
