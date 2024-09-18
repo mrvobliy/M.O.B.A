@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour
 	[SerializeField] private Projectile _projectilePrefab;
 	[SerializeField] private Transform _projectileOrigin;
 	[SerializeField] private float _projectileSpeed;
+	[SerializeField] private Rigidbody[] _rigidbodies;
 
 	private Collider[] _results = new Collider[64];
 
@@ -18,6 +19,17 @@ public class Tower : MonoBehaviour
 	private void Awake()
 	{
 		_events.OnFireProjectile += OnFireProjectile;
+		_attackTarget.OnDeath += Die;
+	}
+
+	private void Die()
+	{
+		_animator.enabled = false;
+
+		foreach (var rigidbody in _rigidbodies)
+		{
+			rigidbody.isKinematic = false;
+		}
 	}
 
 	private void OnFireProjectile()

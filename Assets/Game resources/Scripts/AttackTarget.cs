@@ -50,6 +50,8 @@ public class AttackTarget : MonoBehaviour
 			_currentHealth = 0;
 			if (_animator != null) _animator.SetTrigger("Death");
 			OnDeath?.Invoke();
+			if (_agent != null) _agent.enabled = false;
+			if (_obstacle != null) _obstacle.enabled = false;
 		}
 
 		OnDamageTaken?.Invoke();
