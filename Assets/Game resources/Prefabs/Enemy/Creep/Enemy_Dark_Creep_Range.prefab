@@ -1611,7 +1611,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
   _projectileOrigin: {fileID: 3862579142215631275}
-  _projectileSpeed: 5
+  _projectileSpeed: 1
 --- !u!114 &6175433727593325929
 MonoBehaviour:
   m_ObjectHideFlags: 0
