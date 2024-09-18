@@ -10,6 +10,8 @@ public enum Team
 
 public class AttackTarget : MonoBehaviour
 {
+	public static event Action<AttackTarget> OnAwake;
+
 	public event Action OnDeath;
 	public event Action OnDamageTaken;
 
@@ -21,11 +23,14 @@ public class AttackTarget : MonoBehaviour
 
 	public Team Team => _team;
 	public int CurrentHealth => _currentHealth;
+	public int MaxHealth => _maxHealth;
 	public bool IsDead => _currentHealth == 0;
+	public float HealthPercent => _currentHealth / (float)_maxHealth;
 
 	private void Awake()
 	{
 		_currentHealth = _maxHealth;
+		OnAwake?.Invoke(this);
 	}
 
 	public void TakeDamage(int damage)
