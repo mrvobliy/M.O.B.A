@@ -394,6 +394,8 @@ MonoBehaviour:
   _animator: {fileID: 5025044265947795150}
   _team: 1
   _maxHealth: 100
+  _agent: {fileID: 3491033238560658643}
+  _obstacle: {fileID: 0}
 --- !u!1 &3513232726515022545
 GameObject:
   m_ObjectHideFlags: 0

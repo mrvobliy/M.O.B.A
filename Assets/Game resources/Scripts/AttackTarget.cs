@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public enum Team
 {
@@ -19,6 +20,10 @@ public class AttackTarget : MonoBehaviour
 	[SerializeField] private Team _team;
 	[SerializeField] private int _maxHealth;
 
+	[Header("Fill one of these for radius")]
+	[SerializeField] private NavMeshAgent _agent;
+	[SerializeField] private NavMeshObstacle _obstacle;
+
 	private int _currentHealth;
 
 	public Team Team => _team;
@@ -26,6 +31,7 @@ public class AttackTarget : MonoBehaviour
 	public int MaxHealth => _maxHealth;
 	public bool IsDead => _currentHealth == 0;
 	public float HealthPercent => _currentHealth / (float)_maxHealth;
+	public float Radius => _agent == null ? _obstacle.radius : _agent.radius;
 
 	private void Awake()
 	{

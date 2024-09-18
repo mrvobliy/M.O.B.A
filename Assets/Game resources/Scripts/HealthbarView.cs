@@ -15,6 +15,13 @@ public class HealthbarView : MonoBehaviour
 		_fill.fillAmount = _target.HealthPercent;
 		_target.OnDeath += OnDeath;
 		_target.OnDamageTaken += OnDamageTaken;
+
+		_fill.color = _target.Team switch
+		{
+			Team.Neutral => Color.yellow,
+			Team.Light => Color.green,
+			Team.Dark => Color.red
+		};
 	}
 
 	private void OnDamageTaken()

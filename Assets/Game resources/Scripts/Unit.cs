@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using System;
+using Random = UnityEngine.Random;
 
 public enum UnitBehaviour
 {
@@ -155,6 +157,9 @@ public class Unit : MonoBehaviour
 
 				var distanceToTarget = Vector3.Distance
 					(_targetToKill.transform.position, transform.position);
+
+				distanceToTarget -= _agent.radius;
+				distanceToTarget -= _targetToKill.Radius;
 
 				if (distanceToTarget < _attackDistance)
 				{
