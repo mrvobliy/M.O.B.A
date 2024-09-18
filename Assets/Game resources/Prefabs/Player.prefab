@@ -19798,7 +19798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ba7dcd4c02cae4db1e616a0b546e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 3336875771821518017}
+  _animator: {fileID: 5361940491360621851}
+  _playerAnimator: {fileID: 3336875771821518017}
   _agent: {fileID: 6947495756246805441}
   _rotationParent: {fileID: 5295358006573098799}
   _joystick: {fileID: 0}
