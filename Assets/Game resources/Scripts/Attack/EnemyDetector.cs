@@ -10,7 +10,7 @@ public class EnemyDetector : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private List<EmeraldAISystem> _allEnemy;
     [SerializeField] private List<EnemyCard> _availableEnemy;
-    [SerializeField] private PlayerMovement _playerMovement;
+    //[SerializeField] private PlayerMovement _playerMovement;
     
     public List<EnemyCard> AvailableEnemy => _availableEnemy;
     
@@ -18,7 +18,7 @@ public class EnemyDetector : MonoBehaviour
     
     private void FixedUpdate()
     {
-        transform.position = _playerMovement.transform.position;
+        //transform.position = _playerMovement.transform.position;
         
         if (_allEnemy.Count <= 0) return;
 

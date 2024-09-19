@@ -5,10 +5,10 @@ public class Projectile : MonoBehaviour
 	private const float Acceleration = 10f;
 
 	private int _damage;
-	private AttackTarget _target;
+	private Target _target;
 	private float _speed;
 
-	public void Init(int damage, AttackTarget target, float speed)
+	public void Init(int damage, Target target, float speed)
 	{
 		_damage = damage;
 		_target = target;

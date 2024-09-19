@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using EmeraldAI;
 using UnityEngine;
 
 public class NeutralEnemySpawn : MonoBehaviour
 {
-    [SerializeField] private Unit _meeleEnemyPrefab;
-    [SerializeField] private Unit _rangeEnemyPrefab;
+    [SerializeField] private NeutralCreep _meeleEnemyPrefab;
+    [SerializeField] private NeutralCreep _rangeEnemyPrefab;
     [SerializeField] private List<Transform> _spawnPoints;
 
     private int _countActiveEnemy;
@@ -21,9 +20,7 @@ public class NeutralEnemySpawn : MonoBehaviour
         {
             var spawnPrefab = i < 3 ? _meeleEnemyPrefab : _rangeEnemyPrefab;
             var newEnemy = Instantiate(spawnPrefab, _spawnPoints[i].position, Quaternion.identity);
-            newEnemy.Init(null, _spawnPoints[i].rotation);
-            //newEnemy.DeathEvent.AddListener(EnemyDeath);
-            // TODO
+            newEnemy.SetRotation(_spawnPoints[i].rotation);
             _countActiveEnemy++;
         }
     }

@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthbarView : MonoBehaviour
+public class Healthbar : MonoBehaviour
 {
 	[SerializeField] private Image _fill;
 	[SerializeField] private Vector3 _offset;
 
-	private AttackTarget _target;
+	private Target _target;
 
-	public void Init(AttackTarget target)
+	public void Init(Target target)
 	{
 		_target = target;
 

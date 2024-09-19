@@ -6,8 +6,8 @@ public class LineEnemySpawn : MonoBehaviour
 {
     [SerializeField] private float _spawnDelay;
     
-    [SerializeField] private Unit _meeleEnemyPrefab;
-    [SerializeField] private Unit _rangeEnemyPrefab;
+    [SerializeField] private LaneCreep _meeleEnemyPrefab;
+    [SerializeField] private LaneCreep _rangeEnemyPrefab;
     
     [SerializeField] private List<Transform> _topLinePoints;
     [SerializeField] private List<Transform> _midleLinePoints;
@@ -43,7 +43,8 @@ public class LineEnemySpawn : MonoBehaviour
         {
             var spawnPrefab = i < 3 ? _meeleEnemyPrefab : _rangeEnemyPrefab;
             var newEnemy = Instantiate(spawnPrefab, spawnPoints[i].position, Quaternion.identity);
-            newEnemy.Init(way, spawnPoints[i].rotation);
-        }
+            newEnemy.SetWaypoints(way);
+            newEnemy.SetRotation(spawnPoints[i].rotation);
+		}
     }
 }

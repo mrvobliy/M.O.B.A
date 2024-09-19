@@ -15,17 +15,17 @@ public static class Helper
 		return vector;
 	}
 
-	public static AttackTarget FindClosestTarget(Vector3 position, float radius, Collider[] results, Team myTeam)
+	public static Target FindClosestTarget(Vector3 position, float radius, Collider[] results, Team myTeam)
 	{
 		var amount = Physics.OverlapSphereNonAlloc(position, radius, results);
 
 		var minDistance = float.MaxValue;
-		AttackTarget target = null;
+		Target target = null;
 
 		for (var i = 0; i < amount; i++)
 		{
 			var collider = results[i];
-			var found = collider.TryGetComponent(out AttackTarget attackTarget);
+			var found = collider.TryGetComponent(out Target attackTarget);
 			if (found == false) continue;
 			if (attackTarget.Team == myTeam) continue;
 			if (attackTarget.IsDead) continue;

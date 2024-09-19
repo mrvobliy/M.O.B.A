@@ -9,6 +9,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
+    public static Joystick Instance { get; private set; }
+
     public float HandleRange
     {
         get { return handleRange; }
@@ -40,7 +42,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private Vector2 input = Vector2.zero;
 
-    protected virtual void Start()
+	private void Awake()
+	{
+        Instance = this;
+	}
+
+	protected virtual void Start()
     {
         HandleRange = handleRange;
         DeadZone = deadZone;

@@ -68,8 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1434088289099069780}
-  _attackAnimationAmount: 1
 --- !u!1 &3491033236713126178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,8 +2829,7 @@ GameObject:
   - component: {fileID: 3491033238560658640}
   - component: {fileID: 3491033238560658643}
   - component: {fileID: 3491033238560658642}
-  - component: {fileID: 2413234879044492445}
-  - component: {fileID: -2114239348224017789}
+  - component: {fileID: 7988854197205266123}
   m_Layer: 0
   m_Name: Enemy_Neutral_Creep_Meele
   m_TagString: EmeraldAI
@@ -2987,7 +2984,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2413234879044492445
+--- !u!114 &7988854197205266123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2996,41 +2993,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3491033238560658664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33f3e02ba6297a04a875700d65dae0b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackTarget: {fileID: -2114239348224017789}
-  _animator: {fileID: 1434088289099069780}
-  _agent: {fileID: 3491033238560658643}
-  _rotationParent: {fileID: 2132567559666153443}
-  _useWaypoints: 0
-  _rotationSpeed: 200
-  _behaviour: 0
-  _passiveCooldown: 5
-  _searchRadius: 5
-  _damage: 5
-  _events: {fileID: 2181197747879455422}
-  _attackDistance: 1
-  _diveDelay: 3
-  _diveDuration: 10
-  _diveDepth: 1
---- !u!114 &-2114239348224017789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca0163b1d4cbf642b07afee9d0992da, type: 3}
+  m_Script: {fileID: 11500000, guid: 498bdb77bc4519548a40d5a26b50ecb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1434088289099069780}
   _team: 0
   _maxHealth: 100
+  _useDive: 1
+  _diveDelay: 3
+  _diveDuration: 10
+  _diveDepth: 1
+  _events: {fileID: 2181197747879455422}
+  _projectilePrefab: {fileID: 0}
+  _projectileOrigin: {fileID: 0}
+  _projectileSpeed: 1
+  _attackAnimationAmount: 1
+  _attackDistance: 1
+  _detectionRadius: 5
+  _damage: 10
   _agent: {fileID: 3491033238560658643}
-  _obstacle: {fileID: 0}
+  _rotationParent: {fileID: 2132567559666153443}
+  _rotationSpeed: 200
+  _passiveCooldown: 10
 --- !u!1 &3491033238563149599
 GameObject:
   m_ObjectHideFlags: 0
