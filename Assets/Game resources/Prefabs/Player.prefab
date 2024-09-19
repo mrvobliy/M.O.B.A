@@ -3175,8 +3175,6 @@ GameObject:
   m_Component:
   - component: {fileID: 316433668754903334}
   - component: {fileID: 369528484462370102}
-  - component: {fileID: 369528484462370100}
-  - component: {fileID: 369528484462370103}
   m_Layer: 0
   m_Name: Hara
   m_TagString: Untagged
@@ -3224,32 +3222,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &369528484462370100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320114294588077078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac3ca09123fef94ab9784797daf1ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
---- !u!114 &369528484462370103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320114294588077078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f5a5c20056bb8418da574f819049aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!1 &320122061587986858
 GameObject:
   m_ObjectHideFlags: 0
@@ -11120,8 +11092,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3009618036942804731}
   - component: {fileID: 2490383959211756622}
-  - component: {fileID: 2490383959211756623}
-  - component: {fileID: 2490383959211756620}
   m_Layer: 0
   m_Name: Red girl
   m_TagString: Untagged
@@ -11170,32 +11140,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2490383959211756623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490383959211756609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac3ca09123fef94ab9784797daf1ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
---- !u!114 &2490383959211756620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490383959211756609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f5a5c20056bb8418da574f819049aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!1 &2490383959638873275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11206,7 +11150,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3009618037690813953}
   - component: {fileID: 3336875771310778870}
-  - component: {fileID: 3336875771310778857}
   m_Layer: 0
   m_Name: Girl_ollie_V2
   m_TagString: Untagged
@@ -11252,19 +11195,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3336875771310778857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490383959638873275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac3ca09123fef94ab9784797daf1ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!1 &2490383960136737977
 GameObject:
   m_ObjectHideFlags: 0
@@ -17057,8 +16987,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3332741861837550158}
   - component: {fileID: 3394870107959219762}
-  - component: {fileID: 3394870107959219760}
-  - component: {fileID: 3394870107959219763}
   m_Layer: 0
   m_Name: Kazuko
   m_TagString: Untagged
@@ -17106,32 +17034,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3394870107959219760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3335867957100949692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac3ca09123fef94ab9784797daf1ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
---- !u!114 &3394870107959219763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3335867957100949692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f5a5c20056bb8418da574f819049aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!1 &3335872132925022696
 GameObject:
   m_ObjectHideFlags: 0
@@ -19814,6 +19716,8 @@ MonoBehaviour:
   _rotationParent: {fileID: 5295358006573098799}
   _rotationSpeed: 1000
   _destinationScale: 0.6
+  _sampleScale: 0.5
+  _sampleDistance: 0.3
 --- !u!1 &3336875771964367940
 GameObject:
   m_ObjectHideFlags: 0
