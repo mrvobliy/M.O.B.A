@@ -7,9 +7,31 @@ public class Player : Unit
 	[SerializeField] private float _destinationScale;
 	[SerializeField] private float _sampleScale;
 	[SerializeField] private float _sampleDistance;
+	[SerializeField] private float _blendAttackLayerDuration = 0.3f;
+
+	private bool _blendAttack;
 
 	protected override Vector3 GetTarget()
 	{
+		if (_agent.velocity.magnitude < 0.1f)
+		{
+			if (_blendAttack)
+			{
+				_blendAttack = false;
+				_animator.DOLayerWeight(2, 0f, _blendAttackLayerDuration);
+				_animator.DOLayerWeight(3, 1f, _blendAttackLayerDuration);
+			}
+		}
+		else
+		{
+			if (_blendAttack == false)
+			{
+				_blendAttack = true;
+				_animator.DOLayerWeight(2, 1f, _blendAttackLayerDuration);
+				_animator.DOLayerWeight(3, 0f, _blendAttackLayerDuration);
+			}
+		}
+
 		_agent.stoppingDistance = 0f;
 
 		var x = Joystick.Instance.Direction.x;
