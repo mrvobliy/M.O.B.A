@@ -14,30 +14,4 @@ public static class Helper
 		vector.y = y;
 		return vector;
 	}
-
-	public static Target FindClosestTarget(Vector3 position, float radius, Collider[] results, Team myTeam)
-	{
-		var amount = Physics.OverlapSphereNonAlloc(position, radius, results);
-
-		var minDistance = float.MaxValue;
-		Target target = null;
-
-		for (var i = 0; i < amount; i++)
-		{
-			var collider = results[i];
-			var found = collider.TryGetComponent(out Target attackTarget);
-			if (found == false) continue;
-			if (attackTarget.Team == myTeam) continue;
-			if (attackTarget.IsDead) continue;
-
-			var distance = (position.SetY(0f) - attackTarget.transform.position.SetY(0f)).sqrMagnitude;
-			if (distance < minDistance)
-			{
-				minDistance = distance;
-				target = attackTarget;
-			}
-		}
-
-		return target;
-	}
 }

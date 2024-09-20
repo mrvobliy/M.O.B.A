@@ -6,7 +6,6 @@ public abstract class Unit : Attacker
 {
 	[Header("Unit")]
 	[SerializeField] protected NavMeshAgent _agent;
-	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private float _rotationSpeed = 200f;
 
 	public override float Radius => _agent.radius;

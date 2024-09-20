@@ -4,6 +4,7 @@ public abstract class Attacker : Target
 {
 	[Header("Attacker")]
 	[SerializeField] private AnimationEvents _events;
+	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private Projectile _projectilePrefab;
 	[SerializeField] private Transform _projectileOrigin;
 	[SerializeField] private Transform _projectileOrigin2;
@@ -12,6 +13,7 @@ public abstract class Attacker : Target
 	[SerializeField] protected float _attackDistance = 1f;
 	[SerializeField] protected float _detectionRadius = 5f;
 	[SerializeField] protected int _damage = 10;
+	[SerializeField] protected float _maxAngleAttack = 180f;
 
 	private bool _insideAttack;
 
@@ -71,8 +73,7 @@ public abstract class Attacker : Target
 
 		if (IsDead) return;
 
-		_targetToKill = Helper.FindClosestTarget
-				(transform.position, _detectionRadius, _results, Team);
+		_targetToKill = FindClosestTarget();
 
 		if (_targetToKill != null)
 		{
@@ -103,5 +104,37 @@ public abstract class Attacker : Target
 		_insideAttack = true;
 		var indexAnim = Random.Range(0, _attackAnimationAmount) + 1;
 		_animator.SetTrigger(AnimatorHash.GetAttackHash(indexAnim));
+	}
+
+	public Target FindClosestTarget()
+	{
+		var amount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _results);
+
+		var minDistance = float.MaxValue;
+		Target target = null;
+
+		var forward = _rotationParent == null ? transform.forward : _rotationParent.forward;
+
+		for (var i = 0; i < amount; i++)
+		{
+			var collider = _results[i];
+			var found = collider.TryGetComponent(out Target attackTarget);
+			if (found == false) continue;
+			if (attackTarget.Team == Team) continue;
+			if (attackTarget.IsDead) continue;
+
+			var direction = attackTarget.transform.position.SetY(0f) - transform.position.SetY(0f);
+			var angle = Vector3.Angle(forward, direction);
+			if (angle > _maxAngleAttack) continue;
+
+			var distance = direction.sqrMagnitude;
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				target = attackTarget;
+			}
+		}
+
+		return target;
 	}
 }

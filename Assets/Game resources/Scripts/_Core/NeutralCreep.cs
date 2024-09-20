@@ -20,8 +20,7 @@ public class NeutralCreep : Unit
 	{
 		_currentPassiveCooldown = _passiveCooldown;
 
-		_targetToKill = Helper.FindClosestTarget
-			(transform.position, _detectionRadius, _results, Team);
+		_targetToKill = FindClosestTarget();
 	}
 
 	protected override Vector3 GetTarget()

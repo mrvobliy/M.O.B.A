@@ -19705,19 +19705,22 @@ MonoBehaviour:
   _diveDuration: 1
   _diveDepth: 10
   _events: {fileID: 8494773281964366425}
+  _rotationParent: {fileID: 5295358006573098799}
   _projectilePrefab: {fileID: 0}
   _projectileOrigin: {fileID: 0}
+  _projectileOrigin2: {fileID: 0}
   _projectileSpeed: 0
   _attackAnimationAmount: 3
   _attackDistance: 2
   _detectionRadius: 2
   _damage: 50
+  _maxAngleAttack: 45
   _agent: {fileID: 6947495756246805441}
-  _rotationParent: {fileID: 5295358006573098799}
   _rotationSpeed: 1000
   _destinationScale: 0.6
   _sampleScale: 0.5
   _sampleDistance: 0.3
+  _blendAttackLayerDuration: 0.3
 --- !u!1 &3336875771964367940
 GameObject:
   m_ObjectHideFlags: 0
