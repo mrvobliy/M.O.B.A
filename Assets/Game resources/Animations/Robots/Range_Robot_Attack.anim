@@ -4082,7 +4082,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.25
-    functionName: FireProjectile
+    functionName: FireProjectile2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -4090,13 +4090,6 @@ AnimationClip:
     messageOptions: 0
   - time: 1.75
     functionName: FireProjectile
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3
-    functionName: AttackEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
