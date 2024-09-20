@@ -55,7 +55,7 @@ public abstract class Attacker : Target
 
 	private void FixedUpdate()
 	{
-		_animator.SetBool("IsAttacking", false);
+		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
 		if (IsDead) return;
 
@@ -78,7 +78,7 @@ public abstract class Attacker : Target
 
 			if (distanceToTarget < _attackDistance)
 			{
-				_animator.SetBool("IsAttacking", true);
+				_animator.SetBool(AnimatorHash.IsAttacking, true);
 				TryToAttack();
 			}
 		}
@@ -90,6 +90,6 @@ public abstract class Attacker : Target
 
 		_insideAttack = true;
 		var indexAnim = Random.Range(0, _attackAnimationAmount) + 1;
-		_animator.SetTrigger("Attack" + indexAnim);
+		_animator.SetTrigger(AnimatorHash.GetAttackHash(indexAnim));
 	}
 }

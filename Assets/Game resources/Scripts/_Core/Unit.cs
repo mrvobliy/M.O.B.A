@@ -24,15 +24,15 @@ public abstract class Unit : Attacker
 
 		OnDeath += Unit_OnDeath;
 
-		_animator.SetFloat("Offset", Random.Range(0f, 1f));
+		_animator.SetFloat(AnimatorHash.Offset, Random.Range(0f, 1f));
 	}
 
 	private void Unit_OnDeath()
 	{
 		_agent.enabled = false;
 
-		_animator.SetBool("IsRunning", false);
-		_animator.SetFloat("Speed", 0f);
+		_animator.SetBool(AnimatorHash.IsRunning, false);
+		_animator.SetFloat(AnimatorHash.Speed, 0f);
 	}
 
 	protected abstract Vector3 GetTarget();
@@ -43,8 +43,8 @@ public abstract class Unit : Attacker
 
 		var speed = _agent.velocity.magnitude;
 
-		_animator.SetBool("IsRunning", speed > 0.01f);
-		_animator.SetFloat("Speed", speed);
+		_animator.SetBool(AnimatorHash.IsRunning, speed > 0.01f);
+		_animator.SetFloat(AnimatorHash.Speed, speed);
 
 		var target = GetTarget();
 

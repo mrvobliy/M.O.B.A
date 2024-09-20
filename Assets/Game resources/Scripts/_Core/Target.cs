@@ -55,8 +55,7 @@ public abstract class Target : MonoBehaviour
 			_currentHealth = 0;
 			OnDeath?.Invoke();
 
-			_animator.SetTrigger("Death");
-
+			_animator.SetTrigger(AnimatorHash.Death);
 			if (_useDive)
 			{
 				var target = transform.localPosition.y - _diveDepth;
