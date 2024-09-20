@@ -6,6 +6,7 @@ public abstract class Attacker : Target
 	[SerializeField] private AnimationEvents _events;
 	[SerializeField] private Projectile _projectilePrefab;
 	[SerializeField] private Transform _projectileOrigin;
+	[SerializeField] private Transform _projectileOrigin2;
 	[SerializeField] private float _projectileSpeed = 1f;
 	[SerializeField] private int _attackAnimationAmount = 1;
 	[SerializeField] protected float _attackDistance = 1f;
@@ -23,18 +24,29 @@ public abstract class Attacker : Target
 		base.Awake();
 
 		_events.OnFireProjectile += OnFireProjectile;
+		_events.OnFireProjectile2 += OnFireProjectile2;
 		_events.OnAttackBegin += OnAttackBegin;
 		_events.OnAttackEnd += OnAttackEnd;
 	}
 
-	private void OnFireProjectile()
+	private void Fire(Transform origin)
 	{
 		if (_targetToKill == null) return;
 
 		var projectile = Instantiate(_projectilePrefab,
-			_projectileOrigin.position, Quaternion.identity);
+			origin.position, Quaternion.identity);
 
 		projectile.Init(_damage, _targetToKill, _projectileSpeed);
+	}
+
+	private void OnFireProjectile2()
+	{
+		Fire(_projectileOrigin2);
+	}
+
+	private void OnFireProjectile()
+	{
+		Fire(_projectileOrigin);
 	}
 
 	private void OnAttackEnd()
@@ -55,7 +67,7 @@ public abstract class Attacker : Target
 
 	private void FixedUpdate()
 	{
-		_animator.SetBool("IsAttacking", false);
+		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
 		if (IsDead) return;
 
@@ -78,7 +90,7 @@ public abstract class Attacker : Target
 
 			if (distanceToTarget < _attackDistance)
 			{
-				_animator.SetBool("IsAttacking", true);
+				_animator.SetBool(AnimatorHash.IsAttacking, true);
 				TryToAttack();
 			}
 		}
@@ -90,6 +102,6 @@ public abstract class Attacker : Target
 
 		_insideAttack = true;
 		var indexAnim = Random.Range(0, _attackAnimationAmount) + 1;
-		_animator.SetTrigger("Attack" + indexAnim);
+		_animator.SetTrigger(AnimatorHash.GetAttackHash(indexAnim));
 	}
 }
