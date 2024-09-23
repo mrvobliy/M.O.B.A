@@ -212,7 +212,7 @@ public class NpcHero : Unit
 	}
 
 #if UNITY_EDITOR
-	protected void OnDrawGizmosSelected()
+	protected new void OnDrawGizmosSelected()
 	{
 		base.OnDrawGizmosSelected();
 

@@ -19,7 +19,8 @@ public static class AnimatorHash
             1 => Attack1,
             2 => Attack2,
             3 => Attack3,
-            4 => Attack4
+            4 => Attack4,
+            _ => Attack1
         };
     }
 }

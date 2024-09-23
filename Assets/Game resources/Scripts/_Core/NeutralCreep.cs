@@ -8,7 +8,7 @@ public class NeutralCreep : Creep
 	private float _currentPassiveCooldown;
 	private Vector3 _spawnPosition;
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 

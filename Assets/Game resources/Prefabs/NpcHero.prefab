@@ -19704,6 +19704,7 @@ MonoBehaviour:
   _diveDelay: 3
   _diveDuration: 1
   _diveDepth: 10
+  _regeneration: 10
   _events: {fileID: 8494773281964366425}
   _rotationParent: {fileID: 5295358006573098799}
   _projectilePrefab: {fileID: 0}
@@ -19720,6 +19721,8 @@ MonoBehaviour:
   _blendAttackLayerDuration: 0.3
   _lane: 0
   _randomIdleRadius: 0.5
+  _fallbackHealthPercent: 0.4
+  _pushHealthPercent: 0.6
 --- !u!1 &3336875771964367940
 GameObject:
   m_ObjectHideFlags: 0

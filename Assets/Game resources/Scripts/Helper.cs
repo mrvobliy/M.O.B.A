@@ -21,7 +21,8 @@ public static class Helper
 		{
 			Team.Dark => Team.Light,
 			Team.Light => Team.Dark,
-			Team.Neutral => Team.Neutral
+			Team.Neutral => Team.Neutral,
+			_ => Team.Neutral
 		};
 	}
 }

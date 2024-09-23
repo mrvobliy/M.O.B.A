@@ -51,7 +51,8 @@ public class Map : MonoBehaviour
 		return team switch
 		{
 			Team.Light => _lightThrone,
-			Team.Dark => _darkThrone
+			Team.Dark => _darkThrone,
+			_ => null
 		};
 	}
 
@@ -70,7 +71,9 @@ public class Map : MonoBehaviour
 					Lane.Middle when tier == 2 => _lightMiddleTower2,
 
 					Lane.Bottom when tier == 1 => _lightBottomTower1,
-					Lane.Bottom when tier == 2 => _lightBottomTower2
+					Lane.Bottom when tier == 2 => _lightBottomTower2,
+
+					_ => null
 				};
 			}
 
@@ -85,7 +88,9 @@ public class Map : MonoBehaviour
 					Lane.Middle when tier == 2 => _darkMiddleTower2,
 
 					Lane.Bottom when tier == 1 => _darkBottomTower1,
-					Lane.Bottom when tier == 2 => _darkBottomTower2
+					Lane.Bottom when tier == 2 => _darkBottomTower2,
+
+					_ => null
 				};
 			}
 		}
@@ -100,7 +105,9 @@ public class Map : MonoBehaviour
 		{
 			Lane.Top => _topZone,
 			Lane.Middle => _middleZone,
-			Lane.Bottom => _bottomZone
+			Lane.Bottom => _bottomZone,
+
+			_ => null
 		};
 	}
 }

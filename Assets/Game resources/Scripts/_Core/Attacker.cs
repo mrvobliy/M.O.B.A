@@ -25,7 +25,7 @@ public abstract class Attacker : Target
 
 	public Vector3 Forward => _rotationParent == null ? transform.forward : _rotationParent.forward;
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 
@@ -139,7 +139,7 @@ public abstract class Attacker : Target
 	}
 
 #if UNITY_EDITOR
-	protected void OnDrawGizmosSelected()
+	protected new void OnDrawGizmosSelected()
 	{
 		Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
 		Handles.color = new Color(1f, 0f, 1f, 0.2f);

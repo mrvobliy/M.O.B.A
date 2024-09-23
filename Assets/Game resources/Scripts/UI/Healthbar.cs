@@ -20,7 +20,8 @@ public class Healthbar : MonoBehaviour
 		{
 			Team.Neutral => Color.yellow,
 			Team.Light => Color.green,
-			Team.Dark => Color.red
+			Team.Dark => Color.red,
+			_ => Color.grey
 		};
 	}
 

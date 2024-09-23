@@ -19,7 +19,7 @@ public class Tower : Attacker
 		return true;
 	}
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 		OnDeath += Die;

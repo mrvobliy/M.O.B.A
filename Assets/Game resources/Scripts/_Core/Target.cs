@@ -13,21 +13,22 @@ public abstract class Target : MonoBehaviour
 
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
-	[SerializeField] private int _maxHealth = 100;
+	[SerializeField] private float _maxHealth = 100;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 10f;
 	[SerializeField] private float _diveDepth = 1f;
+	[SerializeField] private float _regeneration;
 
-	private int _currentHealth;
+	private float _currentHealth;
 
 	public bool IsBeingAttacked { get; set; }
 
 	public Team Team => _team;
-	public int CurrentHealth => _currentHealth;
-	public int MaxHealth => _maxHealth;
-	public bool IsDead => _currentHealth == 0;
-	public float HealthPercent => _currentHealth / (float)_maxHealth;
+	public float CurrentHealth => _currentHealth;
+	public float MaxHealth => _maxHealth;
+	public bool IsDead => _currentHealth < 0f || Mathf.Approximately(_currentHealth, 0f);
+	public float HealthPercent => _currentHealth / _maxHealth;
 
 	public abstract float Radius { get; }
 
@@ -41,15 +42,22 @@ public abstract class Target : MonoBehaviour
 		OnStart?.Invoke(this);
 	}
 
+	protected void Update()
+	{
+		if (IsDead) return;
+
+		_currentHealth = Mathf.MoveTowards(_currentHealth, _maxHealth, Time.deltaTime * _regeneration);
+	}
+
 	public void TakeDamage(int damage)
 	{
-		if (_currentHealth <= 0) return;
+		if (IsDead) return;
 
 		_currentHealth -= damage;
 
-		if (_currentHealth <= 0)
+		if (IsDead)
 		{
-			_currentHealth = 0;
+			_currentHealth = 0f;
 			OnDeath?.Invoke();
 
 			_animator.SetTrigger(AnimatorHash.Death);
