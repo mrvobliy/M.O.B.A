@@ -204,14 +204,17 @@ MonoBehaviour:
   _diveDuration: 10
   _diveDepth: 1
   _events: {fileID: 4398518581069514166}
-  _projectilePrefab: {fileID: 8383380591834786236, guid: 94d53d5a6ccec504caecf6cb92d1ffd9,
+  _rotationParent: {fileID: 0}
+  _projectilePrefab: {fileID: 8383380591834786236, guid: 01bb7d73beefbec499d3bfde20b81bc9,
     type: 3}
   _projectileOrigin: {fileID: 2321571797972280036}
+  _projectileOrigin2: {fileID: 0}
   _projectileSpeed: 1
   _attackAnimationAmount: 1
   _attackDistance: 5
   _detectionRadius: 5
   _damage: 10
+  _maxAngleAttack: 180
   _obstacle: {fileID: 1416398055680106750}
   _rigidbodies:
   - {fileID: 6059121538092077543}

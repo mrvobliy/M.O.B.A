@@ -2936,15 +2936,17 @@ MonoBehaviour:
   _diveDuration: 1
   _diveDepth: 10
   _events: {fileID: 5209408215701000448}
+  _rotationParent: {fileID: 182587009839807868}
   _projectilePrefab: {fileID: 0}
   _projectileOrigin: {fileID: 0}
+  _projectileOrigin2: {fileID: 0}
   _projectileSpeed: 0
   _attackAnimationAmount: 1
   _attackDistance: 1
   _detectionRadius: 5
-  _damage: 5
+  _damage: 10
+  _maxAngleAttack: 180
   _agent: {fileID: 3491033238560658643}
-  _rotationParent: {fileID: 182587009839807868}
   _rotationSpeed: 200
 --- !u!1 &3491033238563149599
 GameObject:
