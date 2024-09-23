@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : Unit
+public class PlayerHero : Unit
 {
 	[Header("Player")]
 	[SerializeField] private float _destinationScale;

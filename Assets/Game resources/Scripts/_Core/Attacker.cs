@@ -17,7 +17,8 @@ public abstract class Attacker : Target
 
 	private bool _insideAttack;
 
-	protected Collider[] _results = new Collider[64];
+	protected Collider[] _nearbyColliders = new Collider[64];
+	protected int _nearbyAmount;
 
 	protected Target _targetToKill;
 
@@ -71,6 +72,11 @@ public abstract class Attacker : Target
 	{
 		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
+		if (_targetToKill != null)
+		{
+			_targetToKill.IsBeingAttacked = false;
+		}
+
 		if (IsDead) return;
 
 		_targetToKill = FindClosestTarget();
@@ -92,6 +98,7 @@ public abstract class Attacker : Target
 			if (distanceToTarget < _attackDistance)
 			{
 				_animator.SetBool(AnimatorHash.IsAttacking, true);
+				_targetToKill.IsBeingAttacked = true;
 				TryToAttack();
 			}
 		}
@@ -108,16 +115,16 @@ public abstract class Attacker : Target
 
 	public Target FindClosestTarget()
 	{
-		var amount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _results);
+		_nearbyAmount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _nearbyColliders);
 
 		var minDistance = float.MaxValue;
 		Target target = null;
 
 		var forward = _rotationParent == null ? transform.forward : _rotationParent.forward;
 
-		for (var i = 0; i < amount; i++)
+		for (var i = 0; i < _nearbyAmount; i++)
 		{
-			var collider = _results[i];
+			var collider = _nearbyColliders[i];
 			var found = collider.TryGetComponent(out Target attackTarget);
 			if (found == false) continue;
 			if (attackTarget.Team == Team) continue;

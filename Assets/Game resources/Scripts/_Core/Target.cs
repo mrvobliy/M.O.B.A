@@ -2,13 +2,7 @@ using UnityEngine;
 using System;
 using DG.Tweening;
 
-public enum Team
-{
-	Neutral,
-	Light,
-	Dark,
-}
-
+[SelectionBase]
 public abstract class Target : MonoBehaviour
 {
 	public static event Action<Target> OnStart;
@@ -17,7 +11,7 @@ public abstract class Target : MonoBehaviour
 	public event Action OnDamageTaken;
 
 	[SerializeField] protected Animator _animator;
-	[SerializeField] private Team _team;
+	[SerializeField] protected Team _team;
 	[SerializeField] private int _maxHealth = 100;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
@@ -25,6 +19,8 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private float _diveDepth = 1f;
 
 	private int _currentHealth;
+
+	public bool IsBeingAttacked { get; set; }
 
 	public Team Team => _team;
 	public int CurrentHealth => _currentHealth;
@@ -67,5 +63,23 @@ public abstract class Target : MonoBehaviour
 		}
 
 		OnDamageTaken?.Invoke();
+	}
+
+	public float DistanceTo(Vector3 point)
+	{
+		return (transform.position.SetY(0f) - point.SetY(0f)).magnitude;
+	}
+
+	public float DistanceTo(Transform otherTransform)
+	{
+		return (transform.position.SetY(0f) - otherTransform.position.SetY(0f)).magnitude;
+	}
+
+	public float DistanceTo(Target target)
+	{
+		var dist = (transform.position.SetY(0f) - target.transform.position.SetY(0f)).magnitude;
+		dist -= Radius;
+		dist -= target.Radius;
+		return dist;
 	}
 }

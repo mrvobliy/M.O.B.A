@@ -14,4 +14,14 @@ public static class Helper
 		vector.y = y;
 		return vector;
 	}
+
+	public static Team GetOpposite(this Team team)
+	{
+		return team switch
+		{
+			Team.Dark => Team.Light,
+			Team.Light => Team.Dark,
+			Team.Neutral => Team.Neutral
+		};
+	}
 }

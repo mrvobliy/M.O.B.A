@@ -702,7 +702,7 @@ NavMeshObstacle:
   m_Shape: 0
   m_Extents: {x: 0.8, y: 2, z: 0.8}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
@@ -738,14 +738,17 @@ MonoBehaviour:
   _diveDuration: 10
   _diveDepth: 1
   _events: {fileID: 3112315115077223815}
+  _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
   _projectileOrigin: {fileID: 329854061970882384}
+  _projectileOrigin2: {fileID: 0}
   _projectileSpeed: 1
   _attackAnimationAmount: 1
   _attackDistance: 5
   _detectionRadius: 5
   _damage: 10
+  _maxAngleAttack: 180
   _obstacle: {fileID: 3711116078013738374}
   _rigidbodies:
   - {fileID: 139693776954198648}
