@@ -16,6 +16,8 @@ public class NpcHero : Unit
 	[SerializeField] private float _blendAttackLayerDuration = 0.3f;
 	[SerializeField] private Lane _lane;
 	[SerializeField] private float _randomIdleRadius;
+	[SerializeField] private float _fallbackHealthPercent = 0.4f;
+	[SerializeField] private float _pushHealthPercent = 0.6f;
 
 	private bool _blendAttack;
 
@@ -77,7 +79,7 @@ public class NpcHero : Unit
 				var myCreepsHere = zone.HasLaneCreep(Team);
 				var enemyCreepsHere = zone.HasLaneCreep(_team.GetOpposite());
 
-				if (myCreepsHere && enemyCreepsHere)
+				if (HealthPercent > _pushHealthPercent && myCreepsHere && enemyCreepsHere)
 				{
 					_sampleGenerated = false;
 					_currentTower.ReturnSafeSpot(_currentSafeSpot);
@@ -135,10 +137,15 @@ public class NpcHero : Unit
 					_currentState = NpcHeroState.PushEnemyTower;
 				}
 
-				if (_targetToKill != null)
+				if (HealthPercent < _fallbackHealthPercent)
+				{
+					_currentState = NpcHeroState.MoveToTower;
+				}
+
+				if (_closestEnemy != null)
 				{
 					_agent.stoppingDistance = _attackDistance;
-					return _targetToKill.transform.position;
+					return _closestEnemy.transform.position;
 				}
 
 				return transform.position;
@@ -168,18 +175,32 @@ public class NpcHero : Unit
 		return transform.position;
 	}
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
-		return true;
+		switch (_currentState)
+		{
+			case NpcHeroState.Idle:
+			case NpcHeroState.MoveToTower:
+			case NpcHeroState.IdleRandom:
+				return true;
+
+			case NpcHeroState.PushEnemyTower:
+				return target is Tower;
+
+			case NpcHeroState.AttackNearbyCreeps:
+				return target is LaneCreep;
+		}
+
+		return false;
 	}
 
 	private bool IsFriendlyCreepNearby()
 	{
-		for (var i = 0; i < _nearbyAmount; i++)
+		for (var i = 0; i < _visibilityAmount; i++)
 		{
-			if (_nearbyColliders[i] == null) continue;
+			if (_visibilityColliders[i] == null) continue;
 
-			var isCreep = _nearbyColliders[i].TryGetComponent(out LaneCreep creep);
+			var isCreep = _visibilityColliders[i].TryGetComponent(out LaneCreep creep);
 
 			if (isCreep && creep.Team == _team)
 			{
@@ -190,8 +211,11 @@ public class NpcHero : Unit
 		return false;
 	}
 
-	private void OnDrawGizmos()
+#if UNITY_EDITOR
+	protected void OnDrawGizmosSelected()
 	{
+		base.OnDrawGizmosSelected();
+
 		if (_sampleGenerated)
 		{
 			Gizmos.color = Color.red;
@@ -201,4 +225,5 @@ public class NpcHero : Unit
 			Gizmos.DrawCube(_currentSample, Vector3.one * 0.1f);
 		}
 	}
+#endif
 }

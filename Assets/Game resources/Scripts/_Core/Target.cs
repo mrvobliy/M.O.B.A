@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using DG.Tweening;
+using UnityEditor;
 
 [SelectionBase]
 public abstract class Target : MonoBehaviour
@@ -82,4 +83,38 @@ public abstract class Target : MonoBehaviour
 		dist -= target.Radius;
 		return dist;
 	}
+
+	public Vector3 DirectionTo(Vector3 point)
+	{
+		return (point.SetY(0f) - transform.position.SetY(0f)).normalized;
+	}
+
+	public Vector3 DirectionTo(Transform otherTransform)
+	{
+		return (otherTransform.position.SetY(0f) - transform.position.SetY(0f)).normalized;
+	}
+
+	public Vector3 DirectionTo(Target target)
+	{
+		return (target.transform.position.SetY(0f) - transform.position.SetY(0f)).normalized;
+	}
+
+	public float SqrDistanceTo(Vector3 point)
+	{
+		return (transform.position.SetY(0f) - point.SetY(0f)).sqrMagnitude;
+	}
+
+	public float SqrDistanceTo(Transform otherTransform)
+	{
+		return (transform.position.SetY(0f) - otherTransform.position.SetY(0f)).sqrMagnitude;
+	}
+
+#if UNITY_EDITOR
+	protected void OnDrawGizmosSelected()
+	{
+		Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
+		Handles.color = new Color(0f, 1f, 0f, 1f);
+		Handles.DrawSolidDisc(transform.position + Vector3.up * 0.1f, Vector3.up, Radius);
+	}
+#endif
 }

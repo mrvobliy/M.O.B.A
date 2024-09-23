@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 public class DetectionZone : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class DetectionZone : MonoBehaviour
 		return false;
 	}
 
+#if UNITY_EDITOR
 	private void OnDrawGizmos()
 	{
-		Gizmos.color = new Color(0f, 1f, 0f, 0.4f);
-		Gizmos.DrawSphere(transform.position, _radius);
+		Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
+		Handles.color = new Color(0f, 1f, 0f, 1f);
+		Handles.DrawWireDisc(transform.position + Vector3.up * 0.1f, Vector3.up, _radius, 3f);
 	}
+#endif
 }

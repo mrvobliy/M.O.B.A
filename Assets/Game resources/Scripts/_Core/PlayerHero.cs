@@ -54,7 +54,7 @@ public class PlayerHero : Unit
 		return transform.position + inputDirection.normalized * _destinationScale;
 	}
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
 		return true;
 	}

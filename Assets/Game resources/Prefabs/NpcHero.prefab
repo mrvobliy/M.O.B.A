@@ -19712,7 +19712,7 @@ MonoBehaviour:
   _projectileSpeed: 1
   _attackAnimationAmount: 3
   _attackDistance: 2
-  _detectionRadius: 30
+  _detectionRadius: 10
   _damage: 5
   _maxAngleAttack: 45
   _agent: {fileID: 6947495756246805441}
