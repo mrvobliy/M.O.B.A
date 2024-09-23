@@ -24,11 +24,7 @@ public class LaneCreep : Creep
 		{
 			var next = _waypoints[_pathIndex];
 
-			var a = transform.position.SetY(0f);
-			var b = next.position.SetY(0f);
-
-			var distance = (a - b).magnitude;
-			if (distance < 0.5f)
+			if (DistanceTo(next) < 0.5f)
 			{
 				_pathIndex++;
 				if (_pathIndex == _waypoints.Length)

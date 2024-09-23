@@ -24,6 +24,9 @@ public class Map : MonoBehaviour
 	[SerializeField] private Tower _lightMiddleTower2;
 	[SerializeField] private Tower _lightTopTower1;
 	[SerializeField] private Tower _lightTopTower2;
+	[SerializeField] private Transform[] _lightTopWaypoints;
+	[SerializeField] private Transform[] _lightMiddleWaypoints;
+	[SerializeField] private Transform[] _lightBottomWaypoints;
 
 	[Header("Dark")]
 	[SerializeField] private Throne _darkThrone;
@@ -33,11 +36,9 @@ public class Map : MonoBehaviour
 	[SerializeField] private Tower _darkMiddleTower2;
 	[SerializeField] private Tower _darkTopTower1;
 	[SerializeField] private Tower _darkTopTower2;
-
-	[Header("Detectors")]
-	[SerializeField] private DetectionZone _topZone;
-	[SerializeField] private DetectionZone _middleZone;
-	[SerializeField] private DetectionZone _bottomZone;
+	[SerializeField] private Transform[] _darkTopWaypoints;
+	[SerializeField] private Transform[] _darkMiddleWaypoints;
+	[SerializeField] private Transform[] _darkBottomWaypoints;
 
 	public static Map Instance { get; private set; }
 
@@ -56,7 +57,7 @@ public class Map : MonoBehaviour
 		};
 	}
 
-	public Tower GetTower(Team team, Lane lane, int tier)
+	public Target GetFirstAliveBuilding(Team team, Lane lane)
 	{
 		switch (team)
 		{
@@ -64,14 +65,52 @@ public class Map : MonoBehaviour
 			{
 				return lane switch
 				{
-					Lane.Top when tier == 1 => _lightTopTower1,
-					Lane.Top when tier == 2 => _lightTopTower2,
+					Lane.Top when _lightTopTower2.IsDead == false => _lightTopTower2,
+					Lane.Top when _lightTopTower1.IsDead == false => _lightTopTower1,
 
-					Lane.Middle when tier == 1 => _lightMiddleTower1,
-					Lane.Middle when tier == 2 => _lightMiddleTower2,
+					Lane.Middle when _lightMiddleTower2.IsDead == false => _lightMiddleTower2,
+					Lane.Middle when _lightMiddleTower1.IsDead == false => _lightMiddleTower1,
 
-					Lane.Bottom when tier == 1 => _lightBottomTower1,
-					Lane.Bottom when tier == 2 => _lightBottomTower2,
+					Lane.Bottom when _lightBottomTower2.IsDead == false => _lightBottomTower2,
+					Lane.Bottom when _lightBottomTower1.IsDead == false => _lightBottomTower1,
+
+					_ => _lightThrone
+				};
+			}
+
+			case Team.Dark:
+			{
+				return lane switch
+				{
+					Lane.Top when _darkTopTower2.IsDead == false => _darkTopTower2,
+					Lane.Top when _darkTopTower1.IsDead == false => _darkTopTower1,
+
+					Lane.Middle when _darkMiddleTower2.IsDead == false => _darkMiddleTower2,
+					Lane.Middle when _darkMiddleTower1.IsDead == false => _darkMiddleTower1,
+
+					Lane.Bottom when _darkBottomTower2.IsDead == false => _darkBottomTower2,
+					Lane.Bottom when _darkBottomTower1.IsDead == false => _darkBottomTower1,
+
+					_ => _darkThrone
+				};
+			}
+		}
+
+		Debug.LogError("Building not found");
+		return null;
+	}
+
+	public Transform[] GetWaypoints(Team team, Lane lane)
+	{
+		switch (team)
+		{
+			case Team.Light:
+			{
+				return lane switch
+				{
+					Lane.Top => _lightTopWaypoints,
+					Lane.Middle => _lightMiddleWaypoints,
+					Lane.Bottom => _lightBottomWaypoints,
 
 					_ => null
 				};
@@ -81,33 +120,16 @@ public class Map : MonoBehaviour
 			{
 				return lane switch
 				{
-					Lane.Top when tier == 1 => _darkTopTower1,
-					Lane.Top when tier == 2 => _darkTopTower2,
-
-					Lane.Middle when tier == 1 => _darkMiddleTower1,
-					Lane.Middle when tier == 2 => _darkMiddleTower2,
-
-					Lane.Bottom when tier == 1 => _darkBottomTower1,
-					Lane.Bottom when tier == 2 => _darkBottomTower2,
+					Lane.Top => _darkTopWaypoints,
+					Lane.Middle => _darkMiddleWaypoints,
+					Lane.Bottom => _darkBottomWaypoints,
 
 					_ => null
 				};
 			}
 		}
 
-		Debug.LogError("Tower not found");
+		Debug.LogError("Waypoints not found");
 		return null;
-	}
-
-	public DetectionZone GetDetector(Lane lane)
-	{
-		return lane switch
-		{
-			Lane.Top => _topZone,
-			Lane.Middle => _middleZone,
-			Lane.Bottom => _bottomZone,
-
-			_ => null
-		};
 	}
 }

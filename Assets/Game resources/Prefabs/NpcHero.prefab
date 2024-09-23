@@ -19705,6 +19705,7 @@ MonoBehaviour:
   _diveDuration: 1
   _diveDepth: 10
   _regeneration: 10
+  _safeSpots: []
   _events: {fileID: 8494773281964366425}
   _rotationParent: {fileID: 5295358006573098799}
   _projectilePrefab: {fileID: 0}
@@ -19713,13 +19714,13 @@ MonoBehaviour:
   _projectileSpeed: 1
   _attackAnimationAmount: 3
   _attackDistance: 2
-  _detectionRadius: 10
+  _detectionRadius: 2
   _damage: 5
   _maxAngleAttack: 45
   _agent: {fileID: 6947495756246805441}
   _rotationSpeed: 1000
-  _blendAttackLayerDuration: 0.3
   _lane: 0
+  _blendAttackLayerDuration: 0.3
   _randomIdleRadius: 0.5
   _fallbackHealthPercent: 0.4
   _pushHealthPercent: 0.6

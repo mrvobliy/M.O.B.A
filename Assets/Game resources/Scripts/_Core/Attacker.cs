@@ -138,6 +138,40 @@ public abstract class Attacker : Target
 		return target;
 	}
 
+	public bool IsFriendlyLaneCreepNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			var found = collider.TryGetComponent(out LaneCreep target);
+
+			if (found == false) continue;
+			if (target.Team != Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsEnemyLaneCreepNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			var found = collider.TryGetComponent(out LaneCreep target);
+
+			if (found == false) continue;
+			if (target.Team == Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
 #if UNITY_EDITOR
 	protected new void OnDrawGizmosSelected()
 	{

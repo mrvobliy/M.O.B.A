@@ -1,32 +1,36 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEditor;
 
 public enum NpcHeroState
 {
-	Idle,
-	MoveToTower,
-	IdleRandom,
-	PushEnemyTower,
-	AttackNearbyCreeps
+	None,
+	MoveToSafeSpot,
+	WonderAroundSafeSpot,
+	PushEnemyBuilding,
+	AttackLaneCreeps,
+	FollowLane
 }
 
 public class NpcHero : Unit
 {
 	[Header("NPC Hero")]
-	[SerializeField] private float _blendAttackLayerDuration = 0.3f;
 	[SerializeField] private Lane _lane;
+	[SerializeField] private float _blendAttackLayerDuration = 0.3f;
 	[SerializeField] private float _randomIdleRadius;
 	[SerializeField] private float _fallbackHealthPercent = 0.4f;
 	[SerializeField] private float _pushHealthPercent = 0.6f;
 
 	private bool _blendAttack;
 
-	private NpcHeroState _currentState = NpcHeroState.MoveToTower;
+	private NpcHeroState _currentState = NpcHeroState.MoveToSafeSpot;
 	private Vector3 _sampleOrigin;
 	private Vector3 _currentSample;
 	private bool _sampleGenerated;
 	private Transform _currentSafeSpot;
-	private Tower _currentTower;
+	private Target _currentBuilding;
+	private int _pathIndex = -1;
+	private bool _pathIsFinished;
 
 	protected override Vector3 GetTarget()
 	{
@@ -53,19 +57,19 @@ public class NpcHero : Unit
 
 		switch (_currentState)
 		{
-			case NpcHeroState.MoveToTower:
+			case NpcHeroState.MoveToSafeSpot:
 			{
-				var tower = Map.Instance.GetTower(_team, _lane, 2);
+				var building = Map.Instance.GetFirstAliveBuilding(_team, _lane);
 
 				if (_currentSafeSpot == null)
 				{
-					_currentSafeSpot = tower.GetUnassignedClosestSafeSpot();
-					_currentTower = tower;
+					_currentSafeSpot = building.GetUnassignedClosestSafeSpot();
+					_currentBuilding = building;
 				}
 
 				if (DistanceTo(_currentSafeSpot) < 0.01f)
 				{
-					_currentState = NpcHeroState.IdleRandom;
+					_currentState = NpcHeroState.WonderAroundSafeSpot;
 					_sampleOrigin = _currentSafeSpot.position;
 					return transform.position;
 				}
@@ -73,19 +77,17 @@ public class NpcHero : Unit
 				return _currentSafeSpot.position;
 			}
 
-			case NpcHeroState.IdleRandom:
+			case NpcHeroState.WonderAroundSafeSpot:
 			{
-				var zone = Map.Instance.GetDetector(_lane);
-				var myCreepsHere = zone.HasLaneCreep(Team);
-				var enemyCreepsHere = zone.HasLaneCreep(_team.GetOpposite());
+				var myCreepsHere = IsFriendlyLaneCreepNearby();
 
-				if (HealthPercent > _pushHealthPercent && myCreepsHere && enemyCreepsHere)
+				if (HealthPercent > _pushHealthPercent && myCreepsHere)
 				{
 					_sampleGenerated = false;
-					_currentTower.ReturnSafeSpot(_currentSafeSpot);
+					_currentBuilding.ReturnSafeSpot(_currentSafeSpot);
 					_currentSafeSpot = null;
-					_currentTower = null;
-					_currentState = NpcHeroState.AttackNearbyCreeps;
+					_currentBuilding = null;
+					_currentState = NpcHeroState.FollowLane;
 					return transform.position;
 				}
 
@@ -122,24 +124,25 @@ public class NpcHero : Unit
 				return _currentSample;
 			}
 
-			case NpcHeroState.AttackNearbyCreeps:
+			case NpcHeroState.AttackLaneCreeps:
 			{
-				var zone = Map.Instance.GetDetector(_lane);
-				var myCreepsHere = zone.HasLaneCreep(Team);
-				var enemyCreepsHere = zone.HasLaneCreep(_team.GetOpposite());
+				var myCreepsHere = IsFriendlyLaneCreepNearby();
+				var enemyCreepsHere = IsEnemyLaneCreepNearby();
 				if (myCreepsHere == false)
 				{
-					_currentState = NpcHeroState.MoveToTower;
+					_currentState = NpcHeroState.MoveToSafeSpot;
 					return transform.position;
 				}
-				if (enemyCreepsHere == false)
-				{
-					_currentState = NpcHeroState.PushEnemyTower;
-				}
-
 				if (HealthPercent < _fallbackHealthPercent)
 				{
-					_currentState = NpcHeroState.MoveToTower;
+					_currentState = NpcHeroState.MoveToSafeSpot;
+					return transform.position;
+				}
+
+				if (enemyCreepsHere == false)
+				{
+					_currentState = NpcHeroState.PushEnemyBuilding;
+					return transform.position;
 				}
 
 				if (_closestEnemy != null)
@@ -151,24 +154,73 @@ public class NpcHero : Unit
 				return transform.position;
 			}
 
-			case NpcHeroState.PushEnemyTower:
+			case NpcHeroState.PushEnemyBuilding:
 			{
-				var zone = Map.Instance.GetDetector(_lane);
-				var myCreepsHere = zone.HasLaneCreep(Team);
-				var enemyCreepsHere = zone.HasLaneCreep(_team.GetOpposite());
+				var myCreepsHere = IsFriendlyLaneCreepNearby();
+				var enemyCreepsHere = IsEnemyLaneCreepNearby();
 				if (myCreepsHere == false)
 				{
-					_currentState = NpcHeroState.MoveToTower;
+					_currentState = NpcHeroState.MoveToSafeSpot;
+					return transform.position;
+				}
+				if (HealthPercent < _fallbackHealthPercent)
+				{
+					_currentState = NpcHeroState.MoveToSafeSpot;
 					return transform.position;
 				}
 				if (enemyCreepsHere)
 				{
-					_currentState = NpcHeroState.AttackNearbyCreeps;
+					_currentState = NpcHeroState.AttackLaneCreeps;
 					return transform.position;
 				}
 
-				var tower = Map.Instance.GetTower(_team.GetOpposite(), _lane, 2);
-				return tower.transform.position;
+				var building = Map.Instance.GetFirstAliveBuilding(_team.GetOpposite(), _lane);
+				return building.transform.position;
+			}
+
+			case NpcHeroState.FollowLane:
+			{
+				var enemyCreepsHere = IsEnemyLaneCreepNearby();
+				if (enemyCreepsHere)
+				{
+					_pathIndex = -1;
+					_currentState = NpcHeroState.AttackLaneCreeps;
+				}
+
+				if (_pathIsFinished)
+				{
+					return transform.position;
+				}
+
+				var waypoints = Map.Instance.GetWaypoints(_team, _lane);
+				var minDistance = float.MaxValue;
+
+				if (_pathIndex == -1)
+				{
+					var i = 0;
+					for (; i < waypoints.Length; i++)
+					{
+						var d = DistanceTo(waypoints[i]);
+
+						if (d < minDistance)
+						{
+							minDistance = d;
+							_pathIndex = i;
+						}
+					}
+				}
+
+				var next = waypoints[_pathIndex];
+				if (DistanceTo(next) < 0.5f)
+				{
+					_pathIndex++;
+					if (_pathIndex == waypoints.Length)
+					{
+						_pathIsFinished = true;
+					}
+				}
+
+				return next.position;
 			}
 		}
 
@@ -179,36 +231,21 @@ public class NpcHero : Unit
 	{
 		switch (_currentState)
 		{
-			case NpcHeroState.Idle:
-			case NpcHeroState.MoveToTower:
-			case NpcHeroState.IdleRandom:
-				return true;
+			case NpcHeroState.None:
+			case NpcHeroState.MoveToSafeSpot:
+			case NpcHeroState.WonderAroundSafeSpot:
+			case NpcHeroState.FollowLane:
+				return false;
 
-			case NpcHeroState.PushEnemyTower:
+			case NpcHeroState.PushEnemyBuilding:
 				return target is Tower;
 
-			case NpcHeroState.AttackNearbyCreeps:
+			case NpcHeroState.AttackLaneCreeps:
 				return target is LaneCreep;
+
+			default:
+				return false;
 		}
-
-		return false;
-	}
-
-	private bool IsFriendlyCreepNearby()
-	{
-		for (var i = 0; i < _visibilityAmount; i++)
-		{
-			if (_visibilityColliders[i] == null) continue;
-
-			var isCreep = _visibilityColliders[i].TryGetComponent(out LaneCreep creep);
-
-			if (isCreep && creep.Team == _team)
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 #if UNITY_EDITOR
@@ -224,6 +261,8 @@ public class NpcHero : Unit
 			Gizmos.color = Color.blue;
 			Gizmos.DrawCube(_currentSample, Vector3.one * 0.1f);
 		}
+
+		Handles.Label(transform.position, _currentState.ToString());
 	}
 #endif
 }

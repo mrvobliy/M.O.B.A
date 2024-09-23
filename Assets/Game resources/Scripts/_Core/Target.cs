@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using DG.Tweening;
 using UnityEditor;
+using System.Collections.Generic;
+using System.Linq;
 
 [SelectionBase]
 public abstract class Target : MonoBehaviour
@@ -19,6 +21,9 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private float _diveDuration = 10f;
 	[SerializeField] private float _diveDepth = 1f;
 	[SerializeField] private float _regeneration;
+	[SerializeField] private Transform[] _safeSpots;
+
+	private List<Transform> _safeSpotsPool = new();
 
 	private float _currentHealth;
 
@@ -35,6 +40,8 @@ public abstract class Target : MonoBehaviour
 	protected void Awake()
 	{
 		_currentHealth = _maxHealth;
+
+		_safeSpotsPool.AddRange(_safeSpots);
 	}
 
 	private void Start()
@@ -72,6 +79,23 @@ public abstract class Target : MonoBehaviour
 		}
 
 		OnDamageTaken?.Invoke();
+	}
+
+	public Transform GetUnassignedClosestSafeSpot()
+	{
+		if (_safeSpotsPool.Count == 0)
+		{
+			return null;
+		}
+
+		var safeSpot = _safeSpotsPool.OrderBy(x => DistanceTo(x)).First();
+		_safeSpotsPool.Remove(safeSpot);
+		return safeSpot;
+	}
+
+	public void ReturnSafeSpot(Transform safeSpot)
+	{
+		_safeSpotsPool.Add(safeSpot);
 	}
 
 	public float DistanceTo(Vector3 point)
