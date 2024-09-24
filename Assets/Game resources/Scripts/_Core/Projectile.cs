@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-	private const float Acceleration = 10f;
+	//private const float Acceleration = 10f;
 
 	private int _damage;
 	private Target _target;
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 		transform.position = Vector3.MoveTowards(transform.position,
 			_target.transform.position, _speed * Time.deltaTime);
 
-		_speed += Acceleration * Time.deltaTime;
+		//_speed += Acceleration * Time.deltaTime;
 
 		transform.LookAt(_target.transform);
 

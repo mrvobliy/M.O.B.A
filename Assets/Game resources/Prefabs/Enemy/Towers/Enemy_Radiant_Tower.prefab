@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8752061278316791218}
   - component: {fileID: 4398518581069514166}
   m_Layer: 10
-  m_Name: Enemy_Radiant_Tower_old
+  m_Name: Enemy_Radiant_Tower
   m_TagString: EmeraldAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
     type: 3}
   _projectileOrigin: {fileID: 2321571797972280036}
   _projectileOrigin2: {fileID: 0}
-  _projectileSpeed: 1
+  _projectileSpeed: 4.5
   _attackAnimationAmount: 1
   _attackDistance: 5
   _detectionRadius: 5
