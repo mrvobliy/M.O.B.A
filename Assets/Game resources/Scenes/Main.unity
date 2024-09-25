@@ -83834,11 +83834,6 @@ PrefabInstance:
       propertyPath: _team
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3336875771821518016, guid: 1afb3a232851df2419579826beb39bed,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518021, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
       propertyPath: _joystick
@@ -83862,7 +83857,7 @@ PrefabInstance:
     - target: {fileID: 3336875771821518023, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.801
+      value: 15.418
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
@@ -83872,7 +83867,7 @@ PrefabInstance:
     - target: {fileID: 3336875771821518023, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.467003
+      value: -49.073
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
@@ -83983,11 +83978,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6947495756246805441, guid: 1afb3a232851df2419579826beb39bed,
-        type: 3}
-      propertyPath: m_Speed
-      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1afb3a232851df2419579826beb39bed, type: 3}
