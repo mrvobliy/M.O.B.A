@@ -83834,6 +83834,11 @@ PrefabInstance:
       propertyPath: _team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518016, guid: 1afb3a232851df2419579826beb39bed,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518021, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
       propertyPath: _joystick

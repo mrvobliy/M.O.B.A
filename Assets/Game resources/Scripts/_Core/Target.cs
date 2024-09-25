@@ -23,10 +23,12 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 10f;
 	[SerializeField] private float _diveDepth = 1f;
+	[SerializeField] protected Transform _enemyAttackPoint;
 
 	private int _currentHealth;
 
 	public Team Team => _team;
+	public Transform EnemyAttackPoint => _enemyAttackPoint;
 	public int CurrentHealth => _currentHealth;
 	public int MaxHealth => _maxHealth;
 	public bool IsDead => _currentHealth == 0;

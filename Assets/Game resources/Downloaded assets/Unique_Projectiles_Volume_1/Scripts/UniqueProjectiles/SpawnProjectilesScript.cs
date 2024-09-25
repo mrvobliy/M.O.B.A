@@ -54,10 +54,10 @@ public class SpawnProjectilesScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKey (KeyCode.Space) && Time.time >= timeToFire || Input.GetMouseButton (0) && Time.time >= timeToFire) {
-			timeToFire = Time.time + 1f / effectToSpawn.GetComponent<ProjectileMoveScript>().fireRate;
+		/*if (Input.GetKey (KeyCode.Space) && Time.time >= timeToFire || Input.GetMouseButton (0) && Time.time >= timeToFire) {
+			timeToFire = Time.time + 1f / effectToSpawn.GetComponent<ProjectileVFXControl>().fireRate;
 			SpawnVFX ();	
-		}
+		}*/
 
 		if (Input.GetKeyDown (KeyCode.D))
 			Next ();
