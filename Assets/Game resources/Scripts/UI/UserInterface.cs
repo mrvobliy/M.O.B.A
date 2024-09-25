@@ -12,6 +12,8 @@ public class UserInterface : MonoBehaviour
 
 	private void OnAttackTargetAwake(Target target)
 	{
+		if (target.DontCreateHealthBar) return;
+		
 		var healthbar = Instantiate(_healthbarPrefab, _healthbarParent);
 		healthbar.Init(target);
 	}

@@ -21,6 +21,9 @@ public class PlayerDamageEffect : MonoBehaviour
     private void OnDisable()
     {
         _player.OnDamageTaken -= ChangeColor;
+        
+        foreach (var mat in _materials)
+            mat.color = _startColor;
     }
 
     [ProButton]
