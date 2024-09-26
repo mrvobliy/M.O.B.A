@@ -12,6 +12,7 @@ Material:
     type: 3}
   m_ValidKeywords:
   - TCP2_REFLECTIONS_FRESNEL
+  - TCP2_RIM_LIGHTING
   - TCP2_RIM_LIGHTING_LIGHTMASK
   - TCP2_SHADOW_LIGHT_COLOR
   - _EMISSION
@@ -154,7 +155,7 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 1
+    - _RimMax: 0.9
     - _RimMin: 0.5
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
@@ -179,16 +180,16 @@ Material:
     - _UseOcclusion: 0
     - _UseOutline: 0
     - _UseReflections: 0
-    - _UseRim: 0
+    - _UseRim: 1
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8921331, g: 0.16213551, b: 0.17181796, a: 1}
+    - _BaseColor: {r: 0, g: 0.60495615, b: 1, a: 1}
     - _Color: {r: 0.8921331, g: 0.16213548, b: 0.17181793, a: 1}
-    - _EmissionColor: {r: 2, g: 0, b: 0.0009659089, a: 2}
+    - _EmissionColor: {r: 0, g: 0.95658886, b: 1.74008, a: 2}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
