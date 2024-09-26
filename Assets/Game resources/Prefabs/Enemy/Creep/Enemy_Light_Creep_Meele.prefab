@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3491033238560658664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.24, y: -2.335, z: -3.23}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -538,16 +538,20 @@ MonoBehaviour:
   _diveDelay: 3
   _diveDuration: 10
   _diveDepth: 1
+  _enemyAttackPoint: {fileID: 0}
+  _dontCreateHealthBar: 0
   _events: {fileID: 4030434059336563946}
+  _rotationParent: {fileID: 4557944634996708653}
   _projectilePrefab: {fileID: 0}
   _projectileOrigin: {fileID: 0}
+  _projectileOrigin2: {fileID: 0}
   _projectileSpeed: 1
   _attackAnimationAmount: 1
   _attackDistance: 1
   _detectionRadius: 5
   _damage: 10
+  _maxAngleAttack: 180
   _agent: {fileID: 3491033238560658643}
-  _rotationParent: {fileID: 4557944634996708653}
   _rotationSpeed: 200
 --- !u!1 &4414749953992702336
 GameObject:

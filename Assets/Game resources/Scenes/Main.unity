@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &19268913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4403,7 +4403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &174626989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13550,7 +13550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &376813050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14950,7 +14950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &430436338
 Transform:
   m_ObjectHideFlags: 0
@@ -71702,7 +71702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1872266243
 Transform:
   m_ObjectHideFlags: 0
@@ -71745,7 +71745,7 @@ MonoBehaviour:
   _spawnDelay: 30
   _meeleEnemyPrefab: {fileID: 5457933976685768967, guid: efd40fd6d3964b2448bd41bf9c828542,
     type: 3}
-  _rangeEnemyPrefab: {fileID: 6139240734068119260, guid: fb01273361890734d9e9a4d89d31f7f6,
+  _rangeEnemyPrefab: {fileID: 5824317618251793612, guid: fb01273361890734d9e9a4d89d31f7f6,
     type: 3}
   _topLinePoints:
   - {fileID: 404615155}
@@ -77357,7 +77357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1996123225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83829,6 +83829,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 405038713449423632, guid: 1afb3a232851df2419579826beb39bed,
+        type: 3}
+      propertyPath: _team
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518021, guid: 1afb3a232851df2419579826beb39bed,
         type: 3}
       propertyPath: _joystick
