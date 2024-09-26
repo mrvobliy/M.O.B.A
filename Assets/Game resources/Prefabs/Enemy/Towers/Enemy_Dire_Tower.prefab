@@ -737,13 +737,15 @@ MonoBehaviour:
   _diveDelay: 3
   _diveDuration: 10
   _diveDepth: 1
+  _enemyAttackPoint: {fileID: 0}
+  _dontCreateHealthBar: 0
   _events: {fileID: 3112315115077223815}
   _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
   _projectileOrigin: {fileID: 329854061970882384}
   _projectileOrigin2: {fileID: 0}
-  _projectileSpeed: 2
+  _projectileSpeed: 4.5
   _attackAnimationAmount: 1
   _attackDistance: 5
   _detectionRadius: 5
