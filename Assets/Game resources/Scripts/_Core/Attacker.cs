@@ -36,7 +36,7 @@ public abstract class Attacker : Target
 		if (_targetToKill == null) return;
 
 		var projectile = Instantiate(_projectilePrefab,
-			origin.position, Quaternion.identity);
+			origin.position, origin.rotation);
 
 		projectile.Init(_damage, _targetToKill, _projectileSpeed);
 	}

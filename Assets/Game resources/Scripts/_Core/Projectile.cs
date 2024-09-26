@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 	[SerializeField] private ProjectileVFXControl _projectileVFX;
+	private float _distanceDetonation = 0.2f;
 	
 	private int _damage;
 	private Target _target;
@@ -26,7 +27,7 @@ public class Projectile : MonoBehaviour
 
 		var sqrDistance = (transform.position - _followPoint.position).sqrMagnitude;
 
-		if (sqrDistance < 0.01f)
+		if (sqrDistance < _distanceDetonation)
 		{
 			_target.TakeDamage(_damage);
 			_projectileVFX.SpawnHitEffect(_followPoint);
