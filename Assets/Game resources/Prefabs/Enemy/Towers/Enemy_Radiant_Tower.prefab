@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1309036163396091818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.07, y: -2.222, z: -31.231}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5797928315422577641}
@@ -203,6 +203,8 @@ MonoBehaviour:
   _diveDelay: 3
   _diveDuration: 10
   _diveDepth: 1
+  _enemyAttackPoint: {fileID: 0}
+  _dontCreateHealthBar: 0
   _events: {fileID: 4398518581069514166}
   _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: 01bb7d73beefbec499d3bfde20b81bc9,
