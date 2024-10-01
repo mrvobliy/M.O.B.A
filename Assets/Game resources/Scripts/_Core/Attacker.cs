@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class Attacker : Target
 {
@@ -15,6 +17,8 @@ public abstract class Attacker : Target
 	[SerializeField] protected int _damage = 10;
 	[SerializeField] protected float _maxAngleAttack = 180f;
 	[SerializeField] private bool _isSequentialAttckAnim;
+
+	public event Action<Target> OnTargetHit;
 
 	private bool _insideAttack;
 	private int _indexAttackAnim;
@@ -67,6 +71,7 @@ public abstract class Attacker : Target
 		if (_targetToKill == null) return;
 
 		_targetToKill.TakeDamage(_damage);
+		OnTargetHit?.Invoke(_targetToKill);
 	}
 
 	protected abstract bool IsTargetValid();

@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
 		_damage = damage;
 		_speed = speed;
 		_target = target;
-		_followPoint = target.EnemyAttackPoint != null ? target.EnemyAttackPoint : target.transform;
+		_followPoint = target.GetAttackPoint();
 	}
 
 	private void Update()

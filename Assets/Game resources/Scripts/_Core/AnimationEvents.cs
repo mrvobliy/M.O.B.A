@@ -8,6 +8,7 @@ public class AnimationEvents : MonoBehaviour
 	public event Action OnAttackBegin;
 	public event Action OnAttackEnd;
 	public event Action OnDeathCompleted;
+	public event Action OnPlayAttackEffect;
 
 	public void FireProjectile()
 	{
@@ -32,5 +33,10 @@ public class AnimationEvents : MonoBehaviour
 	public void DeathCompleted()
 	{
 		OnDeathCompleted?.Invoke();
+	}
+	
+	public void PlayAttackEffect()
+	{
+		OnPlayAttackEffect?.Invoke();
 	}
 }

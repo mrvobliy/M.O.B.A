@@ -30,7 +30,6 @@ public abstract class Target : MonoBehaviour
 
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
-	public Transform EnemyAttackPoint => _enemyAttackPoint;
 	public int CurrentHealth => _currentHealth;
 	public int MaxHealth => _maxHealth;
 	public bool IsDead => _currentHealth == 0;
@@ -71,5 +70,10 @@ public abstract class Target : MonoBehaviour
 		}
 
 		OnDamageTaken?.Invoke();
+	}
+
+	public Transform GetAttackPoint()
+	{
+		return _enemyAttackPoint != null ? _enemyAttackPoint : transform;
 	}
 }
