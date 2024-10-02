@@ -19717,8 +19717,8 @@ MonoBehaviour:
   _projectileSpeed: 1
   _attackAnimationAmount: 2
   _attackDistance: 2
-  _detectionRadius: 2
-  _damage: 5
+  _detectionRadius: 6
+  _damage: 20
   _maxAngleAttack: 45
   _isSequentialAttckAnim: 0
   _agent: {fileID: 6947495756246805441}
@@ -19728,6 +19728,10 @@ MonoBehaviour:
   _randomIdleRadius: 0.5
   _fallbackHealthPercent: 0.4
   _pushHealthPercent: 0.6
+  _stateSwitchCooldown: 0.25
+  _wonderPathMargin: 3
+  _pushPathMargin: -1.5
+  _fallbackPathMargin: 3
   _debugText: {fileID: 5791624060319781656}
 --- !u!1 &3336875771964367940
 GameObject:

@@ -230,9 +230,10 @@ public abstract class Attacker : Target
 			var collider = _visibilityColliders[i];
 			if (collider == null) continue;
 
-			var isTower = collider.TryGetComponent(out Tower target);
+			var isTower = collider.TryGetComponent(out Tower tower);
 			var isThrone = collider.TryGetComponent(out Throne throne);
 			var found = isTower || isThrone;
+			Target target = isTower ? tower : throne;
 
 			if (found == false) continue;
 			if (target.Team == Team) continue;
@@ -253,9 +254,10 @@ public abstract class Attacker : Target
 			var collider = _visibilityColliders[i];
 			if (collider == null) continue;
 
-			var isTower = collider.TryGetComponent(out Tower target);
+			var isTower = collider.TryGetComponent(out Tower tower);
 			var isThrone = collider.TryGetComponent(out Throne throne);
 			var found = isTower || isThrone;
+			Target target = isTower ? tower : throne;
 
 			if (found == false) continue;
 			if (target.Team != Team) continue;

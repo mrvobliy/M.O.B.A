@@ -23,6 +23,10 @@ public class NpcHero : Unit
 	[SerializeField] private float _randomIdleRadius;
 	[SerializeField] private float _fallbackHealthPercent = 0.4f;
 	[SerializeField] private float _pushHealthPercent = 0.6f;
+	[SerializeField] private float _stateSwitchCooldown = 1f;
+	[SerializeField] private float _wonderPathMargin;
+	[SerializeField] private float _pushPathMargin;
+	[SerializeField] private float _fallbackPathMargin;
 	[SerializeField] private TMP_Text _debugText;
 
 	private bool _blendAttack;
@@ -36,6 +40,7 @@ public class NpcHero : Unit
 		{
 			print($"Change state from {_currentState} to {value}");
 			_currentState = value;
+			_currentStateCooldown = _stateSwitchCooldown;
 		}
 	}
 
@@ -46,6 +51,9 @@ public class NpcHero : Unit
 	private Target _currentBuilding;
 	private int _pathIndex = -1;
 	private bool _pathIsFinished;
+	private float _currentStateCooldown;
+
+	private bool CanSwitchState => Mathf.Approximately(_currentStateCooldown, 0f);
 
 	private void Start()
 	{
@@ -60,6 +68,8 @@ public class NpcHero : Unit
 
 	protected override Vector3 GetTarget()
 	{
+		_currentStateCooldown = Mathf.MoveTowards(_currentStateCooldown, 0f, Time.deltaTime);
+
 		_debugText.text = CurrentState.ToString();
 
 		if (_agent.velocity.magnitude < 0.1f)
@@ -87,20 +97,7 @@ public class NpcHero : Unit
 		{
 			case NpcHeroState.MoveToSafeSpot:
 			{
-				//var closestIndex = GetClosestWaypointIndex();
-				//var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(closestIndex);
-
-				//if (myCreepsHere && HealthPercent > _pushHealthPercent)
-				//{
-				//	CurrentState = NpcHeroState.FollowLane;
-				//	_sampleGenerated = false;
-				//	_currentBuilding.ReturnSafeSpot(_currentSafeSpot);
-				//	_currentSafeSpot = null;
-				//	_currentBuilding = null;
-				//	return transform.position;
-				//}
-
-				if (DistanceTo(_currentSafeSpot) < 0.01f)
+				if (DistanceTo(_currentSafeSpot) < 0.01f && CanSwitchState)
 				{
 					CurrentState = NpcHeroState.WonderAroundSafeSpot;
 					_sampleOrigin = _currentSafeSpot.position;
@@ -113,9 +110,9 @@ public class NpcHero : Unit
 			case NpcHeroState.WonderAroundSafeSpot:
 			{
 				var pathDistance = GetPathDistance(out var _);
-				var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance);
+				var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance + _wonderPathMargin);
 
-				if (HealthPercent > _pushHealthPercent && myCreepsHere)
+				if (HealthPercent > _pushHealthPercent && myCreepsHere && CanSwitchState)
 				{
 					_sampleGenerated = false;
 					_currentBuilding.ReturnSafeSpot(_currentSafeSpot);
@@ -160,23 +157,28 @@ public class NpcHero : Unit
 
 			case NpcHeroState.AttackLaneCreeps:
 			{
-				var myCreepsHere = IsFriendlyLaneCreepNearby();
-				var enemyCreepsHere = IsEnemyLaneCreepNearby();
-				if (myCreepsHere == false)
+				if (CanSwitchState)
 				{
-					CurrentState = NpcHeroState.FollowLaneBack;
-					return transform.position;
-				}
-				if (HealthPercent < _fallbackHealthPercent)
-				{
-					CurrentState = NpcHeroState.FollowLaneBack;
-					return transform.position;
-				}
+					var pathDistance = GetPathDistance(out _);
+					var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance + _pushPathMargin);
 
-				if (enemyCreepsHere == false)
-				{
-					CurrentState = NpcHeroState.FollowLane;
-					return transform.position;
+					var enemyCreepsHere = IsEnemyLaneCreepNearby();
+					if (myCreepsHere == false)
+					{
+						CurrentState = NpcHeroState.FollowLaneBack;
+						return transform.position;
+					}
+					if (HealthPercent < _fallbackHealthPercent)
+					{
+						CurrentState = NpcHeroState.FollowLaneBack;
+						return transform.position;
+					}
+
+					if (enemyCreepsHere == false)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
 				}
 
 				if (_closestEnemy != null)
@@ -190,23 +192,26 @@ public class NpcHero : Unit
 
 			case NpcHeroState.PushEnemyBuilding:
 			{
-				var myCreepsHere = IsFriendlyLaneCreepNearby();
-				if (myCreepsHere == false)
+				if (CanSwitchState)
 				{
-					CurrentState = NpcHeroState.FollowLane;
-					return transform.position;
-				}
-				if (HealthPercent < _fallbackHealthPercent)
-				{
-					CurrentState = NpcHeroState.FollowLane;
-					return transform.position;
-				}
+					var myCreepsHere = IsFriendlyLaneCreepNearby();
+					if (myCreepsHere == false)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
+					if (HealthPercent < _fallbackHealthPercent)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
 
-				var enemyCreepsHere = IsEnemyLaneCreepNearby();
-				if (enemyCreepsHere)
-				{
-					CurrentState = NpcHeroState.FollowLane;
-					return transform.position;
+					var enemyCreepsHere = IsEnemyLaneCreepNearby();
+					if (enemyCreepsHere)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
 				}
 
 				var building = Map.Instance.GetFirstAliveBuilding(_team.GetOpposite(), _lane);
@@ -216,31 +221,35 @@ public class NpcHero : Unit
 			case NpcHeroState.FollowLane:
 			{
 				var pathDistance = GetPathDistance(out var pathIndex);
-				var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance);
 
-				var notEnoughHealth = HealthPercent < _fallbackHealthPercent;
-
-				if (myCreepsHere == false || notEnoughHealth)
+				if (CanSwitchState)
 				{
-					CurrentState = NpcHeroState.FollowLaneBack;
-					_pathIndex = -1;
-					return transform.position;
-				}
+					var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance + _pushPathMargin);
 
-				var enemyCreepsHere = IsEnemyLaneCreepNearby();
-				if (enemyCreepsHere)
-				{
-					_pathIndex = -1;
-					CurrentState = NpcHeroState.AttackLaneCreeps;
-					return transform.position;
-				}
+					var notEnoughHealth = HealthPercent < _fallbackHealthPercent;
 
-				var enemyBuildingHere = IsEnemyBuildingNearby();
-				if (enemyBuildingHere)
-				{
-					_pathIndex = -1;
-					CurrentState = NpcHeroState.PushEnemyBuilding;
-					return transform.position;
+					if (myCreepsHere == false || notEnoughHealth)
+					{
+						CurrentState = NpcHeroState.FollowLaneBack;
+						_pathIndex = -1;
+						return transform.position;
+					}
+
+					var enemyCreepsHere = IsEnemyLaneCreepNearby();
+					if (enemyCreepsHere)
+					{
+						_pathIndex = -1;
+						CurrentState = NpcHeroState.AttackLaneCreeps;
+						return transform.position;
+					}
+
+					var enemyBuildingHere = IsEnemyBuildingNearby();
+					if (enemyBuildingHere)
+					{
+						_pathIndex = -1;
+						CurrentState = NpcHeroState.PushEnemyBuilding;
+						return transform.position;
+					}
 				}
 
 				if (_pathIsFinished)
@@ -273,26 +282,30 @@ public class NpcHero : Unit
 				var pathDistance = GetPathDistance(out var pathIndex);
 				pathIndex--; // because backwards
 
-				var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance);
-
-				if (myCreepsHere && HealthPercent > _pushHealthPercent)
+				if (CanSwitchState)
 				{
-					CurrentState = NpcHeroState.FollowLane;
-					_pathIndex = -1;
-					return transform.position;
-				}
+					var myCreepsInFront = AreFriendlyLaneCreepsReadyToPush(pathDistance + _fallbackPathMargin);
 
-				var friendlyBuildingNearby = IsFriendlyBuildingNearby(out var building);
-				if (friendlyBuildingNearby)
-				{
-					_pathIndex = -1;
-					CurrentState = NpcHeroState.MoveToSafeSpot;
-					if (_currentSafeSpot == null)
+					if (myCreepsInFront && HealthPercent > _pushHealthPercent)
 					{
-						_currentSafeSpot = building.GetUnassignedClosestSafeSpot();
-						_currentBuilding = building;
+						CurrentState = NpcHeroState.FollowLane;
+						_pathIndex = -1;
+						return transform.position;
 					}
-					return transform.position;
+
+					var myCreepsPresent = IsFriendlyLaneCreepNearby();
+					var friendlyBuildingNearby = IsFriendlyBuildingNearby(out var building);
+					if (friendlyBuildingNearby && myCreepsPresent == false)
+					{
+						_pathIndex = -1;
+						CurrentState = NpcHeroState.MoveToSafeSpot;
+						if (_currentSafeSpot == null)
+						{
+							_currentSafeSpot = building.GetUnassignedClosestSafeSpot();
+							_currentBuilding = building;
+						}
+						return transform.position;
+					}
 				}
 
 				if (_pathIsFinished)
