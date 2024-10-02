@@ -271,6 +271,8 @@ public class NpcHero : Unit
 			case NpcHeroState.FollowLaneBack:
 			{
 				var pathDistance = GetPathDistance(out var pathIndex);
+				pathIndex--; // because backwards
+
 				var myCreepsHere = AreFriendlyLaneCreepsReadyToPush(pathDistance);
 
 				if (myCreepsHere && HealthPercent > _pushHealthPercent)
@@ -385,8 +387,9 @@ public class NpcHero : Unit
 				minDistance = distance;
 				minStart = i;
 				minEnd = i + 1;
-				distances.Add((end.position - start.position).magnitude);
 			}
+
+			distances.Add((end.position - start.position).magnitude);
 		}
 
 		prefferedWaypointIndex = minEnd;
@@ -403,7 +406,7 @@ public class NpcHero : Unit
 		var vectorToMyself = transform.position.SetY(0f) - segmentStart;
 		var vectorToEnd = segmentEnd - segmentStart;
 
-		var segmentDistance = Vector3.Dot(vectorToEnd, vectorToMyself);
+		var segmentDistance = Vector3.Project(vectorToMyself, vectorToEnd).magnitude;
 		return distanceBefore + segmentDistance;
 	}
 

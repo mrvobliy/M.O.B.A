@@ -45,7 +45,7 @@ public class LaneCreep : Creep
 		return target is not NeutralCreep;
 	}
 
-	public float GetPathDistance()
+	public float GetPathDistance(out int prefferedWaypointIndex)
 	{
 		var waypoints = _waypoints;
 
@@ -66,9 +66,12 @@ public class LaneCreep : Creep
 				minDistance = distance;
 				minStart = i;
 				minEnd = i + 1;
-				distances.Add((end.position - start.position).magnitude);
 			}
+
+			distances.Add((end.position - start.position).magnitude);
 		}
+
+		prefferedWaypointIndex = minEnd;
 
 		var distanceBefore = 0f;
 		for (var i = 0; i < minStart; i++)
@@ -82,7 +85,7 @@ public class LaneCreep : Creep
 		var vectorToMyself = transform.position.SetY(0f) - segmentStart;
 		var vectorToEnd = segmentEnd - segmentStart;
 
-		var segmentDistance = Vector3.Dot(vectorToEnd, vectorToMyself);
+		var segmentDistance = Vector3.Project(vectorToMyself, vectorToEnd).magnitude;
 		return distanceBefore + segmentDistance;
 	}
 }
