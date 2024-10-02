@@ -3238,6 +3238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcHero
       objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
       propertyPath: m_RootOrder
@@ -6544,6 +6549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NpcHero_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
@@ -16192,6 +16202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NpcHero_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
@@ -25907,6 +25922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NpcHero_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
@@ -36769,7 +36789,7 @@ GameObject:
   - component: {fileID: 1006166453}
   - component: {fileID: 1006166454}
   m_Layer: 0
-  m_Name: '----------------------------other'
+  m_Name: ----------------------------other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45522,6 +45542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NpcHero_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
@@ -55431,6 +55456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcHero_5
       objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
       propertyPath: m_RootOrder
@@ -60446,6 +60476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcHero_8
       objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
       propertyPath: m_RootOrder
@@ -63145,6 +63180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NpcHero_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
@@ -83867,6 +83907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcHero_7
       objectReference: {fileID: 0}
+    - target: {fileID: 3336875771821518022, guid: 6426026904a97c94895946b58f778d37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336875771821518023, guid: 6426026904a97c94895946b58f778d37,
         type: 3}
       propertyPath: m_RootOrder
@@ -86418,7 +86463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 919132148334202755}
-  _team: 2
+  _team: 1
   _maxHealth: 1000
   _useDive: 1
   _diveDelay: 3
@@ -86426,6 +86471,8 @@ MonoBehaviour:
   _diveDepth: 10
   _enemyAttackPoint: {fileID: 4813360880384556099}
   _dontCreateHealthBar: 1
+  _regeneration: 0
+  _safeSpots: []
   _events: {fileID: 919132148334202754}
   _rotationParent: {fileID: 7436026657235349609}
   _projectilePrefab: {fileID: 0}

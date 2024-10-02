@@ -142,6 +142,8 @@ public abstract class Attacker : Target
 		for (var i = 0; i < _visibilityAmount; i++)
 		{
 			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
 			var found = collider.TryGetComponent(out Target attackTarget);
 
 			if (found == false) continue;
@@ -165,6 +167,8 @@ public abstract class Attacker : Target
 		for (var i = 0; i < _visibilityAmount; i++)
 		{
 			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
 			var found = collider.TryGetComponent(out LaneCreep target);
 
 			if (found == false) continue;
@@ -177,17 +181,87 @@ public abstract class Attacker : Target
 		return false;
 	}
 
+	public bool AreFriendlyLaneCreepsReadyToPush(float yourPathDistance)
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var found = collider.TryGetComponent(out LaneCreep target);
+
+			if (found == false) continue;
+			if (target.Team != Team) continue;
+			if (target.IsDead) continue;
+
+			var creepDistance = target.GetPathDistance();
+			if (creepDistance > yourPathDistance)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public bool IsEnemyLaneCreepNearby()
 	{
 		for (var i = 0; i < _visibilityAmount; i++)
 		{
 			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
 			var found = collider.TryGetComponent(out LaneCreep target);
 
 			if (found == false) continue;
 			if (target.Team == Team) continue;
 			if (target.IsDead) continue;
 
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsEnemyBuildingNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var isTower = collider.TryGetComponent(out Tower target);
+			var isThrone = collider.TryGetComponent(out Throne throne);
+			var found = isTower || isThrone;
+
+			if (found == false) continue;
+			if (target.Team == Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsFriendlyBuildingNearby(out Target building)
+	{
+		building = null;
+
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var isTower = collider.TryGetComponent(out Tower target);
+			var isThrone = collider.TryGetComponent(out Throne throne);
+			var found = isTower || isThrone;
+
+			if (found == false) continue;
+			if (target.Team != Team) continue;
+			if (target.IsDead) continue;
+
+			building = target;
 			return true;
 		}
 
