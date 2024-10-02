@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 3, z: 0}
-  _canvasGroup: {fileID: 0}
+  _canvasGroup: {fileID: 1153465841704764808}
   _heathLine: {fileID: 8206470600320355891}
   _endPosValue: 150
 --- !u!225 &1153465841704764808
@@ -73,7 +73,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638346564065594524}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

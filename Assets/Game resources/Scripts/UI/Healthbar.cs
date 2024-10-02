@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Healthbar : MonoBehaviour
@@ -14,6 +15,7 @@ public class Healthbar : MonoBehaviour
 		_target = target;
 		_target.OnDeath += OnDeath;
 		_target.OnDamageTaken += OnDamageTaken;
+		target.OnEnemyAttackUs += TryShowHeathBar;
 	}
 
 	private void OnDamageTaken()
@@ -28,6 +30,7 @@ public class Healthbar : MonoBehaviour
 	{
 		_target.OnDeath -= OnDeath;
 		_target.OnDamageTaken -= OnDamageTaken;
+		_target.OnEnemyAttackUs += TryShowHeathBar;
 
 		Destroy(gameObject);
 	}
@@ -39,5 +42,19 @@ public class Healthbar : MonoBehaviour
 		screenPosition.z = 0f;
 
 		transform.position = screenPosition;
+	}
+
+	private void TryShowHeathBar(Target enemy)
+	{
+		if (enemy.transform.tag != "Player") return;
+
+		_canvasGroup.DOFade(1, 0.5f);
+		CancelInvoke(nameof(HideHealthBar));
+		Invoke(nameof(HideHealthBar), 10);
+	}
+
+	private void HideHealthBar()
+	{
+		_canvasGroup.DOFade(0, 0.5f);
 	}
 }

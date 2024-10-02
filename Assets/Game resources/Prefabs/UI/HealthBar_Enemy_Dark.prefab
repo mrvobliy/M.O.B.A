@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6703522935385972705}
   - component: {fileID: 4369180429726730387}
   - component: {fileID: 3956543130547307561}
+  - component: {fileID: 1253846216599999978}
   m_Layer: 0
   m_Name: HealthBar_Enemy_Dark
   m_TagString: Untagged
@@ -61,8 +62,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 2, z: 0}
-  _canvasGroup: {fileID: 0}
+  _canvasGroup: {fileID: 1253846216599999978}
   _heathLine: {fileID: 8206470600320355891}
+  _endPosValue: 100
+--- !u!225 &1253846216599999978
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638346564065594524}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2647561606437649342
 GameObject:
   m_ObjectHideFlags: 0

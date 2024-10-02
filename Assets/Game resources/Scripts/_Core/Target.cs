@@ -13,6 +13,7 @@ public abstract class Target : MonoBehaviour
 	
 	public event Action OnDeath;
 	public event Action OnDamageTaken;
+	public event Action<Target> OnEnemyAttackUs;
 
 	[SerializeField] private Healthbar _healthbarPrefab;
 	[SerializeField] protected Animator _animator;
@@ -64,7 +65,7 @@ public abstract class Target : MonoBehaviour
 		_currentHealth = Mathf.MoveTowards(_currentHealth, _maxHealth, Time.deltaTime * _regeneration);
 	}
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(Target target, int damage)
 	{
 		if (IsDead) return;
 
@@ -78,8 +79,8 @@ public abstract class Target : MonoBehaviour
 			_animator.SetTrigger(AnimatorHash.Death);
 			if (_useDive)
 			{
-				var target = transform.localPosition.y - _diveDepth;
-				transform.DOLocalMoveY(target, _diveDuration)
+				var targetPos = transform.localPosition.y - _diveDepth;
+				transform.DOLocalMoveY(targetPos, _diveDuration)
 					.SetDelay(_diveDelay)
 					.SetEase(Ease.Linear)
 					.OnComplete(() => Destroy(gameObject));
@@ -87,6 +88,7 @@ public abstract class Target : MonoBehaviour
 		}
 
 		OnDamageTaken?.Invoke();
+		OnEnemyAttackUs?.Invoke(target);
 	}
 
 	public Transform GetAttackPoint()

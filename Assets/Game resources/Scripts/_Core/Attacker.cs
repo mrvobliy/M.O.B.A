@@ -50,7 +50,7 @@ public abstract class Attacker : Target
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(_damage, _closestEnemy, _projectileSpeed);
+		projectile.Init(this, _damage, _closestEnemy, _projectileSpeed);
 	}
 
 	private void OnFireProjectile2()
@@ -75,7 +75,7 @@ public abstract class Attacker : Target
 		if (_insideAttack == false) return;
 		if (_closestEnemy == null) return;
 
-		_closestEnemy.TakeDamage(_damage);
+		_closestEnemy.TakeDamage(this, _damage);
 		OnTargetHit?.Invoke(_closestEnemy);
 	}
 
