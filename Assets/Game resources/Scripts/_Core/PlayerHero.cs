@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : Unit
+public class PlayerHero : Unit
 {
 	[Header("Player")]
 	[SerializeField] private float _destinationScale;
@@ -54,7 +54,7 @@ public class Player : Unit
 		return transform.position + inputDirection.normalized * _destinationScale;
 	}
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
 		return true;
 	}

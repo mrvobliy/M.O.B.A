@@ -180,7 +180,7 @@ NavMeshObstacle:
   m_Shape: 0
   m_Extents: {x: 0.8, y: 2, z: 0.8}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1309036163396089948}
   _team: 1
-  _maxHealth: 100
+  _maxHealth: 1000
   _useDive: 1
   _diveDelay: 3
   _diveDuration: 10
@@ -223,6 +223,7 @@ MonoBehaviour:
   - {fileID: 358401474215703578}
   - {fileID: 864060475171340381}
   - {fileID: 6475382579567111072}
+  _safeSpots: []
 --- !u!114 &4398518581069514166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerDamageEffect : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerHero _player;
     
     [SerializeField] private List<Material> _materials;
     [SerializeField] private Color _startColor;

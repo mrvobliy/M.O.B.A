@@ -9,12 +9,12 @@ public class Tower : Attacker
 
 	public override float Radius => _obstacle.radius;
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
 		return true;
 	}
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 		OnDeath += Die;

@@ -15,7 +15,7 @@ public abstract class Unit : Attacker
 		_rotationParent.rotation = rotation;
 	}
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 
@@ -36,8 +36,10 @@ public abstract class Unit : Attacker
 
 	protected abstract Vector3 GetTarget();
 
-	private void Update()
+	protected new void Update()
 	{
+		base.Update();
+
 		if (IsDead) return;
 
 		var speed = _agent.velocity.magnitude;

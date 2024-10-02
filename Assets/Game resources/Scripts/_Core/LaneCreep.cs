@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaneCreep : Unit
+public class LaneCreep : Creep
 {
 	private Transform[] _waypoints;
 	private bool _pathIsFinished;
@@ -15,20 +15,16 @@ public class LaneCreep : Unit
 	{
 		_agent.stoppingDistance = 0f;
 
-		if (_targetToKill != null)
+		if (_closestEnemy != null)
 		{
 			_agent.stoppingDistance = _attackDistance;
-			return _targetToKill.transform.position;
+			return _closestEnemy.transform.position;
 		}
 		else if (_pathIsFinished == false)
 		{
 			var next = _waypoints[_pathIndex];
 
-			var a = transform.position.SetY(0f);
-			var b = next.position.SetY(0f);
-
-			var distance = (a - b).magnitude;
-			if (distance < 0.5f)
+			if (DistanceTo(next) < 0.5f)
 			{
 				_pathIndex++;
 				if (_pathIndex == _waypoints.Length)
@@ -43,8 +39,8 @@ public class LaneCreep : Unit
 		return transform.position;
 	}
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
-		return _targetToKill is not NeutralCreep;
+		return target is not NeutralCreep;
 	}
 }

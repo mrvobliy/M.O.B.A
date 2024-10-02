@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NeutralCreep : Unit
+public class NeutralCreep : Creep
 {
 	[Header("Neutral Creep")]
 	[SerializeField] private float _passiveCooldown;
@@ -8,7 +8,7 @@ public class NeutralCreep : Unit
 	private float _currentPassiveCooldown;
 	private Vector3 _spawnPosition;
 
-	protected void Awake()
+	protected new void Awake()
 	{
 		base.Awake();
 
@@ -20,7 +20,7 @@ public class NeutralCreep : Unit
 	{
 		_currentPassiveCooldown = _passiveCooldown;
 
-		_targetToKill = FindClosestTarget();
+		_closestEnemy = FindClosestTarget();
 	}
 
 	protected override Vector3 GetTarget()
@@ -28,15 +28,15 @@ public class NeutralCreep : Unit
 		_currentPassiveCooldown = Mathf.MoveTowards(_currentPassiveCooldown, 0f, Time.deltaTime);
 		if (Mathf.Approximately(_currentPassiveCooldown, 0f))
 		{
-			_targetToKill = null;
+			_closestEnemy = null;
 			_agent.stoppingDistance = _attackDistance;
 			return _spawnPosition;
 		}
 
-		if (_targetToKill != null)
+		if (_closestEnemy != null)
 		{
 			_agent.stoppingDistance = _attackDistance;
-			return _targetToKill.transform.position;
+			return _closestEnemy.transform.position;
 		}
 		else
 		{
@@ -45,7 +45,7 @@ public class NeutralCreep : Unit
 		}
 	}
 
-	protected override bool IsTargetValid()
+	protected override bool IsTargetValid(Target target)
 	{
 		return true;
 	}

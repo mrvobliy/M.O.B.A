@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEditor;
 
 public abstract class Attacker : Target
 {
@@ -23,10 +24,14 @@ public abstract class Attacker : Target
 	private bool _insideAttack;
 	private int _indexAttackAnim;
 
-	protected Collider[] _results = new Collider[64];
-	protected Target _targetToKill;
+	protected Collider[] _visibilityColliders = new Collider[64];
+	protected int _visibilityAmount;
 
-	protected void Awake()
+	protected Target _closestEnemy;
+
+	public Vector3 Forward => _rotationParent == null ? transform.forward : _rotationParent.forward;
+
+	protected new void Awake()
 	{
 		base.Awake();
 
@@ -40,12 +45,12 @@ public abstract class Attacker : Target
 
 	private void Fire(Transform origin)
 	{
-		if (_targetToKill == null) return;
+		if (_closestEnemy == null) return;
 
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(_damage, _targetToKill, _projectileSpeed);
+		projectile.Init(_damage, _closestEnemy, _projectileSpeed);
 	}
 
 	private void OnFireProjectile2()
@@ -68,39 +73,41 @@ public abstract class Attacker : Target
 	private void OnAttackBegin()
 	{
 		if (_insideAttack == false) return;
-		if (_targetToKill == null) return;
+		if (_closestEnemy == null) return;
 
-		_targetToKill.TakeDamage(_damage);
-		OnTargetHit?.Invoke(_targetToKill);
+		_closestEnemy.TakeDamage(_damage);
+		OnTargetHit?.Invoke(_closestEnemy);
 	}
 
-	protected abstract bool IsTargetValid();
+	protected abstract bool IsTargetValid(Target target);
 
 	private void FixedUpdate()
 	{
 		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
+		if (_closestEnemy != null)
+		{
+			_closestEnemy.IsBeingAttacked = false;
+		}
+
 		if (IsDead) return;
 
-		_targetToKill = FindClosestTarget();
+		_visibilityAmount = Physics.OverlapSphereNonAlloc
+			(transform.position, _detectionRadius, _visibilityColliders);
 
-		if (_targetToKill != null)
+		_closestEnemy = FindClosestTarget();
+
+		if (_closestEnemy != null)
 		{
-			if (IsTargetValid() == false)
-			{
-				_targetToKill = null;
-				return;
-			}
+			var distanceToEnemy = DistanceTo(_closestEnemy);
+			var direction = DirectionTo(_closestEnemy);
+			var angle = Vector3.Angle(Forward, direction);
 
-			var distanceToTarget = Vector3.Distance
-				(_targetToKill.transform.position, transform.position);
-
-			distanceToTarget -= Radius;
-			distanceToTarget -= _targetToKill.Radius;
-
-			if (distanceToTarget < _attackDistance)
+			if (distanceToEnemy < _attackDistance &&
+				angle < _maxAngleAttack)
 			{
 				_animator.SetBool(AnimatorHash.IsAttacking, true);
+				_closestEnemy.IsBeingAttacked = true;
 				TryToAttack();
 			}
 		}
@@ -129,26 +136,20 @@ public abstract class Attacker : Target
 
 	public Target FindClosestTarget()
 	{
-		var amount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _results);
-
 		var minDistance = float.MaxValue;
 		Target target = null;
 
-		var forward = _rotationParent == null ? transform.forward : _rotationParent.forward;
-
-		for (var i = 0; i < amount; i++)
+		for (var i = 0; i < _visibilityAmount; i++)
 		{
-			var collider = _results[i];
+			var collider = _visibilityColliders[i];
 			var found = collider.TryGetComponent(out Target attackTarget);
+
 			if (found == false) continue;
 			if (attackTarget.Team == Team) continue;
 			if (attackTarget.IsDead) continue;
+			if (IsTargetValid(attackTarget) == false) continue;
 
-			var direction = attackTarget.transform.position.SetY(0f) - transform.position.SetY(0f);
-			var angle = Vector3.Angle(forward, direction);
-			if (angle > _maxAngleAttack) continue;
-
-			var distance = direction.sqrMagnitude;
+			var distance = SqrDistanceTo(attackTarget.transform);
 			if (distance < minDistance)
 			{
 				minDistance = distance;
@@ -158,4 +159,56 @@ public abstract class Attacker : Target
 
 		return target;
 	}
+
+	public bool IsFriendlyLaneCreepNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			var found = collider.TryGetComponent(out LaneCreep target);
+
+			if (found == false) continue;
+			if (target.Team != Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsEnemyLaneCreepNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			var found = collider.TryGetComponent(out LaneCreep target);
+
+			if (found == false) continue;
+			if (target.Team == Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
+#if UNITY_EDITOR
+	protected new void OnDrawGizmosSelected()
+	{
+		Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
+		Handles.color = new Color(1f, 0f, 1f, 0.2f);
+		Handles.DrawSolidDisc(transform.position + Vector3.up * 0.1f, Vector3.up, _detectionRadius);
+
+		Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
+		Handles.color = new Color(1f, 0f, 0f, 1f);
+		Handles.DrawSolidArc(transform.position + Vector3.up * 0.1f,
+			Vector3.up, Forward, _maxAngleAttack, _attackDistance);
+		Handles.DrawSolidArc(transform.position + Vector3.up * 0.1f,
+			Vector3.down, Forward, _maxAngleAttack, _attackDistance);
+
+		base.OnDrawGizmosSelected();
+	}
+#endif
 }
