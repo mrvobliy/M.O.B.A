@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using UnityEditor;
 
 public abstract class Attacker : Target
@@ -15,8 +17,12 @@ public abstract class Attacker : Target
 	[SerializeField] protected float _detectionRadius = 5f;
 	[SerializeField] protected int _damage = 10;
 	[SerializeField] protected float _maxAngleAttack = 180f;
+	[SerializeField] private bool _isSequentialAttckAnim;
+
+	public event Action<Target> OnTargetHit;
 
 	private bool _insideAttack;
+	private int _indexAttackAnim;
 
 	protected Collider[] _visibilityColliders = new Collider[64];
 	protected int _visibilityAmount;
@@ -33,6 +39,8 @@ public abstract class Attacker : Target
 		_events.OnFireProjectile2 += OnFireProjectile2;
 		_events.OnAttackBegin += OnAttackBegin;
 		_events.OnAttackEnd += OnAttackEnd;
+
+		_indexAttackAnim = _attackAnimationAmount;
 	}
 
 	private void Fire(Transform origin)
@@ -40,7 +48,7 @@ public abstract class Attacker : Target
 		if (_closestEnemy == null) return;
 
 		var projectile = Instantiate(_projectilePrefab,
-			origin.position, Quaternion.identity);
+			origin.position, origin.rotation);
 
 		projectile.Init(_damage, _closestEnemy, _projectileSpeed);
 	}
@@ -57,7 +65,8 @@ public abstract class Attacker : Target
 
 	private void OnAttackEnd()
 	{
-		if (_insideAttack == false) return;
+		if (!_insideAttack) return;
+		
 		_insideAttack = false;
 	}
 
@@ -67,6 +76,7 @@ public abstract class Attacker : Target
 		if (_closestEnemy == null) return;
 
 		_closestEnemy.TakeDamage(_damage);
+		OnTargetHit?.Invoke(_closestEnemy);
 	}
 
 	protected abstract bool IsTargetValid(Target target);
@@ -108,8 +118,20 @@ public abstract class Attacker : Target
 		if (_insideAttack) return;
 
 		_insideAttack = true;
-		var indexAnim = Random.Range(0, _attackAnimationAmount) + 1;
-		_animator.SetTrigger(AnimatorHash.GetAttackHash(indexAnim));
+
+		if (_isSequentialAttckAnim)
+		{
+			_indexAttackAnim++;
+
+			if (_indexAttackAnim >= _attackAnimationAmount)
+				_indexAttackAnim = 0;
+		}
+		else
+		{
+			_indexAttackAnim = Random.Range(0, _attackAnimationAmount);
+		}
+		
+		_animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
 	}
 
 	public Target FindClosestTarget()

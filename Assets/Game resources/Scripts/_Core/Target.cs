@@ -20,6 +20,8 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 10f;
 	[SerializeField] private float _diveDepth = 1f;
+	[SerializeField] protected Transform _enemyAttackPoint;
+	[SerializeField] private bool _dontCreateHealthBar;
 	[SerializeField] private float _regeneration;
 	[SerializeField] private Transform[] _safeSpots;
 
@@ -29,6 +31,7 @@ public abstract class Target : MonoBehaviour
 
 	public bool IsBeingAttacked { get; set; }
 
+	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
 	public float CurrentHealth => _currentHealth;
 	public float MaxHealth => _maxHealth;
@@ -81,6 +84,10 @@ public abstract class Target : MonoBehaviour
 		OnDamageTaken?.Invoke();
 	}
 
+	public Transform GetAttackPoint()
+	{
+		return _enemyAttackPoint != null ? _enemyAttackPoint : transform;
+	}
 	public Transform GetUnassignedClosestSafeSpot()
 	{
 		if (_safeSpotsPool.Count == 0)
