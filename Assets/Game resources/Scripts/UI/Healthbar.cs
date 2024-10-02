@@ -3,30 +3,25 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
-	[SerializeField] private Image _fill;
 	[SerializeField] private Vector3 _offset;
+	[SerializeField] private CanvasGroup _canvasGroup;
+	[SerializeField] private RectTransform _heathLine;
 
 	private Target _target;
 
 	public void Init(Target target)
 	{
 		_target = target;
-
-		_fill.fillAmount = _target.HealthPercent;
 		_target.OnDeath += OnDeath;
 		_target.OnDamageTaken += OnDamageTaken;
-
-		_fill.color = _target.Team switch
-		{
-			Team.Neutral => Color.yellow,
-			Team.Light => Color.green,
-			Team.Dark => Color.red
-		};
 	}
 
 	private void OnDamageTaken()
 	{
-		_fill.fillAmount = _target.HealthPercent;
+		var newLinePos = new Vector3();
+		newLinePos = _heathLine.localPosition;
+		newLinePos.x = 100 * (_target.HealthPercent - 1);
+		_heathLine.localPosition = newLinePos;
 	}
 
 	private void OnDeath()
