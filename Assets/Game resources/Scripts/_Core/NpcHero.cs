@@ -55,8 +55,10 @@ public class NpcHero : Unit
 
 	private bool CanSwitchState => Mathf.Approximately(_currentStateCooldown, 0f);
 
-	private void Start()
+	protected new void Start()
 	{
+		base.Start();
+
 		var building = Map.Instance.GetFirstAliveBuilding(_team, _lane);
 
 		if (_currentSafeSpot == null)

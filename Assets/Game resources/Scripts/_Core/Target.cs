@@ -47,7 +47,7 @@ public abstract class Target : MonoBehaviour
 		_safeSpotsPool.AddRange(_safeSpots);
 	}
 
-	private void Start()
+	protected void Start()
 	{
 		OnStart?.Invoke(this);
 	}
