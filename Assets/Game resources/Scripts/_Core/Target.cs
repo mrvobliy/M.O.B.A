@@ -13,7 +13,7 @@ public abstract class Target : MonoBehaviour
 	
 	public event Action OnDeath;
 	public event Action OnDamageTaken;
-	public event Action<Target> OnEnemyAttackUs;
+	public event Action<Target, int> OnEnemyAttackUs;
 
 	[SerializeField] private Healthbar _healthbarPrefab;
 	[SerializeField] protected Animator _animator;
@@ -70,6 +70,9 @@ public abstract class Target : MonoBehaviour
 		if (IsDead) return;
 
 		_currentHealth -= damage;
+		
+		OnDamageTaken?.Invoke();
+		OnEnemyAttackUs?.Invoke(target, damage);
 
 		if (IsDead)
 		{
@@ -86,9 +89,6 @@ public abstract class Target : MonoBehaviour
 					.OnComplete(() => Destroy(gameObject));
 			}
 		}
-
-		OnDamageTaken?.Invoke();
-		OnEnemyAttackUs?.Invoke(target);
 	}
 
 	public Transform GetAttackPoint()

@@ -65,6 +65,8 @@ MonoBehaviour:
   _canvasGroup: {fileID: 1153465841704764808}
   _heathLine: {fileID: 8206470600320355891}
   _endPosValue: 150
+  _damageNumber: {fileID: 5803564005401141803, guid: b68d74501f870084bb0c073564bb6a51,
+    type: 3}
 --- !u!225 &1153465841704764808
 CanvasGroup:
   m_ObjectHideFlags: 0

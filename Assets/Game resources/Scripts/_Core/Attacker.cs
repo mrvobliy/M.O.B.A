@@ -22,6 +22,7 @@ public abstract class Attacker : Target
 	public event Action<Target> OnTargetHit;
 
 	private bool _insideAttack;
+	private bool _isAttackAnimPlayed;
 	private int _indexAttackAnim;
 
 	protected Collider[] _visibilityColliders = new Collider[64];
@@ -68,12 +69,18 @@ public abstract class Attacker : Target
 		if (!_insideAttack) return;
 		
 		_insideAttack = false;
+		_isAttackAnimPlayed = false;
 	}
 
 	private void OnAttackBegin()
 	{
-		if (_insideAttack == false) return;
+		if (!_insideAttack) return;
+		
 		if (_closestEnemy == null) return;
+		
+		if (_isAttackAnimPlayed) return;
+
+		_isAttackAnimPlayed = true;
 
 		_closestEnemy.TakeDamage(this, _damage);
 		OnTargetHit?.Invoke(_closestEnemy);

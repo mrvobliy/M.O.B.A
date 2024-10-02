@@ -7,6 +7,7 @@ public class Healthbar : MonoBehaviour
 	[SerializeField] private CanvasGroup _canvasGroup;
 	[SerializeField] private RectTransform _heathLine;
 	[SerializeField] private float _endPosValue = 100f;
+	[SerializeField] private DamageNumber _damageNumber;
 
 	private Target _target;
 
@@ -15,7 +16,7 @@ public class Healthbar : MonoBehaviour
 		_target = target;
 		_target.OnDeath += OnDeath;
 		_target.OnDamageTaken += OnDamageTaken;
-		target.OnEnemyAttackUs += TryShowHeathBar;
+		_target.OnEnemyAttackUs += TryShowHeathBar;
 	}
 
 	private void OnDamageTaken()
@@ -30,7 +31,7 @@ public class Healthbar : MonoBehaviour
 	{
 		_target.OnDeath -= OnDeath;
 		_target.OnDamageTaken -= OnDamageTaken;
-		_target.OnEnemyAttackUs += TryShowHeathBar;
+		_target.OnEnemyAttackUs -= TryShowHeathBar;
 
 		Destroy(gameObject);
 	}
@@ -44,13 +45,16 @@ public class Healthbar : MonoBehaviour
 		transform.position = screenPosition;
 	}
 
-	private void TryShowHeathBar(Target enemy)
+	private void TryShowHeathBar(Target enemy, int damage)
 	{
 		if (enemy.transform.tag != "Player") return;
 
 		_canvasGroup.DOFade(1, 0.5f);
 		CancelInvoke(nameof(HideHealthBar));
 		Invoke(nameof(HideHealthBar), 10);
+		
+		var num = Instantiate(_damageNumber, _target.transform.position, Quaternion.identity);
+		num.SetDamageText(damage);
 	}
 
 	private void HideHealthBar()
