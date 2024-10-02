@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -59.44}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4369180429726730387
@@ -64,6 +64,7 @@ MonoBehaviour:
   _offset: {x: 0, y: 2, z: 0}
   _canvasGroup: {fileID: 0}
   _heathLine: {fileID: 8206470600320355891}
+  _endPosValue: 100
 --- !u!225 &1153465841704764808
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
 	[SerializeField] private Vector3 _offset;
 	[SerializeField] private CanvasGroup _canvasGroup;
 	[SerializeField] private RectTransform _heathLine;
+	[SerializeField] private float _endPosValue = 100f;
 
 	private Target _target;
 
@@ -20,7 +20,7 @@ public class Healthbar : MonoBehaviour
 	{
 		var newLinePos = new Vector3();
 		newLinePos = _heathLine.localPosition;
-		newLinePos.x = 100 * (_target.HealthPercent - 1);
+		newLinePos.x = _endPosValue * (_target.HealthPercent - 1);
 		_heathLine.localPosition = newLinePos;
 	}
 

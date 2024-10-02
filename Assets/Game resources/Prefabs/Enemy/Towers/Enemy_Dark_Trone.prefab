@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5046138513220065720}
   - component: {fileID: 3173036885244826244}
   m_Layer: 0
-  m_Name: Enemy_Dire_Trone
+  m_Name: Enemy_Dark_Trone
   m_TagString: EmeraldAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d84e87bb462319459be5356eda78f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthbarPrefab: {fileID: 3956543130547307561, guid: d6c02e16f856cee438403126216e3ac0,
+    type: 3}
   _animator: {fileID: 5726835110859466722}
   _team: 2
   _maxHealth: 2000
@@ -372,6 +374,8 @@ MonoBehaviour:
   _diveDepth: 1
   _enemyAttackPoint: {fileID: 0}
   _dontCreateHealthBar: 0
+  _regeneration: 0
+  _safeSpots: []
   _obstacle: {fileID: 5046138513220065720}
 --- !u!1001 &4791733463483014448
 PrefabInstance:

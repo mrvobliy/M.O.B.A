@@ -712,6 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9103d8f2e6eb94c41afc248dcf0bdb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthbarPrefab: {fileID: 3956543130547307561, guid: 02458410fbdeb8147b04f99e4da72dc7,
+    type: 3}
   _animator: {fileID: 8375439557484121066}
   _team: 2
   _maxHealth: 100
@@ -721,6 +723,8 @@ MonoBehaviour:
   _diveDepth: 1
   _enemyAttackPoint: {fileID: 0}
   _dontCreateHealthBar: 0
+  _regeneration: 0
+  _safeSpots: []
   _events: {fileID: 4297352506064959067}
   _rotationParent: {fileID: 1008880592952325855}
   _projectilePrefab: {fileID: 8383380591834786236, guid: 0b3060b5939287f41b89af2d9a372b46,
@@ -733,6 +737,7 @@ MonoBehaviour:
   _detectionRadius: 5
   _damage: 10
   _maxAngleAttack: 180
+  _isSequentialAttckAnim: 0
   _agent: {fileID: 3493798989786025782}
   _rotationSpeed: 200
 --- !u!1 &3674896424897328816

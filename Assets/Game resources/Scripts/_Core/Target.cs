@@ -9,10 +9,12 @@ using System.Linq;
 public abstract class Target : MonoBehaviour
 {
 	public static event Action<Target> OnStart;
-
+	public static event Action<Healthbar, Target> OnCreateHealthBar;
+	
 	public event Action OnDeath;
 	public event Action OnDamageTaken;
 
+	[SerializeField] private Healthbar _healthbarPrefab;
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
 	[SerializeField] private float _maxHealth = 100;
@@ -50,6 +52,9 @@ public abstract class Target : MonoBehaviour
 	private void Start()
 	{
 		OnStart?.Invoke(this);
+		
+		if (!_dontCreateHealthBar)
+			OnCreateHealthBar?.Invoke(_healthbarPrefab, this);
 	}
 
 	protected void Update()

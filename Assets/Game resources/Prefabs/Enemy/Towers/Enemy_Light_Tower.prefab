@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8752061278316791218}
   - component: {fileID: 4398518581069514166}
   m_Layer: 10
-  m_Name: Enemy_Radiant_Tower
+  m_Name: Enemy_Light_Tower
   m_TagString: EmeraldAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fe3b65f5d5bd049b133fc6d8facd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthbarPrefab: {fileID: 3956543130547307561, guid: 7b702276e3afcc54f98364168b3748b4,
+    type: 3}
   _animator: {fileID: 1309036163396089948}
   _team: 1
   _maxHealth: 1000
@@ -205,6 +207,8 @@ MonoBehaviour:
   _diveDepth: 1
   _enemyAttackPoint: {fileID: 0}
   _dontCreateHealthBar: 0
+  _regeneration: 0
+  _safeSpots: []
   _events: {fileID: 4398518581069514166}
   _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: 01bb7d73beefbec499d3bfde20b81bc9,
@@ -217,13 +221,13 @@ MonoBehaviour:
   _detectionRadius: 5
   _damage: 10
   _maxAngleAttack: 180
+  _isSequentialAttckAnim: 0
   _obstacle: {fileID: 1416398055680106750}
   _rigidbodies:
   - {fileID: 6059121538092077543}
   - {fileID: 358401474215703578}
   - {fileID: 864060475171340381}
   - {fileID: 6475382579567111072}
-  _safeSpots: []
 --- !u!114 &4398518581069514166
 MonoBehaviour:
   m_ObjectHideFlags: 0
