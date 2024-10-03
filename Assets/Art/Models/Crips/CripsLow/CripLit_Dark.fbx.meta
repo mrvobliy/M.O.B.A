@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d95e8caebbbb63043a0150f2d0573a62
+guid: 70763f3c7f583e84ca0b304bb6e0a6da
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -12,11 +12,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Crip_White
-    second: {fileID: 2100000, guid: 330d85f72bde81d459e499033710055a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Crip_Yellow
     second: {fileID: 2100000, guid: 883ee4e7ab0cbf740bf816d876839196, type: 2}
   - first:
@@ -24,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Emi
     second: {fileID: 2100000, guid: 782e5c034f2183e47b2af09a35da7e2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.052
+    second: {fileID: 2100000, guid: 330d85f72bde81d459e499033710055a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
