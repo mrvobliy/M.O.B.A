@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 3862579142216064294}
   - component: {fileID: 3862579142216064293}
   - component: {fileID: 8407504913156671353}
+  - component: {fileID: 4336848350720293203}
   m_Layer: 0
   m_Name: Enemy_Neutral_Creep_Range
   m_TagString: EmeraldAI
@@ -775,6 +776,32 @@ MonoBehaviour:
   _agent: {fileID: 3862579142216064294}
   _rotationSpeed: 200
   _passiveCooldown: 10
+--- !u!114 &4336848350720293203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862579142216064479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 8407504913156671353}
+  _materials: []
+  _renderers:
+  - {fileID: 2073862482870408521}
+  - {fileID: 4814802086745817751}
+  - {fileID: 8988734184111120388}
+  - {fileID: 84254588193209580}
+  - {fileID: 8138474392678845204}
+  - {fileID: 6085151353258106046}
+  - {fileID: 6924883078052833257}
+  - {fileID: 7687384340547934425}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
+  _timeChangeColor: 0.15
 --- !u!1 &4359988633920056964
 GameObject:
   m_ObjectHideFlags: 0

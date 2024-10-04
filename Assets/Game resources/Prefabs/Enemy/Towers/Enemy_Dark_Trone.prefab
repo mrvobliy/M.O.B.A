@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 5046138513220065720}
   - component: {fileID: 3173036885244826244}
   - component: {fileID: 8900810513310130986}
+  - component: {fileID: 5005042487562490780}
   m_Layer: 0
   m_Name: Enemy_Dark_Trone
   m_TagString: EmeraldAI
@@ -391,6 +392,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5005042487562490780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726835110859466719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 3173036885244826244}
+  _materials: []
+  _renderers:
+  - {fileID: 7758644181815777955}
+  - {fileID: 7840161171337954566}
+  - {fileID: 8668676103620194298}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
+  _timeChangeColor: 0.15
 --- !u!1001 &4791733463483014448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,6 +505,24 @@ PrefabInstance:
 --- !u!4 &5040954393138871003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91b7858bc75200f428e449ebfc33d7d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791733463483014448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7758644181815777955 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3013917451894523795, guid: 91b7858bc75200f428e449ebfc33d7d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791733463483014448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7840161171337954566 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3364876362738898998, guid: 91b7858bc75200f428e449ebfc33d7d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4791733463483014448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8668676103620194298 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4193689967055286986, guid: 91b7858bc75200f428e449ebfc33d7d9,
     type: 3}
   m_PrefabInstance: {fileID: 4791733463483014448}
   m_PrefabAsset: {fileID: 0}

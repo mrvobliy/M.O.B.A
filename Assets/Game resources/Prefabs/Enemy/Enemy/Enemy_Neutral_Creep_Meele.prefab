@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 3491033238560658643}
   - component: {fileID: 3491033238560658642}
   - component: {fileID: 7988854197205266123}
+  - component: {fileID: 9037548411656731170}
   m_Layer: 0
   m_Name: Enemy_Neutral_Creep_Meele
   m_TagString: EmeraldAI
@@ -559,6 +560,32 @@ MonoBehaviour:
   _agent: {fileID: 3491033238560658643}
   _rotationSpeed: 200
   _passiveCooldown: 10
+--- !u!114 &9037548411656731170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491033238560658664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 7988854197205266123}
+  _materials: []
+  _renderers:
+  - {fileID: 6486763686181256499}
+  - {fileID: 8454578743150176248}
+  - {fileID: 4589458185019872927}
+  - {fileID: 5574188468055040184}
+  - {fileID: 2328915058471478059}
+  - {fileID: 651161800192008937}
+  - {fileID: 4196122131944068312}
+  - {fileID: 7358366484870912414}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
+  _timeChangeColor: 0.15
 --- !u!1 &4518316906941768317
 GameObject:
   m_ObjectHideFlags: 0
