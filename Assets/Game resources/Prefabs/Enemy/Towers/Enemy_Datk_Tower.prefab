@@ -730,8 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fe3b65f5d5bd049b133fc6d8facd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbarPrefab: {fileID: 3956543130547307561, guid: 02458410fbdeb8147b04f99e4da72dc7,
+  _healthbarPrefab: {fileID: 3956543130547307561, guid: 59f4d68744efa3b4284f3bfaf0e163a2,
     type: 3}
+  _events: {fileID: 3112315115077223815}
   _animator: {fileID: 5827867853637718321}
   _team: 2
   _maxHealth: 1000
@@ -743,7 +744,6 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
-  _events: {fileID: 3112315115077223815}
   _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
