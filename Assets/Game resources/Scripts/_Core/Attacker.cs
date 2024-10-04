@@ -77,7 +77,8 @@ public abstract class Attacker : Target
 	private void OnAttackBegin()
 	{
 		if (!_insideAttack) return;
-		
+
+		_closestEnemyInAttackArea = FindClosestEnemyInVisibilityRadius();
 		if (_closestEnemyInAttackArea == null) return;
 		
 		if (_isAttackAnimPlayed) return;
