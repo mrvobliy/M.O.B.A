@@ -6,7 +6,6 @@ using UnityEditor;
 public abstract class Attacker : Target
 {
 	[Header("Attacker")]
-	[SerializeField] private AnimationEvents _events;
 	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private Projectile _projectilePrefab;
 	[SerializeField] private Transform _projectileOriginLeft;

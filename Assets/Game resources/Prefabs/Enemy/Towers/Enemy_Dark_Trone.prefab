@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 5726835110859466727}
   - component: {fileID: 5046138513220065720}
   - component: {fileID: 3173036885244826244}
+  - component: {fileID: 8900810513310130986}
   m_Layer: 0
   m_Name: Enemy_Dark_Trone
   m_TagString: EmeraldAI
@@ -363,8 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d84e87bb462319459be5356eda78f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbarPrefab: {fileID: 3956543130547307561, guid: d6c02e16f856cee438403126216e3ac0,
+  _healthbarPrefab: {fileID: 3956543130547307561, guid: 06ac072a1981f9f4f80f7b8151b5ab0b,
     type: 3}
+  _events: {fileID: 8900810513310130986}
   _animator: {fileID: 5726835110859466722}
   _team: 2
   _maxHealth: 2000
@@ -377,6 +379,18 @@ MonoBehaviour:
   _regeneration: 0
   _safeSpots: []
   _obstacle: {fileID: 5046138513220065720}
+--- !u!114 &8900810513310130986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726835110859466719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4791733463483014448
 PrefabInstance:
   m_ObjectHideFlags: 0

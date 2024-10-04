@@ -841,10 +841,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthbarPrefab: {fileID: 3956543130547307561, guid: 7b702276e3afcc54f98364168b3748b4,
     type: 3}
+  _events: {fileID: 4823298596710259104}
   _animator: {fileID: 1532351263783167576}
   _team: 1
   _maxHealth: 100
-  _useDive: 1
+  _useDive: 0
   _diveDelay: 3
   _diveDuration: 10
   _diveDepth: 1
@@ -852,7 +853,6 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
-  _events: {fileID: 4823298596710259104}
   _rotationParent: {fileID: 7499111621950471217}
   _projectilePrefab: {fileID: 8383380591834786236, guid: f25a3d3fa9e49ce46acc295282172de7,
     type: 3}

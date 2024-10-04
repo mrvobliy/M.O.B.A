@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6225474739505020784}
   - component: {fileID: 7511393708977181834}
   - component: {fileID: 4590718340048082613}
+  - component: {fileID: 172278240490527128}
   m_Layer: 0
   m_Name: Enemy_Light_Trone
   m_TagString: EmeraldAI
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthbarPrefab: {fileID: 3956543130547307561, guid: a963acb26753bc34c85f8676eff98c6f,
     type: 3}
+  _events: {fileID: 172278240490527128}
   _animator: {fileID: 6225474739505020789}
   _team: 1
   _maxHealth: 2000
@@ -211,6 +213,18 @@ MonoBehaviour:
   _regeneration: 0
   _safeSpots: []
   _obstacle: {fileID: 7511393708977181834}
+--- !u!114 &172278240490527128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6225474739505020744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6225474740429188572
 GameObject:
   m_ObjectHideFlags: 0

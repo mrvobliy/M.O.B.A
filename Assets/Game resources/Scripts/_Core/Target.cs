@@ -16,6 +16,7 @@ public abstract class Target : MonoBehaviour
 	public event Action<Target, int> OnEnemyAttackUs;
 
 	[SerializeField] private Healthbar _healthbarPrefab;
+	[SerializeField] protected AnimationEvents _events;
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
 	[SerializeField] private float _maxHealth = 100;
@@ -46,8 +47,17 @@ public abstract class Target : MonoBehaviour
 	protected void Awake()
 	{
 		_currentHealth = _maxHealth;
-
 		_safeSpotsPool.AddRange(_safeSpots);
+	}
+
+	private void OnEnable()
+	{
+		_events.OnDeathCompleted += Death;
+	}
+
+	private void OnDisable()
+	{
+		_events.OnDeathCompleted -= Death;
 	}
 
 	private void Start()
@@ -74,21 +84,25 @@ public abstract class Target : MonoBehaviour
 		OnDamageTaken?.Invoke();
 		OnEnemyAttackUs?.Invoke(target, damage);
 
-		if (IsDead)
-		{
-			_currentHealth = 0f;
-			OnDeath?.Invoke();
+		if (!IsDead) return;
+		
+		_currentHealth = 0f;
+		OnDeath?.Invoke();
 
-			_animator.SetTrigger(AnimatorHash.Death);
-			if (_useDive)
-			{
-				var targetPos = transform.localPosition.y - _diveDepth;
-				transform.DOLocalMoveY(targetPos, _diveDuration)
-					.SetDelay(_diveDelay)
-					.SetEase(Ease.Linear)
-					.OnComplete(() => Destroy(gameObject));
-			}
-		}
+		_animator.SetTrigger(AnimatorHash.Death);
+
+		if (!_useDive) return;
+			
+		var targetPos = transform.localPosition.y - _diveDepth;
+		transform.DOLocalMoveY(targetPos, _diveDuration)
+			.SetDelay(_diveDelay)
+			.SetEase(Ease.Linear)
+			.OnComplete(Death);
+	}
+
+	private void Death()
+	{
+		Destroy(gameObject);
 	}
 
 	public Transform GetAttackPoint()
