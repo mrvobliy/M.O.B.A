@@ -21,6 +21,7 @@ public class NpcHero : Unit
 	[SerializeField] private Lane _lane;
 	[SerializeField] private float _blendAttackLayerDuration = 0.3f;
 	[SerializeField] private float _randomIdleRadius;
+	[SerializeField] private float _randomIdleDelta;
 	[SerializeField] private float _fallbackHealthPercent = 0.4f;
 	[SerializeField] private float _pushHealthPercent = 0.6f;
 	[SerializeField] private float _stateSwitchCooldown = 1f;
@@ -46,6 +47,7 @@ public class NpcHero : Unit
 
 	private Vector3 _sampleOrigin;
 	private Vector3 _currentSample;
+	private float _currentAngleSample;
 	private bool _sampleGenerated;
 	private Transform _currentSafeSpot;
 	private Target _currentBuilding;
@@ -141,9 +143,14 @@ public class NpcHero : Unit
 							break;
 						}
 
-						var angle = Random.Range(0f, 360f);
-						var randomEuler = Quaternion.Euler(0f, angle, 0f);
-						_currentSample = _sampleOrigin + randomEuler * Vector3.forward * _randomIdleRadius;
+						_currentAngleSample += _randomIdleDelta;
+						_currentAngleSample = Mathf.Repeat(_currentAngleSample, 360f);
+						var angle = _currentAngleSample * Mathf.Deg2Rad;
+						var sin = Mathf.Sin(angle);
+						var cos = Mathf.Cos(angle);
+						var circle = new Vector3(cos, 0f, sin);
+
+						_currentSample = _sampleOrigin + circle * _randomIdleRadius;
 						_sampleGenerated = true;
 
 						positionIsValid = NavMesh.SamplePosition

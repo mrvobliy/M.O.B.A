@@ -36707,7 +36707,7 @@ GameObject:
   - component: {fileID: 1006166453}
   - component: {fileID: 1006166454}
   m_Layer: 0
-  m_Name: '----------------------------other'
+  m_Name: ----------------------------other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65783,7 +65783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1703202810
 Transform:
   m_ObjectHideFlags: 0
@@ -86749,6 +86749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthbarPrefab: {fileID: 0}
+  _events: {fileID: 919132148334202754}
   _animator: {fileID: 919132148334202755}
   _team: 1
   _maxHealth: 1000
@@ -86760,7 +86761,6 @@ MonoBehaviour:
   _dontCreateHealthBar: 1
   _regeneration: 0
   _safeSpots: []
-  _events: {fileID: 919132148334202754}
   _rotationParent: {fileID: 7436026657235349609}
   _projectilePrefab: {fileID: 0}
   _projectileOriginLeft: {fileID: 0}

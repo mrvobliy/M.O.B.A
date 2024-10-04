@@ -52,10 +52,10 @@ public abstract class Unit : Attacker
 		_agent.SetDestination(target);
 
 		var direction = target.SetY(0f) - transform.position.SetY(0f);
-		if (direction.sqrMagnitude > 0.1f)
+		if (direction.sqrMagnitude > 0.01f)
 		{
 			var fromRotation = _rotationParent.rotation;
-			var toRotation = Quaternion.LookRotation(direction, Vector3.up);
+			var toRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
 			_rotationParent.rotation = Quaternion.RotateTowards
 				(fromRotation, toRotation, Time.deltaTime * _rotationSpeed);
 		}

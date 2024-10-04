@@ -19698,6 +19698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dba167c49625646bf8daf632e47762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthbarPrefab: {fileID: 0}
+  _events: {fileID: 8494773281964366425}
   _animator: {fileID: 5361940491360621851}
   _team: 1
   _maxHealth: 500
@@ -19709,11 +19711,10 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 10
   _safeSpots: []
-  _events: {fileID: 8494773281964366425}
   _rotationParent: {fileID: 5295358006573098799}
   _projectilePrefab: {fileID: 0}
-  _projectileOrigin: {fileID: 0}
-  _projectileOrigin2: {fileID: 0}
+  _projectileOriginLeft: {fileID: 0}
+  _projectileOriginRight: {fileID: 0}
   _projectileSpeed: 1
   _attackAnimationAmount: 2
   _attackDistance: 2
@@ -19722,13 +19723,14 @@ MonoBehaviour:
   _maxAngleAttack: 45
   _isSequentialAttckAnim: 0
   _agent: {fileID: 6947495756246805441}
-  _rotationSpeed: 1000
+  _rotationSpeed: 400
   _lane: 0
   _blendAttackLayerDuration: 0.3
-  _randomIdleRadius: 0.5
+  _randomIdleRadius: 1
+  _randomIdleDelta: 50
   _fallbackHealthPercent: 0.4
   _pushHealthPercent: 0.6
-  _stateSwitchCooldown: 0.25
+  _stateSwitchCooldown: 1
   _wonderPathMargin: 3
   _pushPathMargin: -1.5
   _fallbackPathMargin: 3
