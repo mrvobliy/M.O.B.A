@@ -9,8 +9,8 @@ public abstract class Attacker : Target
 	[SerializeField] private AnimationEvents _events;
 	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private Projectile _projectilePrefab;
-	[SerializeField] private Transform _projectileOrigin;
-	[SerializeField] private Transform _projectileOrigin2;
+	[SerializeField] private Transform _projectileOriginLeft;
+	[SerializeField] private Transform _projectileOriginRight;
 	[SerializeField] private float _projectileSpeed = 1f;
 	[SerializeField] private int _attackAnimationAmount = 1;
 	[SerializeField] protected float _attackDistance = 1f;
@@ -36,8 +36,8 @@ public abstract class Attacker : Target
 	{
 		base.Awake();
 
-		_events.OnFireProjectile += OnFireProjectile;
-		_events.OnFireProjectile2 += OnFireProjectile2;
+		_events.OnFireProjectileLeft += OnFireProjectileLeft;
+		_events.OnFireProjectileRight += OnFireProjectileRight;
 		_events.OnAttackBegin += OnAttackBegin;
 		_events.OnAttackEnd += OnAttackEnd;
 
@@ -54,14 +54,14 @@ public abstract class Attacker : Target
 		projectile.Init(this, _damage, _closestEnemy, _projectileSpeed);
 	}
 
-	private void OnFireProjectile2()
+	private void OnFireProjectileRight()
 	{
-		Fire(_projectileOrigin2);
+		Fire(_projectileOriginRight);
 	}
 
-	private void OnFireProjectile()
+	private void OnFireProjectileLeft()
 	{
-		Fire(_projectileOrigin);
+		Fire(_projectileOriginLeft);
 	}
 
 	private void OnAttackEnd()

@@ -763,8 +763,8 @@ MonoBehaviour:
   _rotationParent: {fileID: 2495650356001691007}
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
-  _projectileOrigin: {fileID: 1911163618373669850}
-  _projectileOrigin2: {fileID: 3355422206514266847}
+  _projectileOriginLeft: {fileID: 3355422206514266847}
+  _projectileOriginRight: {fileID: 1911163618373669850}
   _projectileSpeed: 7
   _attackAnimationAmount: 2
   _attackDistance: 5

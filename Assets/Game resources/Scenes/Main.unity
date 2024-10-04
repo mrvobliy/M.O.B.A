@@ -86433,8 +86433,8 @@ MonoBehaviour:
   _events: {fileID: 919132148334202754}
   _rotationParent: {fileID: 7436026657235349609}
   _projectilePrefab: {fileID: 0}
-  _projectileOrigin: {fileID: 0}
-  _projectileOrigin2: {fileID: 0}
+  _projectileOriginLeft: {fileID: 0}
+  _projectileOriginRight: {fileID: 0}
   _projectileSpeed: 0
   _attackAnimationAmount: 1
   _attackDistance: 2

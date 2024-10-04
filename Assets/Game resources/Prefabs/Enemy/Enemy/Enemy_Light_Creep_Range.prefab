@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974356294445343621}
   m_Layer: 0
-  m_Name: Projectline
+  m_Name: Projectline_Left
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261126858275577794}
   m_Layer: 0
-  m_Name: Projectline_1
+  m_Name: Projectline_Right
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -856,8 +856,8 @@ MonoBehaviour:
   _rotationParent: {fileID: 7499111621950471217}
   _projectilePrefab: {fileID: 8383380591834786236, guid: f25a3d3fa9e49ce46acc295282172de7,
     type: 3}
-  _projectileOrigin: {fileID: 4974356294445343621}
-  _projectileOrigin2: {fileID: 261126858275577794}
+  _projectileOriginLeft: {fileID: 4974356294445343621}
+  _projectileOriginRight: {fileID: 261126858275577794}
   _projectileSpeed: 7
   _attackAnimationAmount: 2
   _attackDistance: 5
