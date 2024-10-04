@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 5803564005401141802}
   - component: {fileID: 5803564005401141803}
   m_Layer: 0
-  m_Name: DamageNum
+  m_Name: DamageNumTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,15 +197,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5803564005401141797}
-  m_LocalRotation: {x: -0, y: 0.96882224, z: 0.24775691, w: 0}
-  m_LocalPosition: {x: 20.119, y: -1.36, z: -40.011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5803564004768669596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -28.69, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5803564005401141803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,5 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 5803564004768669598}
   _startOffset: {x: 0, y: 1.8, z: 0}
-  _endMaxOffset: {x: 0.5, y: 0.5, z: 0.5}
-  _timeAnim: 0.7
+  _endMinOffset: {x: 0.1, y: 1.9, z: 0.1}
+  _endMaxOffset: {x: 0.5, y: 2.1, z: 0.5}
+  _timeAnim: 0.5

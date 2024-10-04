@@ -7,6 +7,7 @@ public class DamageNumber : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Vector3 _startOffset;
+    [SerializeField] private Vector3 _endMinOffset;
     [SerializeField] private Vector3 _endMaxOffset;
     [SerializeField] private float _timeAnim;
 
@@ -14,21 +15,17 @@ public class DamageNumber : MonoBehaviour
     {
         transform.LookAt(Camera.main.transform);
 
-        var startPos = transform.position;
-        startPos += _startOffset;
-        transform.position = startPos;
+        transform.localScale = new Vector3(0, 0, 0);
 
-        var posX = Random.Range(0, _endMaxOffset.x);
-        var posY = Random.Range(0, _endMaxOffset.y);
-        var posZ = Random.Range(0, _endMaxOffset.z);
+        var posX = Random.Range(_endMinOffset.x, _endMaxOffset.x);
+        var posY = Random.Range(_endMinOffset.y, _endMaxOffset.y);
+        var posZ = Random.Range(_endMinOffset.z, _endMaxOffset.z);
 
         var endPos = new Vector3(posX, posY, posZ);
 
+        transform.DOScale(1, _timeAnim).SetEase(Ease.OutBack);
         transform.DOMove(transform.position + endPos, _timeAnim).SetEase(Ease.OutBack);
-        _text.DOFade(0, _timeAnim).OnComplete(() =>
-        {
-            Destroy(gameObject);
-        }).SetEase(Ease.InExpo);
+        _text.DOFade(0, _timeAnim).SetEase(Ease.InExpo).OnComplete(() => {Destroy(gameObject);});
     }
 
     public void SetDamageText(int damage)
