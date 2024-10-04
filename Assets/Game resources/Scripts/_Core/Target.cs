@@ -9,10 +9,14 @@ using System.Linq;
 public abstract class Target : MonoBehaviour
 {
 	public static event Action<Target> OnStart;
-
+	public static event Action<Healthbar, Target> OnCreateHealthBar;
+	
 	public event Action OnDeath;
 	public event Action OnDamageTaken;
+	public event Action<Target, int> OnEnemyAttackUs;
 
+	[SerializeField] private Healthbar _healthbarPrefab;
+	[SerializeField] protected AnimationEvents _events;
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
 	[SerializeField] private float _maxHealth = 100;
@@ -43,13 +47,25 @@ public abstract class Target : MonoBehaviour
 	protected void Awake()
 	{
 		_currentHealth = _maxHealth;
-
 		_safeSpotsPool.AddRange(_safeSpots);
+	}
+
+	private void OnEnable()
+	{
+		_events.OnDeathCompleted += Death;
+	}
+
+	private void OnDisable()
+	{
+		_events.OnDeathCompleted -= Death;
 	}
 
 	protected void Start()
 	{
 		OnStart?.Invoke(this);
+		
+		if (!_dontCreateHealthBar)
+			OnCreateHealthBar?.Invoke(_healthbarPrefab, this);
 	}
 
 	protected void Update()
@@ -59,29 +75,34 @@ public abstract class Target : MonoBehaviour
 		_currentHealth = Mathf.MoveTowards(_currentHealth, _maxHealth, Time.deltaTime * _regeneration);
 	}
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(Target target, int damage)
 	{
 		if (IsDead) return;
 
 		_currentHealth -= damage;
-
-		if (IsDead)
-		{
-			_currentHealth = 0f;
-			OnDeath?.Invoke();
-
-			_animator.SetTrigger(AnimatorHash.Death);
-			if (_useDive)
-			{
-				var target = transform.localPosition.y - _diveDepth;
-				transform.DOLocalMoveY(target, _diveDuration)
-					.SetDelay(_diveDelay)
-					.SetEase(Ease.Linear)
-					.OnComplete(() => Destroy(gameObject));
-			}
-		}
-
+		
 		OnDamageTaken?.Invoke();
+		OnEnemyAttackUs?.Invoke(target, damage);
+
+		if (!IsDead) return;
+		
+		_currentHealth = 0f;
+		OnDeath?.Invoke();
+
+		_animator.SetTrigger(AnimatorHash.Death);
+
+		if (!_useDive) return;
+			
+		var targetPos = transform.localPosition.y - _diveDepth;
+		transform.DOLocalMoveY(targetPos, _diveDuration)
+			.SetDelay(_diveDelay)
+			.SetEase(Ease.Linear)
+			.OnComplete(Death);
+	}
+
+	private void Death()
+	{
+		Destroy(gameObject);
 	}
 
 	public Transform GetAttackPoint()

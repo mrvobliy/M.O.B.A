@@ -3,21 +3,21 @@ using System;
 
 public class AnimationEvents : MonoBehaviour
 {
-	public event Action OnFireProjectile;
-	public event Action OnFireProjectile2;
+	public event Action OnFireProjectileLeft;
+	public event Action OnFireProjectileRight;
 	public event Action OnAttackBegin;
 	public event Action OnAttackEnd;
 	public event Action OnDeathCompleted;
 	public event Action OnPlayAttackEffect;
 
-	public void FireProjectile()
+	public void FireProjectileLeft()
 	{
-		OnFireProjectile?.Invoke();
+		OnFireProjectileLeft?.Invoke();
 	}
 
-	public void FireProjectile2()
+	public void FireProjectileRight()
 	{
-		OnFireProjectile2?.Invoke();
+		OnFireProjectileRight?.Invoke();
 	}
 
 	public void AttackBegin()

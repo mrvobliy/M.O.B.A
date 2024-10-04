@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class UserInterface : MonoBehaviour
 {
-	[SerializeField] private Healthbar _healthbarPrefab;
 	[SerializeField] private Transform _healthbarParent;
 
 	private void Awake()
 	{
-		Target.OnStart += OnAttackTargetAwake;
+		Target.OnCreateHealthBar += OnAttackTargetAwake;
 	}
 
-	private void OnAttackTargetAwake(Target target)
+	private void OnAttackTargetAwake(Healthbar healthBarPrefab, Target target)
 	{
-		if (target.DontCreateHealthBar) return;
+		if (target.DontCreateHealthBar || healthBarPrefab == null) return;
 		
-		var healthbar = Instantiate(_healthbarPrefab, _healthbarParent);
-		healthbar.Init(target);
+		var healthBar = Instantiate(healthBarPrefab, _healthbarParent);
+		healthBar.Init(target);
 	}
 }

@@ -6,12 +6,14 @@ public class Projectile : MonoBehaviour
 	private float _distanceDetonation = 0.2f;
 	
 	private int _damage;
+	private Target _tower;
 	private Target _target;
 	private Transform _followPoint;
 	private float _speed;
 
-	public void Init(int damage, Target target, float speed)
+	public void Init(Target tower, int damage, Target target, float speed)
 	{
+		_tower = tower;
 		_damage = damage;
 		_speed = speed;
 		_target = target;
@@ -29,7 +31,7 @@ public class Projectile : MonoBehaviour
 
 		if (sqrDistance < _distanceDetonation)
 		{
-			_target.TakeDamage(_damage);
+			_target.TakeDamage(_tower, _damage);
 			_projectileVFX.SpawnHitEffect(_followPoint);
 			Destroy(gameObject);
 		}

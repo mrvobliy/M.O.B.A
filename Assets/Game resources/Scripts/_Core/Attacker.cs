@@ -6,11 +6,10 @@ using UnityEditor;
 public abstract class Attacker : Target
 {
 	[Header("Attacker")]
-	[SerializeField] private AnimationEvents _events;
 	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private Projectile _projectilePrefab;
-	[SerializeField] private Transform _projectileOrigin;
-	[SerializeField] private Transform _projectileOrigin2;
+	[SerializeField] private Transform _projectileOriginLeft;
+	[SerializeField] private Transform _projectileOriginRight;
 	[SerializeField] private float _projectileSpeed = 1f;
 	[SerializeField] private int _attackAnimationAmount = 1;
 	[SerializeField] protected float _attackDistance = 1f;
@@ -22,6 +21,7 @@ public abstract class Attacker : Target
 	public event Action<Target> OnTargetHit;
 
 	private bool _insideAttack;
+	private bool _isAttackAnimPlayed;
 	private int _indexAttackAnim;
 
 	protected Collider[] _visibilityColliders = new Collider[64];
@@ -35,8 +35,8 @@ public abstract class Attacker : Target
 	{
 		base.Awake();
 
-		_events.OnFireProjectile += OnFireProjectile;
-		_events.OnFireProjectile2 += OnFireProjectile2;
+		_events.OnFireProjectileLeft += OnFireProjectileLeft;
+		_events.OnFireProjectileRight += OnFireProjectileRight;
 		_events.OnAttackBegin += OnAttackBegin;
 		_events.OnAttackEnd += OnAttackEnd;
 
@@ -50,17 +50,17 @@ public abstract class Attacker : Target
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(_damage, _closestEnemy, _projectileSpeed);
+		projectile.Init(this, _damage, _closestEnemy, _projectileSpeed);
 	}
 
-	private void OnFireProjectile2()
+	private void OnFireProjectileRight()
 	{
-		Fire(_projectileOrigin2);
+		Fire(_projectileOriginRight);
 	}
 
-	private void OnFireProjectile()
+	private void OnFireProjectileLeft()
 	{
-		Fire(_projectileOrigin);
+		Fire(_projectileOriginLeft);
 	}
 
 	private void OnAttackEnd()
@@ -68,14 +68,20 @@ public abstract class Attacker : Target
 		if (!_insideAttack) return;
 		
 		_insideAttack = false;
+		_isAttackAnimPlayed = false;
 	}
 
 	private void OnAttackBegin()
 	{
-		if (_insideAttack == false) return;
+		if (!_insideAttack) return;
+		
 		if (_closestEnemy == null) return;
+		
+		if (_isAttackAnimPlayed) return;
 
-		_closestEnemy.TakeDamage(_damage);
+		_isAttackAnimPlayed = true;
+
+		_closestEnemy.TakeDamage(this, _damage);
 		OnTargetHit?.Invoke(_closestEnemy);
 	}
 
