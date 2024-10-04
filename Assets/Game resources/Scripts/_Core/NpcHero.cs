@@ -190,10 +190,10 @@ public class NpcHero : Unit
 					}
 				}
 
-				if (_closestEnemy != null)
+				if (_closestEnemyInVisibility != null)
 				{
 					_agent.stoppingDistance = _attackDistance;
-					return _closestEnemy.transform.position;
+					return _closestEnemyInVisibility.transform.position;
 				}
 
 				return transform.position;

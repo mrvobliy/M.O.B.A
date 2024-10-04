@@ -86772,6 +86772,7 @@ MonoBehaviour:
   _damage: 50
   _maxAngleAttack: 45
   _isSequentialAttckAnim: 1
+  _spreadDamageAcrossAttackArea: 1
   _agent: {fileID: 5630766452610546823}
   _rotationSpeed: 1000
   _destinationScale: 0.6

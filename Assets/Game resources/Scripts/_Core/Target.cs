@@ -33,8 +33,6 @@ public abstract class Target : MonoBehaviour
 
 	private float _currentHealth;
 
-	public bool IsBeingAttacked { get; set; }
-
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
 	public float CurrentHealth => _currentHealth;

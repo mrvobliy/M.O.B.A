@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEditor;
+using System.Collections.Generic;
 
 public abstract class Attacker : Target
 {
@@ -17,6 +18,7 @@ public abstract class Attacker : Target
 	[SerializeField] protected int _damage = 10;
 	[SerializeField] protected float _maxAngleAttack = 180f;
 	[SerializeField] private bool _isSequentialAttckAnim;
+	[SerializeField] private bool _spreadDamageAcrossAttackArea;
 
 	public event Action<Target> OnTargetHit;
 
@@ -27,7 +29,8 @@ public abstract class Attacker : Target
 	protected Collider[] _visibilityColliders = new Collider[64];
 	protected int _visibilityAmount;
 
-	protected Target _closestEnemy;
+	protected Target _closestEnemyInVisibility;
+	protected Target _closestEnemyInAttackArea;
 
 	public Vector3 Forward => _rotationParent == null ? transform.forward : _rotationParent.forward;
 
@@ -45,12 +48,12 @@ public abstract class Attacker : Target
 
 	private void Fire(Transform origin)
 	{
-		if (_closestEnemy == null) return;
+		if (_closestEnemyInAttackArea == null) return;
 
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(this, _damage, _closestEnemy, _projectileSpeed);
+		projectile.Init(this, _damage, _closestEnemyInAttackArea, _projectileSpeed);
 	}
 
 	private void OnFireProjectileRight()
@@ -75,14 +78,25 @@ public abstract class Attacker : Target
 	{
 		if (!_insideAttack) return;
 		
-		if (_closestEnemy == null) return;
+		if (_closestEnemyInAttackArea == null) return;
 		
 		if (_isAttackAnimPlayed) return;
 
 		_isAttackAnimPlayed = true;
 
-		_closestEnemy.TakeDamage(this, _damage);
-		OnTargetHit?.Invoke(_closestEnemy);
+		if (_spreadDamageAcrossAttackArea)
+		{
+			foreach (var enemy in FindAllEnemiesInAttackArea())
+			{
+				enemy.TakeDamage(this, _damage);
+			}
+		}
+		else
+		{
+			_closestEnemyInAttackArea.TakeDamage(this, _damage);
+		}
+
+		OnTargetHit?.Invoke(_closestEnemyInAttackArea);
 	}
 
 	protected abstract bool IsTargetValid(Target target);
@@ -91,31 +105,18 @@ public abstract class Attacker : Target
 	{
 		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
-		if (_closestEnemy != null)
-		{
-			_closestEnemy.IsBeingAttacked = false;
-		}
-
 		if (IsDead) return;
 
 		_visibilityAmount = Physics.OverlapSphereNonAlloc
 			(transform.position, _detectionRadius, _visibilityColliders);
 
-		_closestEnemy = FindClosestTarget();
+		_closestEnemyInVisibility = FindClosestEnemyInVisibilityRadius();
+		_closestEnemyInAttackArea = FindClosestEnemyInAttackArea();
 
-		if (_closestEnemy != null)
+		if (_closestEnemyInAttackArea != null)
 		{
-			var distanceToEnemy = DistanceTo(_closestEnemy);
-			var direction = DirectionTo(_closestEnemy);
-			var angle = Vector3.Angle(Forward, direction);
-
-			if (distanceToEnemy < _attackDistance &&
-				angle < _maxAngleAttack)
-			{
-				_animator.SetBool(AnimatorHash.IsAttacking, true);
-				_closestEnemy.IsBeingAttacked = true;
-				TryToAttack();
-			}
+			_animator.SetBool(AnimatorHash.IsAttacking, true);
+			TryToAttack();
 		}
 	}
 
@@ -140,7 +141,7 @@ public abstract class Attacker : Target
 		_animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
 	}
 
-	public Target FindClosestTarget()
+	public Target FindClosestEnemyInVisibilityRadius()
 	{
 		var minDistance = float.MaxValue;
 		Target target = null;
@@ -158,6 +159,65 @@ public abstract class Attacker : Target
 			if (IsTargetValid(attackTarget) == false) continue;
 
 			var distance = SqrDistanceTo(attackTarget.transform);
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				target = attackTarget;
+			}
+		}
+
+		return target;
+	}
+
+	public IEnumerable<Target> FindAllEnemiesInAttackArea()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var found = collider.TryGetComponent(out Target attackTarget);
+
+			if (found == false) continue;
+			if (attackTarget.Team == Team) continue;
+			if (attackTarget.IsDead) continue;
+			if (IsTargetValid(attackTarget) == false) continue;
+
+			var distance = DistanceTo(attackTarget.transform);
+			if (distance > _attackDistance) continue;
+
+			var direction = DirectionTo(attackTarget.transform);
+			var angle = Vector3.Angle(Forward, direction);
+			if (angle > _maxAngleAttack) continue;
+
+			yield return attackTarget;
+		}
+	}
+
+	public Target FindClosestEnemyInAttackArea()
+	{
+		var minDistance = float.MaxValue;
+		Target target = null;
+
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var found = collider.TryGetComponent(out Target attackTarget);
+
+			if (found == false) continue;
+			if (attackTarget.Team == Team) continue;
+			if (attackTarget.IsDead) continue;
+			if (IsTargetValid(attackTarget) == false) continue;
+
+			var distance = DistanceTo(attackTarget.transform);
+			if (distance > _attackDistance) continue;
+
+			var direction = DirectionTo(attackTarget.transform);
+			var angle = Vector3.Angle(Forward, direction);
+			if (angle > _maxAngleAttack) continue;
+
 			if (distance < minDistance)
 			{
 				minDistance = distance;
