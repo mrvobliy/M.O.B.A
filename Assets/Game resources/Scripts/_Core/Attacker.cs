@@ -26,6 +26,8 @@ public abstract class Attacker : Target
 	private bool _isAttackAnimPlayed;
 	private int _indexAttackAnim;
 
+	protected bool _aggressive = true;
+
 	protected Collider[] _visibilityColliders = new Collider[64];
 	protected int _visibilityAmount;
 
@@ -114,7 +116,7 @@ public abstract class Attacker : Target
 		_closestEnemyInVisibility = FindClosestEnemyInVisibilityRadius();
 		_closestEnemyInAttackArea = FindClosestEnemyInAttackArea();
 
-		if (_closestEnemyInAttackArea != null)
+		if (_aggressive && _closestEnemyInAttackArea != null)
 		{
 			_animator.SetBool(AnimatorHash.IsAttacking, true);
 			TryToAttack();

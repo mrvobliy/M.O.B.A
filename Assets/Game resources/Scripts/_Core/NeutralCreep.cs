@@ -21,6 +21,8 @@ public class NeutralCreep : Creep
 		_currentPassiveCooldown = _passiveCooldown;
 
 		_closestEnemyInVisibility = FindClosestEnemyInVisibilityRadius();
+
+		_aggressive = true;
 	}
 
 	protected override Vector3 GetTarget()
@@ -28,6 +30,7 @@ public class NeutralCreep : Creep
 		_currentPassiveCooldown = Mathf.MoveTowards(_currentPassiveCooldown, 0f, Time.deltaTime);
 		if (Mathf.Approximately(_currentPassiveCooldown, 0f))
 		{
+			_aggressive = false;
 			_closestEnemyInVisibility = null;
 			_agent.stoppingDistance = _attackDistance;
 			return _spawnPosition;
@@ -47,6 +50,6 @@ public class NeutralCreep : Creep
 
 	protected override bool IsTargetValid(Target target)
 	{
-		return true;
+		return target is PlayerHero || target is NpcHero;
 	}
 }
