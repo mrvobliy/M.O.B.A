@@ -80,6 +80,9 @@ public abstract class Attacker : Target
 		if (!_insideAttack) return;
 
 		_closestEnemyInAttackArea = FindClosestEnemyInVisibilityRadius();
+
+		var closestEnemiesInAttackArea = FindAllEnemiesInAttackArea();
+		
 		if (_closestEnemyInAttackArea == null) return;
 		
 		if (_isAttackAnimPlayed) return;

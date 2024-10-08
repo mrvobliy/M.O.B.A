@@ -14,6 +14,7 @@ public class DamageColorEffect : MonoBehaviour
     [SerializeField] private Color _startColor;
     [SerializeField] private Color _damageColor;
     [SerializeField] private float _timeChangeColor;
+    [SerializeField] private bool _isPlayer;
 
     private void OnEnable()
     {
@@ -34,7 +35,7 @@ public class DamageColorEffect : MonoBehaviour
     [ProButton]
     private void ChangeColor(Target target, int damage)
     {
-        if (target.transform.tag != "Player") return;
+        if (target.transform.tag != "Player" && !_isPlayer) return;
         
         foreach (var mat in _materials)
         {

@@ -371,6 +371,7 @@ MonoBehaviour:
   _animator: {fileID: 5726835110859466722}
   _team: 2
   _maxHealth: 2000
+  _rotationParent: {fileID: 0}
   _useDive: 1
   _diveDelay: 3
   _diveDuration: 10
@@ -379,6 +380,7 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
+  _canRebound: 0
   _obstacle: {fileID: 5046138513220065720}
 --- !u!114 &8900810513310130986
 MonoBehaviour:
@@ -406,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 3173036885244826244}
   _materials: []
+  _exludeMaterials: []
   _renderers:
   - {fileID: 7758644181815777955}
   - {fileID: 7840161171337954566}

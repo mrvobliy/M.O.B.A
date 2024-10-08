@@ -214,6 +214,7 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
+  _canRebound: 0
   _projectilePrefab: {fileID: 8383380591834786236, guid: 01bb7d73beefbec499d3bfde20b81bc9,
     type: 3}
   _projectileOriginLeft: {fileID: 7141112585421264879}

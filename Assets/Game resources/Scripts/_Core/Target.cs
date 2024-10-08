@@ -30,6 +30,7 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private bool _dontCreateHealthBar;
 	[SerializeField] private float _regeneration;
 	[SerializeField] private Transform[] _safeSpots;
+	[SerializeField] protected bool _canRebound = true;
 
 	private const float ReboundTime = 0.12f;
 	private const float ReboundForce = 0.4f;
@@ -107,7 +108,7 @@ public abstract class Target : MonoBehaviour
 	
 	private void RootRebound(Target target)
 	{
-		if (!target.transform.CompareTag("Player") || _rotationParent == null) return;
+		if (!target.transform.CompareTag("Player") || _rotationParent == null || !_canRebound) return;
 		
 		_rotationParent.DOLocalMove(-_rotationParent.forward * ReboundForce, ReboundTime).OnComplete(() =>
 		{

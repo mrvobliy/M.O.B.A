@@ -737,6 +737,7 @@ MonoBehaviour:
   _animator: {fileID: 5827867853637718321}
   _team: 2
   _maxHealth: 1000
+  _rotationParent: {fileID: 0}
   _useDive: 1
   _diveDelay: 3
   _diveDuration: 10
@@ -745,7 +746,7 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
-  _rotationParent: {fileID: 0}
+  _canRebound: 0
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}
   _projectileOriginLeft: {fileID: 329854061970882384}
@@ -757,6 +758,7 @@ MonoBehaviour:
   _damage: 10
   _maxAngleAttack: 180
   _isSequentialAttckAnim: 0
+  _spreadDamageAcrossAttackArea: 0
   _obstacle: {fileID: 3711116078013738374}
   _rigidbodies:
   - {fileID: 139693776954198648}
@@ -777,6 +779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 217631271033085524}
   _materials: []
+  _exludeMaterials: []
   _renderers:
   - {fileID: 5254945923228761445}
   - {fileID: 3034646382726365108}

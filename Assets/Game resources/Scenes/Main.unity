@@ -15209,7 +15209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &376813050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73903,7 +73903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1703202810
 Transform:
   m_ObjectHideFlags: 0
@@ -82753,7 +82753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872266243
 Transform:
   m_ObjectHideFlags: 0
@@ -96053,15 +96053,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 3157034632469902422}
-  _materials:
-  - {fileID: 2100000, guid: 6821a4f2dc8a6ae4aac64976d4ed028e, type: 2}
-  - {fileID: 2100000, guid: 542b814a498306545a83a51ff861d58c, type: 2}
-  - {fileID: 2100000, guid: 827adaa61e527ac4ebbc16b9d995c5ed, type: 2}
+  _materials: []
   _exludeMaterials: []
-  _renderers: []
-  _startColor: {r: 1, g: 1, b: 1, a: 0}
-  _damageColor: {r: 1, g: 0.4481132, b: 0.4481132, a: 0}
+  _renderers:
+  - {fileID: 2965335758161210041}
+  - {fileID: 8657489589517549252}
+  - {fileID: 4101868014140253307}
+  - {fileID: 6376881296449100002}
+  _startColor: {r: 0, g: 0, b: 0, a: 1}
+  _damageColor: {r: 1, g: 0, b: 0, a: 1}
   _timeChangeColor: 0.13
+  _isPlayer: 1
 --- !u!1 &1476800556021000833
 GameObject:
   m_ObjectHideFlags: 0
@@ -97836,6 +97838,7 @@ MonoBehaviour:
   _dontCreateHealthBar: 1
   _regeneration: 0
   _safeSpots: []
+  _canRebound: 1
   _projectilePrefab: {fileID: 0}
   _projectileOriginLeft: {fileID: 0}
   _projectileOriginRight: {fileID: 0}
