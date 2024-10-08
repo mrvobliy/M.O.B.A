@@ -7,7 +7,6 @@ using System.Collections.Generic;
 public abstract class Attacker : Target
 {
 	[Header("Attacker")]
-	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private Projectile _projectilePrefab;
 	[SerializeField] private Transform _projectileOriginLeft;
 	[SerializeField] private Transform _projectileOriginRight;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1416398055680106750}
   - component: {fileID: 8752061278316791218}
   - component: {fileID: 4398518581069514166}
+  - component: {fileID: 8333381237869035799}
   m_Layer: 10
   m_Name: Enemy_Light_Tower
   m_TagString: EmeraldAI
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthbarPrefab: {fileID: 3956543130547307561, guid: 7b702276e3afcc54f98364168b3748b4,
     type: 3}
+  _events: {fileID: 4398518581069514166}
   _animator: {fileID: 1309036163396089948}
   _team: 1
   _maxHealth: 1000
@@ -209,7 +211,6 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
-  _events: {fileID: 4398518581069514166}
   _rotationParent: {fileID: 0}
   _projectilePrefab: {fileID: 8383380591834786236, guid: 01bb7d73beefbec499d3bfde20b81bc9,
     type: 3}
@@ -240,6 +241,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8333381237869035799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309036163396091818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 8752061278316791218}
+  _materials: []
+  _renderers:
+  - {fileID: 7802856598419955921}
+  - {fileID: 1060944105663209984}
+  - {fileID: 2910923053043897275}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
+  _timeChangeColor: 0.15
 --- !u!1 &2747233522265811860
 GameObject:
   m_ObjectHideFlags: 0

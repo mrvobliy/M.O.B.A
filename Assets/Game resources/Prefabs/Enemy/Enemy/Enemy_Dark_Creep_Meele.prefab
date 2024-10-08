@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 3491033238560658643}
   - component: {fileID: 3491033238560658642}
   - component: {fileID: 5457933976685768967}
+  - component: {fileID: 6157988793192160607}
   m_Layer: 0
   m_Name: Enemy_Dark_Creep_Meele
   m_TagString: EmeraldAI
@@ -523,6 +524,7 @@ MonoBehaviour:
   _animator: {fileID: 5084447566468007667}
   _team: 2
   _maxHealth: 100
+  _rotationParent: {fileID: 182587009839807868}
   _useDive: 0
   _diveDelay: 3
   _diveDuration: 1
@@ -531,7 +533,6 @@ MonoBehaviour:
   _dontCreateHealthBar: 0
   _regeneration: 0
   _safeSpots: []
-  _rotationParent: {fileID: 182587009839807868}
   _projectilePrefab: {fileID: 0}
   _projectileOriginLeft: {fileID: 0}
   _projectileOriginRight: {fileID: 0}
@@ -544,6 +545,33 @@ MonoBehaviour:
   _isSequentialAttckAnim: 0
   _agent: {fileID: 3491033238560658643}
   _rotationSpeed: 200
+--- !u!114 &6157988793192160607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491033238560658664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5457933976685768967}
+  _materials: []
+  _exludeMaterials: []
+  _renderers:
+  - {fileID: 4540531318573392353}
+  - {fileID: 1176031639964105514}
+  - {fileID: 6536886890048031309}
+  - {fileID: 2908717303494949994}
+  - {fileID: 4996567801153388537}
+  - {fileID: 7786666770770263611}
+  - {fileID: 6862701613816514570}
+  - {fileID: 223072551754532172}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
+  _timeChangeColor: 0.15
 --- !u!1 &3622883634369580788
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using com.cyborgAssets.inspectorButtonPro;
 
 [SelectionBase]
 public abstract class Target : MonoBehaviour
@@ -20,6 +21,7 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
 	[SerializeField] private float _maxHealth = 100;
+	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 10f;
@@ -28,6 +30,9 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private bool _dontCreateHealthBar;
 	[SerializeField] private float _regeneration;
 	[SerializeField] private Transform[] _safeSpots;
+
+	private const float ReboundTime = 0.12f;
+	private const float ReboundForce = 0.4f;
 
 	private List<Transform> _safeSpotsPool = new();
 
@@ -82,6 +87,8 @@ public abstract class Target : MonoBehaviour
 		OnDamageTaken?.Invoke();
 		OnEnemyAttackUs?.Invoke(target, damage);
 
+		RootRebound(target);
+
 		if (!IsDead) return;
 		
 		_currentHealth = 0f;
@@ -96,6 +103,16 @@ public abstract class Target : MonoBehaviour
 			.SetDelay(_diveDelay)
 			.SetEase(Ease.Linear)
 			.OnComplete(Death);
+	}
+	
+	private void RootRebound(Target target)
+	{
+		if (!target.transform.CompareTag("Player") || _rotationParent == null) return;
+		
+		_rotationParent.DOLocalMove(-_rotationParent.forward * ReboundForce, ReboundTime).OnComplete(() =>
+		{
+			_rotationParent.DOLocalMove(new Vector3(0, 0, 0), ReboundTime);
+		});
 	}
 
 	private void Death()
