@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,7 +9,12 @@ public class SwitchObjects : MonoBehaviour
     [SerializeField] private TMP_Text _text;
 
     private int _index;
-    
+
+    private void OnEnable()
+    {
+        _text.text = _gameObjects[_index].name;
+    }
+
     public void Switch()
     {
         _gameObjects[_index].SetActive(false);
