@@ -227,6 +227,7 @@ MonoBehaviour:
   _maxAngleAttack: 180
   _isSequentialAttckAnim: 0
   _spreadDamageAcrossAttackArea: 0
+  _isCanCallPlayerFound: 0
   _obstacle: {fileID: 1416398055680106750}
   _rigidbodies:
   - {fileID: 6059121538092077543}
@@ -267,6 +268,7 @@ MonoBehaviour:
   _startColor: {r: 0, g: 0, b: 0, a: 0}
   _damageColor: {r: 1, g: 1, b: 1, a: 1}
   _timeChangeColor: 0.15
+  _isPlayer: 0
 --- !u!114 &5218692470379594016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,16 +276,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309036163396091818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9752b542cc99bf34383fd7bdd2b7f1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _attacker: {fileID: 8752061278316791218}
   _radius: {fileID: 4245280375831074313}
-  _enableFadeValue: 0.2
   _timeAnim: 0.5
-  _delayToHide: 4
+  _delayToHide: 2
 --- !u!1 &2747233522265811860
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +622,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.25, g: 0.67058825, b: 1, a: 0.2}
+      maxColor: {r: 0.25, g: 0.67058825, b: 1, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

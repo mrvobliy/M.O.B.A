@@ -6,7 +6,6 @@ public class TowerAttackRadius : MonoBehaviour
 {
     [SerializeField] private Attacker _attacker;
     [SerializeField] private ParticleSystem _radius;
-    [SerializeField] private float _enableFadeValue;
     [SerializeField] private float _timeAnim;
     [SerializeField] private float _delayToHide;
 
@@ -15,27 +14,22 @@ public class TowerAttackRadius : MonoBehaviour
 
     private void OnEnable()
     {
-        _attacker.OnTargetHit += Show;
+        _attacker.OnPlayerFound += Show;
+        _attacker.OnPlayerLost += DelayInvokeHide;
         _renderer = _radius.GetComponent<Renderer>();
     }
 
     private void OnDisable()
     {
-        _attacker.OnTargetHit -= Show;
+        _attacker.OnPlayerFound -= Show;
+        _attacker.OnPlayerLost -= DelayInvokeHide;
     }
 
-    private void Show(Target target)
+    private void Show()
     {
-        if (!target.CompareTag("Player")) return;
-
-        if (!_isShowed)
-        {
-            _radius.gameObject.SetActive(true);
-            _renderer.material.DOFade(_enableFadeValue, _timeAnim);
-        }
-        
-        _isShowed = true;
-        DelayInvokeHide();
+        CancelInvoke(nameof(Hide));
+        _radius.gameObject.SetActive(true);
+        _renderer.material.DOFade(1, _timeAnim);
     }
 
     private void DelayInvokeHide()

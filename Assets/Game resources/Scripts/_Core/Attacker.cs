@@ -18,8 +18,13 @@ public abstract class Attacker : Target
 	[SerializeField] protected float _maxAngleAttack = 180f;
 	[SerializeField] private bool _isSequentialAttckAnim;
 	[SerializeField] private bool _spreadDamageAcrossAttackArea;
+	[SerializeField] private bool _isCanCallPlayerFound;
 
 	public event Action<Target> OnTargetHit;
+	public event Action OnPlayerFound;
+	public event Action OnPlayerLost;
+
+	private bool _isPlayerFound;
 
 	private bool _insideAttack;
 	private bool _isAttackAnimPlayed;
@@ -123,6 +128,24 @@ public abstract class Attacker : Target
 		}
 	}
 
+	private void TryCallPlayerFound(Target player)
+	{
+		if (!_isCanCallPlayerFound) return;
+		
+		if (player == null && _isPlayerFound)
+		{
+			_isPlayerFound = false;
+			OnPlayerLost?.Invoke();
+			return;
+		}
+
+		if (player != null && !_isPlayerFound)
+		{
+			_isPlayerFound = true;
+			OnPlayerFound?.Invoke();
+		}
+	}
+
 	public void TryToAttack()
 	{
 		if (_insideAttack) return;
@@ -148,6 +171,7 @@ public abstract class Attacker : Target
 	{
 		var minDistance = float.MaxValue;
 		Target target = null;
+		Target player = null;
 
 		for (var i = 0; i < _visibilityAmount; i++)
 		{
@@ -160,7 +184,10 @@ public abstract class Attacker : Target
 			if (attackTarget.Team == Team) continue;
 			if (attackTarget.IsDead) continue;
 			if (IsTargetValid(attackTarget) == false) continue;
-
+			
+			if (attackTarget.transform.CompareTag("Player"))
+				player = attackTarget;
+			
 			var distance = SqrDistanceTo(attackTarget.transform);
 			if (distance < minDistance)
 			{
@@ -168,6 +195,8 @@ public abstract class Attacker : Target
 				target = attackTarget;
 			}
 		}
+		
+		TryCallPlayerFound(player);
 
 		return target;
 	}

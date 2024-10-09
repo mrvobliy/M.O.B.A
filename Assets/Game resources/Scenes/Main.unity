@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &19268913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5328,7 +5328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &174626989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15286,7 +15286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &376813050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16686,7 +16686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &430436338
 Transform:
   m_ObjectHideFlags: 0
@@ -83336,7 +83336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872266243
 Transform:
   m_ObjectHideFlags: 0
@@ -89307,7 +89307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1996123225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98518,6 +98518,7 @@ MonoBehaviour:
   _maxAngleAttack: 45
   _isSequentialAttckAnim: 1
   _spreadDamageAcrossAttackArea: 1
+  _isCanCallPlayerFound: 0
   _agent: {fileID: 5630766452610546823}
   _rotationSpeed: 1000
   _destinationScale: 0.6

@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 5586209609897442048}
   m_Layer: 9
   m_Name: NpcHero
-  m_TagString: Player
+  m_TagString: NpcHero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1723,6 +1723,7 @@ MonoBehaviour:
   _startColor: {r: 0, g: 0, b: 0, a: 0}
   _damageColor: {r: 1, g: 1, b: 1, a: 1}
   _timeChangeColor: 0.13
+  _isPlayer: 0
 --- !u!114 &3603644106682959395
 MonoBehaviour:
   m_ObjectHideFlags: 0
