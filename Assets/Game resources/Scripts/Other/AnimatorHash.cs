@@ -10,6 +10,7 @@ public static class AnimatorHash
     public static readonly int Death = Animator.StringToHash("Death");
     public static readonly int Offset = Animator.StringToHash("Offset");
     public static readonly int IsRunning = Animator.StringToHash("IsRunning");
+    public static readonly int IsSkill = Animator.StringToHash("isSkill");
 
 	public static int GetAttackHash(int index)
     {
