@@ -59216,7 +59216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -205, y: -1678}
+  m_AnchoredPosition: {x: -205, y: -1500}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392030374
@@ -98474,7 +98474,8 @@ MonoBehaviour:
   _skillButtonEvents: {fileID: 1392030378}
   _playerHero: {fileID: 3157034632469902422}
   _indicator: {fileID: 1455699111}
-  _sensitivity: 0.8
+  _sensitivity: 1
+  _fadeSpeed: 10
 --- !u!4 &5631376386988347593
 Transform:
   m_ObjectHideFlags: 0

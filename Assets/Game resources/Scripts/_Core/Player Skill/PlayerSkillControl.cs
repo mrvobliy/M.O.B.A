@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -8,9 +9,11 @@ public class PlayerSkillControl : MonoBehaviour
     [SerializeField] private PlayerHero _playerHero;
     [SerializeField] private DecalProjector _indicator;
     [SerializeField] private float _sensitivity = 0.1f;
+    [SerializeField] private float _fadeSpeed = 2.0f;
     
     private Vector3 _previousToMouseDir;
-    
+    private Coroutine _fadeCoroutine;
+
     private void OnEnable()
     {
         _skillButtonEvents.OnButtonDown += StartSkill;
@@ -27,26 +30,39 @@ public class PlayerSkillControl : MonoBehaviour
 
     private void StartSkill()
     {
-        _indicator.fadeFactor = 0.3f;
-        var toMouseDir = Input.mousePosition - _skillButton.position;
-        _previousToMouseDir = toMouseDir;
+        StartFade(0.3f);
+        RotateIndicator();
     }
     
     private void ReleaseSkill()
     {
-        _indicator.fadeFactor = 0.0f;
+        StartFade(0.0f);
         _playerHero.ActivateSkill();
     }
 
     private void RotateIndicator()
     {
         var toMouseDir = Input.mousePosition - _skillButton.position;
-        var anglePrevious = Mathf.Atan2(_previousToMouseDir.y, _previousToMouseDir.x) * Mathf.Rad2Deg;
-        var angleCurrent = Mathf.Atan2(toMouseDir.y, toMouseDir.x) * Mathf.Rad2Deg;
-        var angleDelta = Mathf.DeltaAngle(anglePrevious, angleCurrent);
+        var angle = Vector3.SignedAngle(_skillButton.up, toMouseDir, -_skillButton.forward);
+        _indicator.transform.parent.localRotation = Quaternion.Euler(90, angle, -180);
+    }
 
-        _indicator.transform.parent.Rotate(Vector3.forward, angleDelta * _sensitivity);
+    private void StartFade(float targetFade)
+    {
+        if (_fadeCoroutine != null)
+            StopCoroutine(_fadeCoroutine);
+        
+        _fadeCoroutine = StartCoroutine(FadeIndicator(targetFade));
+    }
 
-        _previousToMouseDir = toMouseDir;
+    private IEnumerator FadeIndicator(float targetFade)
+    {
+        while (Mathf.Abs(_indicator.fadeFactor - targetFade) > 0.01f)
+        {
+            _indicator.fadeFactor = Mathf.Lerp(_indicator.fadeFactor, targetFade, Time.deltaTime * _fadeSpeed);
+            yield return null;
+        }
+        
+        _indicator.fadeFactor = targetFade;
     }
 }
