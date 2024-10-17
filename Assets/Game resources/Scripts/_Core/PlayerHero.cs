@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerHero : Unit
+public class PlayerHero : Hero
 {
 	[Header("Player")] 
 	[SerializeField] private float _speed;

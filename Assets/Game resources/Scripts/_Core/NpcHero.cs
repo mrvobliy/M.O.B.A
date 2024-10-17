@@ -12,10 +12,11 @@ public enum NpcHeroState
 	PushEnemyBuilding,
 	AttackLaneCreeps,
 	FollowLane,
-	FollowLaneBack
+	FollowLaneBack,
+	AttackEnemyHero
 }
 
-public class NpcHero : Unit
+public class NpcHero : Hero
 {
 	[Header("NPC Hero")]
 	[SerializeField] private Lane _lane;
@@ -123,6 +124,16 @@ public class NpcHero : Unit
 					_currentSafeSpot = null;
 					_currentBuilding = null;
 					CurrentState = NpcHeroState.FollowLane;
+					return transform.position;
+				}
+
+				if (_currentBuilding.IsDead && CanSwitchState)
+				{
+					_sampleGenerated = false;
+					_currentBuilding.ReturnSafeSpot(_currentSafeSpot);
+					_currentSafeSpot = null;
+					_currentBuilding = null;
+					CurrentState = NpcHeroState.FollowLaneBack;
 					return transform.position;
 				}
 
@@ -259,6 +270,14 @@ public class NpcHero : Unit
 						CurrentState = NpcHeroState.PushEnemyBuilding;
 						return transform.position;
 					}
+
+					var enemyHeroHere = IsEnemyHeroNearby();
+					if (enemyHeroHere)
+					{
+						_pathIndex = -1;
+						CurrentState = NpcHeroState.AttackEnemyHero;
+						return transform.position;
+					}
 				}
 
 				if (_pathIsFinished)
@@ -341,6 +360,32 @@ public class NpcHero : Unit
 
 				return next.position;
 			}
+
+			case NpcHeroState.AttackEnemyHero:
+			{
+				if (CanSwitchState)
+				{
+					var enemyHeroHere = IsEnemyHeroNearby();
+					if (enemyHeroHere == false)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
+					if (HealthPercent < _fallbackHealthPercent)
+					{
+						CurrentState = NpcHeroState.FollowLane;
+						return transform.position;
+					}
+				}
+
+				if (_closestEnemyInVisibility != null)
+				{
+					_agent.stoppingDistance = _attackDistance;
+					return _closestEnemyInVisibility.transform.position;
+				}
+
+				return transform.position;
+			}
 		}
 
 		return transform.position;
@@ -362,6 +407,9 @@ public class NpcHero : Unit
 
 			case NpcHeroState.AttackLaneCreeps:
 				return target is LaneCreep;
+
+			case NpcHeroState.AttackEnemyHero:
+				return target is Hero;
 
 			default:
 				return false;

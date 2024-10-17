@@ -323,6 +323,25 @@ public abstract class Attacker : Target
 		return false;
 	}
 
+	public bool IsEnemyHeroNearby()
+	{
+		for (var i = 0; i < _visibilityAmount; i++)
+		{
+			var collider = _visibilityColliders[i];
+			if (collider == null) continue;
+
+			var found = collider.TryGetComponent(out Hero target);
+
+			if (found == false) continue;
+			if (target.Team == Team) continue;
+			if (target.IsDead) continue;
+
+			return true;
+		}
+
+		return false;
+	}
+
 	public bool IsEnemyBuildingNearby()
 	{
 		for (var i = 0; i < _visibilityAmount; i++)
