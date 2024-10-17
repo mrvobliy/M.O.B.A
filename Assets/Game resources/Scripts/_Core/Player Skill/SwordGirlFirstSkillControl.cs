@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class PlayerSkillControl : MonoBehaviour
+public class SwordGirlFirstSkillControl : MonoBehaviour
 {
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
@@ -10,6 +10,14 @@ public class PlayerSkillControl : MonoBehaviour
     [SerializeField] private DecalProjector _indicator;
     [SerializeField] private float _sensitivity = 0.1f;
     [SerializeField] private float _fadeSpeed = 2.0f;
+    [Space]
+    [SerializeField] private Transform _firstSkillDestinationPoint;
+    [SerializeField] private PlayerSkillDamage _firstSkillDamagePrefab;
+    [SerializeField] private Transform _firstSkillSpawnPoint;
+    
+    public Transform FirstSkillDestinationPoint => _firstSkillDestinationPoint;
+    public PlayerSkillDamage FirstSkillDamagePrefab => _firstSkillDamagePrefab;
+    public Transform FirstSkillSpawnPoint => _firstSkillSpawnPoint;
     
     private Vector3 _previousToMouseDir;
     private Coroutine _fadeCoroutine;
@@ -37,7 +45,7 @@ public class PlayerSkillControl : MonoBehaviour
     private void ReleaseSkill()
     {
         StartFade(0.0f);
-        _playerHero.ActivateSkill();
+        _playerHero.ActivateFirstSkill(this);
     }
 
     private void RotateIndicator()
