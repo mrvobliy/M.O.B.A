@@ -38,6 +38,8 @@ public abstract class Target : MonoBehaviour
 	private List<Transform> _safeSpotsPool = new();
 
 	private float _currentHealth;
+	
+	protected bool _isSkillEnable;
 
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;

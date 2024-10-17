@@ -111,6 +111,8 @@ public abstract class Attacker : Target
 
 	private void FixedUpdate()
 	{
+		if (_isSkillEnable) return;
+		
 		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
 		if (IsDead) return;

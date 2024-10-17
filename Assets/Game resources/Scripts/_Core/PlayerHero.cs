@@ -1,9 +1,12 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerHero : Unit
 {
-	[Header("Player")]
+	[Header("Player")] 
+	[SerializeField] private float _speed;
 	[SerializeField] private float _destinationScale;
 	[SerializeField] private float _sampleScale;
 	[SerializeField] private float _sampleDistance;
@@ -37,7 +40,7 @@ public class PlayerHero : Unit
 		var x = Joystick.Instance.Direction.x;
 		var y = Joystick.Instance.Direction.y;
 		var inputDirection = new Vector3(x, 0f, y);
-
+		
 		if (inputDirection.magnitude < 0.01f)
 		{
 			return transform.position;
@@ -57,5 +60,65 @@ public class PlayerHero : Unit
 	protected override bool IsTargetValid(Target target)
 	{
 		return true;
+	}
+
+	public void ActivateFirstSkill(SwordGirlFirstSkillControl swordGirlFirstSkillControl)
+	{
+		if (IsDead || _isSkillEnable) return;
+		
+		_animator.SetBool(AnimatorHash.IsSkill, true);
+		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
+		_isSkillEnable = true;
+		var toRotation = Quaternion.LookRotation( swordGirlFirstSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
+		_rotationParent.DORotate(toRotation.eulerAngles, 0.2f);
+
+		StartCoroutine(OnActivate());
+		
+        IEnumerator OnActivate()
+		{
+			_agent.speed = 4;
+			_agent.SetDestination(swordGirlFirstSkillControl.FirstSkillDestinationPoint.position);
+			
+			yield return new WaitForSeconds(0.8f);
+
+			var skillDamage = Instantiate(swordGirlFirstSkillControl.FirstSkillDamagePrefab, swordGirlFirstSkillControl.FirstSkillSpawnPoint);
+			skillDamage.Init(this);
+			skillDamage.gameObject.SetActive(true);
+			skillDamage.gameObject.transform.SetParent(null);
+			
+			yield return new WaitForSeconds(2);
+			
+			_animator.DOLayerWeight(4, 0f, _blendAttackLayerDuration);
+			_animator.SetBool(AnimatorHash.IsSkill, false);
+			_agent.speed = _speed;
+			_isSkillEnable = false;
+		}
+	}
+	
+	public void ActivateSecondSkill(SwordGirlSecondSkillControl skillControl)
+	{
+		if (IsDead || _isSkillEnable) return;
+		
+		_animator.SetBool(AnimatorHash.IsSkill, true);
+		_animator.DOLayerWeight(5, 1f, _blendAttackLayerDuration);
+		_isSkillEnable = true;
+
+		StartCoroutine(OnActivate());
+		
+		IEnumerator OnActivate()
+		{
+			yield return new WaitForSeconds(0.9f);
+			
+			var skillDamage = Instantiate(skillControl.DamagePrefab, skillControl.SpawnPoint);
+			skillDamage.Init(this);
+			skillDamage.gameObject.SetActive(true);
+			skillDamage.gameObject.transform.SetParent(null);
+			
+			yield return new WaitForSeconds(0.6f);
+			
+			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
+			_animator.SetBool(AnimatorHash.IsSkill, false);
+			_isSkillEnable = false;
+		}
 	}
 }

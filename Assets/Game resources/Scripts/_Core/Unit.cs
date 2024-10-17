@@ -40,7 +40,7 @@ public abstract class Unit : Attacker
 	{
 		base.Update();
 
-		if (IsDead) return;
+		if (IsDead || _isSkillEnable) return;
 
 		var speed = _agent.velocity.magnitude;
 
