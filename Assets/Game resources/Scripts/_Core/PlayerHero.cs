@@ -107,14 +107,14 @@ public class PlayerHero : Unit
 		
 		IEnumerator OnActivate()
 		{
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.9f);
 			
 			var skillDamage = Instantiate(skillControl.DamagePrefab, skillControl.SpawnPoint);
 			skillDamage.Init(this);
 			skillDamage.gameObject.SetActive(true);
 			skillDamage.gameObject.transform.SetParent(null);
 			
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.6f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
 			_animator.SetBool(AnimatorHash.IsSkill, false);
