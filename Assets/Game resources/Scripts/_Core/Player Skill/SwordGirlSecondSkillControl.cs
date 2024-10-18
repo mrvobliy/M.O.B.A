@@ -7,9 +7,6 @@ public class SwordGirlSecondSkillControl : MonoBehaviour
     [SerializeField] private PlayerSkillDamage _damagePrefab;
     [SerializeField] private Transform _spawnPoint;
 
-    public PlayerSkillDamage DamagePrefab => _damagePrefab;
-    public Transform SpawnPoint => _spawnPoint;
-
     private void OnEnable()
     {
         _skillButtonEvents.OnButtonDown += ReleaseSkill;
@@ -22,6 +19,13 @@ public class SwordGirlSecondSkillControl : MonoBehaviour
     
     private void ReleaseSkill()
     {
-        _playerHero.ActivateSecondSkill(this);
+        if (_playerHero.IsSkillEnable) return;
+        
+        _playerHero.ActivateSecondSkill();
+        
+        var skillDamage = Instantiate(_damagePrefab, _spawnPoint);
+        skillDamage.Init(_playerHero);
+        skillDamage.gameObject.SetActive(true);
+        skillDamage.gameObject.transform.SetParent(null);
     }
 }

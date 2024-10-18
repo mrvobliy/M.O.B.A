@@ -95,7 +95,7 @@ public class PlayerHero : Unit
 		}
 	}
 	
-	public void ActivateSecondSkill(SwordGirlSecondSkillControl skillControl)
+	public void ActivateSecondSkill()
 	{
 		if (IsDead || _isSkillEnable) return;
 		
@@ -107,14 +107,34 @@ public class PlayerHero : Unit
 		
 		IEnumerator OnActivate()
 		{
-			yield return new WaitForSeconds(0.9f);
+			yield return new WaitForSeconds(1.3f);
 			
-			var skillDamage = Instantiate(skillControl.DamagePrefab, skillControl.SpawnPoint);
+			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
+			_animator.SetBool(AnimatorHash.IsSkill, false);
+			_isSkillEnable = false;
+		}
+	}
+	
+	public void ActivateThirdSkill(SwordGirlThirdSkillControl skillControl)
+	{
+		if (IsDead || _isSkillEnable) return;
+		
+		_animator.SetBool(AnimatorHash.IsSkill, true);
+		_animator.DOLayerWeight(5, 1f, _blendAttackLayerDuration);
+		_isSkillEnable = true;
+
+		StartCoroutine(OnActivate());
+		
+		IEnumerator OnActivate()
+		{
+			yield return new WaitForSeconds(0.7f);
+			
+			/*var skillDamage = Instantiate();
 			skillDamage.Init(this);
 			skillDamage.gameObject.SetActive(true);
-			skillDamage.gameObject.transform.SetParent(null);
+			skillDamage.gameObject.transform.SetParent(null);*/
 			
-			yield return new WaitForSeconds(0.6f);
+			yield return new WaitForSeconds(1.3f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
 			_animator.SetBool(AnimatorHash.IsSkill, false);

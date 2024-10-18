@@ -40,7 +40,8 @@ public abstract class Target : MonoBehaviour
 	private float _currentHealth;
 	
 	protected bool _isSkillEnable;
-
+	
+	public bool IsSkillEnable => _isSkillEnable;
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
 	public float CurrentHealth => _currentHealth;
