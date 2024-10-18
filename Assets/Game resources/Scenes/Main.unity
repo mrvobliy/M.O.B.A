@@ -97155,10 +97155,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1558782573}
+    - target: {fileID: 1488940120347186314, guid: 28fa90325d6e17c48ab225f6fa1400de,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 330.34
+      objectReference: {fileID: 0}
     - target: {fileID: 1488940120347186318, guid: 28fa90325d6e17c48ab225f6fa1400de,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1488940120724621773, guid: 28fa90325d6e17c48ab225f6fa1400de,
         type: 3}
