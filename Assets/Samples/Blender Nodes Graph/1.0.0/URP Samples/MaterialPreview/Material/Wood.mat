@@ -10,6 +10,8 @@ Material:
   m_Name: Wood
   m_Shader: {fileID: -6465566751694194690, guid: ec2766239620ba143b67cf5d7d714630,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -18,6 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -309,6 +312,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4d15e16adf0d39c449c0bcd350ec4483, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _WoodCustomFunction_ca7e7ca41425308b6fcf86cfc642ece3_Gradient8268_13_Texture2D:
+        m_Texture: {fileID: 2800000, guid: ef906b2624eb3ee499ce9a74eaa409f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WoodCustomFunction_ca7e7ca41425308b6fcf86cfc642ece3_Gradient8284_14_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 49d2e76f94c26f94aa726489241565b5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WoodCustomFunction_ca7e7ca41425308b6fcf86cfc642ece3_Gradient8288_15_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 112e31a10309539498b7f0048c6e5b1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _WoodCustomFunction_cfff1cb6c03e9d048eeb094aed68b33a_Gradient364704_12:
         m_Texture: {fileID: 2800000, guid: 7c7dc6b24f17b2241bd229cf7c648c16, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -380,6 +395,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -407,4 +423,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 5
+  version: 7

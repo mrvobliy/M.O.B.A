@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 5
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -23,6 +23,8 @@ Material:
   m_Name: WavyPass
   m_Shader: {fileID: -6465566751694194690, guid: 97dbe22105edfc64b8ad9d630f9fcc5f,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -31,6 +33,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -88,6 +91,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _WavyPassCustomFunction_1d0da78e506a12f18dfdbda031e9ac0c_Gradient8298_13:
         m_Texture: {fileID: 2800000, guid: 3ba0790318969ab4492e351a74cb9c27, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WavyPassCustomFunction_6233f2c4db5301dcb7753cc29a873f24_Gradient8264_13_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 8aedf62c43f15fa468fa3c472ac1d3ad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WavyPassCustomFunction_802b2e5e9ba17b67cb3ace7fbb2b31d6_Gradient8308_10:
@@ -169,6 +176,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5

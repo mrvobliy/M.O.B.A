@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 5
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -23,6 +23,8 @@ Material:
   m_Name: PreviewMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 1f97f815a9e93f9428afd5c05e3d1d84,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -31,6 +33,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -120,6 +123,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ExamplePreviewCustomFunction_2bfd481b8f771b48b73b6e6dbe099b45_Image22620_13:
         m_Texture: {fileID: 2800000, guid: 0da5df8a012ecd648931091c5c7ebf84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ExamplePreviewCustomFunction_2d083945084aa7723c990ab037c381f3_Curve7934_13_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 82a9a7187a4be234ebcaf700b62da79f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ExamplePreviewCustomFunction_2d57041b180f28a376eab0d06be126ff_Gradient291052_13:
@@ -489,6 +496,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
