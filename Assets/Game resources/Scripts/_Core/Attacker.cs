@@ -19,6 +19,7 @@ public abstract class Attacker : Target
 	[SerializeField] private bool _isSequentialAttckAnim;
 	[SerializeField] private bool _spreadDamageAcrossAttackArea;
 	[SerializeField] private bool _isCanCallPlayerFound;
+	[SerializeField] private bool _isCanAttackNeutrals = true;
 
 	public event Action<Target> OnTargetHit;
 	public event Action OnPlayerFound;
@@ -184,6 +185,7 @@ public abstract class Attacker : Target
 
 			if (found == false) continue;
 			if (attackTarget.Team == Team) continue;
+			if (attackTarget.Team == Team.Neutral && !_isCanAttackNeutrals) continue;
 			if (attackTarget.IsDead) continue;
 			if (IsTargetValid(attackTarget) == false) continue;
 			
@@ -214,6 +216,7 @@ public abstract class Attacker : Target
 
 			if (found == false) continue;
 			if (attackTarget.Team == Team) continue;
+			if (attackTarget.Team == Team.Neutral && !_isCanAttackNeutrals) continue;
 			if (attackTarget.IsDead) continue;
 			if (IsTargetValid(attackTarget) == false) continue;
 
@@ -242,6 +245,7 @@ public abstract class Attacker : Target
 
 			if (found == false) continue;
 			if (attackTarget.Team == Team) continue;
+			if (attackTarget.Team == Team.Neutral && !_isCanAttackNeutrals) continue;
 			if (attackTarget.IsDead) continue;
 			if (IsTargetValid(attackTarget) == false) continue;
 

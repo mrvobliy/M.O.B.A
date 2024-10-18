@@ -21,11 +21,12 @@ public class SwordGirlSecondSkillControl : MonoBehaviour
     {
         if (_playerHero.IsSkillEnable) return;
         
-        _playerHero.ActivateSecondSkill();
-        
-        var skillDamage = Instantiate(_damagePrefab, _spawnPoint);
-        skillDamage.Init(_playerHero);
-        skillDamage.gameObject.SetActive(true);
-        skillDamage.gameObject.transform.SetParent(null);
+        _playerHero.ActivateSecondSkill(() =>
+        {
+            var skillDamage = Instantiate(_damagePrefab, _spawnPoint);
+            skillDamage.Init(_playerHero);
+            skillDamage.gameObject.SetActive(true);
+            skillDamage.gameObject.transform.SetParent(null);
+        });
     }
 }

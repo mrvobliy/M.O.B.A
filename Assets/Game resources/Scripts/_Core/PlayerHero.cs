@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -66,10 +67,10 @@ public class PlayerHero : Unit
 	{
 		if (IsDead || _isSkillEnable) return;
 		
-		_animator.SetBool(AnimatorHash.IsSkill, true);
+		_animator.SetTrigger(AnimatorHash.IsFirstSkill);
 		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
 		_isSkillEnable = true;
-		var toRotation = Quaternion.LookRotation( swordGirlFirstSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
+		var toRotation = Quaternion.LookRotation(swordGirlFirstSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
 		_rotationParent.DORotate(toRotation.eulerAngles, 0.2f);
 
 		StartCoroutine(OnActivate());
@@ -89,55 +90,53 @@ public class PlayerHero : Unit
 			yield return new WaitForSeconds(2);
 			
 			_animator.DOLayerWeight(4, 0f, _blendAttackLayerDuration);
-			_animator.SetBool(AnimatorHash.IsSkill, false);
 			_agent.speed = _speed;
 			_isSkillEnable = false;
 		}
 	}
 	
-	public void ActivateSecondSkill()
+	public void ActivateSecondSkill(Action animCast = null)
 	{
 		if (IsDead || _isSkillEnable) return;
 		
-		_animator.SetBool(AnimatorHash.IsSkill, true);
-		_animator.DOLayerWeight(5, 1f, _blendAttackLayerDuration);
+		_animator.SetTrigger(AnimatorHash.IsSecondSkill);
+		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
 		_isSkillEnable = true;
 
 		StartCoroutine(OnActivate());
 		
 		IEnumerator OnActivate()
 		{
-			yield return new WaitForSeconds(1.3f);
+			yield return new WaitForSeconds(0.3f);
+			
+			animCast?.Invoke();
+			
+			yield return new WaitForSeconds(1f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
-			_animator.SetBool(AnimatorHash.IsSkill, false);
 			_isSkillEnable = false;
 		}
 	}
 	
-	public void ActivateThirdSkill(SwordGirlThirdSkillControl skillControl)
+	public void ActivateThirdSkill(Action animCast = null)
 	{
 		if (IsDead || _isSkillEnable) return;
 		
-		_animator.SetBool(AnimatorHash.IsSkill, true);
-		_animator.DOLayerWeight(5, 1f, _blendAttackLayerDuration);
+		_animator.SetTrigger(AnimatorHash.IsThirdSkill);
+		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
 		_isSkillEnable = true;
 
 		StartCoroutine(OnActivate());
 		
 		IEnumerator OnActivate()
 		{
-			yield return new WaitForSeconds(0.7f);
+			yield return new WaitForSeconds(0.3f);
 			
-			/*var skillDamage = Instantiate();
-			skillDamage.Init(this);
-			skillDamage.gameObject.SetActive(true);
-			skillDamage.gameObject.transform.SetParent(null);*/
+			animCast?.Invoke();
 			
-			yield return new WaitForSeconds(1.3f);
+			yield return new WaitForSeconds(1f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
-			_animator.SetBool(AnimatorHash.IsSkill, false);
 			_isSkillEnable = false;
 		}
 	}
