@@ -13,6 +13,7 @@ public static class AnimatorHash
     public static readonly int IsFirstSkill = Animator.StringToHash("isFirstSkill");
     public static readonly int IsSecondSkill = Animator.StringToHash("isSecondSkill");
     public static readonly int IsThirdSkill = Animator.StringToHash("isThirdSkill");
+    public static readonly int IsStun = Animator.StringToHash("isStun");
 
 
 	public static int GetAttackHash(int index)

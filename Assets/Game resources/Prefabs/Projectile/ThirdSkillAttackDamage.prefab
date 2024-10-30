@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4693226928840970}
   - component: {fileID: 2942626867621334081}
   - component: {fileID: 8232501653393569015}
-  - component: {fileID: 8232501653393569014}
-  - component: {fileID: 6644536170808783038}
   - component: {fileID: 5810879821480029724}
+  - component: {fileID: 6644536170808783038}
+  - component: {fileID: 8232501653393569014}
   m_Layer: 0
   m_Name: ThirdSkillAttackDamage
   m_TagString: Untagged
@@ -87,20 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8232501653393569014
-MonoBehaviour:
+--- !u!135 &5810879821480029724
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481932562201786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c41fa8b6e7a9240b7835e5885d9add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageValue: 50
-  _timeToDestroy: 2
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6644536170808783038
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,27 +135,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &5810879821480029724
-SphereCollider:
+--- !u!114 &8232501653393569014
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481932562201786}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c41fa8b6e7a9240b7835e5885d9add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageValue: 50
+  _timeToDestroy: 2
 --- !u!1 &6780173265175134926
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEditor;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 
 public abstract class Attacker : Target
 {
@@ -20,6 +22,7 @@ public abstract class Attacker : Target
 	[SerializeField] private bool _spreadDamageAcrossAttackArea;
 	[SerializeField] private bool _isCanCallPlayerFound;
 	[SerializeField] private bool _isCanAttackNeutrals = true;
+	[SerializeField] private int _stunLayerIndex = 2;
 
 	public event Action<Target> OnTargetHit;
 	public event Action OnPlayerFound;
@@ -112,11 +115,9 @@ public abstract class Attacker : Target
 
 	private void FixedUpdate()
 	{
-		if (_isSkillEnable) return;
-		
 		_animator.SetBool(AnimatorHash.IsAttacking, false);
 
-		if (IsDead) return;
+		if (IsDead || _dontCanWork) return;
 
 		_visibilityAmount = Physics.OverlapSphereNonAlloc
 			(transform.position, _detectionRadius, _visibilityColliders);
@@ -129,6 +130,38 @@ public abstract class Attacker : Target
 			_animator.SetBool(AnimatorHash.IsAttacking, true);
 			TryToAttack();
 		}
+	}
+	
+	[ProButton]
+	public override void TryStun(int percentChanceStun, float timeStun)
+	{
+		if (IsDead || _dontCanWork) return;
+		
+		if (percentChanceStun < Random.Range(0, 101)) return;
+
+		StartCoroutine(OnStan(timeStun));
+	}
+
+	private IEnumerator OnStan(float timeStun)
+	{
+		var stunDelay = new WaitForSeconds(timeStun);
+		
+		PauseWork();
+		_animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
+		_animator.SetBool(AnimatorHash.IsStun, _dontCanWork);
+
+		var effectPrefab = GameResourcesBase.Instance.StunEffect;
+		GameObject stunEffect = null;
+		
+		if (effectPrefab != null)
+			stunEffect = Instantiate(effectPrefab, _rotationParent);
+		
+		yield return stunDelay;
+		
+		ResumeWork();
+		_animator.SetBool(AnimatorHash.IsStun, _dontCanWork);
+		_animator.DOLayerWeight(_stunLayerIndex, 0f, 0.3f);
+		Destroy(stunEffect);
 	}
 
 	private void TryCallPlayerFound(Target player)

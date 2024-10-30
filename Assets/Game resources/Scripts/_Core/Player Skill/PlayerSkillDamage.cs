@@ -24,6 +24,7 @@ public class PlayerSkillDamage : MonoBehaviour
         if (attackTarget.IsDead) return;
         
         attackTarget.TakeDamage(_target, _damageValue);
+        attackTarget.TryStun(100, 3);
     }
 
     private void InvokeDestroy()

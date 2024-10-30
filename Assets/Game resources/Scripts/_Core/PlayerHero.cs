@@ -65,11 +65,11 @@ public class PlayerHero : Unit
 
 	public void ActivateFirstSkill(SwordGirlFirstSkillControl swordGirlFirstSkillControl)
 	{
-		if (IsDead || _isSkillEnable) return;
+		if (IsDead || _dontCanWork) return;
 		
 		_animator.SetTrigger(AnimatorHash.IsFirstSkill);
 		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
-		_isSkillEnable = true;
+		_dontCanWork = true;
 		var toRotation = Quaternion.LookRotation(swordGirlFirstSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
 		_rotationParent.DORotate(toRotation.eulerAngles, 0.2f);
 
@@ -91,17 +91,17 @@ public class PlayerHero : Unit
 			
 			_animator.DOLayerWeight(4, 0f, _blendAttackLayerDuration);
 			_agent.speed = _speed;
-			_isSkillEnable = false;
+			_dontCanWork = false;
 		}
 	}
 	
 	public void ActivateSecondSkill(Action animCast = null)
 	{
-		if (IsDead || _isSkillEnable) return;
+		if (IsDead || _dontCanWork) return;
 		
 		_animator.SetTrigger(AnimatorHash.IsSecondSkill);
 		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
-		_isSkillEnable = true;
+		_dontCanWork = true;
 
 		StartCoroutine(OnActivate());
 		
@@ -114,17 +114,17 @@ public class PlayerHero : Unit
 			yield return new WaitForSeconds(1f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
-			_isSkillEnable = false;
+			_dontCanWork = false;
 		}
 	}
 	
 	public void ActivateThirdSkill(Action animCast = null)
 	{
-		if (IsDead || _isSkillEnable) return;
+		if (IsDead || _dontCanWork) return;
 		
 		_animator.SetTrigger(AnimatorHash.IsThirdSkill);
 		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
-		_isSkillEnable = true;
+		_dontCanWork = true;
 
 		StartCoroutine(OnActivate());
 		
@@ -137,7 +137,7 @@ public class PlayerHero : Unit
 			yield return new WaitForSeconds(1f);
 			
 			_animator.DOLayerWeight(5, 0f, _blendAttackLayerDuration);
-			_isSkillEnable = false;
+			_dontCanWork = false;
 		}
 	}
 }

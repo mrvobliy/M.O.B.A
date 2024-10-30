@@ -19,7 +19,7 @@ public class SwordGirlSecondSkillControl : MonoBehaviour
     
     private void ReleaseSkill()
     {
-        if (_playerHero.IsSkillEnable) return;
+        if (_playerHero.DontCanWork) return;
         
         _playerHero.ActivateSecondSkill(() =>
         {

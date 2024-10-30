@@ -40,7 +40,7 @@ public abstract class Unit : Attacker
 	{
 		base.Update();
 
-		if (IsDead || _isSkillEnable) return;
+		if (IsDead || _dontCanWork) return;
 
 		var speed = _agent.velocity.magnitude;
 
@@ -59,5 +59,11 @@ public abstract class Unit : Attacker
 			_rotationParent.rotation = Quaternion.RotateTowards
 				(fromRotation, toRotation, Time.deltaTime * _rotationSpeed);
 		}
+	}
+
+	protected override void PauseWork()
+	{
+		base.PauseWork();
+		_agent.ResetPath();
 	}
 }

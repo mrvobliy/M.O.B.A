@@ -4,7 +4,6 @@ using DG.Tweening;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
-using com.cyborgAssets.inspectorButtonPro;
 
 [SelectionBase]
 public abstract class Target : MonoBehaviour
@@ -39,9 +38,9 @@ public abstract class Target : MonoBehaviour
 
 	private float _currentHealth;
 	
-	protected bool _isSkillEnable;
+	protected bool _dontCanWork;
 	
-	public bool IsSkillEnable => _isSkillEnable;
+	public bool DontCanWork => _dontCanWork;
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
 	public float CurrentHealth => _currentHealth;
@@ -74,6 +73,18 @@ public abstract class Target : MonoBehaviour
 		if (!_dontCreateHealthBar)
 			OnCreateHealthBar?.Invoke(_healthbarPrefab, this);
 	}
+
+	protected virtual void PauseWork()
+	{
+		_dontCanWork = true;
+	}
+
+	protected virtual void ResumeWork()
+	{
+		_dontCanWork = false;
+	}
+
+	public abstract void TryStun(int percentChanceStun, float timeStun);
 
 	protected void Update()
 	{

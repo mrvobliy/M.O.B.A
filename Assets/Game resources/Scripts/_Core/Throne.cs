@@ -7,4 +7,5 @@ public class Throne : Target
 	[SerializeField] private NavMeshObstacle _obstacle;
 
 	public override float Radius => _obstacle.radius;
+	public override void TryStun(int percentChanceStun, float timeStun) {}
 }
