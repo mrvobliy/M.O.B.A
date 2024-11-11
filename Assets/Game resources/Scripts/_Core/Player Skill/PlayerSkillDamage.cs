@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerSkillDamage : MonoBehaviour
 {
-    [SerializeField] private int _damageValue;
+    [SerializeField] private FloatVariable _damageValue;
     [SerializeField] private float _timeToDestroy;
 
     private Target _target;
@@ -23,7 +23,7 @@ public class PlayerSkillDamage : MonoBehaviour
         
         if (attackTarget.IsDead) return;
         
-        attackTarget.TakeDamage(_target, _damageValue);
+        attackTarget.TakeDamage(_target, _damageValue.Value);
         attackTarget.TryStun(100, 3);
     }
 

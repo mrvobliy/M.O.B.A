@@ -760,7 +760,7 @@ MonoBehaviour:
   _events: {fileID: 1043025123677206893}
   _animator: {fileID: 6568869694730144861}
   _team: 0
-  _maxHealth: 100
+  _maxHealth: {fileID: 11400000, guid: 4365fd3d23fea6842aa9b868fd90b4c2, type: 2}
   _rotationParent: {fileID: 2495650356001691007}
   _useDive: 0
   _diveDelay: 3
@@ -779,7 +779,7 @@ MonoBehaviour:
   _attackAnimationAmount: 2
   _attackDistance: 5
   _detectionRadius: 5
-  _damage: 10
+  _damage: {fileID: 11400000, guid: ad8c9c47e2f062b4cbe188bb8a0e5a9f, type: 2}
   _maxAngleAttack: 180
   _isSequentialAttckAnim: 0
   _spreadDamageAcrossAttackArea: 0

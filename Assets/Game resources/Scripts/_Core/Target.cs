@@ -19,7 +19,7 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] protected AnimationEvents _events;
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
-	[SerializeField] private float _maxHealth = 100;
+	[SerializeField] private FloatVariable _maxHealth;
 	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
@@ -43,16 +43,14 @@ public abstract class Target : MonoBehaviour
 	public bool DontCanWork => _dontCanWork;
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
-	public float CurrentHealth => _currentHealth;
-	public float MaxHealth => _maxHealth;
 	public bool IsDead => _currentHealth < 0f || Mathf.Approximately(_currentHealth, 0f);
-	public float HealthPercent => _currentHealth / _maxHealth;
+	public float HealthPercent => _currentHealth / _maxHealth.Value;
 
 	public abstract float Radius { get; }
 
 	protected void Awake()
 	{
-		_currentHealth = _maxHealth;
+		_currentHealth = _maxHealth.Value;
 		_safeSpotsPool.AddRange(_safeSpots);
 	}
 
@@ -90,7 +88,7 @@ public abstract class Target : MonoBehaviour
 	{
 		if (IsDead) return;
 
-		_currentHealth = Mathf.MoveTowards(_currentHealth, _maxHealth, Time.deltaTime * _regeneration);
+		_currentHealth = Mathf.MoveTowards(_currentHealth, _maxHealth.Value, Time.deltaTime * _regeneration);
 	}
 
 	public void TakeDamage(Target target, int damage)

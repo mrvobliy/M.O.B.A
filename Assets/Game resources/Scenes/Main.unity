@@ -99250,7 +99250,7 @@ MonoBehaviour:
   _events: {fileID: 919132148334202754}
   _animator: {fileID: 919132148334202755}
   _team: 1
-  _maxHealth: 1000
+  _maxHealth: {fileID: 11400000, guid: ac984d5b62c7dfb41a30cd1111081314, type: 2}
   _rotationParent: {fileID: 7436026657235349609}
   _useDive: 1
   _diveDelay: 3

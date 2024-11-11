@@ -16,7 +16,7 @@ public abstract class Attacker : Target
 	[SerializeField] private int _attackAnimationAmount = 1;
 	[SerializeField] protected float _attackDistance = 1f;
 	[SerializeField] protected float _detectionRadius = 5f;
-	[SerializeField] protected int _damage = 10;
+	[SerializeField] protected FloatVariable _damage;
 	[SerializeField] protected float _maxAngleAttack = 180f;
 	[SerializeField] private bool _isSequentialAttckAnim;
 	[SerializeField] private bool _spreadDamageAcrossAttackArea;
@@ -63,7 +63,7 @@ public abstract class Attacker : Target
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(this, _damage, _closestEnemyInAttackArea, _projectileSpeed);
+		projectile.Init(this, _damage.Value, _closestEnemyInAttackArea, _projectileSpeed);
 	}
 
 	private void OnFireProjectileRight()
@@ -100,12 +100,12 @@ public abstract class Attacker : Target
 		{
 			foreach (var enemy in FindAllEnemiesInAttackArea())
 			{
-				enemy.TakeDamage(this, _damage);
+				enemy.TakeDamage(this, _damage.Value);
 			}
 		}
 		else
 		{
-			_closestEnemyInAttackArea.TakeDamage(this, _damage);
+			_closestEnemyInAttackArea.TakeDamage(this, _damage.Value);
 		}
 
 		OnTargetHit?.Invoke(_closestEnemyInAttackArea);
