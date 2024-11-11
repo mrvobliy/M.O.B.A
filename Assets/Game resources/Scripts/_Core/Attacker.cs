@@ -16,7 +16,7 @@ public abstract class Attacker : Target
 	[SerializeField] private int _attackAnimationAmount = 1;
 	[SerializeField] protected float _attackDistance = 1f;
 	[SerializeField] protected float _detectionRadius = 5f;
-	[SerializeField] protected FloatVariable _damage;
+	[SerializeField] protected IntVariable _damage;
 	[SerializeField] protected float _maxAngleAttack = 180f;
 	[SerializeField] private bool _isSequentialAttckAnim;
 	[SerializeField] private bool _spreadDamageAcrossAttackArea;

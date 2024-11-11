@@ -19,7 +19,7 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] protected AnimationEvents _events;
 	[SerializeField] protected Animator _animator;
 	[SerializeField] protected Team _team;
-	[SerializeField] private FloatVariable _maxHealth;
+	[SerializeField] private IntVariable _maxHealth;
 	[SerializeField] protected Transform _rotationParent;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
