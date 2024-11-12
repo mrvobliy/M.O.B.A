@@ -25,7 +25,6 @@ Shader "GAP/AlphaBlendedMobileDistortionScroll" {
     }
     SubShader {
         Tags {
-			"RenderPipeline" = "HDRenderPipeline"
             "IgnoreProjector"="True"
             "Queue"="Transparent"
             "RenderType"="Transparent"
@@ -33,9 +32,9 @@ Shader "GAP/AlphaBlendedMobileDistortionScroll" {
         }
         Pass {
             Name "FORWARD"
-            //Tags {
-            //    "LightMode"="LightweightForward"
-            //}
+            Tags {
+                "LightMode"="LightweightForward"
+            }
             Blend SrcAlpha OneMinusSrcAlpha
             Cull Off
             ZWrite Off

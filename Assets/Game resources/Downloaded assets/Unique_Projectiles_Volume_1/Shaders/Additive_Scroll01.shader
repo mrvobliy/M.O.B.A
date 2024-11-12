@@ -26,7 +26,6 @@ Shader "GAP/AdditiveDistortionScroll" {
     }
     SubShader {
         Tags {
-			"RenderPipeline" = "HDRenderPipeline"
             "IgnoreProjector"="True"
             "Queue"="Transparent"
             "RenderType"="Transparent"
@@ -34,9 +33,9 @@ Shader "GAP/AdditiveDistortionScroll" {
         }
         Pass {
             Name "FORWARD"
-            //Tags {
-            //    "LightMode"="LightweightForward"
-            //}
+            Tags {
+                "LightMode"="LightweightForward"
+            }
             Blend One One
             Cull Off
             ZWrite Off

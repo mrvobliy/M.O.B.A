@@ -12,7 +12,6 @@ Shader "GAP/Additive_EdgeSoft" {
     }
     SubShader {
         Tags {
-			"RenderPipeline" = "HDRenderPipeline"
             "IgnoreProjector"="True"
             "Queue"="Transparent"
             "RenderType"="Transparent"
@@ -20,9 +19,9 @@ Shader "GAP/Additive_EdgeSoft" {
         }
         Pass {
             Name "FORWARD"
-            //Tags {
-            //     "LightMode"="LightweightForward"
-            // }
+            Tags {
+                "LightMode"="LightweightForward"
+            }
             Blend One One
             Cull Off
             ZWrite Off
