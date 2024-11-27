@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: ac984d5b62c7dfb41a30cd1111081314, type: 2}
+  _intVariable: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
   _paramName: health
   _paramNameText: {fileID: 806376418}
   _currentValueText: {fileID: 2051824754}
@@ -2753,7 +2753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 96ee07b4f7177e8478d441fbf3f412d3, type: 2}
+  _intVariable: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}
   _paramName: Towers
   _paramNameText: {fileID: 1345321730}
   _currentValueText: {fileID: 437991528}
@@ -8466,7 +8466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 0e2725d16a73f474dbbabd89175907af, type: 2}
+  _intVariable: {fileID: 11400000, guid: ce8a021e58f6f014d9dc4a1839d1f26f, type: 2}
   _paramName: Trone
   _paramNameText: {fileID: 2051267514}
   _currentValueText: {fileID: 1495496329}
@@ -12651,7 +12651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 3648df4a623edb244b0cabc419b14135, type: 2}
+  _intVariable: {fileID: 11400000, guid: 34efbeabf260aa74a9ae7c298897da19, type: 2}
   _paramName: Lane Range
   _paramNameText: {fileID: 135519272}
   _currentValueText: {fileID: 2104542549}
@@ -14242,7 +14242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: e6d703ae4fdb34e429764365fe7c90c1, type: 2}
+  _intVariable: {fileID: 11400000, guid: 3010d584ae123a74db75566ac057a84b, type: 2}
   _paramName: skill 1 damage
   _paramNameText: {fileID: 1252398058}
   _currentValueText: {fileID: 218668055}
@@ -16821,7 +16821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 40ef0b98ff8eb2149955891a08e3fc60, type: 2}
+  _intVariable: {fileID: 11400000, guid: 87be9f32a35d2f842b68557c9e45a67c, type: 2}
   _paramName: Towers
   _paramNameText: {fileID: 421495196}
   _currentValueText: {fileID: 455763394}
@@ -28068,7 +28068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: ad8c9c47e2f062b4cbe188bb8a0e5a9f, type: 2}
+  _intVariable: {fileID: 11400000, guid: bf144274aadbc8c4ea3a714420a00f8b, type: 2}
   _paramName: Neutral Range
   _paramNameText: {fileID: 916939717}
   _currentValueText: {fileID: 771373424}
@@ -28597,7 +28597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: cd10364c989a96541b3744b82c9d70f6, type: 2}
+  _intVariable: {fileID: 11400000, guid: 2a5d46ec82de97f45924303c50c7f28b, type: 2}
   _paramName: Lane Meele
   _paramNameText: {fileID: 1677470441}
   _currentValueText: {fileID: 807371640}
@@ -29036,7 +29036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 86469593cd50a6c47b2379687ff155cf, type: 2}
+  _intVariable: {fileID: 11400000, guid: 550393c32cbb244419622040b9836cb7, type: 2}
   _paramName: Neutral Meele
   _paramNameText: {fileID: 1921614768}
   _currentValueText: {fileID: 229416177}
@@ -33985,7 +33985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 59a2d35ba61b96c4f98673372cd7cbc4, type: 2}
+  _intVariable: {fileID: 11400000, guid: b17cb3ab1d1c5e04babcad72c0e4c5e2, type: 2}
   _paramName: Lane Meele
   _paramNameText: {fileID: 1632681259}
   _currentValueText: {fileID: 411508507}
@@ -39464,7 +39464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 16375a555995da14387c21f4ffc84747, type: 2}
+  _intVariable: {fileID: 11400000, guid: 7eb4d8a629404504d865bd5e909afe58, type: 2}
   _paramName: skill 2 damage
   _paramNameText: {fileID: 458534870}
   _currentValueText: {fileID: 796681619}
@@ -45487,7 +45487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 6a15ccacdd9f29f46b459cc60869e106, type: 2}
+  _intVariable: {fileID: 11400000, guid: a1f0b31f91d03824e956af6fa261289f, type: 2}
   _paramName: skill 0 damage
   _paramNameText: {fileID: 1587310150}
   _currentValueText: {fileID: 1508761540}
@@ -48611,7 +48611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: fdd83fff49649df46b53cd42ec7782ec, type: 2}
+  _intVariable: {fileID: 11400000, guid: f721ec12fc02e224493491508ae3edf3, type: 2}
   _paramName: Neutral Meele
   _paramNameText: {fileID: 1080009488}
   _currentValueText: {fileID: 1485365879}
@@ -60606,7 +60606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: ccad00630d6e9d443abf0707377ede86, type: 2}
+  _intVariable: {fileID: 11400000, guid: b621d92392f28214986d5b76855c00c4, type: 2}
   _paramName: Lane Range
   _paramNameText: {fileID: 1895137292}
   _currentValueText: {fileID: 538676519}
@@ -79726,7 +79726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: d47cf80925313e048a00b87041997782, type: 2}
+  _intVariable: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3, type: 2}
   _paramName: sword damage
   _paramNameText: {fileID: 57361753}
   _currentValueText: {fileID: 55991926}
@@ -79947,7 +79947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07e514e005b0364ba5d013ec03bcf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intVariable: {fileID: 11400000, guid: 4365fd3d23fea6842aa9b868fd90b4c2, type: 2}
+  _intVariable: {fileID: 11400000, guid: 29dc83330896bc7408afa8cc9cc49d33, type: 2}
   _paramName: Neutral Range
   _paramNameText: {fileID: 1051729573}
   _currentValueText: {fileID: 1876444998}
@@ -115439,7 +115439,7 @@ MonoBehaviour:
   _events: {fileID: 919132148334202754}
   _animator: {fileID: 919132148334202755}
   _team: 1
-  _maxHealth: {fileID: 11400000, guid: ac984d5b62c7dfb41a30cd1111081314, type: 2}
+  _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
   _rotationParent: {fileID: 7436026657235349609}
   _useDive: 1
   _diveDelay: 3
@@ -115457,7 +115457,7 @@ MonoBehaviour:
   _attackAnimationAmount: 1
   _attackDistance: 2
   _detectionRadius: 2
-  _damage: {fileID: 11400000, guid: d47cf80925313e048a00b87041997782, type: 2}
+  _damage: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3, type: 2}
   _maxAngleAttack: 45
   _isSequentialAttckAnim: 1
   _spreadDamageAcrossAttackArea: 1
