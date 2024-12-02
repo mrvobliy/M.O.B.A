@@ -469,6 +469,8 @@ MonoBehaviour:
   - {fileID: 632711346}
   - {fileID: 861370931}
   - {fileID: 1773070862}
+  _spawnedList: []
+  _newSpawnDelay: 20
 --- !u!4 &19268914
 Transform:
   m_ObjectHideFlags: 0
@@ -6472,6 +6474,8 @@ MonoBehaviour:
   - {fileID: 1206730593}
   - {fileID: 335803941}
   - {fileID: 40301882}
+  _spawnedList: []
+  _newSpawnDelay: 20
 --- !u!4 &174626990
 Transform:
   m_ObjectHideFlags: 0
@@ -19661,6 +19665,8 @@ MonoBehaviour:
   - {fileID: 1445987356}
   - {fileID: 815216344}
   - {fileID: 123850100}
+  _spawnedList: []
+  _newSpawnDelay: 20
 --- !u!1 &437991526
 GameObject:
   m_ObjectHideFlags: 0
@@ -104795,6 +104801,8 @@ MonoBehaviour:
   - {fileID: 1314037301}
   - {fileID: 756596503}
   - {fileID: 1160110288}
+  _spawnedList: []
+  _newSpawnDelay: 20
 --- !u!4 &1996123226
 Transform:
   m_ObjectHideFlags: 0
