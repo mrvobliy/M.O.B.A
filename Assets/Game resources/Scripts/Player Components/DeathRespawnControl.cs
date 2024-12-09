@@ -45,5 +45,7 @@ public class DeathRespawnControl : MonoBehaviour
         _target.RotationParent.rotation = HeroSpawnControl.Instance.GetPoint(_target.Team).rotation;
         _agent.enabled = true;
         _target.RestoreFullHeath();
+        
+        HeroSpawnControl.Instance.PlayEffect(_target.Team);
     }
 }
