@@ -10,6 +10,7 @@ public class Healthbar : MonoBehaviour
 	[SerializeField] private DamageNumber _damageNumber;
 
 	private Target _target;
+	private Tweener _canvasFadeAnim;
 
 	public void Init(Target target)
 	{
@@ -29,10 +30,12 @@ public class Healthbar : MonoBehaviour
 
 	private void OnDeath()
 	{
+		_canvasFadeAnim.Kill();
+		
 		_target.OnDeath -= OnDeath;
 		_target.OnHealthChanged -= OnHealthChanged;
 		_target.OnEnemyAttackUs -= TryShowHeathBar;
-
+		
 		Destroy(gameObject);
 	}
 
@@ -49,7 +52,7 @@ public class Healthbar : MonoBehaviour
 	{
 		if (enemy.transform.tag != "Player") return;
 
-		_canvasGroup.DOFade(1, 0.5f);
+		_canvasFadeAnim = _canvasGroup.DOFade(1, 0.5f);
 		CancelInvoke(nameof(HideHealthBar));
 		Invoke(nameof(HideHealthBar), 10);
 		
@@ -59,6 +62,6 @@ public class Healthbar : MonoBehaviour
 
 	private void HideHealthBar()
 	{
-		_canvasGroup.DOFade(0, 0.5f);
+		_canvasFadeAnim = _canvasGroup.DOFade(0, 0.5f);
 	}
 }
