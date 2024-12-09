@@ -15,6 +15,7 @@ public static class AnimatorHash
     public static readonly int IsThirdSkill = Animator.StringToHash("isThirdSkill");
     public static readonly int IsStun = Animator.StringToHash("isStun");
     public static readonly int ThroneDeath = Animator.StringToHash("throneDeath");
+    public static readonly int IsDeath = Animator.StringToHash("isDeath");
 
 
     public static int GetAttackHash(int index)
