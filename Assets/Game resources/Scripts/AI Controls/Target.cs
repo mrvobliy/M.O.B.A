@@ -12,7 +12,8 @@ public abstract class Target : MonoBehaviour
 	public static event Action<Healthbar, Target> OnCreateHealthBar;
 	
 	public event Action OnDeath;
-	public event Action OnDamageTaken;
+	public event Action OnOverrideDeath;
+	public event Action OnHealthChanged;
 	public event Action<Target, int> OnEnemyAttackUs;
 
 	[SerializeField] private Healthbar _healthbarPrefab;
@@ -21,6 +22,7 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] protected Team _team;
 	[SerializeField] private IntVariable _maxHealth;
 	[SerializeField] protected Transform _rotationParent;
+	[SerializeField] private bool _isOverrideDeath;
 	[SerializeField] private bool _useDive = true;
 	[SerializeField] private float _diveDelay = 3f;
 	[SerializeField] private float _diveDuration = 10f;
@@ -40,6 +42,7 @@ public abstract class Target : MonoBehaviour
 	
 	protected bool _dontCanWork;
 	
+	public Transform RotationParent => _rotationParent;
 	public bool DontCanWork => _dontCanWork;
 	public bool DontCreateHealthBar => _dontCreateHealthBar;
 	public Team Team => _team;
@@ -97,7 +100,7 @@ public abstract class Target : MonoBehaviour
 
 		_currentHealth -= damage;
 		
-		OnDamageTaken?.Invoke();
+		OnHealthChanged?.Invoke();
 		OnEnemyAttackUs?.Invoke(target, damage);
 
 		RootRebound(target);
@@ -105,8 +108,14 @@ public abstract class Target : MonoBehaviour
 		if (!IsDead) return;
 		
 		_currentHealth = 0f;
-		OnDeath?.Invoke();
 
+		if (_isOverrideDeath)
+		{
+			OnOverrideDeath?.Invoke();
+			return;
+		}
+		
+		OnDeath?.Invoke();
 		_animator.SetTrigger(AnimatorHash.Death);
 
 		if (!_useDive) return;
@@ -116,6 +125,12 @@ public abstract class Target : MonoBehaviour
 			.SetDelay(_diveDelay)
 			.SetEase(Ease.Linear)
 			.OnComplete(Death);
+	}
+
+	public void RestoreFullHeath()
+	{
+		_currentHealth = _maxHealth.Value;
+		OnHealthChanged?.Invoke();
 	}
 	
 	private void RootRebound(Target target)

@@ -15,11 +15,11 @@ public class Healthbar : MonoBehaviour
 	{
 		_target = target;
 		_target.OnDeath += OnDeath;
-		_target.OnDamageTaken += OnDamageTaken;
+		_target.OnHealthChanged += OnHealthChanged;
 		_target.OnEnemyAttackUs += TryShowHeathBar;
 	}
 
-	private void OnDamageTaken()
+	private void OnHealthChanged()
 	{
 		var newLinePos = new Vector3();
 		newLinePos = _heathLine.localPosition;
@@ -30,7 +30,7 @@ public class Healthbar : MonoBehaviour
 	private void OnDeath()
 	{
 		_target.OnDeath -= OnDeath;
-		_target.OnDamageTaken -= OnDamageTaken;
+		_target.OnHealthChanged -= OnHealthChanged;
 		_target.OnEnemyAttackUs -= TryShowHeathBar;
 
 		Destroy(gameObject);

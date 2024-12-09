@@ -13,7 +13,7 @@ public class NeutralCreep : Creep
 		base.Awake();
 
 		_spawnPosition = transform.position;
-		OnDamageTaken += Unit_OnDamageTaken;
+		OnHealthChanged += Unit_OnDamageTaken;
 	}
 
 	private void Unit_OnDamageTaken()

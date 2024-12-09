@@ -16,12 +16,12 @@ public class PlayerHealthbar : MonoBehaviour
     
     private void OnEnable()
     {
-        _target.OnDamageTaken += UpdateBar;
+        _target.OnHealthChanged += UpdateBar;
     }
 
     private void OnDisable()
     {
-        _target.OnDamageTaken -= UpdateBar;
+        _target.OnHealthChanged -= UpdateBar;
     }
 
     private void UpdateBar()
