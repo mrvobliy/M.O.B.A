@@ -1,11 +1,14 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EntityComponentsData : MonoBehaviour
 {
     [SerializeField] private EntityType _entityType;
     [SerializeField] private Target _target;
-    [SerializeField] private HeroGoldControl _heroGoldControl;
-    [SerializeField] private HeroExperienceControl _heroExperienceControl;
+    private bool _isHero => _entityType == EntityType.Hero;
+    
+    [SerializeField, ShowIf(nameof(_isHero))] private HeroGoldControl _heroGoldControl;
+    [SerializeField, ShowIf(nameof(_isHero))] private HeroExperienceControl _heroExperienceControl;
 
     public EntityType EntityType => _entityType;
     public Target Target => _target;

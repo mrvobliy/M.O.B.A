@@ -17,8 +17,11 @@ public enum Lane
 public enum EntityType
 {
 	Hero,
-	Mob,
-	Building
+	LaneMelee,
+	LaneRange,
+	NeutralMelee,
+	NeutralRange,
+	Tower
 }
 
 public class Map : MonoBehaviour
