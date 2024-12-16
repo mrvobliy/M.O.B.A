@@ -36598,6 +36598,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653346041407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &639085449919560711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 555.76483
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2231.4998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -149.75237
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231857628277248556, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262926241200528927, guid: 16db6ca8ff4ab1f4c8d83983f88309e8,
+        type: 3}
+      propertyPath: m_Name
+      value: Stopwatch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16db6ca8ff4ab1f4c8d83983f88309e8, type: 3}
 --- !u!4 &654234741848711345
 Transform:
   m_ObjectHideFlags: 0
@@ -74137,6 +74205,7 @@ SceneRoots:
   - {fileID: 1737075648}
   - {fileID: 1282150681}
   - {fileID: 963877669}
+  - {fileID: 639085449919560711}
   - {fileID: 522874722}
   - {fileID: 1651740401}
   - {fileID: 1737571201}

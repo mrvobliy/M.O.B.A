@@ -61,7 +61,7 @@ public class TextAnimation : MonoBehaviour
         newText.text = text;
         var oldP = oldText.transform.localPosition;
         
-        oldText.transform.DOLocalMoveY(-50+3.45867f, 0.5f).OnComplete(() =>
+        oldText.transform.DOLocalMoveY(-112.5f, 0.5f).OnComplete(() =>
         {
             oldText.transform.localPosition = _oldPos;
             newText.transform.localPosition = _newPos;

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,47 +14,51 @@ public class DebugBarTop : MonoBehaviour
     
     public void StartStopwatch()
     {
-        BarTopStaticManager.StartStopwatch?.Invoke();
+        StopwatchManager.Instance.StartStopwatchAction?.Invoke();
     }
     
     public void StopStopwatch()
     {
-        BarTopStaticManager.StopStopwatch?.Invoke();
+        StopwatchManager.Instance.StopStopwatchAction?.Invoke();
     }
     
     public void ResetStopwatch()
     {
-        BarTopStaticManager.ResetStopwatch?.Invoke();
+        StopwatchManager.Instance.ResetStopwatchAction?.Invoke();
     }
-    
     
     public void SetKills()
     {
         if(string.IsNullOrEmpty(_inputFieldKills.text)) return;
-        BarTopStaticManager.SetPlayerStats(BarTopStaticManager.PlayerStats.kills, Convert.ToInt32(_inputFieldKills.text));
+        
+        BarTopVizualization.Instance.SetPlayerStats(PlayerStats.Kills,Convert.ToInt32(_inputFieldKills.text));
     }
     
     public void SetDeath()
     {
         if(string.IsNullOrEmpty(_inputFieldDeath.text)) return;
-        BarTopStaticManager.SetPlayerStats(BarTopStaticManager.PlayerStats.death, Convert.ToInt32(_inputFieldDeath.text));
+        
+        BarTopVizualization.Instance.SetPlayerStats(PlayerStats.Death,Convert.ToInt32(_inputFieldDeath.text));
     }
     
     public void SetSupport()
     {
         if(string.IsNullOrEmpty(_inputFieldSupport.text)) return;
-        BarTopStaticManager.SetPlayerStats(BarTopStaticManager.PlayerStats.supports, Convert.ToInt32(_inputFieldSupport.text));
+        
+        BarTopVizualization.Instance.SetPlayerStats(PlayerStats.Supports,Convert.ToInt32(_inputFieldSupport.text));
     }
 
     public void SetTeamPlayerScore()
     {
         if(string.IsNullOrEmpty(_inputFieldTeamPlayer.text)) return;
-        BarTopStaticManager.SetPlayerTeamScore(Convert.ToInt32(_inputFieldTeamPlayer.text));
+        
+        BarTopVizualization.Instance.SetTeamScore(true, Convert.ToInt32(_inputFieldTeamPlayer.text));
     }
     
     public void SetTeamEnemyScore()
     {
         if(string.IsNullOrEmpty(_inputFieldTeamEnemy.text)) return;
-        BarTopStaticManager.SetEnemyTeamScore(Convert.ToInt32(_inputFieldTeamEnemy.text));
+        
+        BarTopVizualization.Instance.SetTeamScore(false, Convert.ToInt32(_inputFieldTeamEnemy.text));
     }
 }
