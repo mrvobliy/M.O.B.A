@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2231857628277248556}
-  - component: {fileID: 2830609101697957675}
+  - component: {fileID: 5195828560389957043}
   m_Layer: 0
-  m_Name: Stopwatch
+  m_Name: GameTimeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2830609101697957675
+--- !u!114 &5195828560389957043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6262926241200528927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55adae7c49352d148a1bc101fe322f22, type: 3}
+  m_Script: {fileID: 11500000, guid: 42cf1ac78b98e3642b9ebe576fa51e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hours: 0
-  minutes: 0
-  seconds: 0
+  _minutesText: {fileID: 0}
+  _secondsText: {fileID: 0}
