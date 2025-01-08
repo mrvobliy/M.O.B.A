@@ -33,6 +33,9 @@ public abstract class Target : MonoBehaviour
 	[SerializeField] private Transform[] _safeSpots;
 	[SerializeField] protected bool _canRebound = true;
 
+	[SerializeField] private EntityHealthControl _entityHealthControl;
+	[SerializeField] private bool _useNewComponents;
+
 	private const float ReboundTime = 0.12f;
 	private const float ReboundForce = 0.4f;
 
@@ -96,6 +99,10 @@ public abstract class Target : MonoBehaviour
 
 	public void TakeDamage(Target target, int damage)
 	{
+		_entityHealthControl.TakeDamage(target, damage);
+		
+		if (_useNewComponents) return;
+		
 		if (IsDead) return;
 
 		_currentHealth -= damage;

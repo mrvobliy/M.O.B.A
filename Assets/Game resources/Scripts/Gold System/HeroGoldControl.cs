@@ -9,22 +9,10 @@ public class HeroGoldControl : MonoBehaviour
     public event Action OnBalanceChanged;
 
     public int GoldBalance => _goldBalance;
-    
-    private void OnEnable()
-    {
-        EventsBase.EntityDeath += TryGetGold;
-    }
 
-    private void OnDisable()
+    public void SetGold(int value)
     {
-        EventsBase.EntityDeath -= TryGetGold;
-    }
-
-    private void TryGetGold(EntityComponentsData componentsData)
-    {
-        if (componentsData.HeroGoldControl != this) return;
-
-        _goldBalance += GoldManager.Instance.GetCostForEntity(componentsData);
+        _goldBalance += value;
         OnBalanceChanged?.Invoke();
     }
 }

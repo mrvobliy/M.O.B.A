@@ -7,22 +7,20 @@ public class GoldManager : MonoBehaviour
 {
     [TableList]
     [SerializeField] private List<EntityCost> _entityCosts;
-    
-    public static GoldManager Instance;
 
-    private void Awake()
+    private void OnEnable()
     {
-        Instance = this;
+        
     }
 
-    public int GetCostForEntity(EntityComponentsData componentsData)
+    private void OnDisable()
     {
-        switch (componentsData.EntityType)
-        {
-            
-        }
+        
+    }
 
-        return 1;
+    private void SetHeroGold()
+    {
+        
     }
 }
 

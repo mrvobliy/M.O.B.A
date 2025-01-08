@@ -1,40 +1,29 @@
-using System;
-using com.cyborgAssets.inspectorButtonPro;
 using DG.Tweening;
 using UnityEngine;
 
 public class PlayerHealthbar : MonoBehaviour
 {
-    [SerializeField] private Target _target;
+    [SerializeField] private EntityHealthControl _entityHealthControl;
     [SerializeField] private RectTransform _barLine;
     [SerializeField] private Transform _scaleRoot;
     [SerializeField] private CanvasGroup _whiteFront;
     [SerializeField] private float _timeAnim;
     [SerializeField] private float _scaleValue;
 
-    private float _startLinePos = 0.52f;
-    
-    private void OnEnable()
-    {
-        _target.OnHealthChanged += UpdateBar;
-    }
+    private const float StartLinePos = 0.52f;
 
-    private void OnDisable()
-    {
-        _target.OnHealthChanged -= UpdateBar;
-    }
+    private void OnEnable() => _entityHealthControl.OnHealthChanged += UpdateBar;
+    private void OnDisable() => _entityHealthControl.OnHealthChanged -= UpdateBar;
 
     private void UpdateBar()
     {
-        var newLinePos = new Vector3();
-        newLinePos = _barLine.localPosition;
-        newLinePos.x = _startLinePos * (_target.HealthPercent - 1);
+        var newLinePos = _barLine.localPosition;
+        newLinePos.x = StartLinePos * (_entityHealthControl.HealthPercent - 1);
         _barLine.localPosition = newLinePos;
 
         PlayAnim();
     }
 
-    [ProButton]
     private void PlayAnim()
     {
         _scaleRoot.DOScale(_scaleValue, _timeAnim).OnComplete(() =>
