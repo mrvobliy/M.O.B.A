@@ -63,7 +63,7 @@ public abstract class Attacker : Target
 		var projectile = Instantiate(_projectilePrefab,
 			origin.position, origin.rotation);
 
-		projectile.Init(this, _damage.Value, _closestEnemyInAttackArea, _projectileSpeed);
+		//projectile.Init(this, _damage.Value, _closestEnemyInAttackArea, _projectileSpeed);
 	}
 
 	private void OnFireProjectileRight()

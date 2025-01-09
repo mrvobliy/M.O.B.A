@@ -2,22 +2,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+	private const float DistanceDetonation = 0.2f;
+	
 	[SerializeField] private ProjectileVFXControl _projectileVFX;
-	private float _distanceDetonation = 0.2f;
+	
+	private EntityComponentsData _tower;
+	private EntityComponentsData _target;
+	private Transform _followPoint;
 	
 	private int _damage;
-	private Target _tower;
-	private Target _target;
-	private Transform _followPoint;
 	private float _speed;
 
-	public void Init(Target tower, int damage, Target target, float speed)
+	public void Init(EntityComponentsData tower, int damage, EntityComponentsData target, float speed)
 	{
 		_tower = tower;
 		_damage = damage;
 		_speed = speed;
 		_target = target;
-		_followPoint = target.GetAttackPoint();
+		_followPoint = _target.EntityHealthControl.EnemyAttackPoint;
 	}
 
 	private void Update()
@@ -29,11 +31,10 @@ public class Projectile : MonoBehaviour
 
 		var sqrDistance = (transform.position - _followPoint.position).sqrMagnitude;
 
-		if (sqrDistance < _distanceDetonation)
-		{
-			_target.TakeDamage(_tower, _damage);
-			_projectileVFX.SpawnHitEffect(_followPoint);
-			Destroy(gameObject);
-		}
+		if (sqrDistance >= DistanceDetonation) return;
+		
+		_target.EntityHealthControl.TakeDamage(_tower, _damage);
+		_projectileVFX.SpawnHitEffect(_followPoint);
+		Destroy(gameObject);
 	}
 }

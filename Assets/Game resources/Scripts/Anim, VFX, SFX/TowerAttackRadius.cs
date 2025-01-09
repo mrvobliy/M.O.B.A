@@ -1,33 +1,36 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class TowerAttackRadius : MonoBehaviour
 {
-    [SerializeField] private Attacker _attacker;
+    [SerializeField] private EntityAttackControl _entityAttackControl;
+    [SerializeField] private EntityHealthControl _entityHealthControl;
     [SerializeField] private ParticleSystem _radius;
     [SerializeField] private float _timeAnim;
     [SerializeField] private float _delayToHide;
 
     private Renderer _renderer;
-    private bool _isShowed;
 
     private void OnEnable()
     {
-        _attacker.OnPlayerFound += Show;
-        _attacker.OnPlayerLost += DelayInvokeHide;
+        _entityAttackControl.OnPlayerFound += Show;
+        _entityHealthControl.OnDeathStart += Hide;
         _renderer = _radius.GetComponent<Renderer>();
     }
 
     private void OnDisable()
     {
-        _attacker.OnPlayerFound -= Show;
-        _attacker.OnPlayerLost -= DelayInvokeHide;
+        _entityAttackControl.OnPlayerFound -= Show;
+        _entityHealthControl.OnDeathStart -= Hide;
     }
 
     private void Show()
     {
         CancelInvoke(nameof(Hide));
+        DelayInvokeHide();
+        
+       if (_radius.gameObject.activeSelf) return;
+       
         _radius.gameObject.SetActive(true);
         _renderer.material.DOFade(1, _timeAnim);
     }
@@ -40,8 +43,6 @@ public class TowerAttackRadius : MonoBehaviour
 
     private void Hide()
     {
-        _isShowed = false;
-        
         _renderer.material.DOFade(0, _timeAnim).OnComplete(() =>
         {
             _radius.gameObject.SetActive(false);

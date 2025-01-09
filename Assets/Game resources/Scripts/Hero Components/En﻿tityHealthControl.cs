@@ -7,6 +7,7 @@ public class EntityHealthControl : MonoBehaviour
     [SerializeField] protected Animator _animator;
     [SerializeField] protected Transform _rotationParent;
     [SerializeField] protected IntVariable _maxHealth;
+    [SerializeField] protected Transform _enemyAttackPoint;
     [SerializeField] private bool _needDestroyAfterDeath;
     
     public Action OnDeathStart;
@@ -17,10 +18,11 @@ public class EntityHealthControl : MonoBehaviour
     public bool IsDead => _isDead;
     public float HealthPercent => _currentHealth / _maxHealth.Value;
     public Transform RotationParent => _rotationParent;
+    public Transform EnemyAttackPoint => _enemyAttackPoint;
     public Animator Animator => _animator;
     
     private const float DiveDuration = 1f;
-    private const float DiveDelay = 2.5f;
+    protected const float DiveDelay = 2.5f;
     private const float DiveDepth = 4f;
     
     protected bool _isDead;

@@ -4,6 +4,7 @@ public static class AnimatorHash
 {
     public static readonly int Speed = Animator.StringToHash("Speed");
     public static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    public static readonly int Attack = Animator.StringToHash("Attack");
     public static readonly int Attack1 = Animator.StringToHash("Attack1");
     public static readonly int Attack2 = Animator.StringToHash("Attack2");
     public static readonly int Attack3 = Animator.StringToHash("Attack3");

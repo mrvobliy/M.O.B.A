@@ -2,12 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackControl : MonoBehaviour
+public class PlayerAttackControl : EntityAttackControl
 {
-    [SerializeField] private EntityComponentsData _entityComponentsData;
-    [SerializeField] private EntityAttackControl _entityAttackControl;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private AnimationEvents _animationEvents;
     [SerializeField] protected IntVariable _baseDamage;
     
     public event Action<List<EntityComponentsData>> OnTargetsHit;
@@ -28,15 +24,17 @@ public class PlayerAttackControl : MonoBehaviour
         _animationEvents.OnAttackEnd -= OnAttackEnd;
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        if (_entityAttackControl.ClosestEnemyInAttackArea.Count <= 0) return;
+        base.FixedUpdate();
         
         TryStartAttack();
     }
 
     private void TryStartAttack()
     {
+        if (ClosestEnemyInAttackArea.Count <= 0) return;
+        
         if (_insideAttack) return;
 
         _animator.SetBool(AnimatorHash.IsAttacking, true);
@@ -52,14 +50,14 @@ public class PlayerAttackControl : MonoBehaviour
 
     private void OnAttackAnimHit()
     {
-        foreach (var enemy in _entityAttackControl.ClosestEnemyInAttackArea)
+        foreach (var enemy in ClosestEnemyInAttackArea)
         {
             if (enemy == null) continue;
             
             enemy.EntityHealthControl.TakeDamage(_entityComponentsData, _baseDamage.Value);
         }
 
-        OnTargetsHit?.Invoke(_entityAttackControl.ClosestEnemyInAttackArea);
+        OnTargetsHit?.Invoke(ClosestEnemyInAttackArea);
     }
     
     private void OnAttackEnd() => _insideAttack = false;

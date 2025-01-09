@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class EntityAttackControl : MonoBehaviour
 {
-    [SerializeField] private EntityComponentsData _entityComponentsData;
+    [SerializeField] protected EntityComponentsData _entityComponentsData;
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected AnimationEvents _animationEvents;
     [SerializeField] private float _detectionRadius = 5f;
     [SerializeField] protected float _attackDistance = 1f;
     [SerializeField] protected float _maxAngleAttack = 180f;
@@ -13,10 +15,9 @@ public class EntityAttackControl : MonoBehaviour
     [SerializeField] private bool _isCanCallPlayerFound;
     
     public event Action OnPlayerFound;
-    public event Action OnPlayerLost;
 
-    public List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
-    public List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
+    protected List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
+    protected List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
     
 
     private Vector3 Forward => _entityComponentsData.EntityHealthControl.RotationParent == null ? 
@@ -24,8 +25,10 @@ public class EntityAttackControl : MonoBehaviour
     
     private bool _isPlayerFound;
     
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
+        if (_entityComponentsData.EntityHealthControl.IsDead) return;
+        
         FindClosestEnemiesInVisibilityArea();
         FindClosestEnemiesInAttackArea();
     }
@@ -54,7 +57,7 @@ public class EntityAttackControl : MonoBehaviour
             if (foundTarget.EntityHealthControl.IsDead) continue;
 
             if (foundTarget.transform.CompareTag("Player"))
-                TryCallPlayerFound(foundTarget);
+                CallPlayerFound();
             
             var distance = (transform.position.SetY(0f) - foundTarget.transform.position.SetY(0f)).sqrMagnitude;
             
@@ -87,22 +90,11 @@ public class EntityAttackControl : MonoBehaviour
         ClosestEnemyInAttackArea = closestEnemies.OrderBy(x => x.DistanceToTarget).Select(x => x.EntityComponentsData).ToList();
     }
     
-    private void TryCallPlayerFound(EntityComponentsData player)
+    private void CallPlayerFound()
     {
         if (!_isCanCallPlayerFound) return;
-		
-        if (player == null && _isPlayerFound)
-        {
-            _isPlayerFound = false;
-            OnPlayerLost?.Invoke();
-            return;
-        }
-
-        if (player != null && !_isPlayerFound)
-        {
-            _isPlayerFound = true;
-            OnPlayerFound?.Invoke();
-        }
+        
+        OnPlayerFound?.Invoke();
     }
 }
 
