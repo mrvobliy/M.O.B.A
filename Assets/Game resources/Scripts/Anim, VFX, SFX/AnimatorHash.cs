@@ -7,7 +7,7 @@ public static class AnimatorHash
     public static readonly int Attack1 = Animator.StringToHash("Attack1");
     public static readonly int Attack2 = Animator.StringToHash("Attack2");
     public static readonly int Attack3 = Animator.StringToHash("Attack3");
-    public static readonly int Death = Animator.StringToHash("Death");
+    public static readonly int DeathTrigger = Animator.StringToHash("Death");
     public static readonly int Offset = Animator.StringToHash("Offset");
     public static readonly int IsRunning = Animator.StringToHash("IsRunning");
     public static readonly int IsFirstSkill = Animator.StringToHash("isFirstSkill");

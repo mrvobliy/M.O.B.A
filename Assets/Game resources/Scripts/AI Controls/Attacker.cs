@@ -115,7 +115,9 @@ public abstract class Attacker : Target
 
 	private void FixedUpdate()
 	{
-		_animator.SetBool(AnimatorHash.IsAttacking, false);
+		if (_useNewComponents) return;
+		
+        _animator.SetBool(AnimatorHash.IsAttacking, false);
 
 		if (IsDead || _dontCanWork) return;
 

@@ -10,33 +10,15 @@ public class AnimationEvents : MonoBehaviour
 	public event Action OnDeathCompleted;
 	public event Action OnPlayAttackEffect;
 
-	public void FireProjectileLeft()
-	{
-		OnFireProjectileLeft?.Invoke();
-	}
+	public void FireProjectileLeft() => OnFireProjectileLeft?.Invoke();
 
-	public void FireProjectileRight()
-	{
-		OnFireProjectileRight?.Invoke();
-	}
+	public void FireProjectileRight() => OnFireProjectileRight?.Invoke();
 
-	public void AttackBegin()
-	{
-		OnAttackBegin?.Invoke();
-	}
+	public void AttackBegin() => OnAttackBegin?.Invoke();
 
-	public void AttackEnd()
-	{
-		OnAttackEnd?.Invoke();
-	}
+	public void AttackEnd() => OnAttackEnd?.Invoke();
 
-	public void DeathCompleted()
-	{
-		OnDeathCompleted?.Invoke();
-	}
-	
-	public void PlayAttackEffect()
-	{
-		OnPlayAttackEffect?.Invoke();
-	}
+	public void DeathCompleted() => OnDeathCompleted?.Invoke();
+
+	public void PlayAttackEffect() => OnPlayAttackEffect?.Invoke();
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class HeroRespawnControl : MonoBehaviour
 {
     [SerializeField] private EntityComponentsData _entityComponentsData;
+    [SerializeField] private HeroHealthControl _heroHealthControl;
 
     private void OnEnable() => _entityComponentsData.EntityHealthControl.OnDeathEnd += Respawn;
 
@@ -15,8 +16,8 @@ public class HeroRespawnControl : MonoBehaviour
         var team = _entityComponentsData.EntityTeam;
         transform.parent.position = HeroSpawnControl.Instance.GetPoint(team).position;
         _entityComponentsData.EntityHealthControl.RotationParent.rotation = HeroSpawnControl.Instance.GetPoint(team).rotation;
-        _entityComponentsData.EntityHealthControl.Agent.enabled = true;
-        _entityComponentsData.EntityHealthControl.RestoreFullHeath();
+        _heroHealthControl.Agent.enabled = true;
+        _heroHealthControl.RestoreFullHeath();
         
         HeroSpawnControl.Instance.PlayEffect(team);
     }

@@ -4510,7 +4510,7 @@ GameObject:
   - component: {fileID: 293828258}
   m_Layer: 0
   m_Name: RespawnControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4543,6 +4543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityComponentsData: {fileID: 1274581903}
+  _heroHealthControl: {fileID: 371763954}
 --- !u!1001 &296323121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5663,7 +5664,7 @@ GameObject:
   - component: {fileID: 356277856}
   m_Layer: 0
   m_Name: SwordGirlFirstSkillControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5917,10 +5918,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371763952}
-  - component: {fileID: 371763953}
+  - component: {fileID: 371763954}
   m_Layer: 0
   m_Name: "En\uFEFFtityHealthControl"
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5940,7 +5941,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1737571201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &371763953
+--- !u!114 &371763954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5949,16 +5950,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 371763951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be5e4912ef11d084588e51c0d0a5bd7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 55e3f0f2a484f1342bdb1db337c61c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 919132148334202755}
-  _agent: {fileID: 5630766452610546823}
   _rotationParent: {fileID: 7436026657235349609}
   _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
-  _deathAnimLayer: 6
-  _needRootRebound: 0
   _needDestroyAfterDeath: 0
+  _agent: {fileID: 5630766452610546823}
+  _deathAnimLayer: 6
 --- !u!4 &372221113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4110185435410024438, guid: b98eeed821aa8b042ae97e6853ca60e5,
@@ -7665,7 +7665,7 @@ GameObject:
   - component: {fileID: 480504340}
   m_Layer: 0
   m_Name: SwordGirlThirdSkillControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9218,7 +9218,7 @@ GameObject:
   - component: {fileID: 578180474}
   m_Layer: 0
   m_Name: DamageColorEffect
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9250,7 +9250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 3157034632469902422}
+  _entityHealthControl: {fileID: 371763954}
   _materials: []
   _exludeMaterials: []
   _renderers:
@@ -21599,7 +21599,7 @@ GameObject:
   - component: {fileID: 1274581903}
   m_Layer: 0
   m_Name: HeroComponentsData
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21633,8 +21633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityTeam: 1
   _entityType: 0
-  _target: {fileID: 3157034632469902422}
-  _entityHealthControl: {fileID: 371763953}
+  _entityHealthControl: {fileID: 371763954}
   _heroGoldControl: {fileID: 1664043513}
   _heroExperienceControl: {fileID: 1441997998}
 --- !u!1001 &1275172027
@@ -24366,6 +24365,109 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &1429945636
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 217631271033085524, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _safeSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1232707559}
+    - target: {fileID: 217631271033085524, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _safeSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1686615981}
+    - target: {fileID: 217631271033085524, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _safeSpots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1445101519}
+    - target: {fileID: 217631271033085524, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _safeSpots.Array.data[3]
+      value: 
+      objectReference: {fileID: 774221858}
+    - target: {fileID: 217631271033085524, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _safeSpots.Array.data[4]
+      value: 
+      objectReference: {fileID: 2108297022}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.828999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.4100037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -44.410995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637719751, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Dark_Tower_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827867853637719751, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87, type: 3}
 --- !u!1 &1441997996
 GameObject:
   m_ObjectHideFlags: 0
@@ -24378,7 +24480,7 @@ GameObject:
   - component: {fileID: 1441997998}
   m_Layer: 0
   m_Name: HeroExperienceControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25481,7 +25583,7 @@ GameObject:
   - component: {fileID: 1527337234}
   m_Layer: 0
   m_Name: SwordGirlSecondSkillControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28679,7 +28781,7 @@ GameObject:
   - component: {fileID: 1664043513}
   m_Layer: 0
   m_Name: HeroGoldControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29698,7 +29800,7 @@ GameObject:
   - component: {fileID: 1714374864}
   m_Layer: 0
   m_Name: ----------------------COMPONENTS
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30178,7 +30280,7 @@ GameObject:
   - component: {fileID: 5630766452610546823}
   - component: {fileID: 1737571206}
   - component: {fileID: 3157034632469902422}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30201,6 +30303,7 @@ Transform:
   - {fileID: 1714374864}
   - {fileID: 1274581902}
   - {fileID: 371763952}
+  - {fileID: 1816778106}
   - {fileID: 1441997997}
   - {fileID: 1664043512}
   - {fileID: 293828257}
@@ -31492,6 +31595,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd362a070d033741bfda0e02d326799, type: 3}
+--- !u!1 &1816778105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816778106}
+  - component: {fileID: 1816778107}
+  - component: {fileID: 1816778108}
+  m_Layer: 0
+  m_Name: "En\uFEFFtityAttackControl"
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1816778106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816778105}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1737571201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1816778107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816778105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690cc380198546543b1e2caa184f7358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityComponentsData: {fileID: 1274581903}
+  _detectionRadius: 5
+  _attackDistance: 2
+  _maxAngleAttack: 30
+  _isCanAttackNeutrals: 1
+  _isCanCallPlayerFound: 0
+--- !u!114 &1816778108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816778105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe57a9273a588b4984a444a2eaddeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityComponentsData: {fileID: 1274581903}
+  _entityAttackControl: {fileID: 1816778107}
+  _animator: {fileID: 919132148334202755}
+  _animationEvents: {fileID: 919132148334202754}
+  _baseDamage: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3, type: 2}
 --- !u!43 &1818727265
 Mesh:
   m_ObjectHideFlags: 0
@@ -32997,7 +33168,7 @@ GameObject:
   - component: {fileID: 1896798185}
   m_Layer: 0
   m_Name: PlayerHealthbar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33029,7 +33200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54a9fd16581c76449990b0d6c3ded05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityHealthControl: {fileID: 371763953}
+  _entityHealthControl: {fileID: 371763954}
   _barLine: {fileID: 1166377617241691695}
   _scaleRoot: {fileID: 8932888488226704771}
   _whiteFront: {fileID: 3921916340002949325}
@@ -33170,7 +33341,7 @@ GameObject:
   - component: {fileID: 1957072608}
   m_Layer: 0
   m_Name: AttackEffectControl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63090,7 +63261,7 @@ MonoBehaviour:
   _regeneration: 0
   _safeSpots: []
   _canRebound: 1
-  _entityHealthControl: {fileID: 371763953}
+  _entityHealthControl: {fileID: 0}
   _useNewComponents: 1
   _projectilePrefab: {fileID: 0}
   _projectileOriginLeft: {fileID: 0}
@@ -65088,7 +65259,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8111802924357070878, guid: 159e5a1dca88f9d4690a00c7390d78a3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -72476,7 +72648,7 @@ PrefabInstance:
     - target: {fileID: 5827867853637719751, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74918,5 +75090,6 @@ SceneRoots:
   - {fileID: 3671559710659420905}
   - {fileID: 522874722}
   - {fileID: 1651740401}
+  - {fileID: 1429945636}
   - {fileID: 1737571201}
   - {fileID: 1703202810}

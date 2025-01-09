@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DamageColorEffect : MonoBehaviour
 {
-    [SerializeField] private Target _player;
+    [SerializeField] private EntityHealthControl _entityHealthControl;
     
     [SerializeField] private List<Material> _materials;
     [SerializeField] private List<string> _exludeMaterials;
@@ -18,13 +18,13 @@ public class DamageColorEffect : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.OnEnemyAttackUs += ChangeColor;
+        _entityHealthControl.OnEnemyAttackUs += ChangeColor;
         CloneMaterials();
     }
 
     private void OnDisable()
     {
-        _player.OnEnemyAttackUs -= ChangeColor;
+        _entityHealthControl.OnEnemyAttackUs -= ChangeColor;
 
         foreach (var mat in _materials)
         {
@@ -33,9 +33,9 @@ public class DamageColorEffect : MonoBehaviour
     }
 
     [ProButton]
-    private void ChangeColor(Target target, int damage)
+    private void ChangeColor(EntityComponentsData target, int damage)
     {
-        if (target.transform.tag != "Player" && !_isPlayer) return;
+        if (!target.transform.CompareTag("Player") && !_isPlayer) return;
         
         foreach (var mat in _materials)
         {

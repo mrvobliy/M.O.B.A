@@ -5,7 +5,6 @@ public class EntityComponentsData : MonoBehaviour
 {
     [SerializeField] private Team _entityTeam;
     [SerializeField] private EntityType _entityType;
-    [SerializeField] private Target _target;
     private bool _isHero => _entityType == EntityType.Hero;
 
     [SerializeField] private EntityHealthControl _entityHealthControl;
@@ -15,18 +14,7 @@ public class EntityComponentsData : MonoBehaviour
 
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
-    public Target Target => _target;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;
     public EntityHealthControl EntityHealthControl => _entityHealthControl;
-
-    private void OnEnable() => _target.OnDeath += SendEvent;
-
-    private void OnDisable() => _target.OnDeath -= SendEvent;
-
-    private void SendEvent()
-    {
-        _target.OnDeath -= SendEvent;
-        EventsBase.OnEntityDeath(this);
-    }
 }
