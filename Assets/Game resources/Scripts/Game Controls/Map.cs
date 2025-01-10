@@ -21,7 +21,8 @@ public enum EntityType
 	LaneRange,
 	NeutralMelee,
 	NeutralRange,
-	Tower
+	Tower,
+	Trone
 }
 
 public class Map : MonoBehaviour

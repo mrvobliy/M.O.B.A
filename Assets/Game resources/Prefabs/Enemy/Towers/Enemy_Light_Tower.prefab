@@ -4940,6 +4940,7 @@ Transform:
   - {fileID: 3179205682937707800}
   - {fileID: 5931412949679431359}
   - {fileID: 8963315590301897221}
+  - {fileID: 1379963505771974258}
   - {fileID: 5797928315422577641}
   - {fileID: 1885520788806427664}
   - {fileID: 2870497665641297381}
@@ -14777,6 +14778,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &2335041716631335732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379963505771974258}
+  m_Layer: 0
+  m_Name: EnemyAttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1379963505771974258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335041716631335732}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.468, z: 0}
+  m_LocalScale: {x: 1.4285715, y: 1.4285715, z: 1.4285715}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1309036163396089949}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2747233522265811860
 GameObject:
   m_ObjectHideFlags: 0
@@ -29777,7 +29809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1261753665059671584}
-  - component: {fileID: 1397028164930767008}
+  - component: {fileID: 4913479362050628941}
   m_Layer: 0
   m_Name: "En\uFEFFtityHealthControl"
   m_TagString: Untagged
@@ -29800,7 +29832,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1309036163396089949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1397028164930767008
+--- !u!114 &4913479362050628941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29809,13 +29841,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5428499927462148608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dfb6935236963a4db3cfc42dd81f4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f8061f0f67b8e1488010817fd042232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1309036163396089948}
   _rotationParent: {fileID: 0}
   _maxHealth: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}
-  _enemyAttackPoint: {fileID: 1261753665059671584}
+  _enemyAttackPoint: {fileID: 5931412949679431359}
   _needDestroyAfterDeath: 1
   _collider: {fileID: 1309036163396089939}
   _navMeshObstacle: {fileID: 1416398055680106750}
@@ -29870,7 +29902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a99997144cc65d46906305eb101fcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityHealthControl: {fileID: 1397028164930767008}
+  _entityHealthControl: {fileID: 4913479362050628941}
   _materials: []
   _exludeMaterials: []
   _renderers:
@@ -34883,7 +34915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityAttackControl: {fileID: 7309341254423540966}
-  _entityHealthControl: {fileID: 1397028164930767008}
+  _entityHealthControl: {fileID: 4913479362050628941}
   _radius: {fileID: 3091454826453397741}
   _timeAnim: 0.5
   _delayToHide: 2
@@ -40451,6 +40483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityTeam: 1
   _entityType: 5
-  _entityHealthControl: {fileID: 1397028164930767008}
+  _entityHealthControl: {fileID: 4913479362050628941}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}

@@ -3,11 +3,11 @@ using UnityEngine.AI;
 
 public class BuildHealthControl : EntityHealthControl
 {
-    [SerializeField] private Collider _collider;
-    [SerializeField] private NavMeshObstacle _navMeshObstacle;
-    [SerializeField] private Healthbar _healthBarPrefab;
-    [SerializeField] private Rigidbody[] _rigidBodies;
-    [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] protected Collider _collider;
+    [SerializeField] protected NavMeshObstacle _navMeshObstacle;
+    [SerializeField] protected Healthbar _healthBarPrefab;
+    [SerializeField] protected Rigidbody[] _rigidBodies;
+    [SerializeField] protected ParticleSystem _explosionEffect;
     
     protected override void Start()
     {
@@ -22,30 +22,13 @@ public class BuildHealthControl : EntityHealthControl
         _navMeshObstacle.enabled = false;
         _animator.enabled = false;
         _collider.enabled = false;
-        
-        foreach (var rigidbody in _rigidBodies) 
-            rigidbody.isKinematic = false;
-        
-        _explosionEffect.Play();
 
-        foreach (var element in _rigidBodies)
-        {
-            element.isKinematic = false;
-
-            var exploreDir = new Vector3
-            {
-                x = Random.Range(-1.0f, 1.0f),
-                y = Random.Range(0f, 1.5f),
-                z = Random.Range(-1.0f, 1.0f)
-            };
-
-            element.AddForce(exploreDir * 200);
-        }
-        
-        Invoke(nameof(DisableComponents), DiveDelay);
+        PlayDestroyAnimation();
     }
 
-    private void DisableComponents()
+    protected virtual void PlayDestroyAnimation() {}
+
+    protected void DisableComponents()
     {
         foreach (var rigidbody in _rigidBodies) 
             rigidbody.isKinematic = true;
