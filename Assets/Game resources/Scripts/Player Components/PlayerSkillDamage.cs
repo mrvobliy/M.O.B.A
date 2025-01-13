@@ -5,11 +5,11 @@ public class PlayerSkillDamage : MonoBehaviour
     [SerializeField] private IntVariable _damageValue;
     [SerializeField] private float _timeToDestroy;
 
-    private Target _target;
+    private EntityComponentsData _ourEntityComponentsData;
     
-    public void Init(Target target)
+    public void Init(EntityComponentsData heroData)
     {
-        _target = target;
+        _ourEntityComponentsData = heroData;
         Invoke(nameof(InvokeDestroy), _timeToDestroy);
     }
 
@@ -17,18 +17,15 @@ public class PlayerSkillDamage : MonoBehaviour
     {
         if (other.transform.CompareTag("Player")) return;
         
-        if (!other.TryGetComponent(out Target attackTarget)) return;
+        if (!other.TryGetComponent(out EntityComponentsData entityComponentsData)) return;
         
-        if (attackTarget.Team == _target.Team) return;
+        if (entityComponentsData.EntityTeam == _ourEntityComponentsData.EntityTeam) return;
         
-        if (attackTarget.IsDead) return;
+        if (entityComponentsData.EntityHealthControl.IsDead) return;
         
-        attackTarget.TakeDamage(_target, _damageValue.Value);
-        attackTarget.TryStun(100, 3);
+        entityComponentsData.EntityHealthControl.TakeDamage(_ourEntityComponentsData, _damageValue.Value);
+        entityComponentsData.EntityMoveControl.TryStun(100, 3);
     }
 
-    private void InvokeDestroy()
-    {
-        Destroy(gameObject);
-    }
+    private void InvokeDestroy() => Destroy(gameObject);
 }

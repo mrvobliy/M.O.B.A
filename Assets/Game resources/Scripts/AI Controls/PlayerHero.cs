@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class PlayerHero : Unit
 {
 	[Header("Player")] 
+	[SerializeField] private EntityComponentsData _entityComponentsData;
 	[SerializeField] private float _speed;
 	[SerializeField] private float _destinationScale;
 	[SerializeField] private float _sampleScale;
@@ -83,7 +84,7 @@ public class PlayerHero : Unit
 			yield return new WaitForSeconds(0.8f);
 
 			var skillDamage = Instantiate(swordGirlFirstSkillControl.FirstSkillDamagePrefab, swordGirlFirstSkillControl.FirstSkillSpawnPoint);
-			skillDamage.Init(this);
+			skillDamage.Init(_entityComponentsData);
 			skillDamage.gameObject.SetActive(true);
 			skillDamage.gameObject.transform.SetParent(null);
 			

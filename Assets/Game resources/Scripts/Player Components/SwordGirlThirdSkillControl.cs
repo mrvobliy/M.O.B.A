@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class SwordGirlThirdSkillControl : MonoBehaviour
 {
     [SerializeField] private PlayerHero _playerHero;
+    [SerializeField] private EntityComponentsData _entityComponentsData;
     [SerializeField] private PlayerSkillDamage _skillDamagePrefab;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
@@ -48,7 +49,7 @@ public class SwordGirlThirdSkillControl : MonoBehaviour
         _playerHero.ActivateThirdSkill(() =>
         {
             var skillDamage = Instantiate(_skillDamagePrefab, SpawnPoint, Quaternion.identity);
-            skillDamage.Init(_playerHero);
+            skillDamage.Init(_entityComponentsData);
             skillDamage.gameObject.SetActive(true);
             skillDamage.gameObject.transform.SetParent(null);
         });

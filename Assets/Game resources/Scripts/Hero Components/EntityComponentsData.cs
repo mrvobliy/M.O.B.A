@@ -6,6 +6,7 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField] private Team _entityTeam;
     [SerializeField] private EntityType _entityType;
     [SerializeField] private EntityHealthControl _entityHealthControl;
+    [SerializeField] private EntityMoveControl _entityMoveControl;
     
     private bool IsNeedShowAttackControl => _entityType != EntityType.Trone;
     [SerializeField, ShowIf(nameof(IsNeedShowAttackControl))] private EntityAttackControl _entityAttackControl;
@@ -19,6 +20,7 @@ public class EntityComponentsData : MonoBehaviour
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;
     public EntityHealthControl EntityHealthControl => _entityHealthControl;
+    public EntityMoveControl EntityMoveControl => _entityMoveControl;
     public EntityAttackControl EntityAttackControl => _entityAttackControl;
     public bool CanComponentsWork { get; private set; }
 
@@ -26,14 +28,33 @@ public class EntityComponentsData : MonoBehaviour
 
     private void OnValidate()
     {
+        TrySetEntityAttackControl();
+        TrySetEntityMoveControl();
+    }
+    
+    private void TrySetEntityMoveControl()
+    {
+        if (_entityMoveControl != null) 
+            return;
+        
+        var component = transform.parent.GetComponentInChildren<EntityMoveControl>();
+        
+        if (component == null) 
+            return;
+
+        _entityMoveControl = component;
+    }
+
+    private void TrySetEntityAttackControl()
+    {
         if (_entityAttackControl != null || !IsNeedShowAttackControl) 
             return;
         
-        var entityAttackControl = transform.parent.GetComponentInChildren<EntityAttackControl>();
+        var component = transform.parent.GetComponentInChildren<EntityAttackControl>();
         
-        if (entityAttackControl == null) 
+        if (component == null) 
             return;
 
-        _entityAttackControl = entityAttackControl;
-    } 
+        _entityAttackControl = component;
+    }
 }
