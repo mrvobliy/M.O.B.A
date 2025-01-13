@@ -31,7 +31,9 @@ public class EntityAttackControl : MonoBehaviour
     
     protected virtual void FixedUpdate()
     {
-        if (_entityComponentsData.EntityHealthControl.IsDead) return;
+        if (_entityComponentsData.EntityHealthControl.IsDead) return; 
+        
+        if (!_entityComponentsData.CanComponentsWork) return;
         
         FindClosestEnemiesInVisibilityArea();
         FindClosestEnemiesInAttackArea();

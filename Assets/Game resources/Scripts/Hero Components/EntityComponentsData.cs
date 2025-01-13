@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -21,6 +20,9 @@ public class EntityComponentsData : MonoBehaviour
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;
     public EntityHealthControl EntityHealthControl => _entityHealthControl;
     public EntityAttackControl EntityAttackControl => _entityAttackControl;
+    public bool CanComponentsWork { get; private set; }
+
+    public void SetWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
 
     private void OnValidate()
     {
