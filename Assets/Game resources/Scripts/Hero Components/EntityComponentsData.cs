@@ -22,7 +22,7 @@ public class EntityComponentsData : MonoBehaviour
     public EntityHealthControl EntityHealthControl => _entityHealthControl;
     public EntityMoveControl EntityMoveControl => _entityMoveControl;
     public EntityAttackControl EntityAttackControl => _entityAttackControl;
-    public bool CanComponentsWork { get; private set; }
+    public bool CanComponentsWork { get; private set; } = true;
 
     public void SetWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
 

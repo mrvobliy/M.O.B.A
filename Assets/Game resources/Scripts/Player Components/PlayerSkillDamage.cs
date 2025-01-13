@@ -17,10 +17,19 @@ public class PlayerSkillDamage : MonoBehaviour
     {
         if (other.transform.CompareTag("Player")) return;
         
-        if (!other.TryGetComponent(out EntityComponentsData entityComponentsData)) return;
+        var entityComponentsData = other.GetComponentInChildren<EntityComponentsData>();
+            
+        if (entityComponentsData == null) return;
         
         if (entityComponentsData.EntityTeam == _ourEntityComponentsData.EntityTeam) return;
         
+        switch (entityComponentsData.EntityType)
+        {
+            case EntityType.Tower:
+            case EntityType.Trone:
+                return;
+        }
+
         if (entityComponentsData.EntityHealthControl.IsDead) return;
         
         entityComponentsData.EntityHealthControl.TakeDamage(_ourEntityComponentsData, _damageValue.Value);

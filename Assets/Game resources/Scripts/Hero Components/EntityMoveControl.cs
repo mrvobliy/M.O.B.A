@@ -41,7 +41,7 @@ public abstract class EntityMoveControl : MonoBehaviour
     
     public void TryStun(int percentChanceStun, float timeStun)
     {
-        if (IsDead || _entityComponentsData.CanComponentsWork) 
+        if (IsDead || !_entityComponentsData.CanComponentsWork) 
             return;
 		
         if (percentChanceStun < Random.Range(0, 101))
@@ -54,6 +54,7 @@ public abstract class EntityMoveControl : MonoBehaviour
     {
         var stunDelay = new WaitForSeconds(timeStun);
 		
+        _agent.ResetPath();
         _entityComponentsData.SetWorkState(false);
         Animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
         Animator.SetBool(AnimatorHash.IsStun, true);
