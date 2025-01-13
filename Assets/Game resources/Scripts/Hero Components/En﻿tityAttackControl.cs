@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EntityAttackControl : MonoBehaviour
@@ -12,11 +13,14 @@ public class EntityAttackControl : MonoBehaviour
     [SerializeField] protected float _attackDistance = 1f;
     [SerializeField] protected float _maxAngleAttack = 180f;
     [SerializeField] private bool _isCanAttackNeutrals = true;
-    [SerializeField] private bool _isCanCallPlayerFound;
+    
+    private bool IsNeedShowBool => _entityComponentsData.EntityType == EntityType.Tower;
+    [SerializeField, ShowIf(nameof(IsNeedShowBool))] private bool _isCanCallPlayerFound;
     
     public event Action OnPlayerFound;
+    public float AttackDistance => _attackDistance;
 
-    protected List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
+    public List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
     protected List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
     
 
@@ -32,6 +36,8 @@ public class EntityAttackControl : MonoBehaviour
         FindClosestEnemiesInVisibilityArea();
         FindClosestEnemiesInAttackArea();
     }
+
+    public EntityComponentsData GetClosestEnemyInVisibilityArea() => ClosestEnemyInVisibilityArea.Count <= 0 ? null : ClosestEnemyInVisibilityArea[0];
 
     private void FindClosestEnemiesInVisibilityArea()
     {

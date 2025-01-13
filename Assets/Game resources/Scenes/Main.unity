@@ -5939,7 +5939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &376813050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,9 +5953,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnDelay: 30
-  _meeleEnemyPrefab: {fileID: 4039899086308763039, guid: 45c54423bf3797e4fb1c681c651aadb2,
+  _meeleEnemyPrefab: {fileID: 3491033238560658664, guid: 45c54423bf3797e4fb1c681c651aadb2,
     type: 3}
-  _rangeEnemyPrefab: {fileID: 1571946839111460732, guid: f7b1250829ae2424fba0c570de0c8cdf,
+  _rangeEnemyPrefab: {fileID: 3491033238560658664, guid: 45c54423bf3797e4fb1c681c651aadb2,
     type: 3}
   _topLinePoints:
   - {fileID: 1532626319}
@@ -21412,6 +21412,7 @@ MonoBehaviour:
   _entityTeam: 1
   _entityType: 0
   _entityHealthControl: {fileID: 371763954}
+  _entityAttackControl: {fileID: 1816778108}
   _heroGoldControl: {fileID: 1664043513}
   _heroExperienceControl: {fileID: 1441997998}
 --- !u!1001 &1275172027
@@ -32259,10 +32260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnDelay: 30
-  _meeleEnemyPrefab: {fileID: 5457933976685768967, guid: efd40fd6d3964b2448bd41bf9c828542,
-    type: 3}
-  _rangeEnemyPrefab: {fileID: 5824317618251793612, guid: fb01273361890734d9e9a4d89d31f7f6,
-    type: 3}
+  _meeleEnemyPrefab: {fileID: 0}
+  _rangeEnemyPrefab: {fileID: 0}
   _topLinePoints:
   - {fileID: 404615155}
   - {fileID: 2038243708}

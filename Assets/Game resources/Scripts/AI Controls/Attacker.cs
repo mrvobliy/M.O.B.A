@@ -333,7 +333,7 @@ public abstract class Attacker : Target
 			if (target.Team != Team) continue;
 			if (target.IsDead) continue;
 
-			var creepDistance = target.GetPathDistance(out _);
+			var creepDistance = target.GetPathDistance();
 			if (creepDistance > yourPathDistance)
 			{
 				return true;

@@ -7,10 +7,7 @@ public class LaneCreep : Creep
 	private bool _pathIsFinished;
 	private int _pathIndex;
 
-	public void SetWaypoints(Transform[] waypoints)
-	{
-		_waypoints = waypoints;
-	}
+	public void SetWaypoints(Transform[] waypoints) => _waypoints = waypoints;
 
 	protected override Vector3 GetTarget()
 	{
@@ -21,31 +18,25 @@ public class LaneCreep : Creep
 			_agent.stoppingDistance = _attackDistance;
 			return _closestEnemyInVisibility.transform.position;
 		}
-		else if (_pathIsFinished == false)
-		{
-			var next = _waypoints[_pathIndex];
 
-			if (DistanceTo(next) < 0.5f)
-			{
-				_pathIndex++;
-				if (_pathIndex == _waypoints.Length)
-				{
-					_pathIsFinished = true;
-				}
-			}
+		if (_pathIsFinished) 
+			return transform.position;
+		
+		var next = _waypoints[_pathIndex];
 
-			return next.position;
-		}
+		if (DistanceTo(next) >= 0.5f) return next.position;
+		
+		_pathIndex++;
+		
+		if (_pathIndex == _waypoints.Length) 
+			_pathIsFinished = true;
 
-		return transform.position;
+		return next.position;
 	}
 
-	protected override bool IsTargetValid(Target target)
-	{
-		return target is not NeutralCreep;
-	}
+	protected override bool IsTargetValid(Target target) => target is not NeutralCreep;
 
-	public float GetPathDistance(out int prefferedWaypointIndex)
+	public float GetPathDistance()
 	{
 		var waypoints = _waypoints;
 
@@ -70,8 +61,6 @@ public class LaneCreep : Creep
 
 			distances.Add((end.position - start.position).magnitude);
 		}
-
-		prefferedWaypointIndex = minEnd;
 
 		var distanceBefore = 0f;
 		for (var i = 0; i < minStart; i++)

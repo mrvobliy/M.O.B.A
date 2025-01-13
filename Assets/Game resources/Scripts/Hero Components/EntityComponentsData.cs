@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,13 +8,30 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField] private EntityType _entityType;
     [SerializeField] private EntityHealthControl _entityHealthControl;
     
-    private bool _isHero => _entityType == EntityType.Hero;
-    [SerializeField, ShowIf(nameof(_isHero))] private HeroGoldControl _heroGoldControl;
-    [SerializeField, ShowIf(nameof(_isHero))] private HeroExperienceControl _heroExperienceControl;
+    private bool IsNeedShowAttackControl => _entityType != EntityType.Trone;
+    [SerializeField, ShowIf(nameof(IsNeedShowAttackControl))] private EntityAttackControl _entityAttackControl;
+    
+    private bool IsNeedShowGoldExpoParam => _entityType == EntityType.Hero;
+    [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroGoldControl _heroGoldControl;
+    [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroExperienceControl _heroExperienceControl;
 
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;
     public EntityHealthControl EntityHealthControl => _entityHealthControl;
+    public EntityAttackControl EntityAttackControl => _entityAttackControl;
+
+    private void OnValidate()
+    {
+        if (_entityAttackControl != null || !IsNeedShowAttackControl) 
+            return;
+        
+        var entityAttackControl = transform.parent.GetComponentInChildren<EntityAttackControl>();
+        
+        if (entityAttackControl == null) 
+            return;
+
+        _entityAttackControl = entityAttackControl;
+    } 
 }
