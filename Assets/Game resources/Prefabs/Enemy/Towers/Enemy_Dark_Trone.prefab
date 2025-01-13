@@ -645,6 +645,7 @@ MonoBehaviour:
   _entityTeam: 2
   _entityType: 6
   _entityHealthControl: {fileID: 7181189276102931184}
+  _entityAttackControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
 --- !u!1 &3670820069660589537
@@ -35624,7 +35625,7 @@ GameObject:
   - component: {fileID: 8900810513310130986}
   m_Layer: 0
   m_Name: Enemy_Dark_Trone
-  m_TagString: EmeraldAI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

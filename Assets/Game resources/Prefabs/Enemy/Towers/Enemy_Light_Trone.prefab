@@ -10230,6 +10230,7 @@ MonoBehaviour:
   _entityTeam: 1
   _entityType: 6
   _entityHealthControl: {fileID: 2513738501537980959}
+  _entityAttackControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
 --- !u!1 &5133632303096770693
@@ -15285,7 +15286,7 @@ GameObject:
   - component: {fileID: 172278240490527128}
   m_Layer: 0
   m_Name: Enemy_Light_Trone
-  m_TagString: EmeraldAI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -35,10 +35,13 @@ public class EntityAttackControl : MonoBehaviour
         
         FindClosestEnemiesInVisibilityArea();
         FindClosestEnemiesInAttackArea();
+        TryStartAttack();
     }
 
     public EntityComponentsData GetClosestEnemyInVisibilityArea() => ClosestEnemyInVisibilityArea.Count <= 0 ? null : ClosestEnemyInVisibilityArea[0];
     public EntityComponentsData GetClosestEnemyInAttackArea() => ClosestEnemyInAttackArea.Count <= 0 ? null : ClosestEnemyInAttackArea[0];
+    
+    protected virtual void TryStartAttack() {}
 
     private void FindClosestEnemiesInVisibilityArea()
     {

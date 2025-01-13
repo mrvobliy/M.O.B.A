@@ -23,13 +23,7 @@ public class TowerAttackControl : EntityAttackControl
         _animationEvents.OnAttackEnd -= OnAttackEnd;
     }
 
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        TryStartAttack();
-    }
-
-    private void TryStartAttack()
+    protected override void TryStartAttack()
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;
         

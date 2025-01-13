@@ -24,10 +24,10 @@ public class LaneCreepMoveControl : EntityMoveControl
         }
 
         if (_pathIsFinished) 
-            return transform.position;
+            return transform.parent.position;
 		
         var next = _waypoints[_pathIndex];
-        var distanceTo = (transform.position.SetY(0f) - next.position.SetY(0f)).magnitude;
+        var distanceTo = (transform.parent.position.SetY(0f) - next.position.SetY(0f)).magnitude;
         
         if (distanceTo >= 0.5f) 
             return next.position;

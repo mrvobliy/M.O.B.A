@@ -22,8 +22,8 @@ public class RangeCreepAttackControl : EntityAttackControl
         _animationEvents.OnAttackBegin -= FireProjectile;
         _animationEvents.OnAttackEnd -= OnAttackEnd;
     }
-    
-    private void TryStartAttack()
+
+    protected override void TryStartAttack()
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;
         
@@ -36,12 +36,6 @@ public class RangeCreepAttackControl : EntityAttackControl
             _indexAttackAnim = 0;
 		
         _animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        TryStartAttack();
     }
     
     private void FireProjectile()
