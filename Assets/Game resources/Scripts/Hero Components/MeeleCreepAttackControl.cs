@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CreepAttackControl : EntityAttackControl
+public class MeeleCreepAttackControl : EntityAttackControl
 {
     [SerializeField] protected IntVariable _baseDamage;
     
@@ -23,7 +23,7 @@ public class CreepAttackControl : EntityAttackControl
         base.FixedUpdate();
         TryStartAttack();
     }
-    
+
     private void TryStartAttack()
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;

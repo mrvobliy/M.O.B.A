@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class TowerAttackControl : EntityAttackControl
+public class RangeCreepAttackControl : EntityAttackControl
 {
     [SerializeField] private Projectile _projectilePrefab;
-    [SerializeField] private Transform _projectileOrigin;
+    [SerializeField] private Transform _leftProjectileOrigin;
+    [SerializeField] private Transform _rightProjectileOrigin;
     [SerializeField] protected IntVariable _damage;
     [SerializeField] private float _projectileSpeed = 1f;
     
     private bool _insideAttack;
-    private bool _isAttackAnimPlayed;
-    private int _indexAttackAnim = 1;
-
+    private int _indexAttackAnim;
+    
     private void OnEnable()
     {
         _animationEvents.OnAttackBegin += FireProjectile;
@@ -22,21 +22,26 @@ public class TowerAttackControl : EntityAttackControl
         _animationEvents.OnAttackBegin -= FireProjectile;
         _animationEvents.OnAttackEnd -= OnAttackEnd;
     }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        TryStartAttack();
-    }
-
+    
     private void TryStartAttack()
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;
         
         if (_insideAttack) return;
-
-        _animator.SetTrigger(AnimatorHash.Attack);
+        
         _insideAttack = true;
+        _indexAttackAnim++;
+
+        if (_indexAttackAnim > 1)
+            _indexAttackAnim = 0;
+		
+        _animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        TryStartAttack();
     }
     
     private void FireProjectile()
@@ -45,7 +50,8 @@ public class TowerAttackControl : EntityAttackControl
         
         if (closestEnemyInAttackArea == null) return;
 
-        var projectile = Instantiate(_projectilePrefab, _projectileOrigin.position, _projectileOrigin.rotation);
+        var projectileOrigin = _indexAttackAnim == 1 ? _rightProjectileOrigin : _leftProjectileOrigin;
+        var projectile = Instantiate(_projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
 
         projectile.Init(_entityComponentsData, _damage.Value, closestEnemyInAttackArea, _projectileSpeed);
     }
