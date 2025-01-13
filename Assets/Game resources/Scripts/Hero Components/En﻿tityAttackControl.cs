@@ -65,7 +65,7 @@ public class EntityAttackControl : MonoBehaviour
             if (foundTarget.transform.CompareTag("Player"))
                 CallPlayerFound();
             
-            var distance = (transform.position.SetY(0f) - foundTarget.transform.position.SetY(0f)).sqrMagnitude;
+            var distance = (transform.parent.position.SetY(0f) - foundTarget.transform.parent.position.SetY(0f)).sqrMagnitude;
             
             closestEnemies.Add(new FoundEnemy(foundTarget, distance));
         }
@@ -80,11 +80,11 @@ public class EntityAttackControl : MonoBehaviour
         
         foreach (var enemy in ClosestEnemyInVisibilityArea)
         {
-            var distance = (enemy.transform.position.SetY(0f) - transform.position.SetY(0f)).magnitude;
+            var distance = (enemy.transform.parent.position.SetY(0f) - transform.parent.position.SetY(0f)).magnitude;
             
             if (distance > _attackDistance) continue;
 
-            var direction = (enemy.transform.position.SetY(0f) - transform.position.SetY(0f)).normalized;
+            var direction = (enemy.transform.parent.position.SetY(0f) - transform.parent.position.SetY(0f)).normalized;
             var angle = Vector3.Angle(Forward, direction);
             
             if (angle > _maxAngleAttack) continue;

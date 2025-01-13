@@ -15,7 +15,7 @@ public class CreepHealthControl : EntityHealthControl
 
     private void RootRebound(EntityComponentsData data, int damage)
     {
-        if (_rotationParent == null) return;
+        if (_rotationParent == null || data.EntityType != EntityType.Hero) return;
 		
         _rotationParent.DOLocalMove(-_rotationParent.forward * ReboundForce, ReboundTime).OnComplete(() =>
         {

@@ -95,9 +95,9 @@ Transform:
   m_GameObject: {fileID: 878089921970140604}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08717503, y: 1.2288917, z: 0.8898899}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 8851825311420738433}
   m_Layer: 0
   m_Name: CreepAttackControl
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,9 +312,9 @@ Transform:
   m_GameObject: {fileID: 1997393808472865478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -334,10 +334,11 @@ MonoBehaviour:
   _animator: {fileID: 5025044265947795150}
   _animationEvents: {fileID: 4030434059336563946}
   _detectionRadius: 5
-  _attackDistance: 1
+  _attackDistance: 1.3
   _maxAngleAttack: 180
   _isCanAttackNeutrals: 1
   _isCanCallPlayerFound: 0
+  _baseDamage: {fileID: 11400000, guid: b17cb3ab1d1c5e04babcad72c0e4c5e2, type: 2}
 --- !u!1 &2450022942906705294
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,9 +516,9 @@ Transform:
   m_GameObject: {fileID: 3475744463213437227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -536,7 +537,7 @@ GameObject:
   - component: {fileID: 4039899086308763039}
   m_Layer: 0
   m_Name: Enemy_Light_Creep_Meele
-  m_TagString: EmeraldAI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,8 +846,8 @@ GameObject:
   - component: {fileID: 6950126238289177544}
   - component: {fileID: 5606402673638421275}
   m_Layer: 0
-  m_Name: HeroComponentsData
-  m_TagString: Player
+  m_Name: EntityComponentsData
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,9 +861,9 @@ Transform:
   m_GameObject: {fileID: 4561974897409866236}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,7 +897,7 @@ GameObject:
   - component: {fileID: 4872501157726468073}
   m_Layer: 0
   m_Name: DamageColorEffect
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -910,9 +911,9 @@ Transform:
   m_GameObject: {fileID: 4692407877041023375}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1037,7 +1038,7 @@ GameObject:
   - component: {fileID: 4850981357550547585}
   m_Layer: 0
   m_Name: ----------------------COMPONENTS
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1051,9 +1052,9 @@ Transform:
   m_GameObject: {fileID: 4987130603289350840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1237,7 +1238,7 @@ GameObject:
   - component: {fileID: 4591849774195576880}
   m_Layer: 0
   m_Name: "En\uFEFFtityHealthControl"
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1251,9 +1252,9 @@ Transform:
   m_GameObject: {fileID: 7529617255894217388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3743007, z: -0, w: 0.9273074}
-  m_LocalPosition: {x: 19.52, y: -4.14, z: -103.28}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3491033238560658655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

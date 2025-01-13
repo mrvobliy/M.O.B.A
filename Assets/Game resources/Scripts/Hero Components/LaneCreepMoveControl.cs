@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LaneCreepMoveControl : EntityMoveControl
 {
+    private const float OffsetStoppingDistance = 2;
+    
     private Transform[] _waypoints;
     private bool _pathIsFinished;
     private int _pathIndex;
@@ -17,7 +19,7 @@ public class LaneCreepMoveControl : EntityMoveControl
 
         if (ClosestEnemyInVisibility != null)
         {
-            _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance;
+            _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
             return ClosestEnemyInVisibility.transform.position;
         }
 
