@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackControl : EntityAttackControl
+public class HeroAttackControl : EntityAttackControl
 {
     [SerializeField] protected IntVariable _baseDamage;
     

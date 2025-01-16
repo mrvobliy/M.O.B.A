@@ -9,9 +9,9 @@ public abstract class EntityMoveControl : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 200f;
     [SerializeField] private int _stunLayerIndex = 2;
 
-    private Animator Animator => _entityComponentsData.EntityHealthControl.Animator;
+    protected Animator Animator => _entityComponentsData.EntityHealthControl.Animator;
     private bool IsDead => _entityComponentsData.EntityHealthControl.IsDead;
-    private Transform RotationParent => _entityComponentsData.EntityHealthControl.RotationParent;
+    protected Transform RotationParent => _entityComponentsData.EntityHealthControl.RotationParent;
     
     public void SetRotation(Quaternion rotation) => RotationParent.rotation = rotation;
 
