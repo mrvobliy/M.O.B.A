@@ -26,7 +26,7 @@ public class EntityHealthControl : MonoBehaviour
     private const float DiveDepth = 4f;
     
     protected bool _isDead;
-    protected float _currentHealth;
+    [SerializeField] protected float _currentHealth;
 
     protected virtual void Start() => _currentHealth = _maxHealth.Value;
 

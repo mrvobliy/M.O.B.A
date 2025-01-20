@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
@@ -25,14 +24,22 @@ public class BuildingsManager : SerializedMonoBehaviour
         _darkSideBusyBuildings = new List<BusyBuild>();
     }
 
-    public void LeftBuilding(EntityComponentsData componentsData)
+    public void SetLeftBusyBuilding(EntityComponentsData componentsData, bool isBusy, EntityComponentsData newBusyBuilding = null)
     {
-        var buildingsList = GetBusyBuildList(componentsData.EntityTeam);
+        var busyBuildings = GetBusyBuildList(componentsData.EntityTeam);
 
-        foreach (var building in buildingsList.Where(building => building.Build == componentsData))
+        if (!isBusy)
         {
-            buildingsList.Remove(building);
-            break;
+            foreach (var building in busyBuildings.Where(building => building.EntityData == componentsData))
+            {
+                busyBuildings.Remove(building);
+                break;
+            }
+        }
+        else if (newBusyBuilding != null)
+        {
+            var newBusyBuild = new BusyBuild(newBusyBuilding, componentsData);
+            busyBuildings.Add(newBusyBuild);
         }
     }
     
@@ -44,14 +51,12 @@ public class BuildingsManager : SerializedMonoBehaviour
             return busyBuild;
 
         var buildings = GetBuildList(componentsData.EntityTeam);
-        var busyBuildings = GetBusyBuildList(componentsData.EntityTeam);
         
         foreach (var building in buildings)
         {
             if (building.EntityHealthControl.IsDead) continue;
             
-            var newBusyBuild = new BusyBuild(building, componentsData);
-            busyBuildings.Add(newBusyBuild);
+            SetLeftBusyBuilding(componentsData, true, building);
                 
             var deadBuildings = buildings.Where(x => x.EntityHealthControl.IsDead).ToList();
 
@@ -59,6 +64,36 @@ public class BuildingsManager : SerializedMonoBehaviour
                 buildings.Remove(deadBuilding);
                 
             return building;
+        }
+        
+        return null;
+    }
+    
+    public EntityComponentsData GetNearestRandomBuild(EntityComponentsData componentsData)
+    {
+        var busyBuild = TryReturnBusyBuild(componentsData);
+
+        if (busyBuild != null)
+            return busyBuild;
+        
+        var buildings = GetBuildList(componentsData.EntityTeam);
+        var index = 0;
+        var randomIndex = Random.Range(0, 3);
+        
+        foreach (var building in buildings)
+        {
+            if (building.EntityHealthControl.IsDead) continue;
+
+            if (index == randomIndex)
+            {
+                SetLeftBusyBuilding(componentsData, true, building);
+                return building;
+            }
+            
+            index++;
+            
+            if (index > 2) 
+                break;
         }
         
         return null;
@@ -86,29 +121,6 @@ public class BuildingsManager : SerializedMonoBehaviour
             buildingsList.Remove(building);
         
         return null;
-    }
-    
-    
-    public EntityComponentsData GetNearestRandomBuild(Team team)
-    {
-        var buildings = team == Team.Light ? _lightSideBuildings : _darkSideBuildings;
-        var nearestBuild = new List<EntityComponentsData>();
-        var index = 0;
-
-        foreach (var building in buildings)
-        {
-            if (building.EntityHealthControl.IsDead) continue;
-
-            nearestBuild.Add(building);
-            index++;
-            
-            if (index > 2) 
-                break;
-        }
-
-        var randomIndex = Random.Range(0, 3);
-
-        return nearestBuild[randomIndex];
     }
     
     private List<BusyBuild> GetBusyBuildList(Team team) => team == Team.Light ? _darkSideBusyBuildings : _lightSideBusyBuildings;

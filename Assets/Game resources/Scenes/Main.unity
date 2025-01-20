@@ -2985,14 +2985,24 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(1220.54333,-243.644531)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"SetBuildingTargetTask","NodeData":{"Offset":"(0.543334961,209.991791)"},"ID":1,"Name":"Set
-        Building Target Task","Instant":true,"HeroMoveControl_moveControl":0,"EntityComponentsData_entityComponentsData":1}}'
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(1074.71,-610.110046)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(-1.13816833,188.125854)"},"ID":1,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-155.2973,124.567116)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-77.66391,131.758942)"},"ID":3,"Name":"Inverter","Instant":true,"Children":[{"Type":"NeedAmountHealthCondition","NodeData":{"Offset":"(-165.789429,2.10523033)","ColorIndex":7},"ID":4,"Name":"Need
+        Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":0,"Single_needAmountHealth":60}]},{"Type":"ConsistentlyBuildingsAttackTask","NodeData":{"Offset":"(106.666992,119.999992)","ColorIndex":5},"ID":5,"Name":"Consistently
+        Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":1,"EntityComponentsData_entityComponentsData":2}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(285.1352,240.543182)"},"ID":6,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-121.465096,154.607285)"},"ID":7,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"NeedAmountHealthCondition","NodeData":{"Offset":"(-110,130)","ColorIndex":7},"ID":8,"Name":"Need
+        Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":3,"Single_needAmountHealth":60},{"Type":"RestoringHealthTask","NodeData":{"Offset":"(92.87915,130)","ColorIndex":5},"ID":9,"Name":"Restoring
+        Health Task","Instant":true,"HeroMoveControl_moveControl":4,"EntityComponentsData_entityComponentsData":5}]},{"Type":"RandomBuildingsAttackTask","NodeData":{"Offset":"(185.741333,284.374451)","ColorIndex":5},"ID":10,"Name":"Random
+        Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":6,"EntityComponentsData_entityComponentsData":7}]}]}}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
         unityObjects:
+        - {fileID: 371763954}
+        - {fileID: 697442190}
+        - {fileID: 1274581903}
+        - {fileID: 371763954}
+        - {fileID: 697442190}
+        - {fileID: 1274581903}
         - {fileID: 697442190}
         - {fileID: 1274581903}
         byteData: 
@@ -5859,6 +5869,7 @@ MonoBehaviour:
   _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
   _enemyAttackPoint: {fileID: 4813360880384556099}
   _needDestroyAfterDeath: 0
+  _currentHealth: 0
   _agent: {fileID: 5630766452610546823}
   _deathAnimLayer: 6
 --- !u!4 &372221113 stripped
@@ -32626,7 +32637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1957072607
 Transform:
   m_ObjectHideFlags: 0
