@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EntityComponentsData : MonoBehaviour
 {
+    [SerializeField] private bool _isAi;
     [SerializeField] private Team _entityTeam;
     [SerializeField] private EntityType _entityType;
     [SerializeField] private EntityHealthControl _entityHealthControl;
@@ -14,7 +15,7 @@ public class EntityComponentsData : MonoBehaviour
     private bool IsNeedShowGoldExpoParam => _entityType == EntityType.Hero;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroGoldControl _heroGoldControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroExperienceControl _heroExperienceControl;
-
+    
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
@@ -23,6 +24,7 @@ public class EntityComponentsData : MonoBehaviour
     public EntityMoveControl EntityMoveControl => _entityMoveControl;
     public EntityAttackControl EntityAttackControl => _entityAttackControl;
     public bool CanComponentsWork { get; private set; } = true;
+    public bool IsAi => _isAi;
 
     public void SetWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
 

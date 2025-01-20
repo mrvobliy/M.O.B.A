@@ -48,8 +48,5 @@ public class NeutralCreep : Creep
 		}
 	}
 
-	protected override bool IsTargetValid(Target target)
-	{
-		return target is PlayerHero || target is NpcHero;
-	}
+	protected override bool IsTargetValid(Target target) => target is PlayerHero;
 }
