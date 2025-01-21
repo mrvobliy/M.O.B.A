@@ -30,6 +30,14 @@ public class EntityHealthControl : MonoBehaviour
 
     protected virtual void Start() => _currentHealth = _maxHealth.Value;
 
+    public void TakeHeal(int value)
+    {
+        if (_isDead) return;
+        
+        _currentHealth += value;
+        OnHealthChanged?.Invoke();
+    }
+
     public void TakeDamage(EntityComponentsData attaker, int damage)
     {
         if (_isDead) return;
