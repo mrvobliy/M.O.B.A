@@ -5,18 +5,23 @@ public class RandomBuildingsAttackTask : Action
 {
     [SerializeField] private HeroMoveControl _moveControl;
     [SerializeField] private EntityComponentsData _entityComponentsData;
+
+    private EntityComponentsData _target;
     
+    public override void OnStart()
+    {
+        base.OnStart();
+        UpdateTarget();
+    }
+
     public override TaskStatus OnUpdate()
     {
-        var target = BuildingsManager.Instance.GetNearestRandomBuild(_entityComponentsData).transform;
-        _moveControl.SetAiTarget(target.parent);
+        if (_target == null || _target.EntityHealthControl.IsDead)
+            UpdateTarget();
         
+        _moveControl.SetAiTarget(_target.transform.parent);
         return TaskStatus.Running;
     }
-    
-    public override void OnEnd()
-    {
-        base.OnEnd();
-        BuildingsManager.Instance.SetLeftBusyBuilding(_entityComponentsData, false);
-    }
+
+    private void UpdateTarget() => _target = BuildingsManager.Instance.GetNearestRandomBuild(_entityComponentsData);
 }

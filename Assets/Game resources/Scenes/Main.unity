@@ -3001,8 +3001,9 @@ MonoBehaviour:
         Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":6,"EntityComponentsData_entityComponentsData":7}]},{"Type":"RandomBuildingsAttackTask","NodeData":{"Offset":"(238.26001,243.043518)","ColorIndex":5},"ID":18,"Name":"Random
         Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":8,"EntityComponentsData_entityComponentsData":9}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(200,170)"},"ID":19,"Name":"Restoring
         Health","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"NeedAmountHealthCondition","NodeData":{"Offset":"(-110,130)","ColorIndex":7},"ID":20,"Name":"Need
-        Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":10,"Single_necessaryValueHealth":90,"Boolean_isTrue":true},{"Type":"RestoringHealthTask","NodeData":{"Offset":"(99.49292,130)","ColorIndex":5},"ID":21,"Name":"Restoring
-        Health Task","Instant":true,"HeroMoveControl_moveControl":11,"EntityComponentsData_entityComponentsData":12,"SharedBool_isNeedHeal":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsStartGame","IsShared":true,"BooleanmValue":true}]}'
+        Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":10,"Single_necessaryValueHealth":90,"Boolean_isTrue":true},{"Type":"ResetTargetBuildingTask","NodeData":{"Offset":"(107.723511,134.7786)","ColorIndex":6},"ID":21,"Name":"Reset
+        Target Building Task","Instant":true,"EntityComponentsData_entityComponentsData":11},{"Type":"RestoringHealthTask","NodeData":{"Offset":"(309.49292,130)","ColorIndex":5},"ID":22,"Name":"Restoring
+        Health Task","Instant":true,"HeroMoveControl_moveControl":12,"EntityComponentsData_entityComponentsData":13,"SharedBool_isNeedHeal":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsStartGame","IsShared":true,"BooleanmValue":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -3020,6 +3021,7 @@ MonoBehaviour:
         - {fileID: 697442190}
         - {fileID: 1274581903}
         - {fileID: 371763954}
+        - {fileID: 1274581903}
         - {fileID: 697442190}
         - {fileID: 1274581903}
         byteData: 
@@ -21360,6 +21362,7 @@ MonoBehaviour:
   _entityHealthControl: {fileID: 371763954}
   _entityMoveControl: {fileID: 697442190}
   _entityAttackControl: {fileID: 1816778108}
+  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 1664043513}
   _heroExperienceControl: {fileID: 1441997998}
 --- !u!1001 &1275172027
