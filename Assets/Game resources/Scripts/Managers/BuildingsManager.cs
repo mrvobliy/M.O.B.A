@@ -56,6 +56,8 @@ public class BuildingsManager : SerializedMonoBehaviour
         foreach (var building in buildings)
         {
             if (building.EntityHealthControl.IsDead) continue;
+
+            if (IsBuildingBusy(building, componentsData.EntityTeam)) continue;
             
             SetLeftBusyBuilding(componentsData, true, building);
                 
@@ -122,6 +124,13 @@ public class BuildingsManager : SerializedMonoBehaviour
             buildingsList.Remove(building);
         
         return null;
+    }
+
+    private bool IsBuildingBusy(EntityComponentsData buildingData, Team team)
+    {
+        var buildings = GetBusyBuildList(team);
+        var build = buildings.FirstOrDefault(x => x.Build == buildingData);
+        return build != null;
     }
     
     private List<BusyBuild> GetBusyBuildList(Team team) => team == Team.Light ? _darkSideBusyBuildings : _lightSideBusyBuildings;
