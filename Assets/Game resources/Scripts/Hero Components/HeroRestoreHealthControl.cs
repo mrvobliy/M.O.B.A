@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class HeroRestoreHealthControl : MonoBehaviour
 {
+    private const float DelayCancelRestoring = 1.7f;
+    private const float DelayBetweenRestorePart = 0.7f;
+    private const int ValueHealthRestore = 50;
+    
     [SerializeField] private EntityHealthControl _entityHealthControl;
     [SerializeField] private ParticleSystem _healEffect;
 
     private Coroutine _onRestoringCoroutine;
     private Coroutine _onCancelRestoringCoroutine;
-    
-    private float _delayCancelRestoring = 1.7f;
-    private float _delayBetweenRestorePart = 0.7f;
-    private int _valueHealthRestore = 50;
-    
+
     public void StartRestoring()
     {
         if (_entityHealthControl.IsDead) return; 
@@ -38,7 +38,7 @@ public class HeroRestoreHealthControl : MonoBehaviour
     
     private IEnumerator OnRestoring()
     {
-        var waitTime = new WaitForSeconds(_delayBetweenRestorePart);
+        var waitTime = new WaitForSeconds(DelayBetweenRestorePart);
         yield return waitTime;
 
         while (true)
@@ -46,11 +46,12 @@ public class HeroRestoreHealthControl : MonoBehaviour
             if (!_entityHealthControl.IsDead && _entityHealthControl.HealthPercent < 1)
             {
                 _healEffect.Play();
-                _entityHealthControl.TakeHeal(_valueHealthRestore);
+                _entityHealthControl.TakeHeal(ValueHealthRestore);
             }
             else
             {
                 _healEffect.Pause();
+                _healEffect.Clear();
             }
             
             yield return waitTime;
@@ -59,10 +60,9 @@ public class HeroRestoreHealthControl : MonoBehaviour
     
     private IEnumerator OnCancelRestoring()
     {
-        var waitTime = new WaitForSeconds(_delayCancelRestoring);
+        var waitTime = new WaitForSeconds(DelayCancelRestoring);
         yield return waitTime;
         
-        //_healEffect.Stop();
         _healEffect.Pause();
         _healEffect.Clear();
         

@@ -22,9 +22,7 @@ public enum EntityType
 	NeutralMelee,
 	NeutralRange,
 	Tower,
-	Trone
+	Throne
 }
 
-public class Map : MonoBehaviour
-{
-}
+public class Map : MonoBehaviour {}

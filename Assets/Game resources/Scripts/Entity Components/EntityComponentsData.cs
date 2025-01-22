@@ -9,7 +9,7 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField] private EntityHealthControl _entityHealthControl;
     [SerializeField] private EntityMoveControl _entityMoveControl;
     
-    private bool IsNeedShowAttackControl => _entityType != EntityType.Trone;
+    private bool IsNeedShowAttackControl => _entityType != EntityType.Throne;
     [SerializeField, ShowIf(nameof(IsNeedShowAttackControl))] private EntityAttackControl _entityAttackControl;
     
     private bool IsNeedShowGoldExpoParam => _entityType == EntityType.Hero;

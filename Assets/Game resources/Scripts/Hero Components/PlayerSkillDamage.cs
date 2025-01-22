@@ -26,7 +26,7 @@ public class PlayerSkillDamage : MonoBehaviour
         switch (entityComponentsData.EntityType)
         {
             case EntityType.Tower:
-            case EntityType.Trone:
+            case EntityType.Throne:
                 return;
         }
 
