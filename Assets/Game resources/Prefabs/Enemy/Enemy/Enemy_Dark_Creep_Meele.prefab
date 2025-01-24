@@ -132,6 +132,7 @@ MonoBehaviour:
   _maxHealth: {fileID: 11400000, guid: 2a5d46ec82de97f45924303c50c7f28b, type: 2}
   _enemyAttackPoint: {fileID: 3723427629157358269}
   _needDestroyAfterDeath: 1
+  _currentHealth: 0
   _agent: {fileID: 3491033238560658643}
 --- !u!1 &422016677840343599
 GameObject:
@@ -819,10 +820,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAi: 0
   _entityTeam: 2
   _entityType: 1
   _entityHealthControl: {fileID: 5982540803753700759}
+  _entityMoveControl: {fileID: 6927132251030316316}
   _entityAttackControl: {fileID: 7402074766430914917}
+  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
 --- !u!1 &6607591339355881135
@@ -988,6 +992,7 @@ MonoBehaviour:
   _entityComponentsData: {fileID: 1682388438339055433}
   _agent: {fileID: 3491033238560658643}
   _rotationSpeed: 200
+  _stunLayerIndex: 2
 --- !u!1 &7773228346937057049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1127,7 @@ MonoBehaviour:
   _detectionRadius: 5
   _attackDistance: 1.3
   _maxAngleAttack: 180
-  _isCanAttackNeutrals: 1
+  _isCanAttackNeutrals: 0
   _isCanCallPlayerFound: 0
   _baseDamage: {fileID: 11400000, guid: b17cb3ab1d1c5e04babcad72c0e4c5e2, type: 2}
 --- !u!1 &8291031876464411934

@@ -5,7 +5,6 @@ using UnityEngine;
 public class HeroAttackControl : EntityAttackControl
 {
     [SerializeField] protected IntVariable _baseDamage;
-    
     public event Action<List<EntityComponentsData>> OnTargetsHit;
 
     private bool _insideAttack;

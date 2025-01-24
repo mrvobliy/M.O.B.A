@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class NeutralEnemySpawn :MonoBehaviour
 {
-    [SerializeField] private NeutralCreep _meeleEnemyPrefab;
-    [SerializeField] private NeutralCreep _rangeEnemyPrefab;
+    [SerializeField] private GameObject _meleeEnemyPrefab;
+    [SerializeField] private GameObject _rangeEnemyPrefab;
+    
     [SerializeField] private List<Transform> _spawnPoints;
-    [SerializeField] private List<NeutralCreep> _spawnedList;
+    [SerializeField] private List<EntityComponentsData> _spawnedList;
     [SerializeField] private float _newSpawnDelay;
 
     private int _countActiveEnemy;
 
-    private void Start()
-    {
-        Spawn();
-    }
+    private void Start() => Spawn();
 
     private void Spawn()
     {
@@ -23,11 +21,11 @@ public class NeutralEnemySpawn :MonoBehaviour
 
         for (var i = 0; i < _spawnPoints.Count; i++)
         {
-            var spawnPrefab = i < 3 ? _meeleEnemyPrefab : _rangeEnemyPrefab;
-            var newEnemy = Instantiate(spawnPrefab, _spawnPoints[i].position, Quaternion.identity);
-            newEnemy.SetRotation(_spawnPoints[i].rotation);
-            newEnemy.OnDeath += EnemyDeath;
-            _spawnedList.Add(newEnemy);
+            var spawnPrefab = i < 3 ? _meleeEnemyPrefab : _rangeEnemyPrefab;
+            var newEnemy = Instantiate(spawnPrefab, _spawnPoints[i].position, _spawnPoints[i].rotation);
+            var entityComponent = newEnemy.GetComponentInChildren<EntityComponentsData>();
+            entityComponent.EntityHealthControl.OnDeathEnd += EnemyDeath;
+            _spawnedList.Add(entityComponent);
             _countActiveEnemy++;
         }
     }
@@ -36,14 +34,16 @@ public class NeutralEnemySpawn :MonoBehaviour
     {
         foreach (var enemy in _spawnedList)
         {
-            if (!enemy.IsDead) continue;
-
-            enemy.OnDeath -= EnemyDeath;
+            if (!enemy.EntityHealthControl.IsDead) 
+                continue;
+            
+            enemy.EntityHealthControl.OnDeathEnd -= EnemyDeath;
         }
 
         _countActiveEnemy--;
 
-        if (_countActiveEnemy > 0) return;
+        if (_countActiveEnemy > 0) 
+            return;
 
         StartCoroutine(OnDelaySpawnCoroutine());
     }

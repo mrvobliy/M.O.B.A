@@ -49,6 +49,7 @@ MonoBehaviour:
   _maxHealth: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}
   _enemyAttackPoint: {fileID: 670940163709564800}
   _needDestroyAfterDeath: 1
+  _currentHealth: 0
   _collider: {fileID: 5827867853637718334}
   _navMeshObstacle: {fileID: 3711116078013738374}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 59f4d68744efa3b4284f3bfaf0e163a2,
@@ -34715,10 +34716,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAi: 0
   _entityTeam: 2
   _entityType: 5
   _entityHealthControl: {fileID: 789435608378821403}
+  _entityMoveControl: {fileID: 0}
   _entityAttackControl: {fileID: 3700803018456754547}
+  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
 --- !u!1 &5047532014094755851
@@ -40256,7 +40260,7 @@ MonoBehaviour:
   _detectionRadius: 5
   _attackDistance: 5
   _maxAngleAttack: 360
-  _isCanAttackNeutrals: 1
+  _isCanAttackNeutrals: 0
   _isCanCallPlayerFound: 1
   _projectilePrefab: {fileID: 8383380591834786236, guid: d74201d94f2e0bb4b9d80cd8a1ffbf46,
     type: 3}

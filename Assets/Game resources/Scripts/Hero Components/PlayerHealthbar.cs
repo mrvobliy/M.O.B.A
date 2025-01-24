@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class PlayerHealthbar : MonoBehaviour
 {
     [SerializeField] private EntityHealthControl _entityHealthControl;
     [SerializeField] private RectTransform _barLine;
+    [SerializeField] private Transform _barRoot;
     [SerializeField] private Transform _scaleRoot;
     [SerializeField] private CanvasGroup _whiteFront;
     [SerializeField] private float _timeAnim;
@@ -14,6 +16,11 @@ public class PlayerHealthbar : MonoBehaviour
 
     private void OnEnable() => _entityHealthControl.OnHealthChanged += UpdateBar;
     private void OnDisable() => _entityHealthControl.OnHealthChanged -= UpdateBar;
+
+    private void Update()
+    {
+        _barRoot.transform.LookAt(Camera.main.transform);
+    }
 
     private void UpdateBar()
     {

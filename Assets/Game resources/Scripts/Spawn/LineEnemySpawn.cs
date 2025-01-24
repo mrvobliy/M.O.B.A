@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LineEnemySpawn : MonoBehaviour
@@ -20,15 +19,7 @@ public class LineEnemySpawn : MonoBehaviour
 
     private Coroutine _onSpawnCoroutine;
     
-    private void Start()
-    {
-        _onSpawnCoroutine = StartCoroutine(OnSpawn());
-        
-        /*var newEnemy = Instantiate(_rangeEnemyPrefab, _midleLinePoints[0].position, Quaternion.identity);
-        var moveControl = newEnemy.GetComponentInChildren<LaneCreepMoveControl>();
-        moveControl.SetWaypoints(_midleLineWay);
-        moveControl.SetRotation(_midleLinePoints[0].rotation);*/
-    }
+    private void Start() => _onSpawnCoroutine = StartCoroutine(OnSpawn());
 
     private IEnumerator OnSpawn()
     {

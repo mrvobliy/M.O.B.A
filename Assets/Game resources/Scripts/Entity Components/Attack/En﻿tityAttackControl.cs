@@ -39,7 +39,11 @@ public class EntityAttackControl : MonoBehaviour
         FindClosestEnemiesInAttackArea();
         TryStartAttack();
     }
-
+    
+    public EntityComponentsData GetClosestHeroInVisibilityArea() => ClosestEnemyInVisibilityArea.Count <= 0 ? null 
+        : ClosestEnemyInVisibilityArea.FirstOrDefault(x => x.EntityType == EntityType.Hero);
+    public EntityComponentsData GetClosestLaneCreepInVisibilityArea() => ClosestEnemyInVisibilityArea.Count <= 0 ? null 
+        : ClosestEnemyInVisibilityArea.FirstOrDefault(x => x.EntityType is EntityType.LaneRange or EntityType.LaneMelee);
     public EntityComponentsData GetClosestEnemyInVisibilityArea() => ClosestEnemyInVisibilityArea.Count <= 0 ? null : ClosestEnemyInVisibilityArea[0];
     public EntityComponentsData GetClosestEnemyInAttackArea() => ClosestEnemyInAttackArea.Count <= 0 ? null : ClosestEnemyInAttackArea[0];
     

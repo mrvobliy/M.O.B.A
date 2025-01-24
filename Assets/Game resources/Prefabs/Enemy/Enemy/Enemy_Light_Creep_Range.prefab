@@ -47,6 +47,7 @@ MonoBehaviour:
   _entityComponentsData: {fileID: 6985246204908198888}
   _agent: {fileID: 3491033238560658643}
   _rotationSpeed: 200
+  _stunLayerIndex: 2
 --- !u!1 &255296515643697308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1163,7 @@ MonoBehaviour:
   _detectionRadius: 5
   _attackDistance: 4
   _maxAngleAttack: 180
-  _isCanAttackNeutrals: 1
+  _isCanAttackNeutrals: 0
   _isCanCallPlayerFound: 0
   _projectilePrefab: {fileID: 8383380591834786236, guid: f25a3d3fa9e49ce46acc295282172de7,
     type: 3}
@@ -1300,10 +1301,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAi: 0
   _entityTeam: 1
   _entityType: 2
   _entityHealthControl: {fileID: 6543378583137973606}
+  _entityMoveControl: {fileID: 1132650976651733452}
   _entityAttackControl: {fileID: 5253747228263385816}
+  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
 --- !u!1 &4891031439611167262
@@ -1648,6 +1652,7 @@ MonoBehaviour:
   _maxHealth: {fileID: 11400000, guid: b621d92392f28214986d5b76855c00c4, type: 2}
   _enemyAttackPoint: {fileID: 8476910983690606305}
   _needDestroyAfterDeath: 1
+  _currentHealth: 0
   _agent: {fileID: 3491033238560658643}
 --- !u!1 &7363005716180428889
 GameObject:

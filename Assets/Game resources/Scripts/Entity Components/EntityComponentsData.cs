@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EntityComponentsData : MonoBehaviour
 {
-    [SerializeField] private bool _isAi;
+    [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private bool _isAi;
     [SerializeField] private Team _entityTeam;
     [SerializeField] private EntityType _entityType;
     [SerializeField] private EntityHealthControl _entityHealthControl;

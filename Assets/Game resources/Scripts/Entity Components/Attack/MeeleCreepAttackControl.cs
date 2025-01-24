@@ -4,7 +4,7 @@ public class MeeleCreepAttackControl : EntityAttackControl
 {
     [SerializeField] protected IntVariable _baseDamage;
     
-    private bool _insideAttack;
+    protected bool _insideAttack;
     
     private void OnEnable()
     {
