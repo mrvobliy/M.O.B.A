@@ -8358,7 +8358,7 @@ GameObject:
   - component: {fileID: 2188956932678874545}
   - component: {fileID: 3040112323060804191}
   m_Layer: 0
-  m_Name: SwordGirlFirstSkillControl
+  m_Name: JumpAttack_SkillControl
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15007,7 +15007,7 @@ GameObject:
   - component: {fileID: 5671071822550596381}
   - component: {fileID: 2466300140374056066}
   m_Layer: 0
-  m_Name: SwordGirlSecondSkillControl
+  m_Name: FuryAttack_SkillControl
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15235,7 +15235,7 @@ GameObject:
   - component: {fileID: 8097314099878701824}
   - component: {fileID: 6256974599559954696}
   m_Layer: 0
-  m_Name: SwordGirlThirdSkillControl
+  m_Name: BlowSky_SkillControl
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

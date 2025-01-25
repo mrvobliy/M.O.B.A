@@ -64,14 +64,14 @@ public class PlayerHero : Unit
 		return true;
 	}
 
-	public void ActivateFirstSkill(SwordGirlFirstSkillControl swordGirlFirstSkillControl)
+	public void ActivateFirstSkill(JumpAttackSkillControl jumpAttackSkillControl)
 	{
 		if (IsDead || _dontCanWork) return;
 		
 		_animator.SetTrigger(AnimatorHash.IsFirstSkill);
 		_animator.DOLayerWeight(4, 1f, _blendAttackLayerDuration);
 		_dontCanWork = true;
-		var toRotation = Quaternion.LookRotation(swordGirlFirstSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
+		var toRotation = Quaternion.LookRotation(jumpAttackSkillControl.FirstSkillDestinationPoint.position - _rotationParent.position, Vector3.up);
 		_rotationParent.DORotate(toRotation.eulerAngles, 0.2f);
 
 		StartCoroutine(OnActivate());
@@ -79,11 +79,11 @@ public class PlayerHero : Unit
         IEnumerator OnActivate()
 		{
 			_agent.speed = 4;
-			_agent.SetDestination(swordGirlFirstSkillControl.FirstSkillDestinationPoint.position);
+			_agent.SetDestination(jumpAttackSkillControl.FirstSkillDestinationPoint.position);
 			
 			yield return new WaitForSeconds(0.8f);
 
-			var skillDamage = Instantiate(swordGirlFirstSkillControl.FirstSkillDamagePrefab, swordGirlFirstSkillControl.FirstSkillSpawnPoint);
+			var skillDamage = Instantiate(jumpAttackSkillControl.FirstSkillDamagePrefab, jumpAttackSkillControl.FirstSkillSpawnPoint);
 			skillDamage.Init(_entityComponentsData);
 			skillDamage.gameObject.SetActive(true);
 			skillDamage.gameObject.transform.SetParent(null);

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class SwordGirlThirdSkillControl : MonoBehaviour
+public class BlowSkySkillControl : MonoBehaviour
 {
     [SerializeField] private PlayerHero _playerHero;
     [SerializeField] private EntityComponentsData _entityComponentsData;

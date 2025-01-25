@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class SwordGirlFirstSkillControl : MonoBehaviour
+public class JumpAttackSkillControl : MonoBehaviour
 {
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
