@@ -64,7 +64,7 @@ public class PlayerHero : Unit
 		return true;
 	}
 
-	public void ActivateFirstSkill(JumpAttackSkillControl jumpAttackSkillControl)
+	/*public void ActivateFirstSkill(JumpAttackSkillControl jumpAttackSkillControl)
 	{
 		if (IsDead || _dontCanWork) return;
 		
@@ -94,7 +94,7 @@ public class PlayerHero : Unit
 			_agent.speed = _speed;
 			_dontCanWork = false;
 		}
-	}
+	}*/
 	
 	public void ActivateSecondSkill(Action animCast = null)
 	{

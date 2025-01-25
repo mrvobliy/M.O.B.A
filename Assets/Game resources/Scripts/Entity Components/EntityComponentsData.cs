@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EntityComponentsData : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroRestoreHealthControl _heroRestoreHealthControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroGoldControl _heroGoldControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroExperienceControl _heroExperienceControl;
-    
+
+    public NavMeshAgent NavMeshAgent => _entityMoveControl.Agent;
+    public Transform RotationRoot => _entityHealthControl.RotationParent;
+    public Animator Animator => _entityHealthControl.Animator;
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
     public HeroRestoreHealthControl HeroRestoreHealthControl => _heroRestoreHealthControl;
@@ -27,6 +31,7 @@ public class EntityComponentsData : MonoBehaviour
     public EntityAttackControl EntityAttackControl => _entityAttackControl;
     public bool CanComponentsWork { get; private set; } = true;
     public bool IsAi => _isAi;
+    public bool IsDead => _entityHealthControl.IsDead;
 
     public void SetWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
 

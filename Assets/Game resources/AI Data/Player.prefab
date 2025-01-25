@@ -5961,7 +5961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3793571533149870070}
   m_Layer: 9
-  m_Name: SecondSkillSpawnPoint
+  m_Name: FuryAttackSkillSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6306,7 +6306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6486290276455329823}
   m_Layer: 9
-  m_Name: FirstSkillSpawnPoint
+  m_Name: JumpAttackSkillSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6867,7 +6867,7 @@ GameObject:
   - component: {fileID: 4299440564634605312}
   - component: {fileID: 3819776212023934586}
   m_Layer: 9
-  m_Name: ThirdSkillIndicator
+  m_Name: BlowSkySkillIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7754,7 +7754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629149074516110175}
   m_Layer: 9
-  m_Name: FirstSkillIndicator
+  m_Name: JumpAttackSkillIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8391,16 +8391,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9c69ae3af6b214c99ebc3e7a1d9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entityData: {fileID: 1130375526236363497}
   _skillButton: {fileID: 0}
   _skillButtonEvents: {fileID: 0}
-  _playerHero: {fileID: 0}
   _indicator: {fileID: 229954739746489668}
   _sensitivity: 1
   _fadeSpeed: 10
-  _firstSkillDestinationPoint: {fileID: 7758942139682754320}
-  _firstSkillDamagePrefab: {fileID: 8232501653393569014, guid: e687ccc7ef17aa0439137c2bb25a8df2,
+  _destinationPoint: {fileID: 7758942139682754320}
+  _damagePrefab: {fileID: 8232501653393569014, guid: e687ccc7ef17aa0439137c2bb25a8df2,
     type: 3}
-  _firstSkillSpawnPoint: {fileID: 6486290276455329823}
+  _skillSpawnPoint: {fileID: 6486290276455329823}
 --- !u!1 &6170576126639115483
 GameObject:
   m_ObjectHideFlags: 0
@@ -14603,7 +14603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7758942139682754320}
   m_Layer: 9
-  m_Name: FirstSkillDestinationPoint
+  m_Name: JumpAttackSkillDestinationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -15040,8 +15040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2ea348489e34349a03d36aab85f81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHero: {fileID: 0}
-  _entityComponentsData: {fileID: 1130375526236363497}
+  _entityData: {fileID: 1130375526236363497}
   _skillButtonEvents: {fileID: 0}
   _damagePrefab: {fileID: 8232501653393569014, guid: f5a35c70c02c58b42a74bc96c7589a0b,
     type: 3}

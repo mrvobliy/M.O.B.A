@@ -1,26 +1,26 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class JumpAttackSkillControl : MonoBehaviour
 {
+    private const float BlendAttackLayerDuration = 0.3f;
+    
+    [SerializeField] private EntityComponentsData _entityData;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
-    [SerializeField] private PlayerHero _playerHero;
     [SerializeField] private DecalProjector _indicator;
     [SerializeField] private float _sensitivity = 0.1f;
     [SerializeField] private float _fadeSpeed = 2.0f;
     [Space]
-    [SerializeField] private Transform _firstSkillDestinationPoint;
-    [SerializeField] private PlayerSkillDamage _firstSkillDamagePrefab;
-    [SerializeField] private Transform _firstSkillSpawnPoint;
-    
-    public Transform FirstSkillDestinationPoint => _firstSkillDestinationPoint;
-    public PlayerSkillDamage FirstSkillDamagePrefab => _firstSkillDamagePrefab;
-    public Transform FirstSkillSpawnPoint => _firstSkillSpawnPoint;
+    [SerializeField] private Transform _destinationPoint;
+    [SerializeField] private PlayerSkillDamage _damagePrefab;
+    [SerializeField] private Transform _skillSpawnPoint;
     
     private Vector3 _previousToMouseDir;
     private Coroutine _fadeCoroutine;
+    private float _startSpeed;
 
     private void OnEnable()
     {
@@ -45,7 +45,37 @@ public class JumpAttackSkillControl : MonoBehaviour
     private void ReleaseSkill()
     {
         StartFade(0.0f);
-        _playerHero.ActivateFirstSkill(this);
+        
+        if (!_entityData.CanComponentsWork || _entityData.IsDead) return;
+		
+        _entityData.Animator.SetTrigger(AnimatorHash.IsFirstSkill);
+        _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
+        _entityData.SetWorkState(false);
+        
+        var toRotation = Quaternion.LookRotation(_destinationPoint.position - _entityData.RotationRoot.position, Vector3.up);
+        _entityData.RotationRoot.DORotate(toRotation.eulerAngles, 0.2f);
+
+        StartCoroutine(OnActivate());
+		
+        IEnumerator OnActivate()
+        {
+            _startSpeed = _entityData.NavMeshAgent.speed;
+            _entityData.NavMeshAgent.speed = 4;
+            _entityData.NavMeshAgent.SetDestination(_destinationPoint.position);
+			
+            yield return new WaitForSeconds(0.8f);
+
+            var skillDamage = Instantiate(_damagePrefab, _skillSpawnPoint);
+            skillDamage.Init(_entityData);
+            skillDamage.gameObject.SetActive(true);
+            skillDamage.gameObject.transform.SetParent(null);
+			
+            yield return new WaitForSeconds(2);
+            
+            _entityData.NavMeshAgent.speed = _startSpeed;
+            _entityData.Animator.DOLayerWeight(4, 0f, BlendAttackLayerDuration);
+            _entityData.SetWorkState(true);
+        }
     }
 
     private void RotateIndicator()

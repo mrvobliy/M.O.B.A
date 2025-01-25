@@ -9,6 +9,8 @@ public abstract class EntityMoveControl : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 200f;
     [SerializeField] private int _stunLayerIndex = 2;
 
+    public NavMeshAgent Agent => _agent;
+    
     protected Animator Animator => _entityComponentsData.EntityHealthControl.Animator;
     private bool IsDead => _entityComponentsData.EntityHealthControl.IsDead;
     protected Transform RotationParent => _entityComponentsData.EntityHealthControl.RotationParent;
