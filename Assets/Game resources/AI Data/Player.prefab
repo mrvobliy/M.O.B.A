@@ -5709,6 +5709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityHealthControl: {fileID: 5664460024920780669}
   _barLine: {fileID: 7948071099469278949}
+  _barRoot: {fileID: 0}
   _scaleRoot: {fileID: 2040565252678115263}
   _whiteFront: {fileID: 5486913650552340046}
   _timeAnim: 0.13
@@ -8864,15 +8865,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ae507f4a961d54bb22b80e42a5a8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attacker: {fileID: 0}
+  _heroAttackControl: {fileID: 5518784913208063594}
   _animationEvents: {fileID: 8543109490532608350}
   _attackEffects:
   - {fileID: 198189196357569358, guid: 3baf28e9f4576b243aa59a19e41e2a9f, type: 3}
   _hitEnemyEffects:
   - {fileID: 1399349216811164465, guid: ffd6a8eaad3d7084dbf532dc96f4bcc8, type: 3}
   _spawnPoint: {fileID: 4413698670249384869}
-  _isRandomAttackEffect: 1
-  _isRandomEnenmyHitEffect: 1
 --- !u!1 &6647118402677648980
 GameObject:
   m_ObjectHideFlags: 0
