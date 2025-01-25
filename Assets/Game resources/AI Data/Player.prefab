@@ -15267,8 +15267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7a3dfa8e2f63f4f9f4be1a12708124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHero: {fileID: 0}
-  _entityComponentsData: {fileID: 1130375526236363497}
+  _entityData: {fileID: 1130375526236363497}
   _skillDamagePrefab: {fileID: 8232501653393569014, guid: c8edbab8b6f0b5c4096be3d55cb75987,
     type: 3}
   _skillButton: {fileID: 0}

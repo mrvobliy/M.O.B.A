@@ -4,8 +4,9 @@ using UnityEngine.Rendering.Universal;
 
 public class BlowSkySkillControl : MonoBehaviour
 {
-    [SerializeField] private PlayerHero _playerHero;
-    [SerializeField] private EntityComponentsData _entityComponentsData;
+    private const float BlendAttackLayerDuration = 0.3f;
+    
+    [SerializeField] private EntityComponentsData _entityData;
     [SerializeField] private PlayerSkillDamage _skillDamagePrefab;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
@@ -46,13 +47,30 @@ public class BlowSkySkillControl : MonoBehaviour
     private void ReleaseSkill()
     {
         StartFade(0.0f);
-        _playerHero.ActivateThirdSkill(() =>
+        
+        if (!_entityData.CanComponentsWork || _entityData.IsDead) return;
+        
+        StartCoroutine(OnActivate());
+        return;
+
+        IEnumerator OnActivate()
         {
+            _entityData.Animator.SetTrigger(AnimatorHash.IsThirdSkill);
+            _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
+            _entityData.SetWorkState(false);
+            
+            yield return new WaitForSeconds(0.3f);
+			
             var skillDamage = Instantiate(_skillDamagePrefab, SpawnPoint, Quaternion.identity);
-            skillDamage.Init(_entityComponentsData);
+            skillDamage.Init(_entityData);
             skillDamage.gameObject.SetActive(true);
             skillDamage.gameObject.transform.SetParent(null);
-        });
+			
+            yield return new WaitForSeconds(1f);
+            
+            _entityData.Animator.DOLayerWeight(5, 0f, BlendAttackLayerDuration);
+            _entityData.SetWorkState(true);
+        }
     }
     
     private void MoveIndicator()
