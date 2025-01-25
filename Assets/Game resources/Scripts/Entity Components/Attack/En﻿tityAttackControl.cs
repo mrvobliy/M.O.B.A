@@ -21,7 +21,7 @@ public class EntityAttackControl : MonoBehaviour
     public float AttackDistance => _attackDistance;
 
     public List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
-    protected List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
+    public List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
     
 
     private Vector3 Forward => _entityComponentsData.EntityHealthControl.RotationParent == null ? 

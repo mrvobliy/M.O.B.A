@@ -17,12 +17,16 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroRestoreHealthControl _heroRestoreHealthControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroGoldControl _heroGoldControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroExperienceControl _heroExperienceControl;
+    
+    private bool IsNeedShowCreepMoveControl => _entityType is EntityType.NeutralMelee or EntityType.NeutralRange ;
+    [SerializeField, ShowIf(nameof(IsNeedShowCreepMoveControl))] private CreepMoveControl _creepMoveControl;
 
     public NavMeshAgent NavMeshAgent => _entityMoveControl.Agent;
     public Transform RotationRoot => _entityHealthControl.RotationParent;
     public Animator Animator => _entityHealthControl.Animator;
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
+    public CreepMoveControl CreepMoveControl => _creepMoveControl;
     public HeroRestoreHealthControl HeroRestoreHealthControl => _heroRestoreHealthControl;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;

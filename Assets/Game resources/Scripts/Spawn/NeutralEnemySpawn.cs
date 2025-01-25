@@ -13,7 +13,13 @@ public class NeutralEnemySpawn :MonoBehaviour
 
     private int _countActiveEnemy;
 
-    private void Start() => Spawn();
+    private void Start()
+    {
+        Spawn();
+        /*var newEnemy = Instantiate(_meleeEnemyPrefab, _spawnPoints[0].position, _spawnPoints[0].rotation);
+        var entityComponent = newEnemy.GetComponentInChildren<EntityComponentsData>();
+        entityComponent.CreepMoveControl.SetSpawnPoint(_spawnPoints[0]);*/
+    }
 
     private void Spawn()
     {
@@ -24,7 +30,8 @@ public class NeutralEnemySpawn :MonoBehaviour
             var spawnPrefab = i < 3 ? _meleeEnemyPrefab : _rangeEnemyPrefab;
             var newEnemy = Instantiate(spawnPrefab, _spawnPoints[i].position, _spawnPoints[i].rotation);
             var entityComponent = newEnemy.GetComponentInChildren<EntityComponentsData>();
-            entityComponent.EntityHealthControl.OnDeathEnd += EnemyDeath;
+            entityComponent.CreepMoveControl.SetSpawnPoint(_spawnPoints[i]);
+            entityComponent.EntityHealthControl.OnDeathStart += EnemyDeath;
             _spawnedList.Add(entityComponent);
             _countActiveEnemy++;
         }
@@ -37,7 +44,7 @@ public class NeutralEnemySpawn :MonoBehaviour
             if (!enemy.EntityHealthControl.IsDead) 
                 continue;
             
-            enemy.EntityHealthControl.OnDeathEnd -= EnemyDeath;
+            enemy.EntityHealthControl.OnDeathStart -= EnemyDeath;
         }
 
         _countActiveEnemy--;
