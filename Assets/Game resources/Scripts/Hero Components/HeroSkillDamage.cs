@@ -4,6 +4,7 @@ public class HeroSkillDamage : MonoBehaviour
 {
     [SerializeField] private IntVariable _damageValue;
     [SerializeField] private float _timeToDestroy;
+    [SerializeField] private bool _canStun = true;
 
     private EntityComponentsData _ourEntityComponentsData;
     
@@ -33,7 +34,9 @@ public class HeroSkillDamage : MonoBehaviour
         if (entityComponentsData.EntityHealthControl.IsDead) return;
         
         entityComponentsData.EntityHealthControl.TakeDamage(_ourEntityComponentsData, _damageValue.Value);
-        entityComponentsData.EntityMoveControl.TryStun(100, 3);
+        
+        if (_canStun)
+            entityComponentsData.EntityMoveControl.TryStun(100, 3);
     }
 
     private void InvokeDestroy() => Destroy(gameObject);

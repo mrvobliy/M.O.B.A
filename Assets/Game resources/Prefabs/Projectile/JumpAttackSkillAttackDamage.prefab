@@ -44915,6 +44915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageValue: {fileID: 11400000, guid: a1f0b31f91d03824e956af6fa261289f, type: 2}
   _timeToDestroy: 5
+  _canStun: 0
 --- !u!1 &1515362898003240
 GameObject:
   m_ObjectHideFlags: 0
