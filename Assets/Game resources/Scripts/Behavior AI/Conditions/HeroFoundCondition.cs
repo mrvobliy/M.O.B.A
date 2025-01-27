@@ -1,3 +1,4 @@
+using System.Linq;
 using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine;
 
@@ -7,12 +8,9 @@ public class HeroFoundCondition : Conditional
     
     public override TaskStatus OnUpdate()
     {
-        var target = _entityAttackControl.GetClosestEnemyInVisibilityArea();
+        //var target = _entityAttackControl.GetClosestEnemyInVisibilityArea();
 
-        if (target == null ||
-            target.EntityType != EntityType.Hero) 
-            return TaskStatus.Failure;
-        
-        return TaskStatus.Success;
+        var targets = _entityAttackControl.ClosestEnemyInVisibilityArea;
+        return targets.Any(target => target.EntityType == EntityType.Hero) ? TaskStatus.Success : TaskStatus.Failure;
     }
 }
