@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerSkillDamage : MonoBehaviour
+public class HeroSkillDamage : MonoBehaviour
 {
     [SerializeField] private IntVariable _damageValue;
     [SerializeField] private float _timeToDestroy;
@@ -15,7 +15,7 @@ public class PlayerSkillDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Player")) return;
+        //if (other.transform.CompareTag("Player")) return;
         
         var entityComponentsData = other.GetComponentInChildren<EntityComponentsData>();
             

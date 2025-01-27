@@ -15,7 +15,7 @@ public class JumpAttackSkillControl : MonoBehaviour
     [SerializeField] private float _fadeSpeed = 2.0f;
     [Space]
     [SerializeField] private Transform _destinationPoint;
-    [SerializeField] private PlayerSkillDamage _damagePrefab;
+    [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _skillSpawnPoint;
     
     private Vector3 _previousToMouseDir;

@@ -7,7 +7,7 @@ public class FuryAttackSkillControl : MonoBehaviour
     
     [SerializeField] private EntityComponentsData _entityData;
     [SerializeField] private ButtonEvents _skillButtonEvents;
-    [SerializeField] private PlayerSkillDamage _damagePrefab;
+    [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _spawnPoint;
 
     private void OnEnable() => _skillButtonEvents.OnButtonDown += ReleaseSkill;

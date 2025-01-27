@@ -7,7 +7,7 @@ public class BlowSkySkillControl : MonoBehaviour
     private const float BlendAttackLayerDuration = 0.3f;
     
     [SerializeField] private EntityComponentsData _entityData;
-    [SerializeField] private PlayerSkillDamage _skillDamagePrefab;
+    [SerializeField] private HeroSkillDamage _skillDamagePrefab;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
     [SerializeField] private DecalProjector _indicator;
