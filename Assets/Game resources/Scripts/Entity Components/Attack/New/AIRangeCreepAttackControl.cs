@@ -11,6 +11,8 @@ public class AIRangeCreepAttackControl : AICreepAttackControl
     
     public override void TryAttack(EntityComponentsData enemy, bool isSpecificTarget)
     {
+        if (_entityComponentsData.IsDead) return;
+        
         base.TryAttack(enemy, isSpecificTarget);
         
         if (_insideAttack) return;
