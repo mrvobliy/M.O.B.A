@@ -14,7 +14,6 @@ public class EntityComponentsData : MonoBehaviour
     [SerializeField, ShowIf(nameof(IsNeedShowAttackControl))] private EntityAttackControl _entityAttackControl;
     
     private bool IsNeedShowGoldExpoParam => _entityType == EntityType.Hero;
-    [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroRestoreHealthControl _heroRestoreHealthControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroGoldControl _heroGoldControl;
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private HeroExperienceControl _heroExperienceControl;
     
@@ -27,7 +26,6 @@ public class EntityComponentsData : MonoBehaviour
     public Team EntityTeam => _entityTeam;
     public EntityType EntityType => _entityType;
     public CreepMoveControl CreepMoveControl => _creepMoveControl;
-    public HeroRestoreHealthControl HeroRestoreHealthControl => _heroRestoreHealthControl;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
     public HeroExperienceControl HeroExperienceControl => _heroExperienceControl;
     public EntityHealthControl EntityHealthControl => _entityHealthControl;

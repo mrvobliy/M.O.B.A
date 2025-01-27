@@ -14718,12 +14718,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isAi: 0
-  _entityTeam: 2
+  _entityTeam: 1
   _entityType: 0
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
   _entityAttackControl: {fileID: 5518784913208063594}
-  _heroRestoreHealthControl: {fileID: 0}
+  _heroRestoreHealthControl: {fileID: 2787507737843861476}
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}

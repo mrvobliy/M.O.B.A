@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2231857628277248556}
   - component: {fileID: 5195828560389957043}
+  - component: {fileID: 5459834846271999438}
   m_Layer: 0
   m_Name: GameTimeManager
   m_TagString: Untagged
@@ -46,3 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minutesText: {fileID: 0}
   _secondsText: {fileID: 0}
+--- !u!114 &5459834846271999438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262926241200528927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f620c7898ea09544a8f65dda31590de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
