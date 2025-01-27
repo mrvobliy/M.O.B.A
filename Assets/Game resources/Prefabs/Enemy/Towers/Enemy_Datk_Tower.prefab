@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3049088946317518145}
   - component: {fileID: 789435608378821403}
   m_Layer: 0
-  m_Name: "En\uFEFFtityHealthControl"
+  m_Name: TowerHealthControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34722,9 +34722,9 @@ MonoBehaviour:
   _entityHealthControl: {fileID: 789435608378821403}
   _entityMoveControl: {fileID: 0}
   _entityAttackControl: {fileID: 3700803018456754547}
-  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
+  _creepMoveControl: {fileID: 0}
 --- !u!1 &5047532014094755851
 GameObject:
   m_ObjectHideFlags: 0

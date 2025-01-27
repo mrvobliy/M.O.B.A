@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
@@ -7,11 +6,8 @@ using Random = UnityEngine.Random;
 
 public class BuildingsManager : SerializedMonoBehaviour
 {
-    [SerializeField] private List<GameObject> _lightSideBuildingsGameObjects;
-    [SerializeField] private List<GameObject> _darkSideBuildingsGameObjects;
-    [Space]
-    [SerializeField] private List<EntityComponentsData> _lightSideBuildings;
-    [SerializeField] private List<EntityComponentsData> _darkSideBuildings;
+    [SerializeField] private List<TowersLine> _lightSideLines;
+    [SerializeField] private List<TowersLine> _darkSideLines;
     [Space]
     [SerializeField] private List<BusyBuild> _lightSideBusyBuildings;
     [SerializeField] private List<BusyBuild> _darkSideBusyBuildings;
@@ -50,26 +46,31 @@ public class BuildingsManager : SerializedMonoBehaviour
 
         if (busyBuild != null)
             return busyBuild;
-
-        var buildings = GetBuildList(componentsData.EntityTeam);
         
-        foreach (var building in buildings)
+        var towersLines = GetBuildList(componentsData.EntityTeam);
+
+        var currentLineIndex = 0;
+        
+        while (currentLineIndex < 3)
         {
-            if (building.EntityHealthControl.IsDead) continue;
+            var line = towersLines[currentLineIndex];
+            var tower = line.Towers.FirstOrDefault(tower => 
+                tower != null && !tower.IsDead);
 
-            if (IsBuildingBusy(building, componentsData.EntityTeam)) continue;
+            if (IsBuildingBusy(tower, componentsData.EntityTeam))
+                tower = null;
             
-            SetLeftBusyBuilding(componentsData, true, building);
-                
-            var deadBuildings = buildings.Where(x => x.EntityHealthControl.IsDead).ToList();
+            currentLineIndex++;
 
-            foreach (var deadBuilding in deadBuildings) 
-                buildings.Remove(deadBuilding);
-                
-            return building;
+            if (tower == null) 
+                continue;
+            
+            SetLeftBusyBuilding(componentsData, true, tower);
+            return tower;
         }
-        
-        return null;
+
+        var throne = _lightSideLines[3].Towers.FirstOrDefault(x => !x.IsDead);;
+        return throne;
     }
     
     public EntityComponentsData GetNearestRandomBuild(EntityComponentsData componentsData)
@@ -79,27 +80,31 @@ public class BuildingsManager : SerializedMonoBehaviour
         if (busyBuild != null)
             return busyBuild;
         
-        var buildings = GetBuildList(componentsData.EntityTeam);
-        var index = 0;
-        var randomIndex = Random.Range(0, 3);
+        var towersLine = GetBuildList(componentsData.EntityTeam);
         
-        foreach (var building in buildings)
+        var gotLineIndexes = new List<int>();
+        
+        while (gotLineIndexes.Count < 3)
         {
-            if (building.EntityHealthControl.IsDead) continue;
+            var randomLineIndex = Random.Range(0, 3);
+            
+            if (gotLineIndexes.Contains(randomLineIndex))
+                continue;
+                
+            gotLineIndexes.Add(randomLineIndex);
+            
+            var line = towersLine[randomLineIndex];
+            var tower = line.Towers.FirstOrDefault(x => x != null && !x.IsDead);
 
-            if (index == randomIndex)
-            {
-                SetLeftBusyBuilding(componentsData, true, building);
-                return building;
-            }
+            if (tower == null) 
+                continue;
             
-            index++;
-            
-            if (index > 2) 
-                break;
+            SetLeftBusyBuilding(componentsData, true, tower);
+            return tower;
         }
-        
-        return null;
+
+        var throne = _lightSideLines[3].Towers.FirstOrDefault(x => !x.IsDead);;
+        return throne;
     }
     
     private EntityComponentsData TryReturnBusyBuild(EntityComponentsData componentsData)
@@ -134,17 +139,16 @@ public class BuildingsManager : SerializedMonoBehaviour
     }
     
     private List<BusyBuild> GetBusyBuildList(Team team) => team == Team.Light ? _darkSideBusyBuildings : _lightSideBusyBuildings;
-    
-    private List<EntityComponentsData> GetBuildList(Team team) => team == Team.Light ? _darkSideBuildings : _lightSideBuildings;
+    private List<TowersLine> GetBuildList(Team team) => team == Team.Light ? _darkSideLines : _lightSideLines;
 
     [Button]
     private void SetBuildings()
     {
-        _lightSideBuildings = _lightSideBuildingsGameObjects
-            .Select(x => x.GetComponentInChildren<EntityComponentsData>()).ToList();
+        foreach (var line in _lightSideLines) 
+            line.SetTowersComponents();
         
-        _darkSideBuildings = _darkSideBuildingsGameObjects
-            .Select(x => x.GetComponentInChildren<EntityComponentsData>()).ToList();
+        foreach (var line in _darkSideLines) 
+            line.SetTowersComponents();
     }
 }
 
@@ -158,4 +162,13 @@ public class BusyBuild
         Build = build;
         EntityData = entity;
     }
+}
+
+public class TowersLine
+{
+    public List<EntityComponentsData> Towers;
+    public List<GameObject> TowersGameObjects;
+
+    public void SetTowersComponents() => 
+        Towers = TowersGameObjects.Select(x => x.GetComponentInChildren<EntityComponentsData>()).ToList();
 }
