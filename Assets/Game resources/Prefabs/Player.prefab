@@ -5674,7 +5674,7 @@ GameObject:
   - component: {fileID: 855620434397115552}
   - component: {fileID: 1768374130943840001}
   m_Layer: 0
-  m_Name: PlayerHealthbar
+  m_Name: HeroHealthbar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5707,13 +5707,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54a9fd16581c76449990b0d6c3ded05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityHealthControl: {fileID: 5664460024920780669}
+  _componentsData: {fileID: 1130375526236363497}
+  _healthImage: {fileID: 217518288927575096}
+  _lightSideHealthImage: {fileID: 21300000, guid: a11df25265d1c2949a39ff1c3691043a,
+    type: 3}
+  _darkSideHealthImage: {fileID: 21300000, guid: b5e5df58af43c53449f8d521fc36bc51,
+    type: 3}
   _barLine: {fileID: 7948071099469278949}
   _barRoot: {fileID: 8588520232633136530}
   _scaleRoot: {fileID: 2040565252678115263}
   _whiteFront: {fileID: 5486913650552340046}
   _timeAnim: 0.13
   _scaleValue: 1.2
+  _isPlayer: 0
 --- !u!1 &2092695864310196053
 GameObject:
   m_ObjectHideFlags: 0
@@ -7955,7 +7961,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 424d182aa805587479518b2d22b0e743, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 956a484830cdd2048acbea109af8f636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14723,7 +14729,6 @@ MonoBehaviour:
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
   _entityAttackControl: {fileID: 5518784913208063594}
-  _heroRestoreHealthControl: {fileID: 2787507737843861476}
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
