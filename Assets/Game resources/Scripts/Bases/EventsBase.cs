@@ -1,16 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EventsBase : MonoBehaviour
 {
-    [Tooltip("In event “EntityComponentsData” of the “killer”, not of the deceased, called event")]
-    public static event Action<EntityComponentsData> EntityDeath;
+    public static event Action<EntityComponentsData, List<Attackers>> EntityDeath;
 
-    public static void OnEntityDeath(EntityComponentsData componentsData)
+    public static void OnEntityDeath(EntityComponentsData componentsData, List<Attackers> attackers)
     {
         try
         {
-            EntityDeath?.Invoke(componentsData);
+            EntityDeath?.Invoke(componentsData, attackers);
         }
         catch (Exception e)
         {

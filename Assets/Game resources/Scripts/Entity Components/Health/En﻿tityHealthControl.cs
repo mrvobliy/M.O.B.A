@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ public class EntityHealthControl : MonoBehaviour
     [SerializeField] protected IntVariable _maxHealth;
     [SerializeField] protected Transform _enemyAttackPoint;
     [SerializeField] private bool _needDestroyAfterDeath;
+    [SerializeField] protected float _currentHealth;
     
     public Action OnDeathStart;
     public Action OnDeathEnd;
@@ -26,9 +29,14 @@ public class EntityHealthControl : MonoBehaviour
     private const float DiveDepth = 4f;
     
     protected bool _isDead;
-    [SerializeField] protected float _currentHealth;
 
-    protected virtual void Start() => _currentHealth = _maxHealth.Value;
+    private List<Attackers> _attackers;
+
+    protected virtual void Start()
+    {
+        _currentHealth = _maxHealth.Value;
+        _attackers = new List<Attackers>();
+    }
 
     public void TakeHeal(int value)
     {
@@ -38,19 +46,38 @@ public class EntityHealthControl : MonoBehaviour
         OnHealthChanged?.Invoke();
     }
 
-    public void TakeDamage(EntityComponentsData attaker, int damage)
+    public void TakeDamage(EntityComponentsData attacker, int damage)
     {
         if (_isDead) return;
         
         _currentHealth -= damage;
         OnHealthChanged?.Invoke();
-        OnEnemyAttackUs?.Invoke(attaker, damage);
+        OnEnemyAttackUs?.Invoke(attacker, damage);
+        UpdateAttackersData(attacker, damage);
         
         if (_currentHealth > 0 || _isDead) 
             return;
         
         _isDead = true;
         PlayDeathAnimation();
+    }
+
+    private void UpdateAttackersData(EntityComponentsData attackerData, int damage)
+    {
+        if (attackerData.EntityType != EntityType.Hero) 
+            return;
+        
+        var attacker = _attackers.FirstOrDefault(attacker => attacker.ComponentsData == attackerData);
+
+        if (attacker == null)
+        {
+            var newAttacker = new Attackers(attackerData, damage);
+            _attackers.Add(newAttacker);
+        }
+        else
+        {
+            attacker.SummaryDamage += damage;
+        }
     }
     
     private void PlayDeathAnimation()
@@ -70,4 +97,16 @@ public class EntityHealthControl : MonoBehaviour
     }
 
     protected virtual void StartDeath() => OnDeathStart?.Invoke();
+}
+
+public class Attackers
+{
+    public EntityComponentsData ComponentsData;
+    public int SummaryDamage;
+
+    public Attackers(EntityComponentsData componentsData, int summaryDamage)
+    {
+        ComponentsData = componentsData;
+        SummaryDamage = summaryDamage;
+    }
 }
