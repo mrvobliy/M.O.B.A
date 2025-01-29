@@ -20,7 +20,7 @@ public class RestoringHealthTask : Action
     {
         _isRunning = true;
         
-        var target = HeroSpawnControl.Instance.GetPoint(_entityComponentsData.EntityTeam);
+        var target = HeroSpawnManger.Instance.GetPoint(_entityComponentsData.EntityTeam);
         _moveControl.SetAiTarget(target);
         
         return TaskStatus.Running;

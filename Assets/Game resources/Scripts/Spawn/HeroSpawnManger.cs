@@ -1,22 +1,18 @@
 using System;
 using UnityEngine;
 
-public class HeroSpawnControl : MonoBehaviour
+public class HeroSpawnManger : MonoBehaviour
 {
     [SerializeField] private Transform _lightSideSpawnPoint;
     [SerializeField] private Transform _darkSideSpawnPoint;
     [SerializeField] private ParticleSystem _lightSideSpawnEffect;
     [SerializeField] private ParticleSystem _darkSideSpawnEffect;
 
-    public static HeroSpawnControl Instance;
-
+    public static HeroSpawnManger Instance;
     public Transform LightSideSpawnPoint => _lightSideSpawnPoint;
     public Transform DarkSideSpawnPoint => _darkSideSpawnPoint;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    private void Awake() => Instance = this;
 
     public void PlayEffect(Team team)
     {

@@ -14,11 +14,11 @@ public class HeroRespawnControl : MonoBehaviour
         _entityComponentsData.EntityHealthControl.Animator.SetLayerWeight(6, 0);
         _entityComponentsData.EntityHealthControl.Animator.SetBool(AnimatorHash.IsDeath, false);
         var team = _entityComponentsData.EntityTeam;
-        transform.parent.position = HeroSpawnControl.Instance.GetPoint(team).position;
-        _entityComponentsData.EntityHealthControl.RotationParent.rotation = HeroSpawnControl.Instance.GetPoint(team).rotation;
+        transform.parent.position = HeroSpawnManger.Instance.GetPoint(team).position;
+        _entityComponentsData.EntityHealthControl.RotationParent.rotation = HeroSpawnManger.Instance.GetPoint(team).rotation;
         _heroHealthControl.Agent.enabled = true;
         _heroHealthControl.RestoreFullHeath();
         
-        HeroSpawnControl.Instance.PlayEffect(team);
+        HeroSpawnManger.Instance.PlayEffect(team);
     }
 }

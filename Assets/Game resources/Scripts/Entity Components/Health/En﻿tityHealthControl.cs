@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EntityHealthControl : MonoBehaviour
 {
+    [SerializeField] private EntityComponentsData _componentsData;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected Transform _rotationParent;
     [SerializeField] protected IntVariable _maxHealth;
@@ -58,6 +59,7 @@ public class EntityHealthControl : MonoBehaviour
         if (_currentHealth > 0 || _isDead) 
             return;
         
+        EventsBase.OnEntityDeath(_componentsData, _attackers);
         _isDead = true;
         PlayDeathAnimation();
     }
@@ -77,6 +79,8 @@ public class EntityHealthControl : MonoBehaviour
         else
         {
             attacker.SummaryDamage += damage;
+            _attackers.Remove(attacker);
+            _attackers.Insert(0, attacker);
         }
     }
     
