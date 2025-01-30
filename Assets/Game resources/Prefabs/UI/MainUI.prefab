@@ -2315,9 +2315,9 @@ RectTransform:
   - {fileID: 7828760272794855068}
   m_Father: {fileID: 6424457047326437837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88, y: -436}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 85.3, y: -558.9999}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1939422830801414027
@@ -9019,9 +9019,9 @@ RectTransform:
   - {fileID: 7317082510752729814}
   m_Father: {fileID: 6424457047326437837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88, y: -345}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 85.3, y: -467.99988}
   m_SizeDelta: {x: 100, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5884829713883132092
@@ -9812,9 +9812,9 @@ RectTransform:
   - {fileID: 7453166871966940117}
   m_Father: {fileID: 6424457047326437837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88, y: -224}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 85.3, y: -347}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4033443598826030737
@@ -16256,7 +16256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83.00003, y: -223.99994}
+  m_AnchoredPosition: {x: 85.3, y: -223.99994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3551049429720344167
@@ -17597,7 +17597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000034859888, y: -179}
+  m_AnchoredPosition: {x: 0, y: -143.6}
   m_SizeDelta: {x: 160, y: 73.72998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3977109255472910937
@@ -17630,10 +17630,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 54
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 59
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -17935,7 +17935,6 @@ GameObject:
   - component: {fileID: 3394081488093795846}
   - component: {fileID: 7435747943543733161}
   - component: {fileID: 4629230355416024348}
-  - component: {fileID: 3022860150576542574}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -17952,7 +17951,7 @@ RectTransform:
   m_GameObject: {fileID: 8981558716569859682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4643922, y: 1.4643922, z: 1.4643922}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8586276457164365434}
@@ -17975,7 +17974,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3394081488093795846
 Canvas:
   m_ObjectHideFlags: 0
@@ -18039,18 +18038,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 8191
---- !u!114 &3022860150576542574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8981558716569859682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87e3f440cfec7f469eeaa44fa6a44a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9126886751744974310
 GameObject:
   m_ObjectHideFlags: 0
@@ -18317,7 +18304,7 @@ PrefabInstance:
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
