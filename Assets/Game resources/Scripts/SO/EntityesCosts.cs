@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class EntityCost
+public class EntityesCosts
 {
     public EntityType EntityType;
     public int FinisherCost;

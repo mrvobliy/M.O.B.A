@@ -7,13 +7,6 @@ public enum Team
 	Dark,
 }
 
-public enum Lane
-{
-	Top,
-	Bottom,
-	Middle
-}
-
 public enum EntityType
 {
 	Hero,
@@ -22,7 +15,15 @@ public enum EntityType
 	NeutralMelee,
 	NeutralRange,
 	Tower,
-	Throne
+	Throne,
+	Boss
+}
+
+public enum TowerTier
+{
+	T1,
+	T2,
+	T3
 }
 
 public class Map : MonoBehaviour {}

@@ -5894,7 +5894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
   _goldBalance: 0
-  _isPlayer: 0
 --- !u!1 &2578623762068470478
 GameObject:
   m_ObjectHideFlags: 0
@@ -14734,6 +14733,7 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
+  _towerTier: 0
 --- !u!1 &7818307216479657830
 GameObject:
   m_ObjectHideFlags: 0

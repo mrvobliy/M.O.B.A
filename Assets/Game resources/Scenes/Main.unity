@@ -29212,6 +29212,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -35964,6 +35969,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 1256102481}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -60053,7 +60063,7 @@ PrefabInstance:
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 33
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
@@ -60186,72 +60196,6 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModifications.Array.data[20]
       value: '"path":"_lightSideLines.[2].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:12,$eref:13,$eref:14]}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[21]
-      value: '"path":"_lightSideLines.[2].Towers.[0]","value":$eref:12'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[22]
-      value: '"path":"_lightSideLines.[2].Towers.[1]","value":$eref:13'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[23]
-      value: '"path":"_lightSideLines.[2].Towers.[2]","value":$eref:14'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[24]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:15,$eref:16,$eref:17]}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[25]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[0]","value":$eref:15'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[26]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[1]","value":$eref:16'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[27]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[2]","value":$eref:17'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[28]
-      value: '"path":"_lightSideLines.[3]","value":{"$id":0,"$type":"TowersLine,
-        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
-        Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:18]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:19]}}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[29]
-      value: '"path":"_lightSideLines.[3].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
-        Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:18]}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[30]
-      value: '"path":"_lightSideLines.[3].Towers.[0]","value":$eref:18'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[31]
-      value: '"path":"_lightSideLines.[3].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:19]}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[32]
-      value: '"path":"_lightSideLines.[3].TowersGameObjects.[0]","value":$eref:19'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
@@ -61165,6 +61109,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -61334,6 +61283,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 2108297022}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -62207,6 +62161,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 372221113}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -62285,6 +62244,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -62631,6 +62595,18 @@ PrefabInstance:
     - target: {fileID: 4383245728189947050, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
         type: 3}
       propertyPath: _entityesCostData
+      value: 
+      objectReference: {fileID: 11400000, guid: 12014e37ac34f7a4ebc318a03a400c39,
+        type: 2}
+    - target: {fileID: 4383245728189947050, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
+        type: 3}
+      propertyPath: _entitiesStatsData
+      value: 
+      objectReference: {fileID: 11400000, guid: 12014e37ac34f7a4ebc318a03a400c39,
+        type: 2}
+    - target: {fileID: 4383245728189947050, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
+        type: 3}
+      propertyPath: _entitiesCostExperienceData
       value: 
       objectReference: {fileID: 11400000, guid: 12014e37ac34f7a4ebc318a03a400c39,
         type: 2}
@@ -63265,6 +63241,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -66614,6 +66595,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 618648725}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -68278,6 +68264,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 357890351}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -68766,6 +68757,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -69786,6 +69782,11 @@ PrefabInstance:
       propertyPath: _safeSpots.Array.data[4]
       value: 
       objectReference: {fileID: 372221113}
+    - target: {fileID: 4532355190189914342, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5827867853637718320, guid: 86d16a7c0f8bcf84d8b59a8fbc4aad87,
         type: 3}
       propertyPath: m_RootOrder
@@ -69864,6 +69865,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22558009}
     m_Modifications:
+    - target: {fileID: 497375968530285350, guid: bdba3104617997a43a7ea137e12ce1d5,
+        type: 3}
+      propertyPath: _towerTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1309036163396089949, guid: bdba3104617997a43a7ea137e12ce1d5,
         type: 3}
       propertyPath: m_RootOrder

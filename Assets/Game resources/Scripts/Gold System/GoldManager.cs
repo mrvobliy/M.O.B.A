@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoldManager : MonoBehaviour
 {
-    [SerializeField] private EntityesCostData _entitiesCostData;
+    [SerializeField] private EntityesStatsData _entitiesStatsData;
 
     private bool _isFirstBlood = true;
 
@@ -13,12 +13,12 @@ public class GoldManager : MonoBehaviour
 
     private void TrySetHeroGold(EntityComponentsData deadHeroData, List<Attackers> attackers)
     {
-        if (attackers.Count <= 0 || deadHeroData.EntityType == EntityType.Tower) return;
+        if (attackers.Count <= 0) return;
         
         var attackersSortByDamage = attackers.OrderBy(x => x.SummaryDamage).ToList();
 
-        var costForFinisher = _entitiesCostData.GetFinisherCost(deadHeroData.EntityType);
-        var costForHelper = _entitiesCostData.GetHelpCost(deadHeroData.EntityType);
+        var costForFinisher = _entitiesStatsData.GetFinisherCost(deadHeroData.EntityType);
+        var costForHelper = _entitiesStatsData.GetHelpCost(deadHeroData.EntityType);
 
         if (deadHeroData.EntityType == EntityType.Hero)
         {

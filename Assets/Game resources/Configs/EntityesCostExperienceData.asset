@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33038e0c6dccaa49922241cae74d775, type: 3}
+  m_Name: EntityesCostExperienceData
+  m_EditorClassIdentifier: 
+  CostsList:
+  - EntityType: 1
+    FinisherCost: 46
+    HelpCost: 23
+  - EntityType: 2
+    FinisherCost: 56
+    HelpCost: 28
+  - EntityType: 3
+    FinisherCost: 62
+    HelpCost: 0
+  - EntityType: 4
+    FinisherCost: 75
+    HelpCost: 0
+  - EntityType: 5
+    FinisherCost: 130
+    HelpCost: 110
+  - EntityType: 6
+    FinisherCost: 150
+    HelpCost: 125
+  - EntityType: 7
+    FinisherCost: 165
+    HelpCost: 140
+  - EntityType: 9
+    FinisherCost: 390
+    HelpCost: 300
+  - EntityType: 0
+    FinisherCost: 175
+    HelpCost: 115
+  ExperineceList:
+  - EntityType: 1
+    Experience: 70
+  - EntityType: 2
+    Experience: 80
+  - EntityType: 3
+    Experience: 100
+  - EntityType: 4
+    Experience: 150
+  - EntityType: 5
+    Experience: 0
+  - EntityType: 6
+    Experience: 0
+  - EntityType: 7
+    Experience: 0
+  - EntityType: 9
+    Experience: 750
+  - EntityType: 0
+    Experience: 100
