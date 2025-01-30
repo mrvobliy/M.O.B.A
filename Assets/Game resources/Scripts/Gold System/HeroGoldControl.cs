@@ -12,11 +12,22 @@ public class HeroGoldControl : MonoBehaviour
     {
         if (!_componentsData.IsAi)
             PlayerGoldBalanceView.Instance.SetHeroGoldControl(this);
+
+        EventsBase.GetGoldForTeam += GetGoldForTeam;
     }
+
+    private void OnDisable() => EventsBase.GetGoldForTeam -= GetGoldForTeam;
 
     public void SetGold(int value)
     {
         _goldBalance += value;
         OnBalanceChanged?.Invoke(_goldBalance);
+    }
+
+    private void GetGoldForTeam(int value, Team team)
+    {
+        if (_componentsData.EntityTeam != team) return;
+        
+        SetGold(value);
     }
 }

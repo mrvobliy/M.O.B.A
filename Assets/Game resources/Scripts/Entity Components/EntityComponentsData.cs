@@ -30,6 +30,7 @@ public class EntityComponentsData : MonoBehaviour
     public Transform RotationRoot => _entityHealthControl.RotationParent;
     public Animator Animator => _entityHealthControl.Animator;
     public Team EntityTeam => _entityTeam;
+    public TowerTier TowerTier => _towerTier;
     public EntityType EntityType => _entityType;
     public CreepMoveControl CreepMoveControl => _creepMoveControl;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;
