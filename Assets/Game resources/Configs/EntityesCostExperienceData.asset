@@ -34,7 +34,7 @@ MonoBehaviour:
   - EntityType: 7
     FinisherCost: 165
     HelpCost: 140
-  - EntityType: 9
+  - EntityType: 7
     FinisherCost: 390
     HelpCost: 300
   - EntityType: 0
@@ -59,3 +59,16 @@ MonoBehaviour:
     Experience: 750
   - EntityType: 0
     Experience: 100
+  TowersTiersCostsList:
+  - TowerTier: 0
+    FinisherCost: 130
+    HelpCost: 110
+    EveryoneCost: 90
+  - TowerTier: 1
+    FinisherCost: 150
+    HelpCost: 125
+    EveryoneCost: 105
+  - TowerTier: 2
+    FinisherCost: 165
+    HelpCost: 140
+    EveryoneCost: 120

@@ -7,6 +7,7 @@ public class EntityesStatsData : ScriptableObject
 {
     public List<EntityesCosts> CostsList;
     public List<EntityesExperinece> ExperineceList;
+    public List<TowersTiersCosts> TowersTiersCostsList;
 
     public int GetFinisherCost(EntityType entityType)
     {
@@ -24,5 +25,23 @@ public class EntityesStatsData : ScriptableObject
     {
         var experience = ExperineceList.FirstOrDefault(x => x.EntityType == entityType);
         return experience?.Experience ?? 0;
+    }
+    
+    public int GetTowerFinisherCost(TowerTier towerTier)
+    {
+        var cost = TowersTiersCostsList.FirstOrDefault(x => x.TowerTier == towerTier);
+        return cost?.FinisherCost ?? 0;
+    }
+    
+    public int GetTowerHelpCost(TowerTier towerTier)
+    {
+        var cost = TowersTiersCostsList.FirstOrDefault(x => x.TowerTier == towerTier);
+        return cost?.HelpCost ?? 0;
+    }
+    
+    public int GetTowerEveryoneCost(TowerTier towerTier)
+    {
+        var cost = TowersTiersCostsList.FirstOrDefault(x => x.TowerTier == towerTier);
+        return cost?.EveryoneCost ?? 0;
     }
 }

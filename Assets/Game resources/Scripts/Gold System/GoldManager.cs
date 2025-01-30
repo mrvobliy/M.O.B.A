@@ -32,6 +32,17 @@ public class GoldManager : MonoBehaviour
                 _isFirstBlood = false;
             }
         }
+
+        if (deadHeroData.EntityType == EntityType.Tower)
+        {
+            costForFinisher = _entitiesStatsData.GetTowerFinisherCost(deadHeroData.TowerTier);
+            costForHelper = _entitiesStatsData.GetTowerHelpCost(deadHeroData.TowerTier);
+            
+            var costForEveryone = _entitiesStatsData.GetTowerEveryoneCost(deadHeroData.TowerTier);
+            var team = deadHeroData.EntityTeam == Team.Light ? Team.Dark : Team.Light;
+            EventsBase.OnGetGoldForTeam(costForEveryone, team);
+            costForFinisher -= costForEveryone;
+        }
         
         attackersSortByDamage[0].ComponentsData.HeroGoldControl.SetGold(costForFinisher);
 
