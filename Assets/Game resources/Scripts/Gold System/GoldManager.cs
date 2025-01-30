@@ -9,22 +9,21 @@ public class GoldManager : MonoBehaviour
     private bool _isFirstBlood = true;
 
     private void OnEnable() => EventsBase.EntityDeath += TrySetHeroGold;
-
     private void OnDisable() => EventsBase.EntityDeath -= TrySetHeroGold;
 
-    private void TrySetHeroGold(EntityComponentsData componentsData, List<Attackers> attackers)
+    private void TrySetHeroGold(EntityComponentsData deadHeroData, List<Attackers> attackers)
     {
-        if (attackers.Count <= 0) return;
+        if (attackers.Count <= 0 || deadHeroData.EntityType == EntityType.Tower) return;
         
         var attackersSortByDamage = attackers.OrderBy(x => x.SummaryDamage).ToList();
 
-        var costForFinisher = _entitiesCostData.GetFinisherCost(componentsData.EntityType);
-        var costForHelper = _entitiesCostData.GetHelpCost(componentsData.EntityType);
+        var costForFinisher = _entitiesCostData.GetFinisherCost(deadHeroData.EntityType);
+        var costForHelper = _entitiesCostData.GetHelpCost(deadHeroData.EntityType);
 
-        if (componentsData.EntityType == EntityType.Hero)
+        if (deadHeroData.EntityType == EntityType.Hero)
         {
-            costForFinisher += componentsData.HeroExperienceControl.Level * 10;
-            costForHelper += componentsData.HeroExperienceControl.Level * 10;
+            costForFinisher += deadHeroData.HeroExperienceControl.Level * 10;
+            costForHelper += deadHeroData.HeroExperienceControl.Level * 10;
 
             if (_isFirstBlood)
             {
