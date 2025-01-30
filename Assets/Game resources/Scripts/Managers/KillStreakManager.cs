@@ -16,7 +16,7 @@ public class KillStreakManager : MonoBehaviour
     
     private void UpdateSeriesKillsInfo(EntityComponentsData deadHeroData, List<Attackers> attackers)
     {
-        if (attackers.Count <= 0) return;
+        if (attackers.Count <= 0 || deadHeroData.EntityType != EntityType.Hero) return;
 
         var finisher = attackers[0].ComponentsData;
         var finisherInfo = _killStreakInfos.FirstOrDefault(info => info.HeroData == finisher);
@@ -25,7 +25,8 @@ public class KillStreakManager : MonoBehaviour
         if (finisherInfo != null)
         {
             finisherInfo.CoutKills++;
-            var killStreakCost = finisherInfo.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
+            
+            var killStreakCost = Mathf.Clamp(finisherInfo.CoutKills, 0, 5) * 15 * deadHeroData.HeroExperienceControl.Level;
             finisherInfo.HeroData.HeroGoldControl.SetGold(killStreakCost);
         }
         else
@@ -41,7 +42,7 @@ public class KillStreakManager : MonoBehaviour
         if (deadInfo != null)
         {
             if (deadInfo.CoutKills > 0)
-                interruptionKillStreakCost = deadInfo.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
+                interruptionKillStreakCost = Mathf.Clamp(deadInfo.CoutKills, 0, 5) * 15 * deadHeroData.HeroExperienceControl.Level;
             
             _killStreakInfos.Remove(deadInfo);
         }

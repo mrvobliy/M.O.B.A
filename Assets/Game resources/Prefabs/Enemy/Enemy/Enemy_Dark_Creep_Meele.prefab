@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf913805c702884eac601d90d5bd0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentsData: {fileID: 1682388438339055433}
   _animator: {fileID: 5084447566468007667}
   _rotationParent: {fileID: 182587009839807868}
   _maxHealth: {fileID: 11400000, guid: 2a5d46ec82de97f45924303c50c7f28b, type: 2}
@@ -826,9 +827,9 @@ MonoBehaviour:
   _entityHealthControl: {fileID: 5982540803753700759}
   _entityMoveControl: {fileID: 6927132251030316316}
   _entityAttackControl: {fileID: 7402074766430914917}
-  _heroRestoreHealthControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
+  _creepMoveControl: {fileID: 0}
 --- !u!1 &6607591339355881135
 GameObject:
   m_ObjectHideFlags: 0

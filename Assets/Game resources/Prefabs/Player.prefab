@@ -4990,6 +4990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e3f0f2a484f1342bdb1db337c61c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentsData: {fileID: 1130375526236363497}
   _animator: {fileID: 7636817541518315731}
   _rotationParent: {fileID: 255139962209160463}
   _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
@@ -5891,7 +5892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edf20ef9132b4847a8d2ee318703a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goldEffect: {fileID: 0}
   _goldBalance: 0
 --- !u!1 &2578623762068470478
 GameObject:

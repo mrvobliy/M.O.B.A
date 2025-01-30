@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8061f0f67b8e1488010817fd042232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentsData: {fileID: 4532355190189914342}
   _animator: {fileID: 5827867853637718321}
   _rotationParent: {fileID: 0}
   _maxHealth: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}

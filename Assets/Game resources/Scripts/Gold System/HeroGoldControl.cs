@@ -11,6 +11,7 @@ public class HeroGoldControl : MonoBehaviour
 
     public void SetGold(int value)
     {
+        print("GOLD " + value);
         _goldBalance += value;
         OnBalanceChanged?.Invoke();
     }

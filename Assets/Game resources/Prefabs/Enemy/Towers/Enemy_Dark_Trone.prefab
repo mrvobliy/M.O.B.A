@@ -642,12 +642,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAi: 0
   _entityTeam: 2
   _entityType: 6
   _entityHealthControl: {fileID: 7181189276102931184}
+  _entityMoveControl: {fileID: 0}
   _entityAttackControl: {fileID: 0}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
+  _creepMoveControl: {fileID: 0}
 --- !u!1 &3670820069660589537
 GameObject:
   m_ObjectHideFlags: 0
@@ -35447,11 +35450,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef85afee9984a3a4db6e0274c311dba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentsData: {fileID: 1369331593684712215}
   _animator: {fileID: 5726835110859466722}
   _rotationParent: {fileID: 0}
   _maxHealth: {fileID: 11400000, guid: ce8a021e58f6f014d9dc4a1839d1f26f, type: 2}
   _enemyAttackPoint: {fileID: 6707069223745474785}
   _needDestroyAfterDeath: 1
+  _currentHealth: 0
   _collider: {fileID: 5726835110859466721}
   _navMeshObstacle: {fileID: 5046138513220065720}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 06ac072a1981f9f4f80f7b8151b5ab0b,
