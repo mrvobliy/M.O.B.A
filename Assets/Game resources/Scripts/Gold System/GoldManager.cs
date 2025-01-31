@@ -57,21 +57,8 @@ public class GoldManager : MonoBehaviour
         
         for (var i = 1; i < attackers.Count; i++)
         {
-            var costForHelperByDamage = costForHelper * GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
+            var costForHelperByDamage = costForHelper * FormulasBase.GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
             attackers[i].ComponentsData.HeroGoldControl.SetGold((int)costForHelperByDamage);
         }
-    }
-    
-    private float GetInflictedDamageCoefficient(int summaryDamage, int heroDamage)
-    {
-        var damageFraction = 100 / (summaryDamage / heroDamage);
-
-        if (damageFraction is > 0 and <= 40)
-            return 0.3f;
-        
-        if (damageFraction is > 39 and < 80)
-            return 0.5f;
-
-        return 1;
     }
 }

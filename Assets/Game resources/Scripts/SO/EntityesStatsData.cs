@@ -8,6 +8,7 @@ public class EntityesStatsData : ScriptableObject
     public List<EntityesCosts> CostsList;
     public List<EntityesExperinece> ExperineceList;
     public List<TowersTiersCosts> TowersTiersCostsList;
+    public List<EntityesGameTimeExperinece> EntityesGameTimeExperienceList;
 
     public int GetFinisherCost(EntityType entityType)
     {
@@ -43,5 +44,11 @@ public class EntityesStatsData : ScriptableObject
     {
         var cost = TowersTiersCostsList.FirstOrDefault(x => x.TowerTier == towerTier);
         return cost?.EveryoneCost ?? 0;
+    }
+    
+    public int GetGameTimeExperience(EntityType entityType)
+    {
+        var cost = EntityesGameTimeExperienceList.FirstOrDefault(x => x.EntityType == entityType);
+        return cost?.Experience ?? 0;
     }
 }

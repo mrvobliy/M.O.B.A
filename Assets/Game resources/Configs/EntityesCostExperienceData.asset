@@ -51,11 +51,7 @@ MonoBehaviour:
     Experience: 150
   - EntityType: 5
     Experience: 0
-  - EntityType: 6
-    Experience: 0
   - EntityType: 7
-    Experience: 0
-  - EntityType: 9
     Experience: 750
   - EntityType: 0
     Experience: 100
@@ -72,3 +68,14 @@ MonoBehaviour:
     FinisherCost: 165
     HelpCost: 140
     EveryoneCost: 120
+  EntityesGameTimeExperienceList:
+  - EntityType: 1
+    Experience: 1
+  - EntityType: 2
+    Experience: 1
+  - EntityType: 3
+    Experience: 4
+  - EntityType: 4
+    Experience: 4
+  - EntityType: 7
+    Experience: 10

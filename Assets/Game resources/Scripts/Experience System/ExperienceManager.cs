@@ -28,8 +28,16 @@ public class ExperienceManager : MonoBehaviour
         experienceForHelper += experienceForFinisher * 0.87f;
         
         
+        //ПРИРОСТ В МИНУТУ
+        if (deadHeroData.EntityType != EntityType.Hero)
+        {
+            var experienceGrowthPerMinute = GameTimeManager.Instance.Minutes * _entitiesStatsData.GetGameTimeExperience(deadHeroData.EntityType);
+            experienceForFinisher += experienceGrowthPerMinute;
+            experienceForHelper += experienceGrowthPerMinute;
+        }
+        
         //НАЗНАЧЕНИЕ ОПЫТА ДЛЯ ДОБИВАЮЩЕГО
-        attackersSortByDamage[0].ComponentsData.HeroGoldControl.SetGold(experienceForFinisher);
+        attackersSortByDamage[0].ComponentsData.HeroExperienceControl.SetExperience(experienceForFinisher);
 
         
         //НАЗНАЧЕНИЕ ОПЫТА ДЛЯ ПОМОГАЮЩИХ ПО ВНЕСЁННОМУ УРОНУ
@@ -39,21 +47,8 @@ public class ExperienceManager : MonoBehaviour
         
         for (var i = 1; i < attackers.Count; i++)
         {
-            var costForHelperByDamage = experienceForHelper * GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
-            attackers[i].ComponentsData.HeroGoldControl.SetGold((int)costForHelperByDamage);
+            var costForHelperByDamage = experienceForHelper * FormulasBase.GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
+            attackers[i].ComponentsData.HeroExperienceControl.SetExperience((int)costForHelperByDamage);
         }
-    }
-    
-    private float GetInflictedDamageCoefficient(int summaryDamage, int heroDamage)
-    {
-        var damageFraction = 100 / (summaryDamage / heroDamage);
-
-        if (damageFraction is > 0 and <= 40)
-            return 0.3f;
-        
-        if (damageFraction is > 39 and < 80)
-            return 0.5f;
-
-        return 1;
     }
 }

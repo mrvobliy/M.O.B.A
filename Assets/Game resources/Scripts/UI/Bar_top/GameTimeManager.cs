@@ -7,17 +7,21 @@ public class GameTimeManager : MonoBehaviour
     [SerializeField] private TMP_Text _minutesText;
     [SerializeField] private TMP_Text _secondsText;
 
-    private int _minutes;
+    public static GameTimeManager Instance;
+    public int Minutes { get; private set; }
+    
     private int _seconds;
     private Coroutine _onTimePlayCoroutine;
-    
+
+    private void Awake() => Instance = this;
+
     private void Start() => _onTimePlayCoroutine = StartCoroutine(OnTimePlay());
 
     private void StopStopwatch() => StopCoroutine(_onTimePlayCoroutine);
 
     private void SetTimeView()
     {
-        _minutesText.text = _minutes.ToString("00");
+        _minutesText.text = Minutes.ToString("00");
         _secondsText.text = _seconds.ToString("00");
     }
     
@@ -32,7 +36,7 @@ public class GameTimeManager : MonoBehaviour
             if (_seconds > 60)
             {
                 _seconds = 0;
-                _minutes++;
+                Minutes++;
             }
 
             SetTimeView();
