@@ -6,6 +6,8 @@ public class KillStreakManager : MonoBehaviour
 {
     [SerializeField] private List<SeriesKillsInfo> _killStreakInfos;
 
+    private float _valueExperienceKillStreak = 3.25f;
+
     private void OnEnable()
     {
         EventsBase.EntityDeath += UpdateSeriesKillsInfo;
@@ -21,13 +23,18 @@ public class KillStreakManager : MonoBehaviour
         var finisher = attackers[0].ComponentsData;
         var finisherInfo = _killStreakInfos.FirstOrDefault(info => info.HeroData == finisher);
         
-        //РАСЧЁТ И НАЗНАЧЕНИЕ БОНУСА ЗА СЕРИЮ УБИЙСТВ ДЛЯ ДОБИВАЮЩЕГО
+        //РАСЧЁТ И НАЗНАЧЕНИЕ БОНУСА ЗОЛОТА И ОПЫТА ЗА СЕРИЮ УБИЙСТВ ДЛЯ ДОБИВАЮЩЕГО
         if (finisherInfo != null)
         {
             finisherInfo.CoutKills++;
             
-            var killStreakCost = Mathf.Clamp(finisherInfo.CoutKills, 0, 5) * 15 * deadHeroData.HeroExperienceControl.Level;
+            //ЗОЛОТО ЗА СЕРИЮ
+            var killStreakCost = finisherInfo.GetCountSeriesKills() * 15 * deadHeroData.HeroExperienceControl.Level;
             finisherInfo.HeroData.HeroGoldControl.SetGold(killStreakCost);
+            
+            //ОПЫТ ЗА СЕРИЮ
+            var killStreakExperience = (1.25 * Mathf.Pow(_valueExperienceKillStreak, 2) - 2.5 * _valueExperienceKillStreak) * finisherInfo.GetCountSeriesKills();
+            finisherInfo.HeroData.HeroExperienceControl.SetExperience((int)killStreakExperience);
         }
         else
         {
@@ -35,30 +42,46 @@ public class KillStreakManager : MonoBehaviour
             _killStreakInfos.Add(newInfo);
         }
         
-        //РАСЧЁТ БОНУСА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ
+        //РАСЧЁТ БОНУСА ЗОЛОТА И ОПЫТА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ
         var deadInfo = _killStreakInfos.FirstOrDefault(info => info.HeroData == deadHeroData);
-        var interruptionKillStreakCost = 0;
+        var breakKillStreakCost = 0;
+        var breakKillStreakExperience = 0d;
         
         if (deadInfo != null)
         {
             if (deadInfo.CoutKills > 0)
-                interruptionKillStreakCost = Mathf.Clamp(deadInfo.CoutKills, 0, 5) * 15 * deadHeroData.HeroExperienceControl.Level;
+            {
+                //ЗОЛОТО ЗА ПРЕРЫВАНИЕ СЕРИИ
+                breakKillStreakCost = deadInfo.GetCountSeriesKills() * 15 * deadHeroData.HeroExperienceControl.Level;
+                
+                //ОПЫТ ЗА ПРЕРЫВАНИЕ СЕРИИ
+                breakKillStreakExperience = (1.25 * Mathf.Pow(_valueExperienceKillStreak, 2) - 2.5 * _valueExperienceKillStreak) * deadInfo.GetCountSeriesKills();
+            }
             
             _killStreakInfos.Remove(deadInfo);
         }
         
-        //НАЗНАЧЕНИЕ БОНУСА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ ДЛЯ ДОБИВАЮЩЕГО
-        finisher.HeroGoldControl.SetGold(interruptionKillStreakCost);
+        //НАЗНАЧЕНИЕ БОНУСА ЗОЛОТА И ОПЫТА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ ДЛЯ ДОБИВАЮЩЕГО
+        finisher.HeroGoldControl.SetGold(breakKillStreakCost);
+        finisher.HeroExperienceControl.SetExperience((int)breakKillStreakExperience);
         
+        
+        //НАЗНАЧЕНИЕ БОНУСА ЗОЛОТА И ОПЫТА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ ДЛЯ ПОМОГАЮЩЕГО
         if (attackers.Count <= 1) return;
 
         var summaryDamage = attackers.Sum(x => x.SummaryDamage);
         
-        //НАЗНАЧЕНИЕ БОНУСА ЗА ПЕРЫВАНИЕ СЕРИИ УБИЙСТВ ДЛЯ ПОМОГАЮЩЕГО
         for (var i = 1; i < attackers.Count; i++)
         {
-            var interruptionKillStreakCostForHelper = interruptionKillStreakCost * GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
-            attackers[i].ComponentsData.HeroGoldControl.SetGold((int)interruptionKillStreakCostForHelper);
+            var inflictedDamageCoefficient = GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
+            
+            //ЗОЛОТО ЗА ПРЕРЫВАНИЕ СЕРИИ
+            var breakKillStreakCostForHelper = breakKillStreakCost * inflictedDamageCoefficient;
+            attackers[i].ComponentsData.HeroGoldControl.SetGold((int)breakKillStreakCostForHelper);
+            
+            //ОПЫТ ЗА ПРЕРЫВАНИЕ СЕРИИ
+            var breakKillStreakExperienceForHelper = breakKillStreakExperience * inflictedDamageCoefficient;
+            attackers[i].ComponentsData.HeroExperienceControl.SetExperience((int)breakKillStreakExperienceForHelper);
         }
     }
 
@@ -86,4 +109,6 @@ public class SeriesKillsInfo
         CoutKills = coutKills;
         HeroData = heroData;
     }
+
+    public int GetCountSeriesKills() => CoutKills >= 5 ? 5 : CoutKills;
 }

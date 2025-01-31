@@ -20,6 +20,7 @@ public class GoldManager : MonoBehaviour
         var costForFinisher = _entitiesStatsData.GetFinisherCost(deadHeroData.EntityType);
         var costForHelper = _entitiesStatsData.GetHelpCost(deadHeroData.EntityType);
 
+        //ПРОСЧЁТ БОНУСА ЗОЛОТА ОТДЕЛЬНО ЗА ГЕРОЯ
         if (deadHeroData.EntityType == EntityType.Hero)
         {
             costForFinisher += deadHeroData.HeroExperienceControl.Level * 10;
@@ -33,6 +34,7 @@ public class GoldManager : MonoBehaviour
             }
         }
 
+        //ПРОСЧЁТ ЗОЛОТА ОТДЕЛЬНО ЗА БАШНЮ
         if (deadHeroData.EntityType == EntityType.Tower)
         {
             costForFinisher = _entitiesStatsData.GetTowerFinisherCost(deadHeroData.TowerTier);
@@ -44,9 +46,32 @@ public class GoldManager : MonoBehaviour
             costForFinisher -= costForEveryone;
         }
         
+        //НАЗНАЧЕНИЕ НАГРАДЫ ДЛЯ ДОБИВАЮЩЕГО
         attackersSortByDamage[0].ComponentsData.HeroGoldControl.SetGold(costForFinisher);
 
-        for (var i = 1; i < attackers.Count; i++) 
-            attackersSortByDamage[i].ComponentsData.HeroGoldControl.SetGold(costForHelper);
+        
+        //НАЗНАЧЕНИЕ НАГРАДЫ ДЛЯ ПОМОГАЮЩИХ ПО ВНЕСЁННОМУ УРОНУ
+        if (attackers.Count <= 1) return;
+
+        var summaryDamage = attackers.Sum(x => x.SummaryDamage);
+        
+        for (var i = 1; i < attackers.Count; i++)
+        {
+            var costForHelperByDamage = costForHelper * GetInflictedDamageCoefficient(summaryDamage, attackers[i].SummaryDamage);
+            attackers[i].ComponentsData.HeroGoldControl.SetGold((int)costForHelperByDamage);
+        }
+    }
+    
+    private float GetInflictedDamageCoefficient(int summaryDamage, int heroDamage)
+    {
+        var damageFraction = 100 / (summaryDamage / heroDamage);
+
+        if (damageFraction is > 0 and <= 40)
+            return 0.3f;
+        
+        if (damageFraction is > 39 and < 80)
+            return 0.5f;
+
+        return 1;
     }
 }
