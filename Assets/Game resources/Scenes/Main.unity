@@ -2333,7 +2333,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6160326823014151584, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -4043,7 +4043,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6160326823014151584, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -5117,7 +5117,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6256974599559954696, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -5246,7 +5246,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6160326823014151584, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -24203,7 +24203,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6256974599559954696, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -36578,7 +36578,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6160326823014151584, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -61421,12 +61421,12 @@ PrefabInstance:
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 33
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"_lightSideLines","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[TowersLine,
+      value: '"path":"_darkSideLines","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[TowersLine,
         Assembly-CSharp]], mscorlib","$rlength":4,"$rcontent":[{"$id":1,"$type":"TowersLine,
         Assembly-CSharp","Towers":{"$id":2,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:0,$eref:1,$eref:2]},"TowersGameObjects":{"$id":3,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
@@ -61444,286 +61444,580 @@ PrefabInstance:
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"_lightSideLines.[0]","value":{"$id":0,"$type":"TowersLine,
-        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[0]","value":{"$id":0,"$type":"TowersLine, Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:0,$eref:1,$eref:2]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:3,$eref:4,$eref:5]}}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[2]
-      value: '"path":"_lightSideLines.[0].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[0].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:0,$eref:1,$eref:2]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[3]
-      value: '"path":"_lightSideLines.[0].Towers.[0]","value":$eref:0'
+      value: '"path":"_darkSideLines.[0].Towers.[0]","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[4]
-      value: '"path":"_lightSideLines.[0].Towers.[1]","value":$eref:1'
+      value: '"path":"_darkSideLines.[0].Towers.[1]","value":$eref:1'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[5]
-      value: '"path":"_lightSideLines.[0].Towers.[2]","value":$eref:2'
+      value: '"path":"_darkSideLines.[0].Towers.[2]","value":$eref:2'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[6]
-      value: '"path":"_lightSideLines.[0].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      value: '"path":"_darkSideLines.[0].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:3,$eref:4,$eref:5]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[7]
-      value: '"path":"_lightSideLines.[0].TowersGameObjects.[0]","value":$eref:3'
+      value: '"path":"_darkSideLines.[0].TowersGameObjects.[0]","value":$eref:3'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[8]
-      value: '"path":"_lightSideLines.[0].TowersGameObjects.[1]","value":$eref:4'
+      value: '"path":"_darkSideLines.[0].TowersGameObjects.[1]","value":$eref:4'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[9]
-      value: '"path":"_lightSideLines.[0].TowersGameObjects.[2]","value":$eref:5'
+      value: '"path":"_darkSideLines.[0].TowersGameObjects.[2]","value":$eref:5'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[10]
-      value: '"path":"_lightSideLines.[1]","value":{"$id":0,"$type":"TowersLine,
-        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[1]","value":{"$id":0,"$type":"TowersLine, Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:6,$eref:7,$eref:8]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:9,$eref:10,$eref:11]}}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[11]
-      value: '"path":"_lightSideLines.[1].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[1].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:6,$eref:7,$eref:8]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[12]
-      value: '"path":"_lightSideLines.[1].Towers.[0]","value":$eref:6'
+      value: '"path":"_darkSideLines.[1].Towers.[0]","value":$eref:6'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[13]
-      value: '"path":"_lightSideLines.[1].Towers.[1]","value":$eref:7'
+      value: '"path":"_darkSideLines.[1].Towers.[1]","value":$eref:7'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[14]
-      value: '"path":"_lightSideLines.[1].Towers.[2]","value":$eref:8'
+      value: '"path":"_darkSideLines.[1].Towers.[2]","value":$eref:8'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[15]
-      value: '"path":"_lightSideLines.[1].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      value: '"path":"_darkSideLines.[1].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:9,$eref:10,$eref:11]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[16]
-      value: '"path":"_lightSideLines.[1].TowersGameObjects.[0]","value":$eref:9'
+      value: '"path":"_darkSideLines.[1].TowersGameObjects.[0]","value":$eref:9'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[17]
-      value: '"path":"_lightSideLines.[1].TowersGameObjects.[1]","value":$eref:10'
+      value: '"path":"_darkSideLines.[1].TowersGameObjects.[1]","value":$eref:10'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[18]
-      value: '"path":"_lightSideLines.[1].TowersGameObjects.[2]","value":$eref:11'
+      value: '"path":"_darkSideLines.[1].TowersGameObjects.[2]","value":$eref:11'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[19]
-      value: '"path":"_lightSideLines.[2]","value":{"$id":0,"$type":"TowersLine,
-        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[2]","value":{"$id":0,"$type":"TowersLine, Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:12,$eref:13,$eref:14]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:15,$eref:16,$eref:17]}}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[20]
-      value: '"path":"_lightSideLines.[2].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[2].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:12,$eref:13,$eref:14]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[21]
-      value: '"path":"_lightSideLines.[2].Towers.[0]","value":$eref:12'
+      value: '"path":"_darkSideLines.[2].Towers.[0]","value":$eref:12'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[22]
-      value: '"path":"_lightSideLines.[2].Towers.[1]","value":$eref:13'
+      value: '"path":"_darkSideLines.[2].Towers.[1]","value":$eref:13'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[23]
-      value: '"path":"_lightSideLines.[2].Towers.[2]","value":$eref:14'
+      value: '"path":"_darkSideLines.[2].Towers.[2]","value":$eref:14'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[24]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      value: '"path":"_darkSideLines.[2].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:15,$eref:16,$eref:17]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[25]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[0]","value":$eref:15'
+      value: '"path":"_darkSideLines.[2].TowersGameObjects.[0]","value":$eref:15'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[26]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[1]","value":$eref:16'
+      value: '"path":"_darkSideLines.[2].TowersGameObjects.[1]","value":$eref:16'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[27]
-      value: '"path":"_lightSideLines.[2].TowersGameObjects.[2]","value":$eref:17'
+      value: '"path":"_darkSideLines.[2].TowersGameObjects.[2]","value":$eref:17'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[28]
-      value: '"path":"_lightSideLines.[3]","value":{"$id":0,"$type":"TowersLine,
-        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[3]","value":{"$id":0,"$type":"TowersLine, Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:18]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:19]}}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[29]
-      value: '"path":"_lightSideLines.[3].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+      value: '"path":"_darkSideLines.[3].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
         Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:18]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[30]
-      value: '"path":"_lightSideLines.[3].Towers.[0]","value":$eref:18'
+      value: '"path":"_darkSideLines.[3].Towers.[0]","value":$eref:18'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[31]
-      value: '"path":"_lightSideLines.[3].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      value: '"path":"_darkSideLines.[3].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:19]}'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[32]
-      value: '"path":"_lightSideLines.[3].TowersGameObjects.[0]","value":$eref:19'
+      value: '"path":"_darkSideLines.[3].TowersGameObjects.[0]","value":$eref:19'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[33]
+      value: '"path":"_lightSideLines","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[TowersLine,
+        Assembly-CSharp]], mscorlib","$rlength":4,"$rcontent":[{"$id":1,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":2,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:20,$eref:21,$eref:22]},"TowersGameObjects":{"$id":3,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:23,$eref:24,$eref:25]}},{"$id":4,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":5,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:26,$eref:27,$eref:28]},"TowersGameObjects":{"$id":6,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:29,$eref:30,$eref:31]}},{"$id":7,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":8,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:32,$eref:33,$eref:34]},"TowersGameObjects":{"$id":9,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:35,$eref:36,$eref:37]}},{"$id":10,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":11,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:38]},"TowersGameObjects":{"$id":12,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:39]}}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[34]
+      value: '"path":"_lightSideLines.[0]","value":{"$id":0,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:20,$eref:21,$eref:22]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:23,$eref:24,$eref:25]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[35]
+      value: '"path":"_lightSideLines.[0].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:20,$eref:21,$eref:22]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[36]
+      value: '"path":"_lightSideLines.[0].Towers.[0]","value":$eref:20'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[37]
+      value: '"path":"_lightSideLines.[0].Towers.[1]","value":$eref:21'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[38]
+      value: '"path":"_lightSideLines.[0].Towers.[2]","value":$eref:22'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[39]
+      value: '"path":"_lightSideLines.[0].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:23,$eref:24,$eref:25]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[40]
+      value: '"path":"_lightSideLines.[0].TowersGameObjects.[0]","value":$eref:23'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[41]
+      value: '"path":"_lightSideLines.[0].TowersGameObjects.[1]","value":$eref:24'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[42]
+      value: '"path":"_lightSideLines.[0].TowersGameObjects.[2]","value":$eref:25'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[43]
+      value: '"path":"_lightSideLines.[1]","value":{"$id":0,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:26,$eref:27,$eref:28]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:29,$eref:30,$eref:31]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[44]
+      value: '"path":"_lightSideLines.[1].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:26,$eref:27,$eref:28]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[45]
+      value: '"path":"_lightSideLines.[1].Towers.[0]","value":$eref:26'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[46]
+      value: '"path":"_lightSideLines.[1].Towers.[1]","value":$eref:27'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[47]
+      value: '"path":"_lightSideLines.[1].Towers.[2]","value":$eref:28'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[48]
+      value: '"path":"_lightSideLines.[1].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:29,$eref:30,$eref:31]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[49]
+      value: '"path":"_lightSideLines.[1].TowersGameObjects.[0]","value":$eref:29'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[50]
+      value: '"path":"_lightSideLines.[1].TowersGameObjects.[1]","value":$eref:30'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[51]
+      value: '"path":"_lightSideLines.[1].TowersGameObjects.[2]","value":$eref:31'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[52]
+      value: '"path":"_lightSideLines.[2]","value":{"$id":0,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:32,$eref:33,$eref:34]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:35,$eref:36,$eref:37]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[53]
+      value: '"path":"_lightSideLines.[2].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":3,"$rcontent":[$eref:32,$eref:33,$eref:34]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[54]
+      value: '"path":"_lightSideLines.[2].Towers.[0]","value":$eref:32'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[55]
+      value: '"path":"_lightSideLines.[2].Towers.[1]","value":$eref:33'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[56]
+      value: '"path":"_lightSideLines.[2].Towers.[2]","value":$eref:34'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[57]
+      value: '"path":"_lightSideLines.[2].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":3,"$rcontent":[$eref:35,$eref:36,$eref:37]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[58]
+      value: '"path":"_lightSideLines.[2].TowersGameObjects.[0]","value":$eref:35'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[59]
+      value: '"path":"_lightSideLines.[2].TowersGameObjects.[1]","value":$eref:36'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[60]
+      value: '"path":"_lightSideLines.[2].TowersGameObjects.[2]","value":$eref:37'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[61]
+      value: '"path":"_lightSideLines.[3]","value":{"$id":0,"$type":"TowersLine,
+        Assembly-CSharp","Towers":{"$id":1,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:38]},"TowersGameObjects":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:39]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[62]
+      value: '"path":"_lightSideLines.[3].Towers","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[EntityComponentsData,
+        Assembly-CSharp]], mscorlib","$rlength":1,"$rcontent":[$eref:38]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[63]
+      value: '"path":"_lightSideLines.[3].Towers.[0]","value":$eref:38'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[64]
+      value: '"path":"_lightSideLines.[3].TowersGameObjects","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[$eref:39]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[65]
+      value: '"path":"_lightSideLines.[3].TowersGameObjects.[0]","value":$eref:39'
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 601827785}
+      objectReference: {fileID: 115735242}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
       value: 
-      objectReference: {fileID: 527973635}
+      objectReference: {fileID: 1132983828}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]
       value: 
-      objectReference: {fileID: 791738819}
+      objectReference: {fileID: 487750824}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[3]
       value: 
-      objectReference: {fileID: 230930696}
+      objectReference: {fileID: 1487400565}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]
       value: 
-      objectReference: {fileID: 2092072611}
+      objectReference: {fileID: 1850473164}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[5]
       value: 
-      objectReference: {fileID: 1526361756}
+      objectReference: {fileID: 396159786}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[6]
       value: 
-      objectReference: {fileID: 1047104553}
+      objectReference: {fileID: 981711886}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[7]
       value: 
-      objectReference: {fileID: 353636089}
+      objectReference: {fileID: 1646164740}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[8]
       value: 
-      objectReference: {fileID: 1232679775}
+      objectReference: {fileID: 2109552371}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[9]
       value: 
-      objectReference: {fileID: 990244206}
+      objectReference: {fileID: 765919135}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[10]
       value: 
-      objectReference: {fileID: 1287944623}
+      objectReference: {fileID: 528303418}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[11]
       value: 
-      objectReference: {fileID: 1669785289}
+      objectReference: {fileID: 532101191}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[12]
       value: 
-      objectReference: {fileID: 687812018}
+      objectReference: {fileID: 869573683}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[13]
       value: 
-      objectReference: {fileID: 1477444478}
+      objectReference: {fileID: 214990339}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[14]
       value: 
-      objectReference: {fileID: 790833154}
+      objectReference: {fileID: 1007570762}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[15]
       value: 
-      objectReference: {fileID: 1455823200}
+      objectReference: {fileID: 2011428463}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[16]
       value: 
-      objectReference: {fileID: 987065110}
+      objectReference: {fileID: 492442495}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[17]
       value: 
-      objectReference: {fileID: 1912895677}
+      objectReference: {fileID: 1670433539}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[18]
       value: 
-      objectReference: {fileID: 1579079607}
+      objectReference: {fileID: 2143132022}
     - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[19]
+      value: 
+      objectReference: {fileID: 1909798162}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[20]
+      value: 
+      objectReference: {fileID: 601827785}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[21]
+      value: 
+      objectReference: {fileID: 527973635}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[22]
+      value: 
+      objectReference: {fileID: 791738819}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[23]
+      value: 
+      objectReference: {fileID: 230930696}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[24]
+      value: 
+      objectReference: {fileID: 2092072611}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[25]
+      value: 
+      objectReference: {fileID: 1526361756}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[26]
+      value: 
+      objectReference: {fileID: 1047104553}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[27]
+      value: 
+      objectReference: {fileID: 353636089}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[28]
+      value: 
+      objectReference: {fileID: 1232679775}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[29]
+      value: 
+      objectReference: {fileID: 990244206}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[30]
+      value: 
+      objectReference: {fileID: 1287944623}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[31]
+      value: 
+      objectReference: {fileID: 1669785289}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[32]
+      value: 
+      objectReference: {fileID: 687812018}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[33]
+      value: 
+      objectReference: {fileID: 1477444478}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[34]
+      value: 
+      objectReference: {fileID: 790833154}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[35]
+      value: 
+      objectReference: {fileID: 1455823200}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[36]
+      value: 
+      objectReference: {fileID: 987065110}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[37]
+      value: 
+      objectReference: {fileID: 1912895677}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[38]
+      value: 
+      objectReference: {fileID: 1579079607}
+    - target: {fileID: 2074125234321725280, guid: 5bf74a96512fae74db2375f054fec9b7,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[39]
       value: 
       objectReference: {fileID: 582959976}
     - target: {fileID: 5789940450811299133, guid: 5bf74a96512fae74db2375f054fec9b7,
@@ -61827,8 +62121,6 @@ MonoBehaviour:
   - {fileID: 1864701205}
   - {fileID: 528833509}
   - {fileID: 1471829261}
-  _tempPoint: {fileID: 0}
-  _tempValue: 456
 --- !u!23 &2143301919456695148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68480,7 +68772,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5518784913208063594, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}

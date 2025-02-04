@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13040e401d35f343a3fdb3ca7d8a05d, type: 3}
+  m_Name: ExperienceForLevels
+  m_EditorClassIdentifier: 
+  _experienceForLevels:
+  - Level: 1
+    NeedExperience: 200
+    TotalExperience: 0
+    CorrectionalCoeffcient: 1
+  - Level: 2
+    NeedExperience: 220
+    TotalExperience: 420
+    CorrectionalCoeffcient: 10
+  - Level: 3
+    NeedExperience: 670
+    TotalExperience: 890
+    CorrectionalCoeffcient: 150
+  - Level: 4
+    NeedExperience: 1270
+    TotalExperience: 1940
+    CorrectionalCoeffcient: 150
+  - Level: 5
+    NeedExperience: 2020
+    TotalExperience: 3290
+    CorrectionalCoeffcient: 150
+  - Level: 6
+    NeedExperience: 2920
+    TotalExperience: 4940
+    CorrectionalCoeffcient: 150
+  - Level: 7
+    NeedExperience: 3620
+    TotalExperience: 6540
+    CorrectionalCoeffcient: 100
+  - Level: 8
+    NeedExperience: 4420
+    TotalExperience: 8040
+    CorrectionalCoeffcient: 100
+  - Level: 9
+    NeedExperience: 5320
+    TotalExperience: 9740
+    CorrectionalCoeffcient: 100
+  - Level: 10
+    NeedExperience: 6320
+    TotalExperience: 11640
+    CorrectionalCoeffcient: 100
+  - Level: 11
+    NeedExperience: 7200
+    TotalExperience: 13520
+    CorrectionalCoeffcient: 80
+  - Level: 12
+    NeedExperience: 8160
+    TotalExperience: 15360
+    CorrectionalCoeffcient: 80
+  - Level: 13
+    NeedExperience: 9200
+    TotalExperience: 17360
+    CorrectionalCoeffcient: 80
+  - Level: 14
+    NeedExperience: 10320
+    TotalExperience: 19520
+    CorrectionalCoeffcient: 80
+  - Level: 15
+    NeedExperience: 11520
+    TotalExperience: 21840
+    CorrectionalCoeffcient: 80
+  - Level: 16
+    NeedExperience: 12800
+    TotalExperience: 24320
+    CorrectionalCoeffcient: 80
+  - Level: 17
+    NeedExperience: 13820
+    TotalExperience: 26620
+    CorrectionalCoeffcient: 60
+  - Level: 18
+    NeedExperience: 14900
+    TotalExperience: 28720
+    CorrectionalCoeffcient: 60
+  - Level: 19
+    NeedExperience: 16040
+    TotalExperience: 30940
+    CorrectionalCoeffcient: 60
+  - Level: 20
+    NeedExperience: 17240
+    TotalExperience: 33280
+    CorrectionalCoeffcient: 60

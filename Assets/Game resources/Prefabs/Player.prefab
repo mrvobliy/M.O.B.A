@@ -5218,6 +5218,81 @@ Transform:
   - {fileID: 3558169324047803443}
   m_Father: {fileID: 2268217555389575272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &855494437262583373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5067906579200183757}
+  - component: {fileID: 2388251904047723923}
+  - component: {fileID: 7408230907554484787}
+  m_Layer: 9
+  m_Name: level_done
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5067906579200183757
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855494437262583373}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1960180619116409669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.00008976343}
+  m_SizeDelta: {x: 0.28, y: 0.28}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2388251904047723923
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855494437262583373}
+  m_CullTransparentMesh: 1
+--- !u!114 &7408230907554484787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855494437262583373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c0ae9943a90e1004d8c6d8fc23db1469, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &892348494490653722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5674,8 +5749,9 @@ GameObject:
   m_Component:
   - component: {fileID: 855620434397115552}
   - component: {fileID: 1768374130943840001}
+  - component: {fileID: 8184617976432897674}
   m_Layer: 0
-  m_Name: HeroHealthbar
+  m_Name: HeroHealthLevelBar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5721,6 +5797,24 @@ MonoBehaviour:
   _timeAnim: 0.13
   _scaleValue: 1.2
   _isPlayer: 0
+--- !u!114 &8184617976432897674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026152025992748410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21776c630bf99034b846925d800b6e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _experienceControl: {fileID: 5257019475679157282}
+  _levelText: {fileID: 7201078796602496684}
+  _fillImage: {fileID: 3682653694981173746}
+  _levelDoneImage: {fileID: 7408230907554484787}
+  _root: {fileID: 1960180619116409669}
+  _timeAnim: 0.35
 --- !u!1 &2092695864310196053
 GameObject:
   m_ObjectHideFlags: 0
@@ -5926,6 +6020,81 @@ Transform:
   - {fileID: 1448876728422185734}
   m_Father: {fileID: 1427002708369193725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2707298692165698436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4530515874351735851}
+  - component: {fileID: 3110776453525304049}
+  - component: {fileID: 3682653694981173746}
+  m_Layer: 9
+  m_Name: level_fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4530515874351735851
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707298692165698436}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1960180619116409669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.00008976343}
+  m_SizeDelta: {x: 0.28, y: 0.28}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3110776453525304049
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707298692165698436}
+  m_CullTransparentMesh: 1
+--- !u!114 &3682653694981173746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707298692165698436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cbd9b373f3c5010408d44d9ac4dae577, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 0
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2860352080512362713
 GameObject:
   m_ObjectHideFlags: 0
@@ -6126,7 +6295,7 @@ GameObject:
   - component: {fileID: 3132637874719054740}
   - component: {fileID: 7093544563590554868}
   m_Layer: 9
-  m_Name: HealthBar
+  m_Name: HealthLevelBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7844,6 +8013,7 @@ GameObject:
   - component: {fileID: 1960180619116409669}
   - component: {fileID: 7880835659574102427}
   - component: {fileID: 2503223287943491736}
+  - component: {fileID: 435888596729355512}
   m_Layer: 9
   m_Name: level_bg
   m_TagString: Untagged
@@ -7863,13 +8033,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4530515874351735851}
+  - {fileID: 5067906579200183757}
   - {fileID: 1097055546490157306}
   m_Father: {fileID: 4074052268706603861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.272, y: 0.00200092}
-  m_SizeDelta: {x: 0.27, y: 0.27}
+  m_AnchoredPosition: {x: -0.27200022, y: 0.0019118395}
+  m_SizeDelta: {x: 0.3, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7880835659574102427
 CanvasRenderer:
@@ -7909,6 +8081,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &435888596729355512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598896199945352905}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &5645156658050817091
 GameObject:
   m_ObjectHideFlags: 0
@@ -14271,6 +14456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689b8b82dd7592c4cbbd4dd498cf5f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelsData: {fileID: 11400000, guid: 1a1c13252d508144e8959cdd1eb3d2d3, type: 2}
+  _currentExperience: 0
+  _currentLevelExperience: 0
+  _nextLevelExperience: 1
+  _experienceAttitude: 0
 --- !u!1 &7232880679495714956
 GameObject:
   m_ObjectHideFlags: 0
@@ -14727,13 +14917,13 @@ MonoBehaviour:
   _isAi: 0
   _entityTeam: 1
   _entityType: 0
+  _towerTier: 0
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
   _entityAttackControl: {fileID: 5518784913208063594}
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
-  _towerTier: 0
 --- !u!1 &7818307216479657830
 GameObject:
   m_ObjectHideFlags: 0
