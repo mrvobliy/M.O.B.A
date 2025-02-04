@@ -9,6 +9,9 @@ public class DamageNumber : MonoBehaviour
     [SerializeField] private Vector3 _startOffset;
     [SerializeField] private Vector3 _endMinOffset;
     [SerializeField] private Vector3 _endMaxOffset;
+    [SerializeField] private float _endScale = 1;
+    [SerializeField] private bool _isNeedDestroy = true;
+    [SerializeField] private bool _isLocalMove;
     [SerializeField] private float _timeAnim;
 
     private void OnEnable()
@@ -23,9 +26,18 @@ public class DamageNumber : MonoBehaviour
 
         var endPos = new Vector3(posX, posY, posZ);
 
-        transform.DOScale(1, _timeAnim).SetEase(Ease.OutBack);
-        transform.DOMove(transform.position + endPos, _timeAnim).SetEase(Ease.OutBack);
-        _text.DOFade(0, _timeAnim).SetEase(Ease.InExpo).OnComplete(() => {Destroy(gameObject);});
+        transform.DOScale(_endScale, _timeAnim).SetEase(Ease.OutBack);
+        
+        if (!_isLocalMove)
+            transform.DOMove(transform.position + endPos, _timeAnim).SetEase(Ease.OutBack);
+        else
+            transform.DOLocalMove(transform.localPosition + endPos, _timeAnim).SetEase(Ease.OutBack);
+        
+        _text.DOFade(0, _timeAnim).SetEase(Ease.InExpo).OnComplete(() =>
+        {
+            if (_isNeedDestroy)
+                Destroy(gameObject);
+        });
     }
 
     public void SetDamageText(int damage)

@@ -49,6 +49,8 @@ public class GoldManager : MonoBehaviour
         //НАЗНАЧЕНИЕ НАГРАДЫ ДЛЯ ДОБИВАЮЩЕГО
         attackersSortByDamage[0].ComponentsData.HeroGoldControl.SetGold(costForFinisher);
 
+        if (!attackersSortByDamage[0].ComponentsData.IsAi)
+            GoldEffectManager.Instance.SpawnEffect(deadHeroData.transform, costForFinisher);
         
         //НАЗНАЧЕНИЕ НАГРАДЫ ДЛЯ ПОМОГАЮЩИХ ПО ВНЕСЁННОМУ УРОНУ
         if (attackers.Count <= 1) return;
