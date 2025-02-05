@@ -5117,7 +5117,7 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6256974599559954696, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
@@ -7538,7 +7538,7 @@ MonoBehaviour:
   - {fileID: 815216344}
   - {fileID: 123850100}
   _spawnedList: []
-  _newSpawnDelay: 2
+  _newSpawnDelay: 20
 --- !u!4 &438115355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 188f812d9adce3f46b5c0b73cfa97251,
@@ -68772,20 +68772,8 @@ PrefabInstance:
     - target: {fileID: 5165888202702643642, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5518784913208063594, guid: d5f30f9388357bf41b2a0150ad20ec63,
-        type: 3}
-      propertyPath: _baseDamage
-      value: 
-      objectReference: {fileID: 11400000, guid: 40eb11a1ac1de824281b75b30184e812,
-        type: 2}
-    - target: {fileID: 5664460024920780669, guid: d5f30f9388357bf41b2a0150ad20ec63,
-        type: 3}
-      propertyPath: _maxHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: 56c4ebf2772796f428b9a40723e4b4ef,
-        type: 2}
     - target: {fileID: 6256974599559954696, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: _skillButton

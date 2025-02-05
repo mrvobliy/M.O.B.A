@@ -13,16 +13,13 @@ public class NeutralEnemySpawn :MonoBehaviour
 
     private int _countActiveEnemy;
 
-    private void Start()
-    {
-        Spawn();
-        /*var newEnemy = Instantiate(_meleeEnemyPrefab, _spawnPoints[0].position, _spawnPoints[0].rotation);
-        var entityComponent = newEnemy.GetComponentInChildren<EntityComponentsData>();
-        entityComponent.CreepMoveControl.SetSpawnPoint(_spawnPoints[0]);*/
-    }
+    private void Start() => Spawn();
 
     private void Spawn()
     {
+        foreach (var entityComponent in _spawnedList) 
+            entityComponent.EntityHealthControl.OnDeathStart -= EnemyDeath;
+        
         _spawnedList.Clear();
 
         for (var i = 0; i < _spawnPoints.Count; i++)
@@ -33,26 +30,16 @@ public class NeutralEnemySpawn :MonoBehaviour
             entityComponent.CreepMoveControl.SetSpawnPoint(_spawnPoints[i]);
             entityComponent.EntityHealthControl.OnDeathStart += EnemyDeath;
             _spawnedList.Add(entityComponent);
-            _countActiveEnemy++;
+            _countActiveEnemy++; 
         }
     }
 
     private void EnemyDeath()
     {
-        foreach (var enemy in _spawnedList)
-        {
-            if (!enemy.EntityHealthControl.IsDead) 
-                continue;
-            
-            enemy.EntityHealthControl.OnDeathStart -= EnemyDeath;
-        }
-
         _countActiveEnemy--;
-
-        if (_countActiveEnemy > 0) 
-            return;
-
-        StartCoroutine(OnDelaySpawnCoroutine());
+        
+        if (_countActiveEnemy <= 0)
+            StartCoroutine(OnDelaySpawnCoroutine());
     }
 
     private IEnumerator OnDelaySpawnCoroutine()
