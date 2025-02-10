@@ -9,11 +9,14 @@ public class OllieChestAnimation : MonoBehaviour
 {
     [SerializeField] private Button _openChestButton;
     [Space]
-    [SerializeField] private RewardModel[] _rewards;
-    [SerializeField] private OllieChestRewardView _rewardViewPrefab;
+    [SerializeField] private List<RewardModel> _rewards;
+    [SerializeField] private OllieChestRewardView _rewardView;
     [SerializeField] private Transform _rewardViewRoot;
     [Space] 
     [SerializeField] private Animator _animator;
+    [Space] 
+    [SerializeField] private ParticleSystem _getRewardEffect;
+    [SerializeField] private ParticleSystem _openChestEffect;
     
     private readonly List<OllieChestRewardView> _rewardsViews = new();
 
@@ -21,11 +24,7 @@ public class OllieChestAnimation : MonoBehaviour
     private void OnDisable() => _openChestButton.onClick.RemoveListener(OpenChest);
 
     [Button]
-    public void ShowChest()
-    {
-        _animator.SetTrigger("Show");
-        SpawnViews();
-    }
+    public void ShowChest() => _animator.SetTrigger("Show");
 
     [Button]
     public void OpenChest()
@@ -37,6 +36,9 @@ public class OllieChestAnimation : MonoBehaviour
         seq.AppendCallback(ShowRewardViews);
     }
 
+    public void PlayEffect() => _getRewardEffect.Play();
+    public void PlayOpenChestEffect() => _openChestEffect.Play();
+
     private void ShowRewardViews()
     {
         StartCoroutine(OnStartMove());
@@ -44,29 +46,26 @@ public class OllieChestAnimation : MonoBehaviour
             
         IEnumerator OnStartMove()
         {
-            var waitTime = new WaitForSeconds(0.5f);
-                
-            for (var i = 0; i < _rewardsViews.Count; i++)
+            var waitTime = new WaitForSeconds(1f);
+            
+            foreach (var reward in _rewards)
             {
-                _rewardsViews[i].gameObject.SetActive(true);
+                _rewardView.Init(reward);
                 _animator.SetTrigger("Get");
-                    
+                
                 yield return waitTime;
-                    
-                _rewardsViews[i].gameObject.SetActive(false);
             }
             
             _animator.SetTrigger("Hide");
+            DestroyViews();
         }
     }
 
-    private void SpawnViews()
+    private void DestroyViews()
     {
-        foreach (var reward in _rewards)
+        foreach (var rewardView in _rewardsViews)
         {
-            var view = Instantiate(_rewardViewPrefab, _rewardViewRoot);
-            view.Init(reward);
-            _rewardsViews.Add(view);
+            Destroy(rewardView.gameObject);
         }
     }
 }
