@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using AssetKits.ParticleImage;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -14,8 +13,6 @@ public class OllieChestAnimation : MonoBehaviour
     [SerializeField] private OllieChestRewardView _rewardViewPrefab;
     [SerializeField] private Transform _rewardViewRoot;
     [Space] 
-    /*[SerializeField] private ParticleImage _openEffect;
-    [SerializeField] private ParticleImage _lightLineEffect;*/
     [SerializeField] private Animator _animator;
     
     private readonly List<OllieChestRewardView> _rewardsViews = new();
@@ -47,7 +44,7 @@ public class OllieChestAnimation : MonoBehaviour
             
         IEnumerator OnStartMove()
         {
-            var waitTime = new WaitForSeconds(1);
+            var waitTime = new WaitForSeconds(0.5f);
                 
             for (var i = 0; i < _rewardsViews.Count; i++)
             {
@@ -58,6 +55,8 @@ public class OllieChestAnimation : MonoBehaviour
                     
                 _rewardsViews[i].gameObject.SetActive(false);
             }
+            
+            _animator.SetTrigger("Hide");
         }
     }
 
