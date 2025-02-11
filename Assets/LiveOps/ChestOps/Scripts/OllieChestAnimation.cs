@@ -14,6 +14,7 @@ public class OllieChestAnimation : MonoBehaviour
     [SerializeField] private Transform _rewardViewRoot;
     [Space] 
     [SerializeField] private Animator _animator;
+    [SerializeField] private OllieChestAnimatorEvents _chestAnimatorEvents;
     [Space] 
     [SerializeField] private ParticleSystem _getRewardEffect;
     [SerializeField] private ParticleSystem _openChestEffect;
@@ -22,8 +23,19 @@ public class OllieChestAnimation : MonoBehaviour
     
     private readonly List<OllieChestRewardView> _rewardsViews = new();
 
-    private void OnEnable() => _openChestButton.onClick.AddListener(OpenChest);
-    private void OnDisable() => _openChestButton.onClick.RemoveListener(OpenChest);
+    private void OnEnable()
+    {
+        _openChestButton.onClick.AddListener(OpenChest);
+        _chestAnimatorEvents.OnPlayGetRewardEffect += PlayGetRewardEffect;
+        _chestAnimatorEvents.OpenChestEffect += PlayOpenChestEffect;
+    }
+
+    private void OnDisable()
+    {
+        _openChestButton.onClick.RemoveListener(OpenChest);
+        _chestAnimatorEvents.OnPlayGetRewardEffect += PlayGetRewardEffect;
+        _chestAnimatorEvents.OpenChestEffect += PlayOpenChestEffect;
+    }
 
     [Button]
     public void ShowChest()
@@ -42,8 +54,8 @@ public class OllieChestAnimation : MonoBehaviour
         seq.AppendCallback(ShowRewardViews);
     }
 
-    public void PlayEffect() => _getRewardEffect.Play();
-    public void PlayOpenChestEffect() => _openChestEffect.Play();
+    private void PlayGetRewardEffect() => _getRewardEffect.Play();
+    private void PlayOpenChestEffect() => _openChestEffect.Play();
 
     private void ShowRewardViews()
     {
