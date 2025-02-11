@@ -17,6 +17,8 @@ public class OllieChestAnimation : MonoBehaviour
     [Space] 
     [SerializeField] private ParticleSystem _getRewardEffect;
     [SerializeField] private ParticleSystem _openChestEffect;
+    [Space] 
+    [SerializeField] private float _delayBetweenGetReward;
     
     private readonly List<OllieChestRewardView> _rewardsViews = new();
 
@@ -50,7 +52,7 @@ public class OllieChestAnimation : MonoBehaviour
             
         IEnumerator OnStartMove()
         {
-            var waitTime = new WaitForSeconds(1f);
+            var waitTime = new WaitForSeconds(_delayBetweenGetReward);
             
             foreach (var reward in _rewards)
             {
