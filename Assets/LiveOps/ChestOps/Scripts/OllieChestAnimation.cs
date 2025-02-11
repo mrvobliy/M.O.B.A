@@ -24,7 +24,11 @@ public class OllieChestAnimation : MonoBehaviour
     private void OnDisable() => _openChestButton.onClick.RemoveListener(OpenChest);
 
     [Button]
-    public void ShowChest() => _animator.SetTrigger("Show");
+    public void ShowChest()
+    {
+        _animator.SetBool("Hide", false);
+        _animator.SetTrigger("Show");
+    }
 
     [Button]
     public void OpenChest()
@@ -56,7 +60,7 @@ public class OllieChestAnimation : MonoBehaviour
                 yield return waitTime;
             }
             
-            _animator.SetTrigger("Hide");
+            _animator.SetBool("Hide", true);
             DestroyViews();
         }
     }
