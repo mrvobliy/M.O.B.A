@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,22 +34,19 @@ public class OllieChestAnimation : MonoBehaviour
         _chestAnimatorEvents.OnPlayGetRewardEffect += PlayGetRewardEffect;
         _chestAnimatorEvents.OpenChestEffect += PlayOpenChestEffect;
     }
-
-    [Button]
-    public void ShowChest()
+    
+    [ContextMenu("ShowChest")]
+    private void ShowChest()
     {
         _animator.SetBool("Hide", false);
         _animator.SetTrigger("Show");
     }
 
-    [Button]
-    public void OpenChest()
+    [ContextMenu("OpenChest")]
+    private void OpenChest()
     {
-        var seq = DOTween.Sequence();
-
-        seq.AppendCallback(() => {_animator.SetTrigger("OpenChest");});
-        seq.AppendInterval(1);
-        seq.AppendCallback(ShowRewardViews);
+        _animator.SetTrigger("OpenChest");
+        Invoke(nameof(ShowRewardViews), 1);
     }
 
     private void PlayGetRewardEffect() => _getRewardEffect.Play();
