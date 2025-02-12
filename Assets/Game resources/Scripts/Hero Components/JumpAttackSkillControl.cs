@@ -24,6 +24,12 @@ public class JumpAttackSkillControl : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_entityData.IsAi)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        
         _skillButtonEvents.OnButtonDown += StartSkill;
         _skillButtonEvents.OnButtonUp += ReleaseSkill;
         _skillButtonEvents.OnButtonDrag += RotateIndicator;

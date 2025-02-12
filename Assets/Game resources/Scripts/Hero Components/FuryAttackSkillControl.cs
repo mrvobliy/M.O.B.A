@@ -10,7 +10,16 @@ public class FuryAttackSkillControl : MonoBehaviour
     [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _spawnPoint;
 
-    private void OnEnable() => _skillButtonEvents.OnButtonDown += ReleaseSkill;
+    private void OnEnable()
+    {
+        if (_entityData.IsAi)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        
+        _skillButtonEvents.OnButtonDown += ReleaseSkill;
+    }
 
     private void OnDisable() => _skillButtonEvents.OnButtonDown -= ReleaseSkill;
 
