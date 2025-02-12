@@ -7,15 +7,17 @@ public class HeroRestoreHealthControl : MonoBehaviour
     private const float DelayBetweenRestorePart = 0.7f;
     private const int ValueHealthRestore = 50;
     
-    [SerializeField] private EntityHealthControl _entityHealthControl;
+    [SerializeField] private EntityComponentsData _componentsData;
     [SerializeField] private ParticleSystem _healEffect;
 
+    public EntityComponentsData ComponentsData => _componentsData;
+    
     private Coroutine _onRestoringCoroutine;
     private Coroutine _onCancelRestoringCoroutine;
 
     public void StartRestoring()
     {
-        if (_entityHealthControl.IsDead) return; 
+        if (_componentsData.IsDead) return; 
         
         if (_onCancelRestoringCoroutine != null)
         {
@@ -43,10 +45,10 @@ public class HeroRestoreHealthControl : MonoBehaviour
 
         while (true)
         {
-            if (!_entityHealthControl.IsDead && _entityHealthControl.HealthPercent < 1)
+            if (!_componentsData.IsDead && _componentsData.EntityHealthControl.HealthPercent < 1)
             {
                 _healEffect.Play();
-                _entityHealthControl.TakeHeal(ValueHealthRestore);
+                _componentsData.EntityHealthControl.TakeHeal(ValueHealthRestore);
             }
             else
             {

@@ -7689,7 +7689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee745e5adc19f7e4bafe846773bdb63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityHealthControl: {fileID: 5664460024920780669}
+  _componentsData: {fileID: 1130375526236363497}
   _healEffect: {fileID: 1056130773327845981}
 --- !u!114 &8630032066588811587
 MonoBehaviour:
