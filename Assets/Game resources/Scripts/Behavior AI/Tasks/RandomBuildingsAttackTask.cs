@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RandomBuildingsAttackTask : Action
 {
-    [SerializeField] private HeroMoveControl _moveControl;
+    [SerializeField] private HeroAIMoveControl _aiMoveControl;
     [SerializeField] private EntityComponentsData _entityComponentsData;
 
     private EntityComponentsData _target;
@@ -19,7 +19,7 @@ public class RandomBuildingsAttackTask : Action
         if (_target == null || _target.EntityHealthControl.IsDead)
             UpdateTarget();
         
-        _moveControl.SetAiTarget(_target.transform.parent);
+        _aiMoveControl.SetAiTarget(_target.transform.parent);
         return TaskStatus.Running;
     }
 

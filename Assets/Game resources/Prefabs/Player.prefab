@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
   _animator: {fileID: 7636817541518315731}
+  _collider: {fileID: 2624562304399249796}
   _rotationParent: {fileID: 255139962209160463}
   _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
   _enemyAttackPoint: {fileID: 5154075146396690915}
@@ -7586,6 +7587,7 @@ GameObject:
   - component: {fileID: 1285207959303078298}
   - component: {fileID: 2624562304399249796}
   - component: {fileID: 1926493471116986950}
+  - component: {fileID: 7784587827108942741}
   - component: {fileID: 2787507737843861476}
   - component: {fileID: 8630032066588811587}
   m_Layer: 0
@@ -7649,7 +7651,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.15
   m_Height: 1.6315207
@@ -7662,7 +7664,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5165888202702643642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.15
   m_Speed: 2.7
@@ -7677,6 +7679,32 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!143 &7784587827108942741
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165888202702643642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Height: 1.73
+  m_Radius: 0.26
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.97, z: 0}
 --- !u!114 &2787507737843861476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8482,6 +8510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881328982802785812}
   - component: {fileID: 2321433180622057975}
+  - component: {fileID: 2195445834687722898}
   m_Layer: 0
   m_Name: HeroMoveControl
   m_TagString: Untagged
@@ -8520,10 +8549,26 @@ MonoBehaviour:
   _agent: {fileID: 1926493471116986950}
   _rotationSpeed: 1000
   _stunLayerIndex: 5
-  _blendAttackLayerDuration: 0.3
   _sampleScale: 0.5
   _sampleDistance: 0.4
   _destinationScale: 0.6
+--- !u!114 &2195445834687722898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098138298802693553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed311c468467ff6458d251a1a3fea33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityComponentsData: {fileID: 1130375526236363497}
+  _characterController: {fileID: 7784587827108942741}
+  _rotationRoot: {fileID: 255139962209160463}
+  _controllerMoveSpeed: 2.7
+  _controllerRotationSpeed: 10
 --- !u!1 &6159881109780369429
 GameObject:
   m_ObjectHideFlags: 0
@@ -15664,13 +15709,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5075101312926856600}
   - component: {fileID: 804049387196418422}
+  - component: {fileID: 9148525323921746936}
   m_Layer: 0
   m_Name: AIHeroControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5075101312926856600
 Transform:
   m_ObjectHideFlags: 0
@@ -15722,18 +15768,18 @@ MonoBehaviour:
         Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":1,"Single_necessaryValueHealth":50,"Boolean_isTrue":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(82.12752,120.277924)"},"ID":8,"Name":"Selector","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-474.1936,275.791534)"},"ID":9,"Name":"Hero
         Attack","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"HeroFoundCondition","NodeData":{"Offset":"(-102.202713,124.151726)","ColorIndex":7},"ID":10,"Name":"Hero
         Found Condition","Instant":true,"EntityAttackControl_entityAttackControl":2},{"Type":"HeroAttackTask","NodeData":{"Offset":"(76.30426,122.40667)","ColorIndex":5},"ID":11,"Name":"Hero
-        Attack Task","Instant":true,"HeroMoveControl_moveControl":3,"EntityAttackControl_entityAttackControl":4,"EntityComponentsData_entityComponentsData":5}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-77.27087,284.0771)"},"ID":12,"Name":"Creep
+        Attack Task","Instant":true,"HeroAIMoveControl_aiMoveControl":3,"EntityAttackControl_entityAttackControl":4,"EntityComponentsData_entityComponentsData":5}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-77.27087,284.0771)"},"ID":12,"Name":"Creep
         Attack","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"CreepsFoundCondition","NodeData":{"Offset":"(-90.94217,119.526855)","ColorIndex":7},"ID":13,"Name":"Creeps
         Found Condition","Instant":true,"EntityAttackControl_entityAttackControl":6},{"Type":"CreepsAttackTask","NodeData":{"Offset":"(78.20758,123.796265)","ColorIndex":5},"ID":14,"Name":"Creeps
-        Attack Task","Instant":true,"HeroMoveControl_moveControl":7,"EntityAttackControl_entityAttackControl":8,"EntityComponentsData_entityComponentsData":9}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(310,291.578918)"},"ID":15,"Name":"
+        Attack Task","Instant":true,"HeroAIMoveControl_aiMoveControl":7,"EntityAttackControl_entityAttackControl":8,"EntityComponentsData_entityComponentsData":9}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(310,291.578918)"},"ID":15,"Name":"
         Buildings Attack","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.SharedVariables.CompareSharedBool","NodeData":{"Offset":"(-107.770172,113.036911)","ColorIndex":8},"ID":16,"Name":"Is
         Start Game","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsStartGame","IsShared":true,"BooleanmValue":true},"SharedBoolcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"ConsistentlyBuildingsAttackTask","NodeData":{"Offset":"(76.66666,105.555534)","ColorIndex":5},"ID":17,"Name":"Consistently
-        Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":10,"EntityComponentsData_entityComponentsData":11}]},{"Type":"RandomBuildingsAttackTask","NodeData":{"Offset":"(625.2142,401.578918)","ColorIndex":5},"ID":18,"Name":"Random
-        Buildings Attack Task","Instant":true,"HeroMoveControl_moveControl":12,"EntityComponentsData_entityComponentsData":13}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(757.347046,170)"},"ID":19,"Name":"Restoring
+        Buildings Attack Task","Instant":true,"HeroAIMoveControl_aiMoveControl":10,"EntityComponentsData_entityComponentsData":11}]},{"Type":"RandomBuildingsAttackTask","NodeData":{"Offset":"(625.2142,401.578918)","ColorIndex":5},"ID":18,"Name":"Random
+        Buildings Attack Task","Instant":true,"HeroAIMoveControl_aiMoveControl":12,"EntityComponentsData_entityComponentsData":13}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(757.347046,170)"},"ID":19,"Name":"Restoring
         Health","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"NeedAmountHealthCondition","NodeData":{"Offset":"(-204.594543,119.795921)","ColorIndex":7},"ID":20,"Name":"Need
         Amount Health Condition","Instant":false,"EntityHealthControl_entityHealthControl":14,"Single_necessaryValueHealth":90,"Boolean_isTrue":true},{"Type":"ResetTargetBuildingTask","NodeData":{"Offset":"(9.615435,124.574516)","ColorIndex":6},"ID":21,"Name":"Reset
         Target Building Task","Instant":true,"EntityComponentsData_entityComponentsData":15},{"Type":"RestoringHealthTask","NodeData":{"Offset":"(187.871338,119.795921)","ColorIndex":5},"ID":22,"Name":"Restoring
-        Health Task","Instant":true,"HeroMoveControl_moveControl":16,"EntityComponentsData_entityComponentsData":17,"SharedBool_isNeedHeal":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false}}]}]},"DetachedTasks":[{"Type":"AcceptableHeroLevelCondition","NodeData":{"Offset":"(729.87146,666.065735)","ColorIndex":7},"ID":23,"Name":"Acceptable
+        Health Task","Instant":true,"HeroAIMoveControl_aiMoveControl":16,"EntityComponentsData_entityComponentsData":17,"SharedBool_isNeedHeal":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"NeedHeal","IsShared":true,"BooleanmValue":false}}]}]},"DetachedTasks":[{"Type":"AcceptableHeroLevelCondition","NodeData":{"Offset":"(729.87146,666.065735)","ColorIndex":7},"ID":23,"Name":"Acceptable
         Hero Level Condition","Instant":true},{"Type":"AcceptableHeroHealthCondition","NodeData":{"Offset":"(953.681,671.8594)","ColorIndex":7},"ID":24,"Name":"Acceptable
         Hero Health Condition","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1418.23413,676.400269)"},"ID":25,"Name":"Help
         Attack","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"WaitHelpAttackTask","NodeData":{"Offset":"(-3.45932961,122.463989)","ColorIndex":5},"ID":26,"Name":"Wait
@@ -15770,6 +15816,20 @@ MonoBehaviour:
       Version: 1.7.7
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!114 &9148525323921746936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730169541950128753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290f3d8611a6b494cb3c7f157c2da58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _behaviorTree: {fileID: 804049387196418422}
+  _componentsData: {fileID: 1130375526236363497}
 --- !u!1 &8893599638627802140
 GameObject:
   m_ObjectHideFlags: 0

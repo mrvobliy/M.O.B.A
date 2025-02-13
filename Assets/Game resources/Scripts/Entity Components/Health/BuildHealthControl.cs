@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class BuildHealthControl : EntityHealthControl
 {
-    [SerializeField] protected Collider _collider;
     [SerializeField] protected NavMeshObstacle _navMeshObstacle;
     [SerializeField] protected Healthbar _healthBarPrefab;
     [SerializeField] protected Rigidbody[] _rigidBodies;

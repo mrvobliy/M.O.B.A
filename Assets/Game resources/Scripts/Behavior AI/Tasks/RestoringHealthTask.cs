@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RestoringHealthTask : Action
 {
-    [SerializeField] private HeroMoveControl _moveControl;
+    [SerializeField] private HeroAIMoveControl _aiMoveControl;
     [SerializeField] private EntityComponentsData _entityComponentsData;
     [SerializeField] private SharedBool _isNeedHeal;
 
@@ -21,7 +21,7 @@ public class RestoringHealthTask : Action
         _isRunning = true;
         
         var target = HeroSpawnManger.Instance.GetPoint(_entityComponentsData.EntityTeam);
-        _moveControl.SetAiTarget(target);
+        _aiMoveControl.SetAiTarget(target);
         
         return TaskStatus.Running;
     }

@@ -13,10 +13,13 @@ public class HeroRespawnControl : MonoBehaviour
     {
         _entityComponentsData.EntityHealthControl.Animator.SetLayerWeight(6, 0);
         _entityComponentsData.EntityHealthControl.Animator.SetBool(AnimatorHash.IsDeath, false);
+        
         var team = _entityComponentsData.EntityTeam;
         transform.parent.position = HeroSpawnManger.Instance.GetPoint(team).position;
         _entityComponentsData.EntityHealthControl.RotationParent.rotation = HeroSpawnManger.Instance.GetPoint(team).rotation;
+        
         _heroHealthControl.Agent.enabled = true;
+        _heroHealthControl.Collider.enabled = true;
         _heroHealthControl.RestoreFullHeath();
         
         HeroSpawnManger.Instance.PlayEffect(team);

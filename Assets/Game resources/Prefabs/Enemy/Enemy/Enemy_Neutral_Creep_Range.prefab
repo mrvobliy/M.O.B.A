@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 4438794635946876287}
   _animator: {fileID: 6568869694730144861}
+  _collider: {fileID: 3862579142216064295}
   _rotationParent: {fileID: 2495650356001691007}
   _maxHealth: {fileID: 11400000, guid: 29dc83330896bc7408afa8cc9cc49d33, type: 2}
   _enemyAttackPoint: {fileID: 8569543976905406010}
@@ -1690,6 +1691,7 @@ MonoBehaviour:
   _isAi: 0
   _entityTeam: 0
   _entityType: 4
+  _towerTier: 0
   _entityHealthControl: {fileID: 2786903245384195067}
   _entityMoveControl: {fileID: 9107676180545794665}
   _entityAttackControl: {fileID: 6811503688550883513}

@@ -8,6 +8,7 @@ public class EntityHealthControl : MonoBehaviour
 {
     [SerializeField] private EntityComponentsData _componentsData;
     [SerializeField] protected Animator _animator;
+    [SerializeField] protected Collider _collider;
     [SerializeField] protected Transform _rotationParent;
     [SerializeField] protected IntVariable _maxHealth;
     [SerializeField] protected Transform _enemyAttackPoint;
@@ -24,6 +25,7 @@ public class EntityHealthControl : MonoBehaviour
     public Transform RotationParent => _rotationParent;
     public Transform EnemyAttackPoint => _enemyAttackPoint;
     public Animator Animator => _animator;
+    public Collider Collider => _collider;
     
     private const float DiveDuration = 1f;
     protected const float DiveDelay = 2.5f;
@@ -95,12 +97,18 @@ public class EntityHealthControl : MonoBehaviour
         {
             OnDeathEnd?.Invoke();
             
-            if (_needDestroyAfterDeath)
+            if (_needDestroyAfterDeath) 
                 Destroy(transform.parent.gameObject);
         }); 
     }
 
-    protected virtual void StartDeath() => OnDeathStart?.Invoke();
+    protected virtual void StartDeath()
+    {
+        OnDeathStart?.Invoke();
+        
+        if (_needDestroyAfterDeath) 
+            _collider.enabled = false;
+    }
 }
 
 public class Attackers

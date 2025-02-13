@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class ConsistentlyBuildingsAttackTask : Action
 {
-    [SerializeField] private HeroMoveControl _moveControl;
+    [SerializeField] private HeroAIMoveControl _aiMoveControl;
     [SerializeField] private EntityComponentsData _entityComponentsData;
     
     public override TaskStatus OnUpdate()
     {
         var target = BuildingsManager.Instance.GetNearestNotBusyBuild(_entityComponentsData).transform;
-        _moveControl.SetAiTarget(target.parent);
+        _aiMoveControl.SetAiTarget(target.parent);
         
         return TaskStatus.Running;
     }
