@@ -5,11 +5,17 @@ using UnityEngine.AI;
 public class CreepHealthControl : EntityHealthControl
 {
     [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] protected Healthbar _healthBarPrefab;
     
     private const float ReboundTime = 0.12f;
     private const float ReboundForce = 0.4f;
 
-    private void OnEnable() => OnEnemyAttackUs += RootRebound;
+    private void OnEnable()
+    {
+        OnEnemyAttackUs += RootRebound;
+        var healthBar = Instantiate(_healthBarPrefab, UserInterface.Instance.transform);
+        healthBar.Init(this);
+    }
 
     private void OnDisable() => OnEnemyAttackUs -= RootRebound;
 

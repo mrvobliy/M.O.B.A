@@ -1498,6 +1498,8 @@ MonoBehaviour:
   _needDestroyAfterDeath: 1
   _currentHealth: 0
   _agent: {fileID: 3862579142216064294}
+  _healthBarPrefab: {fileID: 3956543130547307561, guid: 595701ab0b933f74b95b2eaaae8eb8b7,
+    type: 3}
 --- !u!1 &5503840680276631589
 GameObject:
   m_ObjectHideFlags: 0

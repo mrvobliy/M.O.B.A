@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EntityHealthControl : MonoBehaviour
 {
-    [SerializeField] private EntityComponentsData _componentsData;
+    [SerializeField] protected EntityComponentsData _componentsData;
     [SerializeField] protected Animator _animator;
     [SerializeField] protected Collider _collider;
     [SerializeField] protected Transform _rotationParent;

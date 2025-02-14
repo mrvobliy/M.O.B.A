@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3956543130547307561}
   - component: {fileID: 1153465841704764808}
   m_Layer: 0
-  m_Name: HealthBar_Creep_Light
+  m_Name: HealthBar_Creep_Neutral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,6 @@ RectTransform:
   - {fileID: 7510753126852004239}
   - {fileID: 5676629022489054232}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -61,7 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df956fc49ec729a4a9eb0f198eed3c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 1.2, z: 0}
+  _barOffset: {x: 0, y: 1, z: 0}
+  _damageNumOffset: {x: 0, y: 0, z: 0}
   _canvasGroup: {fileID: 1153465841704764808}
   _heathLine: {fileID: 8206470600320355891}
   _endPosValue: 100
@@ -111,7 +111,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6703522935385972705}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -200,7 +199,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7510753126852004239}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -278,7 +276,6 @@ RectTransform:
   m_Children:
   - {fileID: 8206470600320355891}
   m_Father: {fileID: 6703522935385972705}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

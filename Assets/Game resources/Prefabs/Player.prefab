@@ -7701,7 +7701,7 @@ CharacterController:
   m_Height: 1.73
   m_Radius: 0.26
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.97, z: 0}
@@ -15977,7 +15977,7 @@ MonoBehaviour:
   _animationEvents: {fileID: 8543109490532608350}
   _detectionRadius: 5
   _attackDistance: 2
-  _maxAngleAttack: 30
+  _maxAngleAttack: 45
   _isCanAttackNeutrals: 1
   _isCanCallPlayerFound: 0
   _baseDamage: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3, type: 2}
