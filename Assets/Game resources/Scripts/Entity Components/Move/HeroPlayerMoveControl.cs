@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HeroPlayerMoveControl : MonoBehaviour
 {
-    [SerializeField] protected EntityComponentsData _entityComponentsData;
+    [SerializeField] protected EntityComponentsData _componentsData;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Transform _rotationRoot;
     
@@ -13,7 +13,7 @@ public class HeroPlayerMoveControl : MonoBehaviour
     private const float RotationSmoothTime = 0.1f;
     private const float BlendAttackLayerDuration = 0.3f;
 
-    private Animator Animator => _entityComponentsData.EntityHealthControl.Animator;
+    private Animator Animator => _componentsData.EntityHealthControl.Animator;
     
     private Vector3 _targetDirection;
     private Vector3 _gravityDirection;
@@ -22,13 +22,17 @@ public class HeroPlayerMoveControl : MonoBehaviour
 
     private void OnEnable()
     {
-         _characterController.enabled = !_entityComponentsData.IsAi;
-         _entityComponentsData.EntityHealthControl.Collider.enabled = _entityComponentsData.IsAi;
-         enabled = !_entityComponentsData.IsAi;
+         _characterController.enabled = !_componentsData.IsAi;
+         _componentsData.EntityHealthControl.Collider.enabled = _componentsData.IsAi;
+         enabled = !_componentsData.IsAi;
     }
 
     private void Update()
     {
+        if (!_componentsData.CanComponentsWork) return;
+        
+        if (_componentsData.IsDead) return;
+        
         Move();
         Rotate();
         ApplyGravity();

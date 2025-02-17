@@ -8564,7 +8564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed311c468467ff6458d251a1a3fea33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1130375526236363497}
+  _componentsData: {fileID: 1130375526236363497}
   _characterController: {fileID: 7784587827108942741}
   _rotationRoot: {fileID: 255139962209160463}
   _controllerMoveSpeed: 2.7
@@ -15301,7 +15301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 1130375526236363497}
-  _skillButtonEvents: {fileID: 0}
+  _doubleClickButton: {fileID: 0}
   _damagePrefab: {fileID: 8232501653393569014, guid: f5a35c70c02c58b42a74bc96c7589a0b,
     type: 3}
   _spawnPoint: {fileID: 3793571533149870070}
