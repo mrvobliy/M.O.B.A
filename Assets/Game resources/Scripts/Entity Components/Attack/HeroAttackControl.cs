@@ -23,6 +23,8 @@ public class HeroAttackControl : EntityAttackControl
         _animationEvents.OnAttackEnd -= OnAttackEnd;
     }
 
+    public void SetDamage(IntVariable damage) => _baseDamage = damage;
+
     protected override void TryStartAttack()
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;

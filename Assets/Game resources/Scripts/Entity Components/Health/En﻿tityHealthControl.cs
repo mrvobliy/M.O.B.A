@@ -48,6 +48,13 @@ public class EntityHealthControl : MonoBehaviour
         _currentHealth += value;
         OnHealthChanged?.Invoke();
     }
+    
+    public void SetHealth(IntVariable health)
+    {
+        _maxHealth = health;
+        _currentHealth = _maxHealth.Value;
+        OnHealthChanged?.Invoke();
+    }
 
     public void TakeDamage(EntityComponentsData attacker, int damage)
     {
