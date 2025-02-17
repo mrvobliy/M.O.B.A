@@ -63196,6 +63196,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4755096911049219900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1989280820425524479, guid: 159e5a1dca88f9d4690a00c7390d78a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4755096911049219897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a1620a33ce7ea4f9974dbde5ab052e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4755096911049219901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1581774697799405722, guid: 159e5a1dca88f9d4690a00c7390d78a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4755096911049219897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b99444acf80a419a4ad64f3670e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4797379527520957629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67682,9 +67706,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466300140374056066, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
+      propertyPath: _doubleClickButton
+      value: 
+      objectReference: {fileID: 4755096911049219901}
+    - target: {fileID: 2466300140374056066, guid: d5f30f9388357bf41b2a0150ad20ec63,
+        type: 3}
       propertyPath: _skillButtonEvents
       value: 
-      objectReference: {fileID: 1765998712}
+      objectReference: {fileID: 4755096911049219900}
     - target: {fileID: 2994883974051376790, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_Camera

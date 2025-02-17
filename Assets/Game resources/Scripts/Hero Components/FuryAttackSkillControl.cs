@@ -6,9 +6,11 @@ public class FuryAttackSkillControl : MonoBehaviour
     private const float BlendAttackLayerDuration = 0.3f;
     
     [SerializeField] private EntityComponentsData _entityData;
-    [SerializeField] private ButtonEvents _skillButtonEvents;
+    [SerializeField] private DoubleClickButton _doubleClickButton;
     [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _spawnPoint;
+
+    private bool _isSkillWork;
 
     private void OnEnable()
     {
@@ -18,10 +20,10 @@ public class FuryAttackSkillControl : MonoBehaviour
             return;
         }
         
-        _skillButtonEvents.OnButtonDown += ReleaseSkill;
+        _doubleClickButton.OnDoubleClick += ReleaseSkill;
     }
 
-    private void OnDisable() => _skillButtonEvents.OnButtonDown -= ReleaseSkill;
+    private void OnDisable() => _doubleClickButton.OnDoubleClick -= ReleaseSkill;
 
     private void ReleaseSkill()
     {
