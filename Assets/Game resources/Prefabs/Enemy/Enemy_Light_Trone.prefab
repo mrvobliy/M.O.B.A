@@ -15291,6 +15291,7 @@ GameObject:
   - component: {fileID: 6225474739505020790}
   - component: {fileID: 6225474739505020789}
   - component: {fileID: 172278240490527128}
+  - component: {fileID: 7363804222270989575}
   m_Layer: 0
   m_Name: Enemy_Light_Trone
   m_TagString: Untagged
@@ -15391,6 +15392,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7363804222270989575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6225474739505020744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14486e4358e2ff4085b680a669caecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentsData: {fileID: 7273906292503480908}
 --- !u!1 &6985032900231605983
 GameObject:
   m_ObjectHideFlags: 0

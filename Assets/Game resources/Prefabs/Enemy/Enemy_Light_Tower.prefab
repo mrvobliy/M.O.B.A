@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1309036163396089939}
   - component: {fileID: 1309036163396089948}
   - component: {fileID: 4398518581069514166}
+  - component: {fileID: 3068616290968316072}
   m_Layer: 0
   m_Name: Enemy_Light_Tower
   m_TagString: Untagged
@@ -117,6 +118,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3068616290968316072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309036163396091818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14486e4358e2ff4085b680a669caecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentsData: {fileID: 497375968530285350}
 --- !u!1 &1341865260954544653
 GameObject:
   m_ObjectHideFlags: 0

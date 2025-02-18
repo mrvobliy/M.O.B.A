@@ -35630,6 +35630,7 @@ GameObject:
   - component: {fileID: 5726835110859466722}
   - component: {fileID: 5726835110859466721}
   - component: {fileID: 8900810513310130986}
+  - component: {fileID: 1299186100189635976}
   m_Layer: 0
   m_Name: Enemy_Dark_Trone
   m_TagString: Untagged
@@ -35730,6 +35731,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210b95a2f0638446a111b2929ae04ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1299186100189635976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726835110859466719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14486e4358e2ff4085b680a669caecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentsData: {fileID: 1369331593684712215}
 --- !u!1 &6606834872616537007
 GameObject:
   m_ObjectHideFlags: 0
