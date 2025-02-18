@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6568869694730144861}
   - component: {fileID: 1043025123677206893}
   m_Layer: 0
-  m_Name: RotationParent
+  m_Name: RotationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,8 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b2f32b96a7e641bbedfeb015cc48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 4438794635946876287}
-  _agent: {fileID: 3862579142216064294}
+  _componentsData: {fileID: 4438794635946876287}
   _rotationSpeed: 400
   _stunLayerIndex: 2
 --- !u!1 &1115876658797140362
@@ -735,10 +734,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3862579142215631359}
-  - component: {fileID: 3862579142216064295}
   - component: {fileID: 3862579142216064294}
-  - component: {fileID: 3862579142216064293}
-  - component: {fileID: 8407504913156671353}
+  - component: {fileID: 3862579142216064295}
   m_Layer: 0
   m_Name: Enemy_Neutral_Creep_Range
   m_TagString: EmeraldAI
@@ -767,31 +764,10 @@ Transform:
   - {fileID: 7435359175329849840}
   - {fileID: 4490263902693158607}
   - {fileID: 3424084842446935967}
-  - {fileID: 8569543976905406010}
   - {fileID: 2495650356001691007}
+  - {fileID: 8569543976905406010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3862579142216064295
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3862579142216064479}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5353867, y: 4.044446, z: 1.0796965}
-  m_Center: {x: 0, y: 2.022223, z: 0}
 --- !u!195 &3862579142216064294
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -814,151 +790,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &3862579142216064293
-AudioSource:
+--- !u!65 &3862579142216064295
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862579142216064479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 50
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &8407504913156671353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3862579142216064479}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498bdb77bc4519548a40d5a26b50ecb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthbarPrefab: {fileID: 3956543130547307561, guid: 595701ab0b933f74b95b2eaaae8eb8b7,
-    type: 3}
-  _events: {fileID: 1043025123677206893}
-  _animator: {fileID: 6568869694730144861}
-  _team: 0
-  _maxHealth: {fileID: 11400000, guid: 29dc83330896bc7408afa8cc9cc49d33, type: 2}
-  _rotationParent: {fileID: 2495650356001691007}
-  _isOverrideDeath: 0
-  _useDive: 0
-  _diveDelay: 3
-  _diveDuration: 10
-  _diveDepth: 1
-  _enemyAttackPoint: {fileID: 0}
-  _dontCreateHealthBar: 0
-  _regeneration: 0
-  _safeSpots: []
-  _canRebound: 1
-  _entityHealthControl: {fileID: 0}
-  _useNewComponents: 0
-  _projectilePrefab: {fileID: 8383380591834786236, guid: 55876125a3fdf4946ac410dc8b1957dd,
-    type: 3}
-  _projectileOriginLeft: {fileID: 3355422206514266847}
-  _projectileOriginRight: {fileID: 1911163618373669850}
-  _projectileSpeed: 7
-  _attackAnimationAmount: 2
-  _attackDistance: 5
-  _detectionRadius: 5
-  _damage: {fileID: 11400000, guid: bf144274aadbc8c4ea3a714420a00f8b, type: 2}
-  _maxAngleAttack: 180
-  _isSequentialAttckAnim: 0
-  _spreadDamageAcrossAttackArea: 0
-  _isCanCallPlayerFound: 0
-  _isCanAttackNeutrals: 1
-  _stunLayerIndex: 2
-  _agent: {fileID: 3862579142216064294}
-  _rotationSpeed: 200
-  _passiveCooldown: 10
+  serializedVersion: 3
+  m_Size: {x: 1.5353867, y: 4.044446, z: 1.0796965}
+  m_Center: {x: 0, y: 2.022223, z: 0}
 --- !u!1 &4359988633920056964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,8 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c266ed7a2bf3f46bbaf3fa83739e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 4438794635946876287}
-  _animator: {fileID: 6568869694730144861}
+  _componentsData: {fileID: 4438794635946876287}
   _animationEvents: {fileID: 1043025123677206893}
   _detectionRadius: 5
   _attackDistance: 5
@@ -1490,14 +1341,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 4438794635946876287}
-  _animator: {fileID: 6568869694730144861}
-  _collider: {fileID: 3862579142216064295}
-  _rotationParent: {fileID: 2495650356001691007}
   _maxHealth: {fileID: 11400000, guid: 29dc83330896bc7408afa8cc9cc49d33, type: 2}
-  _enemyAttackPoint: {fileID: 8569543976905406010}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _agent: {fileID: 3862579142216064294}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 595701ab0b933f74b95b2eaaae8eb8b7,
     type: 3}
 --- !u!1 &5503840680276631589
@@ -1690,9 +1536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 0
   _entityType: 4
+  _isAi: 0
   _towerTier: 0
   _entityHealthControl: {fileID: 2786903245384195067}
   _entityMoveControl: {fileID: 9107676180545794665}
@@ -1700,6 +1546,13 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 9107676180545794665}
+  _collider: {fileID: 3862579142216064295}
+  _animator: {fileID: 6568869694730144861}
+  _navMeshAgent: {fileID: 3862579142216064294}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 0}
+  _rotationRoot: {fileID: 2495650356001691007}
+  _enemyAttackPoint: {fileID: 8569543976905406010}
 --- !u!1 &6644727140936723939
 GameObject:
   m_ObjectHideFlags: 0

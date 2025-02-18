@@ -36,7 +36,7 @@ public class FuryAttackSkillControl : MonoBehaviour
         {
             _entityData.Animator.SetTrigger(AnimatorHash.IsSecondSkill);
             _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
-            _entityData.SetWorkState(false);
+            _entityData.SetComponentsWorkState(false);
             
             yield return new WaitForSeconds(0.3f);
 			
@@ -48,7 +48,7 @@ public class FuryAttackSkillControl : MonoBehaviour
             yield return new WaitForSeconds(1f);
             
             _entityData.Animator.DOLayerWeight(5, 0f, BlendAttackLayerDuration);
-            _entityData.SetWorkState(true);
+            _entityData.SetComponentsWorkState(true);
         }
     }
 }

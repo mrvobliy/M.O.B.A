@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309036163396089949}
-  - component: {fileID: 1309036163396089948}
-  - component: {fileID: 1309036163396089939}
   - component: {fileID: 1416398055680106750}
+  - component: {fileID: 1309036163396089939}
+  - component: {fileID: 1309036163396089948}
   - component: {fileID: 4398518581069514166}
   m_Layer: 0
   m_Name: Enemy_Light_Tower
@@ -47,27 +47,22 @@ Transform:
   - {fileID: 5940943066236347342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1309036163396089948
-Animator:
-  serializedVersion: 5
+--- !u!208 &1416398055680106750
+NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309036163396091818}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfe417a9ee0b0a24284846c25055bbe1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.8, y: 2, z: 0.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!65 &1309036163396089939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89,22 +84,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 0.9, z: 0.9}
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!208 &1416398055680106750
-NavMeshObstacle:
+--- !u!95 &1309036163396089948
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309036163396091818}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.8, y: 2, z: 0.8}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfe417a9ee0b0a24284846c25055bbe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4398518581069514166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34745,14 +34745,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 497375968530285350}
-  _animator: {fileID: 1309036163396089948}
-  _rotationParent: {fileID: 0}
   _maxHealth: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}
-  _enemyAttackPoint: {fileID: 5931412949679431359}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _collider: {fileID: 1309036163396089939}
-  _navMeshObstacle: {fileID: 1416398055680106750}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 7b702276e3afcc54f98364168b3748b4,
     type: 3}
   _rigidBodies:
@@ -39714,8 +39709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba52a4565a92a944cb89c8bf25697793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 497375968530285350}
-  _animator: {fileID: 1309036163396089948}
+  _componentsData: {fileID: 497375968530285350}
   _animationEvents: {fileID: 4398518581069514166}
   _detectionRadius: 5
   _attackDistance: 5
@@ -39786,7 +39780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5797928315422577641}
   m_Layer: 0
-  m_Name: TowerModel
+  m_Name: RotationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40483,12 +40477,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 1
   _entityType: 5
+  _isAi: 0
+  _towerTier: 0
   _entityHealthControl: {fileID: 4913479362050628941}
   _entityMoveControl: {fileID: 0}
   _entityAttackControl: {fileID: 7309341254423540966}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 0}
+  _collider: {fileID: 1309036163396089939}
+  _animator: {fileID: 1309036163396089948}
+  _navMeshAgent: {fileID: 0}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 1416398055680106750}
+  _rotationRoot: {fileID: 5797928315422577641}
+  _enemyAttackPoint: {fileID: 1379963505771974258}

@@ -3,17 +3,12 @@ using UnityEngine;
 public class HeroPlayerMoveControl : MonoBehaviour
 {
     [SerializeField] protected EntityComponentsData _componentsData;
-    [SerializeField] private CharacterController _characterController;
-    [SerializeField] private Transform _rotationRoot;
-    
     [SerializeField] private float _controllerMoveSpeed = 5f;
     [SerializeField] private float _controllerRotationSpeed = 10f;
 
     private const float GravityForce = -9.81f;
     private const float RotationSmoothTime = 0.1f;
     private const float BlendAttackLayerDuration = 0.3f;
-
-    private Animator Animator => _componentsData.EntityHealthControl.Animator;
     
     private Vector3 _targetDirection;
     private Vector3 _gravityDirection;
@@ -22,8 +17,8 @@ public class HeroPlayerMoveControl : MonoBehaviour
 
     private void OnEnable()
     {
-         _characterController.enabled = !_componentsData.IsAi;
-         _componentsData.EntityHealthControl.Collider.enabled = _componentsData.IsAi;
+         _componentsData.CharacterController.enabled = !_componentsData.IsAi;
+         _componentsData.Collider.enabled = _componentsData.IsAi;
          enabled = !_componentsData.IsAi;
     }
 
@@ -49,7 +44,7 @@ public class HeroPlayerMoveControl : MonoBehaviour
         if (_targetDirection.magnitude <= 0.01f) 
             return;
         
-        _characterController.Move(_targetDirection.normalized * _controllerMoveSpeed * Time.deltaTime);
+        _componentsData.CharacterController.Move(_targetDirection.normalized * _controllerMoveSpeed * Time.deltaTime);
     }
 
     private void Rotate()
@@ -58,18 +53,18 @@ public class HeroPlayerMoveControl : MonoBehaviour
             return;
 
         var targetAngle = Mathf.Atan2(_targetDirection.x, _targetDirection.z) * Mathf.Rad2Deg;
-        var smoothAngle = Mathf.SmoothDampAngle(_rotationRoot.eulerAngles.y, targetAngle, ref _rotationSmoothVelocity, RotationSmoothTime);
-        _rotationRoot.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
+        var smoothAngle = Mathf.SmoothDampAngle(_componentsData.RotationRoot.eulerAngles.y, targetAngle, ref _rotationSmoothVelocity, RotationSmoothTime);
+        _componentsData.RotationRoot.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
     }
 
     private void ApplyGravity()
     {
-        if (_characterController.isGrounded)
+        if (_componentsData.CharacterController.isGrounded)
             _gravityDirection.y = -0.5f;
         else
             _gravityDirection.y += GravityForce * Time.deltaTime;
 
-        _characterController.Move(_gravityDirection * Time.deltaTime);
+        _componentsData.CharacterController.Move(_gravityDirection * Time.deltaTime);
     }
     
     private void SetAnimatorLayers()
@@ -79,24 +74,24 @@ public class HeroPlayerMoveControl : MonoBehaviour
             if (_blendAttack)
             {
                 _blendAttack = false;
-                Animator.DOLayerWeight(2, 0f, BlendAttackLayerDuration);
-                Animator.DOLayerWeight(3, 1f, BlendAttackLayerDuration);
+                _componentsData.Animator.DOLayerWeight(2, 0f, BlendAttackLayerDuration);
+                _componentsData.Animator.DOLayerWeight(3, 1f, BlendAttackLayerDuration);
             }
             
-            Animator.SetBool(AnimatorHash.IsRunning, false);
-            Animator.SetFloat(AnimatorHash.Speed, _controllerMoveSpeed);
+            _componentsData.Animator.SetBool(AnimatorHash.IsRunning, false);
+            _componentsData.Animator.SetFloat(AnimatorHash.Speed, _controllerMoveSpeed);
         }
         else
         {
             if (_blendAttack == false)
             {
                 _blendAttack = true;
-                Animator.DOLayerWeight(2, 1f, BlendAttackLayerDuration);
-                Animator.DOLayerWeight(3, 0f, BlendAttackLayerDuration);
+                _componentsData.Animator.DOLayerWeight(2, 1f, BlendAttackLayerDuration);
+                _componentsData.Animator.DOLayerWeight(3, 0f, BlendAttackLayerDuration);
             }
             
-            Animator.SetBool(AnimatorHash.IsRunning, true);
-            Animator.SetFloat(AnimatorHash.Speed, _controllerMoveSpeed);
+            _componentsData.Animator.SetBool(AnimatorHash.IsRunning, true);
+            _componentsData.Animator.SetFloat(AnimatorHash.Speed, _controllerMoveSpeed);
         }
     }
 }

@@ -35,7 +35,7 @@ public class RangeCreepAttackControl : EntityAttackControl
         if (_indexAttackAnim > 1)
             _indexAttackAnim = 0;
 		
-        _animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
+        _componentsData.Animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
     }
     
     private void FireProjectile()
@@ -47,7 +47,7 @@ public class RangeCreepAttackControl : EntityAttackControl
         var projectileOrigin = _indexAttackAnim == 1 ? _rightProjectileOrigin : _leftProjectileOrigin;
         var projectile = Instantiate(_projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
 
-        projectile.Init(_entityComponentsData, _damage.Value, closestEnemyInAttackArea, _projectileSpeed);
+        projectile.Init(_componentsData, _damage.Value, closestEnemyInAttackArea, _projectileSpeed);
     }
     
     private void OnAttackEnd() => _insideAttack = false;

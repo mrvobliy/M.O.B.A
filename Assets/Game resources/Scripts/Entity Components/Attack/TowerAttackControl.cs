@@ -29,7 +29,7 @@ public class TowerAttackControl : EntityAttackControl
         
         if (_insideAttack) return;
 
-        _animator.SetTrigger(AnimatorHash.Attack);
+        _componentsData.Animator.SetTrigger(AnimatorHash.Attack);
         _insideAttack = true;
     }
     
@@ -41,7 +41,7 @@ public class TowerAttackControl : EntityAttackControl
 
         var projectile = Instantiate(_projectilePrefab, _projectileOrigin.position, _projectileOrigin.rotation);
 
-        projectile.Init(_entityComponentsData, _damage.Value, closestEnemyInAttackArea, _projectileSpeed);
+        projectile.Init(_componentsData, _damage.Value, closestEnemyInAttackArea, _projectileSpeed);
     }
     
     private void OnAttackEnd() => _insideAttack = false;

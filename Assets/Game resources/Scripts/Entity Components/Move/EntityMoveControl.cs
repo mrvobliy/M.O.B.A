@@ -1,49 +1,43 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 public abstract class EntityMoveControl : MonoBehaviour
 {
-    [SerializeField] protected EntityComponentsData _entityComponentsData;
-    [SerializeField] protected NavMeshAgent _agent;
+    [SerializeField] protected EntityComponentsData _componentsData;
     [SerializeField] private float _rotationSpeed = 200f;
     [SerializeField] private int _stunLayerIndex = 2;
-
-    public NavMeshAgent Agent => _agent;
     
-    protected Animator Animator => _entityComponentsData.EntityHealthControl.Animator;
-    private bool IsDead => _entityComponentsData.EntityHealthControl.IsDead;
-    protected Transform RotationParent => _entityComponentsData.EntityHealthControl.RotationParent;
+    private bool IsDead => _componentsData.EntityHealthControl.IsDead;
     
-    public void SetRotation(Quaternion rotation) => RotationParent.rotation = rotation;
+    public void SetRotation(Quaternion rotation) => _componentsData.RotationRoot.rotation = rotation;
 
     protected virtual void Update()
     {
-        if (IsDead || !_entityComponentsData.CanComponentsWork) 
+        if (IsDead || !_componentsData.CanComponentsWork) 
             return;
 
-        var speed = _agent.velocity.magnitude;
+        var speed = _componentsData.NavMeshAgent.velocity.magnitude;
 
-        Animator.SetBool(AnimatorHash.IsRunning, speed > 0.01f);
-        Animator.SetFloat(AnimatorHash.Speed, speed);
+        _componentsData.Animator.SetBool(AnimatorHash.IsRunning, speed > 0.01f);
+        _componentsData.Animator.SetFloat(AnimatorHash.Speed, speed);
 
         var target = GetTarget();
-        _agent.SetDestination(target);
+        _componentsData.NavMeshAgent.SetDestination(target);
         var direction = target.SetY(0f) - transform.position.SetY(0f);
 
         if (direction.sqrMagnitude <= 0.01f)
             return;
         
-        var fromRotation =  RotationParent.rotation;
+        var fromRotation =  _componentsData.RotationRoot.rotation;
         var toRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
-        RotationParent.rotation = Quaternion.RotateTowards(fromRotation, toRotation, Time.deltaTime * _rotationSpeed);
+        _componentsData.RotationRoot.rotation = Quaternion.RotateTowards(fromRotation, toRotation, Time.deltaTime * _rotationSpeed);
     }
     
     protected abstract Vector3 GetTarget();
     
     public void TryStun(int percentChanceStun, float timeStun)
     {
-        if (IsDead || !_entityComponentsData.CanComponentsWork) 
+        if (IsDead || !_componentsData.CanComponentsWork) 
             return;
 		
         if (percentChanceStun < Random.Range(0, 101))
@@ -56,22 +50,22 @@ public abstract class EntityMoveControl : MonoBehaviour
     {
         var stunDelay = new WaitForSeconds(timeStun);
 		
-        _agent.ResetPath();
-        _entityComponentsData.SetWorkState(false);
-        Animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
-        Animator.SetBool(AnimatorHash.IsStun, true);
+        _componentsData.NavMeshAgent.ResetPath();
+        _componentsData.SetComponentsWorkState(false);
+        _componentsData.Animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
+        _componentsData.Animator.SetBool(AnimatorHash.IsStun, true);
 
         var effectPrefab = GameResourcesBase.Instance.StunEffect;
         GameObject stunEffect = null;
 		
         if (effectPrefab != null)
-            stunEffect = Instantiate(effectPrefab, RotationParent);
+            stunEffect = Instantiate(effectPrefab, _componentsData.RotationRoot);
 		
         yield return stunDelay;
 		
-        _entityComponentsData.SetWorkState(true);
-        Animator.SetBool(AnimatorHash.IsStun, false);
-        Animator.DOLayerWeight(_stunLayerIndex, 0f, 0.3f);
+        _componentsData.SetComponentsWorkState(true);
+        _componentsData.Animator.SetBool(AnimatorHash.IsStun, false);
+        _componentsData.Animator.DOLayerWeight(_stunLayerIndex, 0f, 0.3f);
         Destroy(stunEffect);
     }
 }

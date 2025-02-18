@@ -9,17 +9,17 @@ public class LaneCreepMoveControl : EntityMoveControl
     private int _pathIndex;
     
     private EntityComponentsData ClosestEnemyInVisibility =>
-        _entityComponentsData.EntityAttackControl.GetClosestEnemyInVisibilityArea();
+        _componentsData.EntityAttackControl.GetClosestEnemyInVisibilityArea();
     
     public void SetWaypoints(Transform[] waypoints) => _waypoints = waypoints;
     
     protected override Vector3 GetTarget()
     {
-        _agent.stoppingDistance = 0f;
+        _componentsData.NavMeshAgent.stoppingDistance = 0f;
 
         if (ClosestEnemyInVisibility != null)
         {
-            _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
+            _componentsData.NavMeshAgent.stoppingDistance = _componentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
             return ClosestEnemyInVisibility.transform.position;
         }
 

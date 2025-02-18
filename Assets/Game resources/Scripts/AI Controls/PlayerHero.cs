@@ -84,7 +84,7 @@ public class PlayerHero : Unit
 			yield return new WaitForSeconds(0.8f);
 
 			var skillDamage = Instantiate(jumpAttackSkillControl.FirstSkillDamagePrefab, jumpAttackSkillControl.FirstSkillSpawnPoint);
-			skillDamage.Init(_entityComponentsData);
+			skillDamage.Init(_componentsData);
 			skillDamage.gameObject.SetActive(true);
 			skillDamage.gameObject.transform.SetParent(null);
 			

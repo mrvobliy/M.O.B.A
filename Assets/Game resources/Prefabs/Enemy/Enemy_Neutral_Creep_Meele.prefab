@@ -159,8 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41e38c8af28ddc4fb8b48874087ce83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 4142793509548528587}
-  _animator: {fileID: 1434088289099069780}
+  _componentsData: {fileID: 4142793509548528587}
   _animationEvents: {fileID: 2181197747879455422}
   _detectionRadius: 5
   _attackDistance: 1
@@ -525,9 +524,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3491033238560658655}
-  - component: {fileID: 3491033238560658640}
   - component: {fileID: 3491033238560658643}
-  - component: {fileID: 3491033238560658642}
+  - component: {fileID: 3491033238560658640}
   m_Layer: 0
   m_Name: Enemy_Neutral_Creep_Meele
   m_TagString: EmeraldAI
@@ -556,31 +554,10 @@ Transform:
   - {fileID: 5582167943500083051}
   - {fileID: 5372006666608829313}
   - {fileID: 5394236954931207072}
-  - {fileID: 6371638586757100479}
   - {fileID: 2132567559666153443}
+  - {fileID: 6371638586757100479}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3491033238560658640
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.29326332, y: 0.7, z: 0.54274255}
-  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!195 &3491033238560658643
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -603,102 +580,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &3491033238560658642
-AudioSource:
+--- !u!65 &3491033238560658640
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3491033238560658664}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 1.9600334
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  serializedVersion: 3
+  m_Size: {x: 0.29326332, y: 0.7, z: 0.54274255}
+  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!1 &4012338401944825371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,9 +930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 0
   _entityType: 3
+  _isAi: 0
   _towerTier: 0
   _entityHealthControl: {fileID: 4168722939537088577}
   _entityMoveControl: {fileID: 725182060070640596}
@@ -1038,6 +940,13 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 725182060070640596}
+  _collider: {fileID: 3491033238560658640}
+  _animator: {fileID: 1434088289099069780}
+  _navMeshAgent: {fileID: 3491033238560658643}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 0}
+  _rotationRoot: {fileID: 2132567559666153443}
+  _enemyAttackPoint: {fileID: 6371638586757100479}
 --- !u!1 &6136723993530118239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,14 +992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 4142793509548528587}
-  _animator: {fileID: 1434088289099069780}
-  _collider: {fileID: 3491033238560658640}
-  _rotationParent: {fileID: 2132567559666153443}
   _maxHealth: {fileID: 11400000, guid: 2a5d46ec82de97f45924303c50c7f28b, type: 2}
-  _enemyAttackPoint: {fileID: 6371638586757100479}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _agent: {fileID: 3491033238560658643}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 595701ab0b933f74b95b2eaaae8eb8b7,
     type: 3}
 --- !u!1 &6287510382634996262
@@ -1317,8 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b2f32b96a7e641bbedfeb015cc48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 4142793509548528587}
-  _agent: {fileID: 3491033238560658643}
+  _componentsData: {fileID: 4142793509548528587}
   _rotationSpeed: 200
   _stunLayerIndex: 2
 --- !u!1 &8388397812744719001

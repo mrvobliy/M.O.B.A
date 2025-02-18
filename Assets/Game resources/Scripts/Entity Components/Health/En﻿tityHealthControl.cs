@@ -7,11 +7,7 @@ using UnityEngine;
 public class EntityHealthControl : MonoBehaviour
 {
     [SerializeField] protected EntityComponentsData _componentsData;
-    [SerializeField] protected Animator _animator;
-    [SerializeField] protected Collider _collider;
-    [SerializeField] protected Transform _rotationParent;
     [SerializeField] protected IntVariable _maxHealth;
-    [SerializeField] protected Transform _enemyAttackPoint;
     [SerializeField] private bool _needDestroyAfterDeath;
     [SerializeField] protected float _currentHealth;
     
@@ -22,10 +18,7 @@ public class EntityHealthControl : MonoBehaviour
     public event Action<EntityComponentsData, int> OnEnemyAttackUs;
     public bool IsDead => _isDead;
     public float HealthPercent => _currentHealth / _maxHealth.Value;
-    public Transform RotationParent => _rotationParent;
-    public Transform EnemyAttackPoint => _enemyAttackPoint;
-    public Animator Animator => _animator;
-    public Collider Collider => _collider;
+    
     
     private const float DiveDuration = 1f;
     protected const float DiveDelay = 2.5f;
@@ -114,7 +107,7 @@ public class EntityHealthControl : MonoBehaviour
         OnDeathStart?.Invoke();
         
         if (_needDestroyAfterDeath) 
-            _collider.enabled = false;
+            _componentsData.Collider.enabled = false;
     }
 }
 

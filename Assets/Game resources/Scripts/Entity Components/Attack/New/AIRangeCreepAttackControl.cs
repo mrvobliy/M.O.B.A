@@ -11,7 +11,7 @@ public class AIRangeCreepAttackControl : AICreepAttackControl
     
     public override void TryAttack(EntityComponentsData enemy, bool isSpecificTarget)
     {
-        if (_entityComponentsData.IsDead) return;
+        if (_componentsData.IsDead) return;
         
         base.TryAttack(enemy, isSpecificTarget);
         
@@ -23,7 +23,7 @@ public class AIRangeCreepAttackControl : AICreepAttackControl
         if (_indexAttackAnim > 1)
             _indexAttackAnim = 0;
 		
-        _animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
+        _componentsData.Animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
     }
 
     protected override void OnAttackAnimHit() => FireProjectile();
@@ -40,6 +40,6 @@ public class AIRangeCreepAttackControl : AICreepAttackControl
         var projectileOrigin = _indexAttackAnim == 1 ? _rightProjectileOrigin : _leftProjectileOrigin;
         var projectile = Instantiate(_projectilePrefab, projectileOrigin.position, projectileOrigin.rotation);
 
-        projectile.Init(_entityComponentsData, _baseDamage.Value, closestEnemy, _projectileSpeed);
+        projectile.Init(_componentsData, _baseDamage.Value, closestEnemy, _projectileSpeed);
     }
 }

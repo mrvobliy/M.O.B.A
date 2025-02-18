@@ -10,7 +10,7 @@ public class NeutralMeeleCreepAttackControl : MeeleCreepAttackControl
         
         if (_insideAttack) return;
 
-        _animator.SetTrigger(AnimatorHash.Attack);
+        _componentsData.Animator.SetTrigger(AnimatorHash.Attack);
         _insideAttack = true;
     }
 }

@@ -45,14 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 4532355190189914342}
-  _animator: {fileID: 5827867853637718321}
-  _rotationParent: {fileID: 0}
   _maxHealth: {fileID: 11400000, guid: 69e4cca152871b944bb39b7d7ac92ead, type: 2}
-  _enemyAttackPoint: {fileID: 670940163709564800}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _collider: {fileID: 5827867853637718334}
-  _navMeshObstacle: {fileID: 3711116078013738374}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 59f4d68744efa3b4284f3bfaf0e163a2,
     type: 3}
   _rigidBodies:
@@ -34717,15 +34712,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 2
   _entityType: 5
+  _isAi: 0
+  _towerTier: 0
   _entityHealthControl: {fileID: 789435608378821403}
   _entityMoveControl: {fileID: 0}
   _entityAttackControl: {fileID: 3700803018456754547}
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 0}
+  _collider: {fileID: 5827867853637718334}
+  _animator: {fileID: 5827867853637718321}
+  _navMeshAgent: {fileID: 0}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 3711116078013738374}
+  _rotationRoot: {fileID: 8417897100049419869}
+  _enemyAttackPoint: {fileID: 670940163709564800}
 --- !u!1 &5047532014094755851
 GameObject:
   m_ObjectHideFlags: 0
@@ -40255,8 +40258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba52a4565a92a944cb89c8bf25697793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 4532355190189914342}
-  _animator: {fileID: 5827867853637718321}
+  _componentsData: {fileID: 4532355190189914342}
   _animationEvents: {fileID: 3112315115077223815}
   _detectionRadius: 5
   _attackDistance: 5
@@ -40414,7 +40416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8417897100049419869}
   m_Layer: 0
-  m_Name: TowerModel
+  m_Name: RotationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

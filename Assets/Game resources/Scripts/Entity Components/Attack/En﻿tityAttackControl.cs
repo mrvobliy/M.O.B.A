@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class EntityAttackControl : MonoBehaviour
 {
-    [SerializeField] protected EntityComponentsData _entityComponentsData;
-    [SerializeField] protected Animator _animator;
+    [SerializeField] protected EntityComponentsData _componentsData;
     [SerializeField] protected AnimationEvents _animationEvents;
     [SerializeField] private float _detectionRadius = 5f;
     [SerializeField] protected float _attackDistance = 1f;
     [SerializeField] protected float _maxAngleAttack = 180f;
     [SerializeField] private bool _isCanAttackNeutrals = true;
 
-    private bool IsNeedShowBool => _entityComponentsData.EntityType == EntityType.Tower;
+    private bool IsNeedShowBool => _componentsData.EntityType == EntityType.Tower;
     [SerializeField, ShowIf(nameof(IsNeedShowBool))] private bool _isCanCallPlayerFound;
 
     public event Action OnPlayerFound;
@@ -22,8 +21,8 @@ public class EntityAttackControl : MonoBehaviour
     public List<EntityComponentsData> ClosestEnemyInVisibilityArea { get; private set; } = new();
     public List<EntityComponentsData> ClosestEnemyInAttackArea { get; private set; } = new();
 
-    private Vector3 Forward => _entityComponentsData.EntityHealthControl.RotationParent == null ?
-        transform.forward : _entityComponentsData.EntityHealthControl.RotationParent.forward;
+    private Vector3 Forward => _componentsData.RotationRoot == null ?
+        transform.forward : _componentsData.RotationRoot.forward;
 
     private bool _isPlayerFound;
     
@@ -33,9 +32,9 @@ public class EntityAttackControl : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (_entityComponentsData.EntityHealthControl.IsDead) return;
+        if (_componentsData.EntityHealthControl.IsDead) return;
 
-        if (!_entityComponentsData.CanComponentsWork) return;
+        if (!_componentsData.CanComponentsWork) return;
 
         FindClosestEnemiesInVisibilityArea();
         FindClosestEnemiesInAttackArea();
@@ -69,7 +68,7 @@ public class EntityAttackControl : MonoBehaviour
             if (foundTarget == null) 
                 continue;
 
-            if (foundTarget.EntityTeam == _entityComponentsData.EntityTeam) 
+            if (foundTarget.EntityTeam == _componentsData.EntityTeam) 
                 continue;
             
             if (foundTarget.EntityTeam == Team.Neutral && !_isCanAttackNeutrals) 

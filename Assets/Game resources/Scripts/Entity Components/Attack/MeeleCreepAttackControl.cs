@@ -24,7 +24,7 @@ public class MeeleCreepAttackControl : EntityAttackControl
         
         if (_insideAttack) return;
 
-        _animator.SetTrigger(AnimatorHash.Attack);
+        _componentsData.Animator.SetTrigger(AnimatorHash.Attack);
         _insideAttack = true;
     }
     
@@ -32,7 +32,7 @@ public class MeeleCreepAttackControl : EntityAttackControl
     {
         if (ClosestEnemyInAttackArea.Count <= 0) return;
         
-        ClosestEnemyInAttackArea[0].EntityHealthControl.TakeDamage(_entityComponentsData, _baseDamage.Value);
+        ClosestEnemyInAttackArea[0].EntityHealthControl.TakeDamage(_componentsData, _baseDamage.Value);
     }
     
     private void OnAttackEnd() => _insideAttack = false;

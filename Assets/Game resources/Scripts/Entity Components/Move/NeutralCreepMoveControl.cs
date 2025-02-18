@@ -10,7 +10,7 @@ public class NeutralCreepMoveControl : EntityMoveControl
     public bool IsAggressive { get; private set; } = true;
     
     private EntityComponentsData ClosestEnemyInVisibility =>
-        _entityComponentsData.EntityAttackControl.GetClosestEnemyInVisibilityArea();
+        _componentsData.EntityAttackControl.GetClosestEnemyInVisibilityArea();
     
     private Vector3 _spawnPosition;
     private float _currentPassiveCooldown;
@@ -31,17 +31,17 @@ public class NeutralCreepMoveControl : EntityMoveControl
         if (Mathf.Approximately(_currentPassiveCooldown, 0f))
         {
             IsAggressive = false;
-            _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance;
+            _componentsData.NavMeshAgent.stoppingDistance = _componentsData.EntityAttackControl.AttackDistance;
             return _spawnPosition;
         }
 
         if (IsAggressive && ClosestEnemyInVisibility != null)
         {
-            _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
+            _componentsData.NavMeshAgent.stoppingDistance = _componentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
             return ClosestEnemyInVisibility.transform.position;
         }
 
-        _agent.stoppingDistance = 0f;
+        _componentsData.NavMeshAgent.stoppingDistance = 0f;
         return _spawnPosition;
     }
 }

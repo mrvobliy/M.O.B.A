@@ -4991,14 +4991,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
-  _animator: {fileID: 7636817541518315731}
-  _collider: {fileID: 2624562304399249796}
-  _rotationParent: {fileID: 255139962209160463}
   _maxHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
-  _enemyAttackPoint: {fileID: 5154075146396690915}
   _needDestroyAfterDeath: 0
   _currentHealth: 0
-  _agent: {fileID: 1926493471116986950}
   _deathAnimLayer: 6
 --- !u!1 &645671607540273049
 GameObject:
@@ -7627,8 +7622,8 @@ Transform:
   - {fileID: 8097314099878701824}
   - {fileID: 6652894019710560479}
   - {fileID: 255139962209160463}
-  - {fileID: 8588520232633136530}
   - {fileID: 5154075146396690915}
+  - {fileID: 8588520232633136530}
   - {fileID: 629149074516110175}
   - {fileID: 4299440564634605312}
   - {fileID: 6483923554978557173}
@@ -8545,8 +8540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5440725e8a8aa944bd6018d4b3b1dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1130375526236363497}
-  _agent: {fileID: 1926493471116986950}
+  _componentsData: {fileID: 1130375526236363497}
   _rotationSpeed: 1000
   _stunLayerIndex: 5
   _sampleScale: 0.5
@@ -8565,8 +8559,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
-  _characterController: {fileID: 7784587827108942741}
-  _rotationRoot: {fileID: 255139962209160463}
   _controllerMoveSpeed: 2.7
   _controllerRotationSpeed: 10
 --- !u!1 &6159881109780369429
@@ -14613,7 +14605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1b643a891397942b03c84dbcbb9f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1130375526236363497}
+  _componentsData: {fileID: 1130375526236363497}
   _heroHealthControl: {fileID: 5664460024920780669}
 --- !u!1 &7397143844657310299
 GameObject:
@@ -14959,9 +14951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 1
   _entityType: 0
+  _isAi: 0
   _towerTier: 0
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
@@ -14969,10 +14961,13 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
-  _navMeshAgent: {fileID: 1926493471116986950}
   _collider: {fileID: 2624562304399249796}
   _animator: {fileID: 7636817541518315731}
+  _navMeshAgent: {fileID: 1926493471116986950}
   _characterController: {fileID: 7784587827108942741}
+  _navMeshObstacle: {fileID: 0}
+  _rotationRoot: {fileID: 255139962209160463}
+  _enemyAttackPoint: {fileID: 5154075146396690915}
 --- !u!1 &7818307216479657830
 GameObject:
   m_ObjectHideFlags: 0
@@ -15976,8 +15971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe57a9273a588b4984a444a2eaddeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1130375526236363497}
-  _animator: {fileID: 7636817541518315731}
+  _componentsData: {fileID: 1130375526236363497}
   _animationEvents: {fileID: 8543109490532608350}
   _detectionRadius: 5
   _attackDistance: 2

@@ -1,12 +1,8 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class HeroHealthControl : EntityHealthControl
 {
-    [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private int _deathAnimLayer;
-    
-    public NavMeshAgent Agent => _agent;
 
     public void RestoreFullHeath()
     {
@@ -18,8 +14,8 @@ public class HeroHealthControl : EntityHealthControl
     protected override void StartDeath()
     {
         base.StartDeath();
-        _agent.enabled = false;
-        _animator.SetLayerWeight(_deathAnimLayer, 1);
-        _animator.SetBool(AnimatorHash.IsDeath, true);
+        _componentsData.NavMeshAgent.enabled = false;
+        _componentsData.Animator.SetLayerWeight(_deathAnimLayer, 1);
+        _componentsData.Animator.SetBool(AnimatorHash.IsDeath, true);
     }
 }

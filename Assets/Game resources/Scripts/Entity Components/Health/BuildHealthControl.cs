@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BuildHealthControl : EntityHealthControl
 {
-    [SerializeField] protected NavMeshObstacle _navMeshObstacle;
     [SerializeField] protected Healthbar _healthBarPrefab;
     [SerializeField] protected Rigidbody[] _rigidBodies;
     [SerializeField] protected ParticleSystem _explosionEffect;
@@ -18,9 +16,9 @@ public class BuildHealthControl : EntityHealthControl
     protected override void StartDeath()
     {
         base.StartDeath();
-        _navMeshObstacle.enabled = false;
-        _animator.enabled = false;
-        _collider.enabled = false;
+        _componentsData.NavMeshObstacle.enabled = false;
+        _componentsData.Animator.enabled = false;
+        _componentsData.Collider.enabled = false;
 
         PlayDestroyAnimation();
     }

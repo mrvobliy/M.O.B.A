@@ -31,7 +31,7 @@ public class HeroAttackControl : EntityAttackControl
         
         if (_insideAttack) return;
 
-        _animator.SetBool(AnimatorHash.IsAttacking, true);
+        _componentsData.Animator.SetBool(AnimatorHash.IsAttacking, true);
         _insideAttack = true;
 
         _indexAttackAnim++;
@@ -39,7 +39,7 @@ public class HeroAttackControl : EntityAttackControl
         if (_indexAttackAnim >= 1)
             _indexAttackAnim = 0;
 		
-        _animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
+        _componentsData.Animator.SetTrigger(AnimatorHash.GetAttackHash(_indexAttackAnim));
     }
 
     private void OnAttackAnimHit()
@@ -48,7 +48,7 @@ public class HeroAttackControl : EntityAttackControl
         {
             if (enemy == null) continue;
             
-            enemy.EntityHealthControl.TakeDamage(_entityComponentsData, _baseDamage.Value);
+            enemy.EntityHealthControl.TakeDamage(_componentsData, _baseDamage.Value);
         }
 
         OnTargetsHit?.Invoke(ClosestEnemyInAttackArea);

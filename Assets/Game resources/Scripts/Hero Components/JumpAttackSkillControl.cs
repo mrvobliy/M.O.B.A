@@ -56,7 +56,7 @@ public class JumpAttackSkillControl : MonoBehaviour
 		
         _entityData.Animator.SetTrigger(AnimatorHash.IsFirstSkill);
         _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
-        _entityData.SetWorkState(false);
+        _entityData.SetComponentsWorkState(false);
         
         var toRotation = Quaternion.LookRotation(_destinationPoint.position - _entityData.RotationRoot.position, Vector3.up);
         _entityData.RotationRoot.DORotate(toRotation.eulerAngles, 0.2f);
@@ -80,7 +80,7 @@ public class JumpAttackSkillControl : MonoBehaviour
             
             _entityData.NavMeshAgent.speed = _startSpeed;
             _entityData.Animator.DOLayerWeight(4, 0f, BlendAttackLayerDuration);
-            _entityData.SetWorkState(true);
+            _entityData.SetComponentsWorkState(true);
         }
     }
 

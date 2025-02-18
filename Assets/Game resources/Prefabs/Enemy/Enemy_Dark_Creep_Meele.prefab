@@ -128,14 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1682388438339055433}
-  _animator: {fileID: 5084447566468007667}
-  _collider: {fileID: 3491033238560658640}
-  _rotationParent: {fileID: 182587009839807868}
   _maxHealth: {fileID: 11400000, guid: 2a5d46ec82de97f45924303c50c7f28b, type: 2}
-  _enemyAttackPoint: {fileID: 3723427629157358269}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _agent: {fileID: 3491033238560658643}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 70d48a813662a6743b2f57f6673af168,
     type: 3}
 --- !u!1 &422016677840343599
@@ -524,7 +519,6 @@ GameObject:
   - component: {fileID: 3491033238560658655}
   - component: {fileID: 3491033238560658640}
   - component: {fileID: 3491033238560658643}
-  - component: {fileID: 3491033238560658642}
   m_Layer: 0
   m_Name: Enemy_Dark_Creep_Meele
   m_TagString: Untagged
@@ -599,102 +593,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &3491033238560658642
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 1.9600334
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3622883634369580788
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,9 +674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 2
   _entityType: 1
+  _isAi: 0
   _towerTier: 0
   _entityHealthControl: {fileID: 5982540803753700759}
   _entityMoveControl: {fileID: 6927132251030316316}
@@ -786,6 +684,13 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 0}
+  _collider: {fileID: 3491033238560658640}
+  _animator: {fileID: 5084447566468007667}
+  _navMeshAgent: {fileID: 3491033238560658643}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 0}
+  _rotationRoot: {fileID: 182587009839807868}
+  _enemyAttackPoint: {fileID: 3723427629157358269}
 --- !u!1 &6607591339355881135
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,8 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5ef6200960a8c409f3d2a3349dd64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1682388438339055433}
-  _agent: {fileID: 3491033238560658643}
+  _componentsData: {fileID: 1682388438339055433}
   _rotationSpeed: 200
   _stunLayerIndex: 2
 --- !u!1 &7773228346937057049
@@ -1078,8 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5938c0a9cd51640b454c46b436d45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 1682388438339055433}
-  _animator: {fileID: 5084447566468007667}
+  _componentsData: {fileID: 1682388438339055433}
   _animationEvents: {fileID: 5209408215701000448}
   _detectionRadius: 5
   _attackDistance: 1.3
@@ -1130,7 +1033,7 @@ GameObject:
   - component: {fileID: 5084447566468007667}
   - component: {fileID: 5209408215701000448}
   m_Layer: 0
-  m_Name: RotationParent
+  m_Name: RotationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

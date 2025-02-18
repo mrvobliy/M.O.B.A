@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5ef6200960a8c409f3d2a3349dd64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 6985246204908198888}
-  _agent: {fileID: 3491033238560658643}
+  _componentsData: {fileID: 6985246204908198888}
   _rotationSpeed: 200
   _stunLayerIndex: 2
 --- !u!1 &255296515643697308
@@ -807,8 +806,6 @@ GameObject:
   - component: {fileID: 3491033238560658655}
   - component: {fileID: 3491033238560658640}
   - component: {fileID: 3491033238560658643}
-  - component: {fileID: 3491033238560658642}
-  - component: {fileID: 1571946839111460732}
   m_Layer: 0
   m_Name: Enemy_Light_Creep_Range
   m_TagString: Untagged
@@ -883,150 +880,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &3491033238560658642
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 1.9600334
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1571946839111460732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491033238560658664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9103d8f2e6eb94c41afc248dcf0bdb2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthbarPrefab: {fileID: 3956543130547307561, guid: 7a861da8a96036e48a14877caafa4a64,
-    type: 3}
-  _events: {fileID: 4823298596710259104}
-  _animator: {fileID: 1532351263783167576}
-  _team: 1
-  _maxHealth: {fileID: 11400000, guid: b621d92392f28214986d5b76855c00c4, type: 2}
-  _rotationParent: {fileID: 7499111621950471217}
-  _isOverrideDeath: 0
-  _useDive: 0
-  _diveDelay: 3
-  _diveDuration: 10
-  _diveDepth: 1
-  _enemyAttackPoint: {fileID: 0}
-  _dontCreateHealthBar: 0
-  _regeneration: 0
-  _safeSpots: []
-  _canRebound: 1
-  _entityHealthControl: {fileID: 0}
-  _useNewComponents: 0
-  _projectilePrefab: {fileID: 8383380591834786236, guid: f25a3d3fa9e49ce46acc295282172de7,
-    type: 3}
-  _projectileOriginLeft: {fileID: 4974356294445343621}
-  _projectileOriginRight: {fileID: 261126858275577794}
-  _projectileSpeed: 7
-  _attackAnimationAmount: 2
-  _attackDistance: 5
-  _detectionRadius: 5
-  _damage: {fileID: 11400000, guid: 34efbeabf260aa74a9ae7c298897da19, type: 2}
-  _maxAngleAttack: 180
-  _isSequentialAttckAnim: 0
-  _spreadDamageAcrossAttackArea: 0
-  _isCanCallPlayerFound: 0
-  _isCanAttackNeutrals: 1
-  _stunLayerIndex: 2
-  _agent: {fileID: 3491033238560658643}
-  _rotationSpeed: 200
 --- !u!1 &3874274976327543881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,8 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319fae7083339fd4ca23797896245448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityComponentsData: {fileID: 6985246204908198888}
-  _animator: {fileID: 1532351263783167576}
+  _componentsData: {fileID: 6985246204908198888}
   _animationEvents: {fileID: 4823298596710259104}
   _detectionRadius: 5
   _attackDistance: 4
@@ -1301,9 +1153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31abcd7341cae8d4cb0033aad9409f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAi: 0
   _entityTeam: 1
   _entityType: 2
+  _isAi: 0
   _towerTier: 0
   _entityHealthControl: {fileID: 6543378583137973606}
   _entityMoveControl: {fileID: 1132650976651733452}
@@ -1311,6 +1163,13 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 0}
   _heroExperienceControl: {fileID: 0}
   _creepMoveControl: {fileID: 0}
+  _collider: {fileID: 3491033238560658640}
+  _animator: {fileID: 1532351263783167576}
+  _navMeshAgent: {fileID: 3491033238560658643}
+  _characterController: {fileID: 0}
+  _navMeshObstacle: {fileID: 0}
+  _rotationRoot: {fileID: 7499111621950471217}
+  _enemyAttackPoint: {fileID: 8476910983690606305}
 --- !u!1 &4891031439611167262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,14 +1508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 6985246204908198888}
-  _animator: {fileID: 1532351263783167576}
-  _collider: {fileID: 3491033238560658640}
-  _rotationParent: {fileID: 7499111621950471217}
   _maxHealth: {fileID: 11400000, guid: b621d92392f28214986d5b76855c00c4, type: 2}
-  _enemyAttackPoint: {fileID: 8476910983690606305}
   _needDestroyAfterDeath: 1
   _currentHealth: 0
-  _agent: {fileID: 3491033238560658643}
   _healthBarPrefab: {fileID: 3956543130547307561, guid: 7a861da8a96036e48a14877caafa4a64,
     type: 3}
 --- !u!1 &7363005716180428889
@@ -1871,7 +1725,7 @@ GameObject:
   - component: {fileID: 1532351263783167576}
   - component: {fileID: 4823298596710259104}
   m_Layer: 0
-  m_Name: RotationParent
+  m_Name: RotationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

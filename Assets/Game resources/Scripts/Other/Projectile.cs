@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
 		_damage = damage;
 		_speed = speed;
 		_target = target;
-		_followPoint = _target.EntityHealthControl.EnemyAttackPoint;
+		_followPoint = _target.EnemyAttackPoint;
 	}
 
 	private void Update()

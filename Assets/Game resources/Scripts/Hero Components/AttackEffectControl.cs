@@ -33,7 +33,7 @@ public class AttackEffectControl : MonoBehaviour
         foreach (var enemy in enemies)
         {
             var index = Random.Range(0, _hitEnemyEffects.Count);
-            Instantiate(_hitEnemyEffects[index], enemy.EntityHealthControl.EnemyAttackPoint.position, Quaternion.identity);
+            Instantiate(_hitEnemyEffects[index], enemy.EnemyAttackPoint.position, Quaternion.identity);
         }
     }
 }

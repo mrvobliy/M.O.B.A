@@ -14,20 +14,20 @@ public class HeroAIMoveControl : EntityMoveControl
     
     private void OnEnable()
     {
-        Agent.enabled = _entityComponentsData.IsAi;
-        enabled = _entityComponentsData.IsAi;
+        _componentsData.NavMeshAgent.enabled = _componentsData.IsAi;
+        enabled = _componentsData.IsAi;
     }
     
     protected override Vector3 GetTarget()
     {
         SetAnimatorLayers();
         
-        _agent.stoppingDistance = 0f;
+        _componentsData.NavMeshAgent.stoppingDistance = 0f;
 
         if (_target == null) 
             return transform.position;
         
-        _agent.stoppingDistance = _entityComponentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
+        _componentsData.NavMeshAgent.stoppingDistance = _componentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
         return _target.position;
     }
 
@@ -35,21 +35,21 @@ public class HeroAIMoveControl : EntityMoveControl
 
     private void SetAnimatorLayers()
     {
-        if (_agent.velocity.magnitude < 0.1f)
+        if (_componentsData.NavMeshAgent.velocity.magnitude < 0.1f)
         {
             if (!_blendAttack) return;
             
             _blendAttack = false;
-            Animator.DOLayerWeight(2, 0f, BlendAttackLayerDuration);
-            Animator.DOLayerWeight(3, 1f, BlendAttackLayerDuration);
+            _componentsData.Animator.DOLayerWeight(2, 0f, BlendAttackLayerDuration);
+            _componentsData.Animator.DOLayerWeight(3, 1f, BlendAttackLayerDuration);
         }
         else
         {
             if (_blendAttack) return;
             
             _blendAttack = true;
-            Animator.DOLayerWeight(2, 1f, BlendAttackLayerDuration);
-            Animator.DOLayerWeight(3, 0f, BlendAttackLayerDuration);
+            _componentsData.Animator.DOLayerWeight(2, 1f, BlendAttackLayerDuration);
+            _componentsData.Animator.DOLayerWeight(3, 0f, BlendAttackLayerDuration);
         }
     }
 }

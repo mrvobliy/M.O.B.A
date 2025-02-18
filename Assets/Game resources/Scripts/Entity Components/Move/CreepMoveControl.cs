@@ -17,7 +17,8 @@ public class CreepMoveControl : EntityMoveControl
             return transform.position;
         } 
         
-        _agent.stoppingDistance = !_isNeedStoppingDistance ? 0 : _entityComponentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
+        _componentsData.NavMeshAgent.stoppingDistance = !_isNeedStoppingDistance ? 0 : 
+            _componentsData.EntityAttackControl.AttackDistance / OffsetStoppingDistance;
         return _target.position;
     }
     
