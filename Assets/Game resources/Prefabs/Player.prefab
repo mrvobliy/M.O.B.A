@@ -14969,6 +14969,10 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
+  _navMeshAgent: {fileID: 1926493471116986950}
+  _collider: {fileID: 2624562304399249796}
+  _animator: {fileID: 7636817541518315731}
+  _characterController: {fileID: 7784587827108942741}
 --- !u!1 &7818307216479657830
 GameObject:
   m_ObjectHideFlags: 0

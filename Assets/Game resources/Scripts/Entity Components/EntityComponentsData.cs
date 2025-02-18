@@ -4,13 +4,17 @@ using UnityEngine.AI;
 
 public class EntityComponentsData : MonoBehaviour
 {
+    [Title("Controls")]
+    
     [SerializeField, ShowIf(nameof(IsNeedShowGoldExpoParam))] private bool _isAi;
+    
     [SerializeField] private Team _entityTeam;
     [SerializeField] private EntityType _entityType;
     
     private bool IsNeedShowTowerTier => _entityType is EntityType.Tower;
     [SerializeField, ShowIf(nameof(IsNeedShowTowerTier))] private TowerTier _towerTier;
     
+    [Title("Controls")]
     [SerializeField] private EntityHealthControl _entityHealthControl;
     
     private bool IsNeedShowEntityMoveControl => _entityType is EntityType.Tower;
@@ -25,10 +29,20 @@ public class EntityComponentsData : MonoBehaviour
     
     private bool IsNeedShowCreepMoveControl => _entityType is EntityType.NeutralMelee or EntityType.NeutralRange;
     [SerializeField, ShowIf(nameof(IsNeedShowCreepMoveControl))] private CreepMoveControl _creepMoveControl;
+    
+    
+    [Title("Components")]
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+    [SerializeField] private Collider _collider;
+    [SerializeField] private Animator _animator;
+    
+    private bool IsNeedCharacterController => _entityType == EntityType.Hero;
+    [SerializeField, ShowIf(nameof(IsNeedCharacterController))] private CharacterController _characterController;
 
-    public NavMeshAgent NavMeshAgent => _entityMoveControl.Agent;
+    
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
     public Transform RotationRoot => _entityHealthControl.RotationParent;
-    public Animator Animator => _entityHealthControl.Animator;
+    public Animator Animator => _animator;
     public Team EntityTeam => _entityTeam;
     public TowerTier TowerTier => _towerTier;
     public EntityType EntityType => _entityType;
@@ -43,36 +57,4 @@ public class EntityComponentsData : MonoBehaviour
     public bool IsDead => _entityHealthControl.IsDead;
 
     public void SetWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
-
-    private void OnValidate()
-    {
-        TrySetEntityAttackControl();
-        TrySetEntityMoveControl();
-    }
-    
-    private void TrySetEntityMoveControl()
-    {
-        if (_entityMoveControl != null) 
-            return;
-        
-        var component = transform.parent.GetComponentInChildren<EntityMoveControl>();
-        
-        if (component == null) 
-            return;
-
-        _entityMoveControl = component;
-    }
-
-    private void TrySetEntityAttackControl()
-    {
-        if (_entityAttackControl != null || !IsNeedShowAttackControl) 
-            return;
-        
-        var component = transform.parent.GetComponentInChildren<EntityAttackControl>();
-        
-        if (component == null) 
-            return;
-
-        _entityAttackControl = component;
-    }
 }
