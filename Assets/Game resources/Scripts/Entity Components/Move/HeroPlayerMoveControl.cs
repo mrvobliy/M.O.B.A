@@ -15,12 +15,7 @@ public class HeroPlayerMoveControl : MonoBehaviour
     private float _rotationSmoothVelocity;
     private bool _blendAttack;
 
-    private void OnEnable()
-    {
-         _componentsData.CharacterController.enabled = !_componentsData.IsAi;
-         _componentsData.Collider.enabled = _componentsData.IsAi;
-         enabled = !_componentsData.IsAi;
-    }
+    private void OnEnable() => enabled = !_componentsData.IsAi;
 
     private void Update()
     {

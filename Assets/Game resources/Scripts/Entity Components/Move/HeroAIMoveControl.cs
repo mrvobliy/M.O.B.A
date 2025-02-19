@@ -14,10 +14,12 @@ public class HeroAIMoveControl : EntityMoveControl
     
     private void OnEnable()
     {
-        _componentsData.NavMeshAgent.enabled = _componentsData.IsAi;
+        if (_componentsData.IsAi) 
+            _componentsData.NavMeshAgent.enabled = true;
+        
         enabled = _componentsData.IsAi;
     }
-    
+
     protected override Vector3 GetTarget()
     {
         SetAnimatorLayers();

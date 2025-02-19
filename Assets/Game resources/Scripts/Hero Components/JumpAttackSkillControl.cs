@@ -7,7 +7,7 @@ public class JumpAttackSkillControl : MonoBehaviour
 {
     private const float BlendAttackLayerDuration = 0.3f;
     
-    [SerializeField] private EntityComponentsData _entityData;
+    [SerializeField] private EntityComponentsData _componentsData;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
     [SerializeField] private DecalProjector _indicator;
@@ -17,6 +17,9 @@ public class JumpAttackSkillControl : MonoBehaviour
     [SerializeField] private Transform _destinationPoint;
     [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _skillSpawnPoint;
+    [Space] 
+    [SerializeField] private float _speedMove;
+    [SerializeField] private float _timeMove;
     
     private Vector3 _previousToMouseDir;
     private Coroutine _fadeCoroutine;
@@ -24,7 +27,7 @@ public class JumpAttackSkillControl : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_entityData.IsAi)
+        if (_componentsData.IsAi)
         {
             gameObject.SetActive(false);
             return;
@@ -52,35 +55,40 @@ public class JumpAttackSkillControl : MonoBehaviour
     {
         StartFade(0.0f);
         
-        if (!_entityData.CanComponentsWork || _entityData.IsDead) return;
+        if (!_componentsData.CanComponentsWork || _componentsData.IsDead) return;
 		
-        _entityData.Animator.SetTrigger(AnimatorHash.IsFirstSkill);
-        _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
-        _entityData.SetComponentsWorkState(false);
+        _componentsData.Animator.SetTrigger(AnimatorHash.IsFirstSkill);
+        _componentsData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
+        _componentsData.SetComponentsWorkState(false);
         
-        var toRotation = Quaternion.LookRotation(_destinationPoint.position - _entityData.RotationRoot.position, Vector3.up);
-        _entityData.RotationRoot.DORotate(toRotation.eulerAngles, 0.2f);
+        var toRotation = Quaternion.LookRotation(_destinationPoint.position - _componentsData.RotationRoot.position, Vector3.up);
+        _componentsData.RotationRoot.DORotate(toRotation.eulerAngles, 0.2f);
 
         StartCoroutine(OnActivate());
 		
         IEnumerator OnActivate()
         {
-            _startSpeed = _entityData.NavMeshAgent.speed;
-            _entityData.NavMeshAgent.speed = 4;
-            _entityData.NavMeshAgent.SetDestination(_destinationPoint.position);
-			
-            yield return new WaitForSeconds(0.8f);
+            var currentTime = 0.0f;
+            var wait = new WaitForEndOfFrame();
+            var targetDirection = _destinationPoint.position - transform.parent.position;
+
+            while (currentTime < _timeMove)
+            {
+                _componentsData.CharacterController.Move(targetDirection.normalized * _speedMove * Time.deltaTime);
+                currentTime += Time.deltaTime;
+                
+                yield return wait;
+            }
 
             var skillDamage = Instantiate(_damagePrefab, _skillSpawnPoint);
-            skillDamage.Init(_entityData);
+            skillDamage.Init(_componentsData);
             skillDamage.gameObject.SetActive(true);
             skillDamage.gameObject.transform.SetParent(null);
 			
             yield return new WaitForSeconds(2);
             
-            _entityData.NavMeshAgent.speed = _startSpeed;
-            _entityData.Animator.DOLayerWeight(4, 0f, BlendAttackLayerDuration);
-            _entityData.SetComponentsWorkState(true);
+            _componentsData.Animator.DOLayerWeight(4, 0f, BlendAttackLayerDuration);
+            _componentsData.SetComponentsWorkState(true);
         }
     }
 

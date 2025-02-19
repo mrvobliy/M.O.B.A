@@ -7580,7 +7580,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1285207959303078298}
-  - component: {fileID: 2624562304399249796}
   - component: {fileID: 1926493471116986950}
   - component: {fileID: 7784587827108942741}
   - component: {fileID: 2787507737843861476}
@@ -7629,29 +7628,6 @@ Transform:
   - {fileID: 6483923554978557173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 43.962, z: 0}
---- !u!136 &2624562304399249796
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5165888202702643642}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Height: 1.6315207
-  m_Direction: 1
-  m_Center: {x: 0.0035085082, y: 0.7929094, z: 0}
 --- !u!195 &1926493471116986950
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7691,7 +7667,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.73
   m_Radius: 0.26
@@ -8637,7 +8613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9c69ae3af6b214c99ebc3e7a1d9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityData: {fileID: 1130375526236363497}
+  _componentsData: {fileID: 1130375526236363497}
   _skillButton: {fileID: 0}
   _skillButtonEvents: {fileID: 0}
   _indicator: {fileID: 229954739746489668}
@@ -8647,6 +8623,8 @@ MonoBehaviour:
   _damagePrefab: {fileID: 8232501653393569014, guid: e687ccc7ef17aa0439137c2bb25a8df2,
     type: 3}
   _skillSpawnPoint: {fileID: 6486290276455329823}
+  _speedMove: 3
+  _timeMove: 0.8
 --- !u!1 &6170576126639115483
 GameObject:
   m_ObjectHideFlags: 0
@@ -14961,7 +14939,7 @@ MonoBehaviour:
   _heroGoldControl: {fileID: 1647054252470907128}
   _heroExperienceControl: {fileID: 5257019475679157282}
   _creepMoveControl: {fileID: 0}
-  _collider: {fileID: 2624562304399249796}
+  _collider: {fileID: 7784587827108942741}
   _animator: {fileID: 7636817541518315731}
   _navMeshAgent: {fileID: 1926493471116986950}
   _characterController: {fileID: 7784587827108942741}

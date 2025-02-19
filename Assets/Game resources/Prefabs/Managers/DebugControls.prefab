@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f620c7898ea09544a8f65dda31590de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &8567859756096390812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,3 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc306639e9160d42bb8ce80f0e82cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackControl: {fileID: 0}
+  _normalDamage: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3, type: 2}
+  _extraDamage: {fileID: 11400000, guid: 40eb11a1ac1de824281b75b30184e812, type: 2}
+  _text1: {fileID: 0}
+  _image1: {fileID: 0}
+  _healthControl: {fileID: 0}
+  _normalHealth: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da, type: 2}
+  _extraHealth: {fileID: 11400000, guid: 56c4ebf2772796f428b9a40723e4b4ef, type: 2}
+  _text2: {fileID: 0}
+  _image2: {fileID: 0}

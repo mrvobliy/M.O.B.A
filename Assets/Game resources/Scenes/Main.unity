@@ -72308,18 +72308,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4383245728189947050, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
-        type: 3}
-      propertyPath: _entityesCostData
-      value: 
-      objectReference: {fileID: 11400000, guid: 12014e37ac34f7a4ebc318a03a400c39,
-        type: 2}
-    - target: {fileID: 4383245728189947050, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
-        type: 3}
-      propertyPath: _entitiesCostExperienceData
-      value: 
-      objectReference: {fileID: 11400000, guid: 12014e37ac34f7a4ebc318a03a400c39,
-        type: 2}
     - target: {fileID: 8444900743617886652, guid: 15ceb2f758ca2a24e8518598f41eaf1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72468,30 +72456,6 @@ PrefabInstance:
       propertyPath: _image2
       value: 
       objectReference: {fileID: 1483681486}
-    - target: {fileID: 8567859756096390812, guid: 7281c918943f08543bc30cb9b23b3c4f,
-        type: 3}
-      propertyPath: _extraDamage
-      value: 
-      objectReference: {fileID: 11400000, guid: 40eb11a1ac1de824281b75b30184e812,
-        type: 2}
-    - target: {fileID: 8567859756096390812, guid: 7281c918943f08543bc30cb9b23b3c4f,
-        type: 3}
-      propertyPath: _extraHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: 56c4ebf2772796f428b9a40723e4b4ef,
-        type: 2}
-    - target: {fileID: 8567859756096390812, guid: 7281c918943f08543bc30cb9b23b3c4f,
-        type: 3}
-      propertyPath: _normalDamage
-      value: 
-      objectReference: {fileID: 11400000, guid: 7fb935d249925bf4ca6a34dd2eda74e3,
-        type: 2}
-    - target: {fileID: 8567859756096390812, guid: 7281c918943f08543bc30cb9b23b3c4f,
-        type: 3}
-      propertyPath: _normalHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: 6efaf154ea37f1b47a8bed14b32438da,
-        type: 2}
     - target: {fileID: 8567859756096390812, guid: 7281c918943f08543bc30cb9b23b3c4f,
         type: 3}
       propertyPath: _attackControl
@@ -76765,6 +76729,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 176480108}
+    - target: {fileID: 1130375526236363497, guid: d5f30f9388357bf41b2a0150ad20ec63,
+        type: 3}
+      propertyPath: _isAi
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1285207959303078298, guid: d5f30f9388357bf41b2a0150ad20ec63,
         type: 3}
       propertyPath: m_LocalPosition.x
