@@ -5790,6 +5790,9 @@ MonoBehaviour:
   _barRoot: {fileID: 8588520232633136530}
   _scaleRoot: {fileID: 2040565252678115263}
   _whiteFront: {fileID: 5486913650552340046}
+  _damageNumber: {fileID: 5803564005401141803, guid: 1a85f1ef84c3af749a6f615c86b68519,
+    type: 3}
+  _damageNumOffset: {x: 0, y: 1.5, z: 0}
   _timeAnim: 0.13
   _scaleValue: 1.2
   _isPlayer: 0

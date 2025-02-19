@@ -19,6 +19,7 @@ public class DamageNumber : MonoBehaviour
         transform.LookAt(Camera.main.transform);
 
         transform.localScale = new Vector3(0, 0, 0);
+        transform.position += _startOffset;
 
         var posX = Random.Range(_endMinOffset.x, _endMaxOffset.x);
         var posY = Random.Range(_endMinOffset.y, _endMaxOffset.y);
@@ -40,8 +41,5 @@ public class DamageNumber : MonoBehaviour
         });
     }
 
-    public void SetDamageText(int damage)
-    {
-        _text.text = damage + "";
-    }
+    public void SetDamageText(int damage) => _text.text = damage + "";
 }

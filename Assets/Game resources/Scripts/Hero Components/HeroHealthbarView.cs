@@ -12,6 +12,9 @@ public class HeroHealthbarView : MonoBehaviour
     [SerializeField] private Transform _barRoot;
     [SerializeField] private Transform _scaleRoot;
     [SerializeField] private CanvasGroup _whiteFront;
+    [Space]
+    [SerializeField] private DamageNumber _damageNumber;
+    [Space]
     [SerializeField] private float _timeAnim;
     [SerializeField] private float _scaleValue;
     [SerializeField] private bool _isPlayer;
@@ -21,10 +24,15 @@ public class HeroHealthbarView : MonoBehaviour
     private void OnEnable()
     {
         _componentsData.EntityHealthControl.OnHealthChanged += UpdateBar;
+        _componentsData.EntityHealthControl.OnEnemyAttackUs += TryDamageNum;
         SetHealthLineColor();
     }
 
-    private void OnDisable() => _componentsData.EntityHealthControl.OnHealthChanged -= UpdateBar;
+    private void OnDisable()
+    {
+        _componentsData.EntityHealthControl.OnHealthChanged -= UpdateBar;
+        _componentsData.EntityHealthControl.OnEnemyAttackUs -= TryDamageNum;
+    }
 
     private void Update() => _barRoot.transform.LookAt(Camera.main.transform);
 
@@ -58,5 +66,14 @@ public class HeroHealthbarView : MonoBehaviour
         var ourTeam = _componentsData.EntityTeam;
         
         _healthImage.sprite = playerTeam == ourTeam ? _lightSideHealthImage : _darkSideHealthImage;
+    }
+    
+    private void TryDamageNum(EntityComponentsData enemy, int damage)
+    {
+        if (enemy.transform.tag != "Player" || enemy.IsAi) return;
+		
+        var num = Instantiate(_damageNumber, 
+            _componentsData.EntityHealthControl.transform.position, Quaternion.identity);
+        num.SetDamageText(damage);
     }
 }
