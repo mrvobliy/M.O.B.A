@@ -29672,8 +29672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9752b542cc99bf34383fd7bdd2b7f1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityAttackControl: {fileID: 3700803018456754547}
-  _entityHealthControl: {fileID: 789435608378821403}
+  _componentsData: {fileID: 4532355190189914342}
   _radius: {fileID: 8125970492043233016}
   _timeAnim: 0.5
   _delayToHide: 2

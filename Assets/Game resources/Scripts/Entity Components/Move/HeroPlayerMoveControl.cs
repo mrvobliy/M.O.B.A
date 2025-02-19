@@ -19,9 +19,7 @@ public class HeroPlayerMoveControl : MonoBehaviour
 
     private void Update()
     {
-        if (!_componentsData.CanComponentsWork) return;
-        
-        if (_componentsData.IsDead) return;
+        if (!_componentsData.CanComponentsWork || _componentsData.IsDead) return;
         
         Move();
         Rotate();

@@ -14,7 +14,6 @@ public class HeroHealthControl : EntityHealthControl
     protected override void StartDeath()
     {
         base.StartDeath();
-        _componentsData.NavMeshAgent.enabled = false;
         _componentsData.Animator.SetLayerWeight(_deathAnimLayer, 1);
         _componentsData.Animator.SetBool(AnimatorHash.IsDeath, true);
     }

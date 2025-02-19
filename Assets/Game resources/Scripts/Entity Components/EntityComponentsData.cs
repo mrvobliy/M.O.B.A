@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
@@ -69,6 +70,10 @@ public class EntityComponentsData : MonoBehaviour
     public bool IsAi => _isAi;
     public bool IsDead => _entityHealthControl.IsDead;
 
+    public Action OnRespawn;
+    public Action OnDeathStart;
+    public Action OnDeathEnd;
+    
     public void SetComponentsWorkState(bool isCanWork) => CanComponentsWork = isCanWork;
 
     [Button]

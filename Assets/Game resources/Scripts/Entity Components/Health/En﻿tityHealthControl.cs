@@ -11,14 +11,11 @@ public class EntityHealthControl : MonoBehaviour
     [SerializeField] private bool _needDestroyAfterDeath;
     [SerializeField] protected float _currentHealth;
     
-    public Action OnDeathStart;
-    public Action OnDeathEnd;
     public Action OnHealthChanged;
-    
     public event Action<EntityComponentsData, int> OnEnemyAttackUs;
+    
     public bool IsDead => _isDead;
     public float HealthPercent => _currentHealth / _maxHealth.Value;
-    
     
     private const float DiveDuration = 1f;
     protected const float DiveDelay = 2.5f;
@@ -92,10 +89,10 @@ public class EntityHealthControl : MonoBehaviour
         
         sequence.AppendCallback(StartDeath);
         sequence.AppendInterval(DiveDelay);
-        sequence.Append(transform.parent.DOLocalMoveY(transform.parent.localPosition.y - DiveDepth, DiveDuration));
+        sequence.Append(_componentsData.RotationRoot.DOLocalMoveY(_componentsData.RotationRoot.localPosition.y - DiveDepth, DiveDuration));
         sequence.AppendCallback(() =>
         {
-            OnDeathEnd?.Invoke();
+            _componentsData.OnDeathEnd?.Invoke();
             
             if (_needDestroyAfterDeath) 
                 Destroy(transform.parent.gameObject);
@@ -104,7 +101,8 @@ public class EntityHealthControl : MonoBehaviour
 
     protected virtual void StartDeath()
     {
-        OnDeathStart?.Invoke();
+        _componentsData.OnDeathStart?.Invoke();
+        _componentsData.SetComponentsWorkState(false);
         
         if (_needDestroyAfterDeath) 
             _componentsData.Collider.enabled = false;

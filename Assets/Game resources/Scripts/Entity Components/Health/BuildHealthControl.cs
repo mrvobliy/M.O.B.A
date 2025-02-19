@@ -10,7 +10,7 @@ public class BuildHealthControl : EntityHealthControl
     {
         base.Start();
         var healthBar = Instantiate(_healthBarPrefab, UserInterface.Instance.transform);
-        healthBar.Init(this);
+        healthBar.Init(_componentsData);
     }
 
     protected override void StartDeath()

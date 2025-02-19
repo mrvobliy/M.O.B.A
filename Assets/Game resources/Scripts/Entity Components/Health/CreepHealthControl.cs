@@ -12,7 +12,7 @@ public class CreepHealthControl : EntityHealthControl
     {
         OnEnemyAttackUs += RootRebound;
         var healthBar = Instantiate(_healthBarPrefab, UserInterface.Instance.transform);
-        healthBar.Init(this);
+        healthBar.Init(_componentsData);
     }
 
     private void OnDisable() => OnEnemyAttackUs -= RootRebound;

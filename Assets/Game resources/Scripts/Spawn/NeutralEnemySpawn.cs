@@ -18,7 +18,7 @@ public class NeutralEnemySpawn :MonoBehaviour
     private void Spawn()
     {
         foreach (var entityComponent in _spawnedList) 
-            entityComponent.EntityHealthControl.OnDeathStart -= EnemyDeath;
+            entityComponent.OnDeathStart -= EnemyDeath;
         
         _spawnedList.Clear();
 
@@ -28,7 +28,7 @@ public class NeutralEnemySpawn :MonoBehaviour
             var newEnemy = Instantiate(spawnPrefab, _spawnPoints[i].position, _spawnPoints[i].rotation);
             var entityComponent = newEnemy.GetComponentInChildren<EntityComponentsData>();
             entityComponent.CreepMoveControl.SetSpawnPoint(_spawnPoints[i]);
-            entityComponent.EntityHealthControl.OnDeathStart += EnemyDeath;
+            entityComponent.OnDeathStart += EnemyDeath;
             _spawnedList.Add(entityComponent);
             _countActiveEnemy++; 
         }

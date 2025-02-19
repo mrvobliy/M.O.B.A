@@ -5938,6 +5938,50 @@ Transform:
   - {fileID: 9188643733274446216}
   m_Father: {fileID: 2872523694582086186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2449666361569356909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2539038996636986793}
+  - component: {fileID: 7364338129375098895}
+  m_Layer: 0
+  m_Name: HeroStatsControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2539038996636986793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449666361569356909}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.2622185, y: 5.9211345, z: 0.25435257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1285207959303078298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7364338129375098895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449666361569356909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c26601987242448b74085385840571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2502932518634781613
 GameObject:
   m_ObjectHideFlags: 0
@@ -7612,6 +7656,7 @@ Transform:
   - {fileID: 4734602642215553288}
   - {fileID: 3019203401435451471}
   - {fileID: 4043159347763245228}
+  - {fileID: 2539038996636986793}
   - {fileID: 3001108561495799146}
   - {fileID: 7347210118379498547}
   - {fileID: 3497762071192568861}
@@ -14550,7 +14595,7 @@ GameObject:
   - component: {fileID: 3001108561495799146}
   - component: {fileID: 6740449863625432476}
   m_Layer: 0
-  m_Name: RespawnControl
+  m_Name: HeroRespawnControl
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

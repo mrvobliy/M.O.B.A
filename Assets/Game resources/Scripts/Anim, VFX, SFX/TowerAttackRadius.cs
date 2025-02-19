@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class TowerAttackRadius : MonoBehaviour
 {
-    [SerializeField] private EntityAttackControl _entityAttackControl;
-    [SerializeField] private EntityHealthControl _entityHealthControl;
+    [SerializeField] private EntityComponentsData _componentsData;
     [SerializeField] private ParticleSystem _radius;
     [SerializeField] private float _timeAnim;
     [SerializeField] private float _delayToHide;
@@ -13,15 +12,15 @@ public class TowerAttackRadius : MonoBehaviour
 
     private void OnEnable()
     {
-        _entityAttackControl.OnPlayerFound += Show;
-        _entityHealthControl.OnDeathStart += Hide;
+        _componentsData.EntityAttackControl.OnPlayerFound += Show;
+        _componentsData.OnDeathStart += Hide;
         _renderer = _radius.GetComponent<Renderer>();
     }
 
     private void OnDisable()
     {
-        _entityAttackControl.OnPlayerFound -= Show;
-        _entityHealthControl.OnDeathStart -= Hide;
+        _componentsData.EntityAttackControl.OnPlayerFound -= Show;
+        _componentsData.OnDeathStart -= Hide;
     }
 
     private void Show()
