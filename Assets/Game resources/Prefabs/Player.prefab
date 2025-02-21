@@ -5792,7 +5792,6 @@ MonoBehaviour:
   _whiteFront: {fileID: 5486913650552340046}
   _damageNumber: {fileID: 5803564005401141803, guid: 1a85f1ef84c3af749a6f615c86b68519,
     type: 3}
-  _damageNumOffset: {x: 0, y: 1.5, z: 0}
   _timeAnim: 0.13
   _scaleValue: 1.2
   _isPlayer: 0
@@ -8627,6 +8626,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2188956932678874545}
   - component: {fileID: 3040112323060804191}
+  - component: {fileID: 717678494722731851}
+  - component: {fileID: 3266207418912863307}
   m_Layer: 0
   m_Name: JumpAttack_SkillControl
   m_TagString: Player
@@ -8662,6 +8663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
+  _collider: {fileID: 717678494722731851}
+  _excludeCollider: {fileID: 7784587827108942741}
   _skillButton: {fileID: 0}
   _skillButtonEvents: {fileID: 0}
   _indicator: {fileID: 229954739746489668}
@@ -8673,6 +8676,54 @@ MonoBehaviour:
   _skillSpawnPoint: {fileID: 6486290276455329823}
   _speedMove: 3
   _timeMove: 0.8
+--- !u!135 &717678494722731851
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160326823014151584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!54 &3266207418912863307
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160326823014151584}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6170576126639115483
 GameObject:
   m_ObjectHideFlags: 0

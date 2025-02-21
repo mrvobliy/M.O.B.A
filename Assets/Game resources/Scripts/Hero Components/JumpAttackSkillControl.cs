@@ -8,9 +8,12 @@ public class JumpAttackSkillControl : MonoBehaviour
     private const float BlendAttackLayerDuration = 0.3f;
     
     [SerializeField] private EntityComponentsData _componentsData;
+    [SerializeField] private Collider _collider;
+    [SerializeField] private Collider _excludeCollider;
     [SerializeField] private RectTransform _skillButton;
     [SerializeField] private ButtonEvents _skillButtonEvents;
     [SerializeField] private DecalProjector _indicator;
+    [Space]
     [SerializeField] private float _sensitivity = 0.1f;
     [SerializeField] private float _fadeSpeed = 2.0f;
     [Space]
@@ -24,6 +27,7 @@ public class JumpAttackSkillControl : MonoBehaviour
     private Vector3 _previousToMouseDir;
     private Coroutine _fadeCoroutine;
     private float _startSpeed;
+    private bool _canMove;
 
     private void OnEnable()
     {
@@ -71,15 +75,21 @@ public class JumpAttackSkillControl : MonoBehaviour
             var currentTime = 0.0f;
             var wait = new WaitForEndOfFrame();
             var targetDirection = _destinationPoint.position - transform.parent.position;
+            _canMove = true;
+            _collider.enabled = true;
 
             while (currentTime < _timeMove)
             {
-                _componentsData.CharacterController.Move(targetDirection.normalized * _speedMove * Time.deltaTime);
+                if (_canMove)
+                    _componentsData.CharacterController.Move(targetDirection.normalized * _speedMove * Time.deltaTime);
+                
                 currentTime += Time.deltaTime;
                 
                 yield return wait;
             }
 
+            _collider.enabled = false;
+            
             var skillDamage = Instantiate(_damagePrefab, _skillSpawnPoint);
             skillDamage.Init(_componentsData);
             skillDamage.gameObject.SetActive(true);
@@ -90,6 +100,15 @@ public class JumpAttackSkillControl : MonoBehaviour
             _componentsData.Animator.DOLayerWeight(4, 0f, BlendAttackLayerDuration);
             _componentsData.SetComponentsWorkState(true);
         }
+    }
+    
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.layer == 3 
+            || collider == _excludeCollider 
+            || collider.gameObject.layer == 13) return;
+        
+        _canMove = false;
     }
 
     private void RotateIndicator()
