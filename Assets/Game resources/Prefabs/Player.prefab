@@ -8663,6 +8663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentsData: {fileID: 1130375526236363497}
+  _heroSkillView: {fileID: 0}
   _collider: {fileID: 717678494722731851}
   _excludeCollider: {fileID: 7784587827108942741}
   _skillButton: {fileID: 0}
@@ -8676,6 +8677,7 @@ MonoBehaviour:
   _skillSpawnPoint: {fileID: 6486290276455329823}
   _speedMove: 3
   _timeMove: 0.8
+  _cooldown: 10
 --- !u!135 &717678494722731851
 SphereCollider:
   m_ObjectHideFlags: 0

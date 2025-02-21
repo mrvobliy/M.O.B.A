@@ -6,11 +6,15 @@ public class FuryAttackSkillControl : MonoBehaviour
     private const float BlendAttackLayerDuration = 0.3f;
     
     [SerializeField] private EntityComponentsData _entityData;
+    [SerializeField] private HeroSkillView _heroSkillView;
     [SerializeField] private DoubleClickButton _doubleClickButton;
+    [SerializeField] private ButtonEvents _buttonEvents;
     [SerializeField] private HeroSkillDamage _damagePrefab;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private int _cooldown;
 
     private bool _isSkillWork;
+    private bool _isCooldown;
 
     private void OnEnable()
     {
@@ -21,12 +25,19 @@ public class FuryAttackSkillControl : MonoBehaviour
         }
         
         _doubleClickButton.OnDoubleClick += ReleaseSkill;
+        _buttonEvents.OnButtonUp += ReleaseSkill;
     }
 
-    private void OnDisable() => _doubleClickButton.OnDoubleClick -= ReleaseSkill;
+    private void OnDisable()
+    {
+        _doubleClickButton.OnDoubleClick -= ReleaseSkill;
+        _buttonEvents.OnButtonUp -= ReleaseSkill;
+    }
 
     private void ReleaseSkill()
     {
+        if (_isCooldown) return;
+        
         if (!_entityData.CanComponentsWork || _entityData.IsDead) return;
         
         StartCoroutine(OnActivate());
@@ -34,6 +45,10 @@ public class FuryAttackSkillControl : MonoBehaviour
 
         IEnumerator OnActivate()
         {
+            _isCooldown = true;
+            _heroSkillView.PlayCooldownAnim(_cooldown);
+            Invoke(nameof(ResetCooldown), _cooldown);
+            
             _entityData.Animator.SetTrigger(AnimatorHash.IsSecondSkill);
             _entityData.Animator.DOLayerWeight(4, 1f, BlendAttackLayerDuration);
             _entityData.SetComponentsWorkState(false);
@@ -51,4 +66,6 @@ public class FuryAttackSkillControl : MonoBehaviour
             _entityData.SetComponentsWorkState(true);
         }
     }
+    
+    private void ResetCooldown() => _isCooldown = false;
 }

@@ -8,6 +8,7 @@ public class JumpAttackSkillControl : MonoBehaviour
     private const float BlendAttackLayerDuration = 0.3f;
     
     [SerializeField] private EntityComponentsData _componentsData;
+    [SerializeField] private HeroSkillView _heroSkillView;
     [SerializeField] private Collider _collider;
     [SerializeField] private Collider _excludeCollider;
     [SerializeField] private RectTransform _skillButton;
@@ -23,11 +24,13 @@ public class JumpAttackSkillControl : MonoBehaviour
     [Space] 
     [SerializeField] private float _speedMove;
     [SerializeField] private float _timeMove;
+    [SerializeField] private int _cooldown;
     
     private Vector3 _previousToMouseDir;
     private Coroutine _fadeCoroutine;
     private float _startSpeed;
     private bool _canMove;
+    private bool _isCooldown;
 
     private void OnEnable()
     {
@@ -51,12 +54,16 @@ public class JumpAttackSkillControl : MonoBehaviour
 
     private void StartSkill()
     {
+        if (_isCooldown) return;
+        
         StartFade(0.3f);
         RotateIndicator();
     }
     
     private void ReleaseSkill()
     {
+        if (_isCooldown) return;
+        
         StartFade(0.0f);
         
         if (!_componentsData.CanComponentsWork || _componentsData.IsDead) return;
@@ -72,6 +79,10 @@ public class JumpAttackSkillControl : MonoBehaviour
 		
         IEnumerator OnActivate()
         {
+            _isCooldown = true;
+            _heroSkillView.PlayCooldownAnim(_cooldown);
+            Invoke(nameof(ResetCooldown), _cooldown);
+            
             var currentTime = 0.0f;
             var wait = new WaitForEndOfFrame();
             var targetDirection = _destinationPoint.position - transform.parent.position;
@@ -101,6 +112,8 @@ public class JumpAttackSkillControl : MonoBehaviour
             _componentsData.SetComponentsWorkState(true);
         }
     }
+
+    private void ResetCooldown() => _isCooldown = false;
     
     private void OnTriggerEnter(Collider collider)
     {

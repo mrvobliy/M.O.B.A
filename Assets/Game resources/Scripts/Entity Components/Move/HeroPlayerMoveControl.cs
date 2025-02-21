@@ -19,11 +19,12 @@ public class HeroPlayerMoveControl : MonoBehaviour
 
     private void Update()
     {
+        ApplyGravity();
+        
         if (!_componentsData.CanComponentsWork || _componentsData.IsDead) return;
         
         Move();
         Rotate();
-        ApplyGravity();
         SetAnimatorLayers();
     }
 

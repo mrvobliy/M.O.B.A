@@ -5,6 +5,7 @@ public enum Team
 	Neutral,
 	Light,
 	Dark,
+	Map
 }
 
 public enum EntityType
@@ -16,7 +17,8 @@ public enum EntityType
 	NeutralRange,
 	Tower,
 	Throne,
-	Boss
+	Boss,
+	Fountain
 }
 
 public enum TowerTier
