@@ -7,43 +7,32 @@ public class ProjectileVFXControl : MonoBehaviour
 {
 	public GameObject muzzlePrefab;
 	public GameObject hitPrefab;
-	public AudioClip shotSFX;
-	public AudioClip hitSFX;
 	public List<GameObject> trails;
 
 	private float speedRandomness;
 	private Vector3 offset;
 
-	private void Start () 
-	{ 
-		if (muzzlePrefab != null) 
-		{
-			var muzzleVFX = Instantiate (muzzlePrefab, transform.position, Quaternion.identity);
-			muzzleVFX.transform.forward = gameObject.transform.forward ;
-			var ps = muzzleVFX.GetComponent<ParticleSystem>();
+	private void Start ()
+	{
+		if (muzzlePrefab == null) return;
+		
+		var muzzleVFX = Instantiate (muzzlePrefab, transform.position, Quaternion.identity);
+		muzzleVFX.transform.forward = gameObject.transform.forward ;
+		var ps = muzzleVFX.GetComponent<ParticleSystem>();
 
-			if (ps != null)
-			{
-				Destroy (muzzleVFX, ps.main.duration);
-			}
-			else 
-			{
-				var psChild = muzzleVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
-				Destroy (muzzleVFX, psChild.main.duration);
-			}
+		if (ps != null)
+		{
+			Destroy(muzzleVFX, ps.main.duration);
 		}
-
-		if (shotSFX != null && GetComponent<AudioSource>()) 
+		else 
 		{
-			GetComponent<AudioSource>().PlayOneShot (shotSFX);
+			var psChild = muzzleVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
+			Destroy(muzzleVFX, psChild.main.duration);
 		}
 	}
 
 	public void SpawnHitEffect (Transform contactPoint)
 	{
-		if (shotSFX != null && GetComponent<AudioSource>()) 
-			GetComponent<AudioSource> ().PlayOneShot (hitSFX);
-
 		if (trails.Count > 0)
 		{
 			foreach (var trail in trails)
@@ -74,7 +63,7 @@ public class ProjectileVFXControl : MonoBehaviour
 			}
 		}
 
-		StartCoroutine (DestroyParticle(0f));
+		StartCoroutine(DestroyParticle(0f));
 	}
 
 	private IEnumerator DestroyParticle (float waitTime) 
@@ -96,6 +85,6 @@ public class ProjectileVFXControl : MonoBehaviour
 		}
 		
 		yield return new WaitForSeconds (waitTime);
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 }
