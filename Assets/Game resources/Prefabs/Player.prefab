@@ -7659,6 +7659,7 @@ Transform:
   - {fileID: 3019203401435451471}
   - {fileID: 4043159347763245228}
   - {fileID: 2539038996636986793}
+  - {fileID: 6075685258094765367}
   - {fileID: 3001108561495799146}
   - {fileID: 7347210118379498547}
   - {fileID: 3497762071192568861}
@@ -15037,6 +15038,7 @@ MonoBehaviour:
   _heroInfo:
     _avatar: {fileID: 21300000, guid: 7dc6e29bef0319a46a74f93625d350ae, type: 3}
     _nickname: Pip
+  _heroSeriesKillsInfo: {fileID: 7669640816526891560}
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
   _entityAttackControl: {fileID: 5518784913208063594}
@@ -15980,6 +15982,50 @@ Transform:
   - {fileID: 1429785106185899902}
   m_Father: {fileID: 3582527945369452924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8956449893393031317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6075685258094765367}
+  - component: {fileID: 7669640816526891560}
+  m_Layer: 0
+  m_Name: HeroSeriesKillsInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6075685258094765367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8956449893393031317}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4987221, y: 21.018599, z: -3.5703506}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1285207959303078298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7669640816526891560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8956449893393031317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951b52c90d7df964b9b14e0af5bdb8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8985755361653392896
 GameObject:
   m_ObjectHideFlags: 0

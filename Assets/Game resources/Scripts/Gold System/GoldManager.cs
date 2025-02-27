@@ -6,8 +6,6 @@ public class GoldManager : MonoBehaviour
 {
     [SerializeField] private EntityesStatsData _entitiesStatsData;
 
-    private bool _isFirstBlood = true;
-
     private void OnEnable() => EventsBase.EntityDeath += TrySetHeroGold;
     private void OnDisable() => EventsBase.EntityDeath -= TrySetHeroGold;
 
@@ -26,11 +24,10 @@ public class GoldManager : MonoBehaviour
             costForFinisher += deadHeroData.HeroExperienceControl.Level * 10;
             costForHelper += deadHeroData.HeroExperienceControl.Level * 10;
 
-            if (_isFirstBlood)
+            if (attackersSortByDamage[0].ComponentsData.HeroSeriesKillsInfo.IsFirstBlood)
             {
                 costForFinisher += 10;
                 costForHelper += 10;
-                _isFirstBlood = false;
             }
         }
 
