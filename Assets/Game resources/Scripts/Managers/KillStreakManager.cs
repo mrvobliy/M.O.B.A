@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class KillStreakManager : MonoBehaviour
         var finisher = attackers[0].ComponentsData;
         UpdateKillStreakFinisher(finisher, deadHeroData);
         ProcessKillStreakBreak(deadHeroData, finisher, attackers);
+        EventsBase.OnHeroKillHero(finisher, deadHeroData);
     }
 
     private void UpdateKillStreakFinisher(EntityComponentsData finisher, EntityComponentsData deadHeroData)
@@ -90,6 +92,7 @@ public class KillStreakManager : MonoBehaviour
     }
 }
 
+[Serializable]
 public class SeriesKillsInfo
 {
     public int CoutKills;

@@ -6,6 +6,7 @@ public class EventsBase : MonoBehaviour
 {
     public static event Action<EntityComponentsData, List<Attackers>> EntityDeath;
     public static event Action<int, Team> GetGoldForTeam;
+    public static event Action<EntityComponentsData, EntityComponentsData> HeroKillHero; 
 
     public static void OnEntityDeath(EntityComponentsData componentsData, List<Attackers> attackers)
     {
@@ -25,6 +26,19 @@ public class EventsBase : MonoBehaviour
         try
         {
             GetGoldForTeam?.Invoke(cost, team);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public static void OnHeroKillHero(EntityComponentsData killer, EntityComponentsData dead)
+    {
+        try
+        {
+            HeroKillHero?.Invoke(killer, dead);
         }
         catch (Exception e)
         {

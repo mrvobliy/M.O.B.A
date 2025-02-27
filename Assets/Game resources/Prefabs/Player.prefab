@@ -15034,6 +15034,9 @@ MonoBehaviour:
   _entityType: 0
   _isAi: 0
   _towerTier: 0
+  _heroInfo:
+    _avatar: {fileID: 21300000, guid: 7dc6e29bef0319a46a74f93625d350ae, type: 3}
+    _nickname: Pip
   _entityHealthControl: {fileID: 5664460024920780669}
   _entityMoveControl: {fileID: 2321433180622057975}
   _entityAttackControl: {fileID: 5518784913208063594}
@@ -15379,10 +15382,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityData: {fileID: 1130375526236363497}
+  _heroSkillView: {fileID: 0}
   _doubleClickButton: {fileID: 0}
+  _buttonEvents: {fileID: 0}
   _damagePrefab: {fileID: 8232501653393569014, guid: f5a35c70c02c58b42a74bc96c7589a0b,
     type: 3}
   _spawnPoint: {fileID: 3793571533149870070}
+  _cooldown: 0
 --- !u!1 &8007334246039635639
 GameObject:
   m_ObjectHideFlags: 0
