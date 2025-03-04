@@ -19,10 +19,10 @@ public class KillStreakManager : MonoBehaviour
 
     private void AssignBonuses_KillStreak_ForFinisher(EntityComponentsData finisher, EntityComponentsData deadHeroData)
     {
-        finisher.HeroSeriesKillsInfo.AddKills();
+        finisher.HeroStatsControl.AddKills();
         
-        var killStreakCost = finisher.HeroSeriesKillsInfo.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
-        var killStreakExperience = FormulasBase.CalculateExperience(finisher.HeroSeriesKillsInfo.CoutKills);
+        var killStreakCost = finisher.HeroStatsControl.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
+        var killStreakExperience = FormulasBase.CalculateExperience(finisher.HeroStatsControl.CoutKills);
         
         finisher.HeroGoldControl.SetGold(killStreakCost);
         finisher.HeroExperienceControl.SetExperience((int)killStreakExperience);
@@ -54,11 +54,11 @@ public class KillStreakManager : MonoBehaviour
         var breakKillStreakCost = 0;
         double breakKillStreakExperience = 0;
 
-        if (deadHeroData.HeroSeriesKillsInfo.CoutKills >= 0)
+        if (deadHeroData.HeroStatsControl.CoutKills >= 0)
         {
-            breakKillStreakCost = deadHeroData.HeroSeriesKillsInfo.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
-            breakKillStreakExperience = FormulasBase.CalculateExperience(deadHeroData.HeroSeriesKillsInfo.CoutKills);
-            deadHeroData.HeroSeriesKillsInfo.ResetSeries();
+            breakKillStreakCost = deadHeroData.HeroStatsControl.CoutKills * 15 * deadHeroData.HeroExperienceControl.Level;
+            breakKillStreakExperience = FormulasBase.CalculateExperience(deadHeroData.HeroStatsControl.CoutKills);
+            deadHeroData.HeroStatsControl.ResetSeries();
         }
 
         AssignBonuses_BreakKillStreak_ForFinisher(finisher, breakKillStreakCost, breakKillStreakExperience);

@@ -31,13 +31,13 @@ public class NotifyKillView : MonoBehaviour
         _killerImage.sprite = dead.HeroInfo.Avatar;
         _enemyBg.SetActive(killer.EntityTeam != VariableBase.PlayerTeam);
 
-        if (killer.HeroSeriesKillsInfo.IsFirstBlood)
+        if (killer.HeroStatsControl.IsFirstBlood)
         {
             _killIcons[0].SetActive(true);
             return;
         }
         
-        switch (killer.HeroSeriesKillsInfo.CoutKills)
+        switch (killer.HeroStatsControl.CoutKills)
         {
             case >= 2 and < 5:
                 _killIcons[1].SetActive(true);

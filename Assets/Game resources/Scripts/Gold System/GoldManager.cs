@@ -24,7 +24,7 @@ public class GoldManager : MonoBehaviour
             costForFinisher += deadHeroData.HeroExperienceControl.Level * 10;
             costForHelper += deadHeroData.HeroExperienceControl.Level * 10;
 
-            if (attackersSortByDamage[0].ComponentsData.HeroSeriesKillsInfo.IsFirstBlood)
+            if (attackersSortByDamage[0].ComponentsData.HeroStatsControl.IsFirstBlood)
             {
                 costForFinisher += 10;
                 costForHelper += 10;
