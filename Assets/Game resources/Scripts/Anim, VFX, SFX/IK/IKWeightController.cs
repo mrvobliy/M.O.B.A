@@ -12,7 +12,6 @@ public class IKWeightController : MonoBehaviour
     [Button]
     public void StartIK(float duration)
     {
-        Debug.Log("StartIK");
         if (weightCoroutine != null)
             StopCoroutine(weightCoroutine);
         
@@ -22,7 +21,6 @@ public class IKWeightController : MonoBehaviour
     [Button]
     public void StopIK(float duration)
     {
-        Debug.Log("StopIK");
         if (weightCoroutine != null)
             StopCoroutine(weightCoroutine);
         
