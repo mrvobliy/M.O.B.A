@@ -5,9 +5,9 @@ public class BuildHealthControl : EntityHealthControl
     [SerializeField] protected Healthbar _healthBarPrefab;
     [SerializeField] protected Rigidbody[] _rigidBodies;
     [SerializeField] protected ParticleSystem _explosionEffect;
-    [SerializeField] private int _healthValue;
     
-    protected override int _healthBase => _healthValue;
+    protected override int _healthBase => _componentsData.EntityStatsControl.Health;
+    protected override int _armorBase => _componentsData.HeroStatsControl.Armor;
     
     protected override void Start()
     {

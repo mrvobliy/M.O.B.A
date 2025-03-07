@@ -19,6 +19,9 @@ public class EntityComponentsData : MonoBehaviour
     private bool IsNeedShowStatsControl => _entityType is EntityType.Hero;
     [SerializeField, ShowIf(nameof(IsNeedShowStatsControl))] private HeroStatsControl _heroStatsControl;
     
+    private bool IsNeedShowEntityStatsControl => _entityType != EntityType.Hero;
+    [SerializeField, ShowIf(nameof(IsNeedShowEntityStatsControl))] private EntityStatsControl _entityStatsControl;
+    
     [Title("Controls")]
     [SerializeField] private EntityHealthControl _entityHealthControl;
     
@@ -66,6 +69,7 @@ public class EntityComponentsData : MonoBehaviour
     public EntityType EntityType => _entityType;
     public HeroInfo HeroInfo => _heroInfo;
     public HeroStatsControl HeroStatsControl => _heroStatsControl;
+    public EntityStatsControl EntityStatsControl => _entityStatsControl;
     
     public CreepMoveControl CreepMoveControl => _creepMoveControl;
     public HeroGoldControl HeroGoldControl => _heroGoldControl;

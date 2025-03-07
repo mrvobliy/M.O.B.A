@@ -10,7 +10,7 @@ public abstract class EntityHealthControl : MonoBehaviour
     [SerializeField] private bool _needDestroyAfterDeath;
     
     protected int _currentHealth;
-    protected virtual int _healthBase { get; private set; }
+    protected virtual int _healthBase { get; private set; } 
     protected virtual int _armorBase { get; private set; }
     
     public Action OnHealthChanged;

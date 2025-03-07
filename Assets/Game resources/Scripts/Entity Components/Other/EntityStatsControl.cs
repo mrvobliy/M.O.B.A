@@ -1,15 +1,22 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EntityStatsControl : MonoBehaviour
 {
     [SerializeField] private string _name;
     
+    [ReadOnly]
     public int Health;
+    [ReadOnly]
     public int Armor;
-    public int AttackSpeed;
-    public int MoveSpeed;
+    [ReadOnly]
+    public float AttackSpeed;
+    [ReadOnly]
+    public float MoveSpeed;
+    [ReadOnly]
     public int Damage;
-    public int AttackDistance;
+    [ReadOnly]
+    public float AttackDistance;
 
     private EntityStatsData _statsData;
 

@@ -412,12 +412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb8ec3cd97e6d2449ed77c7269eeb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 800
-  _armor: 3
-  _damage: 20
-  _attackSpeed: 20
-  _attackDistance: 1
-  _moveSpeed: 0
+  _name: LaneMeeleDark
+  Health: 0
+  Armor: 0
+  AttackSpeed: 0
+  MoveSpeed: 0
+  Damage: 0
+  AttackDistance: 0
 --- !u!1 &2551492932497645898
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +797,7 @@ MonoBehaviour:
     _avatar: {fileID: 0}
     _nickname: 
   _heroStatsControl: {fileID: 0}
+  _entityStatsControl: {fileID: 6517486727924804545}
   _entityHealthControl: {fileID: 5982540803753700759}
   _entityMoveControl: {fileID: 6927132251030316316}
   _entityAttackControl: {fileID: 7402074766430914917}

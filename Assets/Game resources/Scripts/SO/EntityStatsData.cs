@@ -14,10 +14,7 @@ public class EntityStatsData
     [BoxGroup("Preview", ShowLabel = false)]
     [SerializeField] protected string _name;
     
-    [BoxGroup("Preview", ShowLabel = false)]
-    [SerializeField] protected EntityType _type;
-    
-    [Space]
+    [Title("Core stats", horizontalLine: true, bold: true)]
     [BoxGroup("Base stats", ShowLabel = false)]
     [SerializeField] protected int _health;
     
@@ -28,33 +25,41 @@ public class EntityStatsData
     [SerializeField] protected int _damage;
     
     [BoxGroup("Base stats", ShowLabel = false)]
-    [SerializeField] protected int _attackDistance;
+    [SerializeField] protected float _moveSpeed;
+    
+    [Title("Attack stats", horizontalLine: true, bold: true)]
+    [BoxGroup("Base stats", ShowLabel = false)]
+    [SerializeField] protected float _attackSpeed;
     
     [BoxGroup("Base stats", ShowLabel = false)]
-    [SerializeField] protected int _attackSpeed;
+    [SerializeField] protected float _attackDistance;
     
     [BoxGroup("Base stats", ShowLabel = false)]
-    [SerializeField] protected int _moveSpeed;
+    [SerializeField] protected float _attackAngle;
     
+    [BoxGroup("Base stats", ShowLabel = false)]
+    [SerializeField] protected float _detectionRadius;
     
-    [Space]
+    [Title("Gold", horizontalLine: true, bold: true)]
     [BoxGroup("Costs, Experience", ShowLabel = false)]
     [SerializeField] protected int _finisherCost;
     
     [BoxGroup("Costs, Experience", ShowLabel = false)]
     [SerializeField] protected int _helpCost;
     
+    [Title("Experience", horizontalLine: true, bold: true)]
     [BoxGroup("Costs, Experience", ShowLabel = false)]
     [SerializeField] protected int _experience;
 
     public string Name => _name;
-    public EntityType Type => _type;
     public int Health => _health;
     public int Armor => _armor;
-    public int AttackSpeed => _attackSpeed;
-    public int MoveSpeed => _moveSpeed;
+    public float AttackSpeed => _attackSpeed;
+    public float MoveSpeed => _moveSpeed;
+    public float AttackAngle => _attackAngle;
+    public float DetectionRadius => _detectionRadius;
     public int Damage => _damage;
-    public int AttackDistance => _attackDistance;
+    public float AttackDistance => _attackDistance;
     public int HelpCost => _helpCost;
     public int FinisherCost => _finisherCost;
     public int Experience => _experience;

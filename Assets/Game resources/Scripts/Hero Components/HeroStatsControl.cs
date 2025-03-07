@@ -1,9 +1,14 @@
+using Sirenix.OdinInspector;
 
 public class HeroStatsControl : EntityStatsControl
 {
+    [ReadOnly]
     public int Mana;
+    [ReadOnly]
     public int HealthRegeneration;
+    [ReadOnly]
     public int ManaRegeneration;
+    [ReadOnly]
     public float SkillsCdPercent;
     
     public int CoutKills { get; private set; }
