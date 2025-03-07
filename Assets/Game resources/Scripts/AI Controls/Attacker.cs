@@ -152,7 +152,7 @@ public abstract class Attacker : Target
 		_animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
 		_animator.SetBool(AnimatorHash.IsStun, _dontCanWork);
 
-		var effectPrefab = GameResourcesBase.Instance.StunEffect;
+		var effectPrefab = GameDataManager.Instance.GameResourcesData.StunEffect; 
 		GameObject stunEffect = null;
 		
 		if (effectPrefab != null)

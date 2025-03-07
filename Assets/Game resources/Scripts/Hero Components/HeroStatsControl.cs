@@ -1,21 +1,15 @@
-using UnityEngine;
 
-public class HeroStatsControl : MonoBehaviour
+public class HeroStatsControl : EntityStatsControl
 {
-    [SerializeField] private int _armor;
-    [SerializeField] private int _health;
-    [SerializeField] private int _mana;
-    [SerializeField] private int _healthRegeneration;
-    [SerializeField] private int _manaRegeneration;
-    [SerializeField] private int _attackSpeed;
-    [SerializeField] private int _moveSpeed;
-    [SerializeField] private int _damage;
-    [SerializeField] private float _skillsCdPercent;
-
-    public int Health => _health;
+    public int Mana;
+    public int HealthRegeneration;
+    public int ManaRegeneration;
+    public float SkillsCdPercent;
     
     public int CoutKills { get; private set; }
     public bool IsFirstBlood { get; private set; } = true;
+    
+    private HeroStatsData _heroData;
     
     public void AddKills()
     {
@@ -29,4 +23,18 @@ public class HeroStatsControl : MonoBehaviour
     }
 
     public void ResetSeries() => CoutKills = 0;
+
+    protected override void SetStats()
+    {
+        Health = _heroData.Health;
+        Armor = _heroData.Armor;
+        AttackSpeed = _heroData.AttackSpeed;
+        MoveSpeed = _heroData.MoveSpeed;
+        Damage = _heroData.Damage;
+        AttackDistance = _heroData.AttackDistance;
+        Mana = _heroData.Mana;
+        HealthRegeneration = _heroData.HealthRegeneration;
+        ManaRegeneration = _heroData.ManaRegeneration;
+        SkillsCdPercent = _heroData.SkillsCdPercent;
+    }
 }

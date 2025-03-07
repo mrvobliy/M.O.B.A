@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class CreepHealthControl : EntityHealthControl
 {
+    [SerializeField] private int _healthValue;
     [SerializeField] protected Healthbar _healthBarPrefab;
+    
+    protected override int _healthBase => _healthValue;
     
     private const float ReboundTime = 0.12f;
     private const float ReboundForce = 0.4f;

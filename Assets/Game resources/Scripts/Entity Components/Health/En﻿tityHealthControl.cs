@@ -4,18 +4,20 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
-public class EntityHealthControl : MonoBehaviour
+public abstract class EntityHealthControl : MonoBehaviour
 {
     [SerializeField] protected EntityComponentsData _componentsData;
-    [SerializeField] protected IntVariable _maxHealth;
     [SerializeField] private bool _needDestroyAfterDeath;
-    [SerializeField] protected float _currentHealth;
+    
+    protected int _currentHealth;
+    protected virtual int _healthBase { get; private set; }
+    protected virtual int _armorBase { get; private set; }
     
     public Action OnHealthChanged;
     public event Action<EntityComponentsData, int> OnEnemyAttackUs;
     
     public bool IsDead => _isDead;
-    public float HealthPercent => _currentHealth / _maxHealth.Value;
+    public float HealthPercent => _currentHealth / _healthBase;
     
     private const float DiveDuration = 1f;
     protected const float DiveDelay = 2.5f;
@@ -27,7 +29,7 @@ public class EntityHealthControl : MonoBehaviour
 
     protected virtual void Start()
     {
-        _currentHealth = _maxHealth.Value;
+        _currentHealth = _healthBase;
         _attackers = new List<Attackers>();
     }
 
@@ -41,8 +43,8 @@ public class EntityHealthControl : MonoBehaviour
     
     public void SetHealth(IntVariable health)
     {
-        _maxHealth = health;
-        _currentHealth = _maxHealth.Value;
+        _healthBase = health.Value;
+        _currentHealth = _healthBase;
         OnHealthChanged?.Invoke();
     }
 
@@ -50,7 +52,7 @@ public class EntityHealthControl : MonoBehaviour
     {
         if (_isDead) return;
         
-        _currentHealth -= damage;
+        _currentHealth -= 100 / (100 + _armorBase) * damage;
         OnHealthChanged?.Invoke();
         OnEnemyAttackUs?.Invoke(attacker, damage);
         UpdateAttackersData(attacker, damage);

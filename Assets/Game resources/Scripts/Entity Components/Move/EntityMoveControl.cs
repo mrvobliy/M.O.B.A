@@ -55,7 +55,7 @@ public abstract class EntityMoveControl : MonoBehaviour
         _componentsData.Animator.DOLayerWeight(_stunLayerIndex, 1f, 0.3f);
         _componentsData.Animator.SetBool(AnimatorHash.IsStun, true);
 
-        var effectPrefab = GameResourcesBase.Instance.StunEffect;
+        var effectPrefab = GameDataManager.Instance.GameResourcesData.StunEffect; 
         GameObject stunEffect = null;
 		
         if (effectPrefab != null)
